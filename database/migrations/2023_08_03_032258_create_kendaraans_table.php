@@ -12,13 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kendaraans', function (Blueprint $table) {
-            $table->id()->primary();
+            $table->id();
             $table->string('jenis_kendaraan');
             $table->string('nomor_lambung')->unique();
             $table->string('nomor_polisi')->unique();
             $table->string('keterangan');
-            $table->enum('status', ['belum mengisi', 'menunggu verfikasi', 'terverifikasi'])->default('belum mengisi');
-            $table->string('nama_pemeriksa')->nullable();
+            // $table->enum('status', ['belum mengisi', 'menunggu verfikasi', 'terverifikasi'])->default('belum mengisi');
+            // $table->string('nama_pemeriksa')->nullable();
+            $table->timestamps();
         });
     }
 
