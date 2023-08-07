@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Kendaraan;
 use App\Models\P2h;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use TelegramBot\Api\BotApi;
 
 
 class P2hController extends Controller
@@ -229,6 +230,16 @@ class P2hController extends Controller
         $p2h['jam'] = date('H:i:s');
 
         $p2h->save();
+
+        // bot Tele Push Notif
+        $botToken = env('TELEGRAM_BOT_TOKENs');
+        $chatId = env('TELEGRAM_CHAT_ID');
+        $User = $request->nama_pemeriksa;
+        $message = "$User telah melakukan fungsi save baru!";
+
+        $telegram = new BotApi($botToken);
+        $telegram->sendMessage($chatId, $message);
+
         return redirect()->route('p2h-cek.list')->with('success', 'Pengecekan Harian Unit Berhasil');
     }
 
