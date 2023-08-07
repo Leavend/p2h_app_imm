@@ -54,4 +54,79 @@ class AuthController extends Controller
 
         return redirect()->route('login')->with('success', 'Berhasil membuat akun');
     }
+
+    public function listAdmin()
+    {
+        $data = User::getAdmin();
+        return view('admin.list', compact('data'));
+    }
+
+    public function listUser()
+    {
+        $data = User::getUser();
+        return view('user.list', compact('data'));
+    }
+
+    public function addUser()
+    {
+        return view('user.add');
+    }
+
+    public function storeUser(Request $request)
+    {
+        $request->validate([
+            'username' => 'required|unique:users',
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8'
+        ]);
+
+        $user = new User();
+        $user->username = $request->input('username');
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = bcrypt($request->input('password'));
+        $user->role = 'user';
+        $user->save();
+
+        return redirect()->route('user.list')->with('success', 'Penambahan data User Berhasil');
+    }
+
+    public function editUser($id)
+    {
+        $user = User::find($id);
+        if (!$user) {
+            return redirect()->route('user.list')->with('error', 'Data User tidak ditemukan.');
+        }
+        return view('user.edit', compact('user'));
+    }
+
+    public function updateUser(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        if (!$user) {
+            return redirect()->route('user.list')->with('error', 'Data User tidak ditemukan.');
+        }
+
+        $request->validate([
+            'username' => 'required|unique:users,username,' . $id,
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,' . $id,
+        ]);
+
+        $user->username = $request->input('username');
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+
+        $user->save();
+        return redirect()->route('user.list')->with('success', 'Data User berhasil di Update');
+    }
+
+    public function deleteUser($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('user.list')->with('success', 'User berhasil dihapuskan');
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\P2hController;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +42,26 @@ Route::middleware(['guest'])->group(function () {
 
 Route::middleware(['admin'])->group(function () {
 
+    // Overview
+    Route::prefix('overview')->group(function () {
+        Route::get('/', [DashboardController::class, 'overview'])->name('overview.list');
+    });
+
+    // Admin
+    Route::prefix('admin')->group(function () {
+        Route::get('/daftar', [AuthController::class, 'listAdmin'])->name('admin.list');
+    });
+
+    // User
+    Route::prefix('user')->group(function () {
+        Route::get('/daftar', [AuthController::class, 'listUser'])->name('user.list');
+        Route::get('/tambah', [AuthController::class, 'add'])->name('user.add');
+        Route::post('/simpan', [AuthController::class, 'save'])->name('user.save');
+        Route::get('/edit/{id}', [AuthController::class, 'edit'])->name('user.edit');
+        Route::post('/perbarui/{id}', [AuthController::class, 'update'])->name('user.update');
+        Route::get('/hapus/{id}', [AuthController::class, 'delete'])->name('user.delete');
+    });
+
     // kendaraan / unit GA
     Route::prefix('kendaraan')->group(function () {
         Route::get('/daftar', [KendaraanController::class, 'show'])->name('kendaraan.list');
@@ -50,7 +71,6 @@ Route::middleware(['admin'])->group(function () {
         Route::post('/perbarui/{id}', [KendaraanController::class, 'update'])->name('kendaraan.update');
         Route::get('/hapus/{id}', [KendaraanController::class, 'delete'])->name('kendaraan.delete');
     });
-
 
     // p2h view
     Route::prefix('p2h')->group(function () {
@@ -62,4 +82,14 @@ Route::middleware(['admin'])->group(function () {
 });
 
 Route::middleware(['user'])->group(function () {
+
+    // p2h view
+    Route::prefix('p2h')->group(function () {
+        Route::get('/daftar', [P2hController::class, 'indexToday'])->name('p2h.list');
+        Route::get('/form/{id}', [P2hController::class, 'getForm']);
+        Route::post('/simpan', [P2hController::class, 'save']);
+        Route::get('/detail/{id}', [P2hController::class, 'detail'])->name('p2h.detail');
+        Route::get('/edit/{id}', [P2hController::class, 'edit'])->name('p2h.edit');
+        Route::post('/perbarui/{id}', [P2hController::class, 'update'])->name('p2h.update');
+    });
 });
