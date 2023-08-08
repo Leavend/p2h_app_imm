@@ -28,134 +28,38 @@ class P2hController extends Controller
         return view('p2h.indexAll', compact('Title', 'p2hToday'));
     }
 
-
     public function show()
     {
         $Title = 'P2H';
-        $All = P2h::with('kendaraan')->orderBy('id', 'asc')->paginate(6);
-        $Baik = P2h::where('oli_mesin', 'baik')
-            ->where('oli_kopling', 'baik')
-            ->where('air_radiator', 'baik')
-            ->where('oli_stering', 'baik')
-            ->where('rem_depanBelakang', 'baik')
-            ->where('rem_tangan', 'baik')
-            ->where('lampu_jauhDekat', 'baik')
-            ->where('lampu_reting_rL', 'baik')
-            ->where('lampu_belakang', 'baik')
-            ->where('lampu_rem', 'baik')
-            ->where('lampu_mundur', 'baik')
-            ->where('lampu_rotari', 'baik')
-            ->where('roda_depanBelakang', 'baik')
-            ->where('roda_cadangan', 'baik')
-            ->where('body_fender_rL', 'baik')
-            ->where('body_pintu_rL', 'baik')
-            ->where('body_atap_kabin', 'baik')
-            ->where('body_bendera', 'baik')
-            ->where('body_lantai_kabin', 'baik')
-            ->where('body_karet_mounting', 'baik')
-            ->where('body_sepring', 'baik')
-            ->where('tools_dongkrak_aksesoris', 'baik')
-            ->where('tools_kunci_roda', 'baik')
-            ->where('tools_segitiga_pengaman', 'baik')
-            ->where('tools_ganjal_ban', 'baik')
-            ->where('others_sabuk_pengaman', 'baik')
-            ->where('others_spidometer', 'baik')
-            ->where('others_klakson', 'baik')
-            ->where('others_spion', 'baik')
-            ->where('others_wiper', 'baik')
-            ->where('others_alarm_mundur', 'baik')
-            ->where('others_radio_komun', 'baik')
-            ->where('others_knalpot', 'baik')
-            ->where('others_no_lambung', 'baik')
-            ->where('others_apar', 'baik')
-            ->where('others_kursi_duduk', 'baik')
-            ->where('surat_p3k', 'baik')
-            ->where('surat_stnp_kir', 'baik')
-            ->get()->count();
-        $Rusak = P2h::where('oli_mesin', 'rusak')
-            ->where('oli_kopling', 'rusak')
-            ->where('air_radiator', 'rusak')
-            ->where('oli_stering', 'rusak')
-            ->where('rem_depanBelakang', 'rusak')
-            ->where('rem_tangan', 'rusak')
-            ->where('lampu_jauhDekat', 'rusak')
-            ->where('lampu_reting_rL', 'rusak')
-            ->where('lampu_belakang', 'rusak')
-            ->where('lampu_rem', 'rusak')
-            ->where('lampu_mundur', 'rusak')
-            ->where('lampu_rotari', 'rusak')
-            ->where('roda_depanBelakang', 'rusak')
-            ->where('roda_cadangan', 'rusak')
-            ->where('body_fender_rL', 'rusak')
-            ->where('body_pintu_rL', 'rusak')
-            ->where('body_atap_kabin', 'rusak')
-            ->where('body_bendera', 'rusak')
-            ->where('body_lantai_kabin', 'rusak')
-            ->where('body_karet_mounting', 'rusak')
-            ->where('body_sepring', 'rusak')
-            ->where('tools_dongkrak_aksesoris', 'rusak')
-            ->where('tools_kunci_roda', 'rusak')
-            ->where('tools_segitiga_pengaman', 'rusak')
-            ->where('tools_ganjal_ban', 'rusak')
-            ->where('others_sabuk_pengaman', 'rusak')
-            ->where('others_spidometer', 'rusak')
-            ->where('others_klakson', 'rusak')
-            ->where('others_spion', 'rusak')
-            ->where('others_wiper', 'rusak')
-            ->where('others_alarm_mundur', 'rusak')
-            ->where('others_radio_komun', 'rusak')
-            ->where('others_knalpot', 'rusak')
-            ->where('others_no_lambung', 'rusak')
-            ->where('others_apar', 'rusak')
-            ->where('others_kursi_duduk', 'rusak')
-            ->where('surat_p3k', 'rusak')
-            ->where('surat_stnp_kir', 'rusak')
-            ->get()->count();
-        $tidakAda = P2h::where('oli_mesin', 'tidak ada')
-            ->where('oli_kopling', 'tidak ada')
-            ->where('air_radiator', 'tidak ada')
-            ->where('oli_stering', 'tidak ada')
-            ->where('rem_depanBelakang', 'tidak ada')
-            ->where('rem_tangan', 'tidak ada')
-            ->where('lampu_jauhDekat', 'tidak ada')
-            ->where('lampu_reting_rL', 'tidak ada')
-            ->where('lampu_belakang', 'tidak ada')
-            ->where('lampu_rem', 'tidak ada')
-            ->where('lampu_mundur', 'tidak ada')
-            ->where('lampu_rotari', 'tidak ada')
-            ->where('roda_depanBelakang', 'tidak ada')
-            ->where('roda_cadangan', 'tidak ada')
-            ->where('body_fender_rL', 'tidak ada')
-            ->where('body_pintu_rL', 'tidak ada')
-            ->where('body_atap_kabin', 'tidak ada')
-            ->where('body_bendera', 'tidak ada')
-            ->where('body_lantai_kabin', 'tidak ada')
-            ->where('body_karet_mounting', 'tidak ada')
-            ->where('body_sepring', 'tidak ada')
-            ->where('tools_dongkrak_aksesoris', 'tidak ada')
-            ->where('tools_kunci_roda', 'tidak ada')
-            ->where('tools_segitiga_pengaman', 'tidak ada')
-            ->where('tools_ganjal_ban', 'tidak ada')
-            ->where('others_sabuk_pengaman', 'tidak ada')
-            ->where('others_spidometer', 'tidak ada')
-            ->where('others_klakson', 'tidak ada')
-            ->where('others_spion', 'tidak ada')
-            ->where('others_wiper', 'tidak ada')
-            ->where('others_alarm_mundur', 'tidak ada')
-            ->where('others_radio_komun', 'tidak ada')
-            ->where('others_knalpot', 'tidak ada')
-            ->where('others_no_lambung', 'tidak ada')
-            ->where('others_apar', 'tidak ada')
-            ->where('others_kursi_duduk', 'tidak ada')
-            ->where('surat_p3k', 'tidak ada')
-            ->where('surat_stnp_kir', 'tidak ada')
-            ->get()->count();
+        $All = P2h::with('kendaraan')->orderBy('id', 'asc')->paginate(10);
 
-        // $belumDiperiksa = P2h::whereKendaraanId('kendaraan_id')->whereTanggal(date('Y-m-d'))->whereStatus('belum diperiksa')->count();
-        // $menungguVerifikasi = P2h::whereKendaraanId('kendaraan_id')->whereTanggal(date('Y-m-d'))->whereStatus('menunggu verifikasi')->count();
-        // $Terverifikasi = P2h::whereKendaraanId('kendaraan_id')->whereTanggal(date('Y-m-d'))->whereStatus('terverifikasi')->count();
-        return view('p2h.show', compact('Title', 'All', 'Baik', 'Rusak', 'tidakAda'));
+        $Counts = [];
+
+        foreach ($All as $p2h) {
+            $kendaraanCounts = [
+                'baik' => 0,
+                'rusak' => 0,
+                'tidak ada' => 0,
+            ];
+
+            foreach ($p2h->getAttributes() as $col => $value) {
+                if (in_array($col, P2h::$enumColumns)) {
+                    if ($value === 'baik') {
+                        $kendaraanCounts['baik']++;
+                    } elseif ($value === 'rusak') {
+                        $kendaraanCounts['rusak']++;
+                    } elseif ($value === 'tidak ada') {
+                        $kendaraanCounts['tidak ada']++;
+                    }
+                }
+            }
+
+            $Counts[$p2h->kendaraan->id] = $kendaraanCounts;
+        }
+
+        return view('p2h.show', compact('Title', 'All', 'Counts'));
     }
+
 
     public function getForm($id)
     {

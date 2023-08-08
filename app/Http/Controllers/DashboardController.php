@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kendaraan;
+use App\Models\P2h;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,10 +14,15 @@ class DashboardController extends Controller
     {
         $Title = 'Overview - GA - P2H Unit';
         if (Auth::user()->role == "admin") {
-            // $data['totalPendaftar'] = Pendaftaran::getTotalRegist(1);
-            // $data['totalSiswa'] = User::getTotalStudent(2);
-            // $data['totalAdmin'] = User::getTotalAdmin(1);
-            return view('overview.list', compact('Title'));
+            $TotalUser = User::getTotalUser();
+            $TotalKendaraan = Kendaraan::count();
+            $TotalP2h = P2h::count();
+            return view('overview.list', compact(
+                'Title',
+                'TotalUser',
+                'TotalKendaraan',
+                'TotalP2h',
+            ));
         }
     }
 }

@@ -72,8 +72,8 @@ class AuthController extends Controller
     public function listUser()
     {
         $Title = 'User - IMM - GA - P2H Unit';
-        $data = User::getUser();
-        return view('user.list', compact('Title', 'data'));
+        $User = User::all();
+        return view('user.list', compact('Title', 'User'));
     }
 
     public function addUser()

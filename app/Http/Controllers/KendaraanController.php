@@ -9,9 +9,9 @@ class KendaraanController extends Controller
 {
     public function show()
     {
-        $data = Kendaraan::all();
+        $Kendaraan = Kendaraan::all();
         $Title = 'Kendaraan';
-        return view('kendaraan.list', compact('data', 'Title'));
+        return view('kendaraan.list', compact('Kendaraan', 'Title'));
     }
     public function add()
     {
