@@ -23,41 +23,39 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [P2hController::class, 'index'])->name('home');
 
 
-Route::middleware(['guest'])->group(function () {
-
-    // p2h cek form
-    Route::prefix('p2h-cek')->group(function () {
-        Route::get('/', [P2hController::class, 'indexToday'])->name('p2h-cek.list');
-        Route::get('/form/{id}', [P2hController::class, 'getForm']);
-        Route::post('/simpan', [P2hController::class, 'save']);
-    });
-
-
-    // Public Authentication
-    Route::get('/masuk', [AuthController::class, 'login'])->name('login');
-    Route::get('/registrasi', [AuthController::class, 'register'])->name('register');
-    Route::post('/login', [AuthController::class, 'authLogin'])->name('auth.login');
-    Route::post('/register', [AuthController::class, 'authRegister'])->name('auth.register');
+// p2h cek form
+Route::prefix('p2h-cek')->group(function () {
+    Route::get('/', [P2hController::class, 'indexToday'])->name('p2h-cek.list');
+    Route::get('/form/{id}', [P2hController::class, 'getForm']);
+    Route::post('/simpan', [P2hController::class, 'save']);
 });
+
+
+// Public Authentication
+Route::get('/masuk', [AuthController::class, 'login'])->name('login');
+Route::get('/registrasi', [AuthController::class, 'register'])->name('register');
+Route::post('/login', [AuthController::class, 'authLogin'])->name('auth.login');
+Route::post('/register', [AuthController::class, 'authRegister'])->name('auth.register');
+
 
 
 Route::middleware(['admin'])->group(function () {
 
     // Auth
-    Route::get('/logout', [AuthController::class, 'logout']);
+    Route::get('admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
     // Overview
-    Route::prefix('overview')->group(function () {
+    Route::prefix('admin/overview')->group(function () {
         Route::get('/', [DashboardController::class, 'overview'])->name('overview.list');
     });
 
     // Admin
-    Route::prefix('admin')->group(function () {
+    Route::prefix('admin/admin')->group(function () {
         Route::get('/', [AuthController::class, 'listAdmin'])->name('admin.list');
     });
 
     // User
-    Route::prefix('user')->group(function () {
+    Route::prefix('admin/user')->group(function () {
         Route::get('/', [AuthController::class, 'listUser'])->name('user.list');
         Route::get('/tambah', [AuthController::class, 'addUser'])->name('user.add');
         Route::post('/simpan', [AuthController::class, 'storeUser'])->name('user.save');
@@ -67,7 +65,7 @@ Route::middleware(['admin'])->group(function () {
     });
 
     // kendaraan / unit GA
-    Route::prefix('kendaraan')->group(function () {
+    Route::prefix('admin/kendaraan')->group(function () {
         Route::get('/', [KendaraanController::class, 'show'])->name('kendaraan.list');
         Route::get('/tambah', [KendaraanController::class, 'add'])->name('kendaraan.add');
         Route::post('/simpan', [KendaraanController::class, 'save'])->name('kendaraan.save');
@@ -77,7 +75,7 @@ Route::middleware(['admin'])->group(function () {
     });
 
     // p2h view
-    Route::prefix('p2h')->group(function () {
+    Route::prefix('admin/p2h')->group(function () {
         Route::get('/', [P2hController::class, 'show'])->name('p2h.list.admin');
         Route::get('/detail/{id}', [P2hController::class, 'detail'])->name('p2h.detail');
         Route::get('/edit/{id}', [P2hController::class, 'edit'])->name('p2h.edit');
@@ -88,11 +86,11 @@ Route::middleware(['admin'])->group(function () {
 Route::middleware(['user'])->group(function () {
 
     // Auth
-    Route::get('/logout', [AuthController::class, 'logout']);
+    Route::get('/user/logout', [AuthController::class, 'logout'])->name('user.logout');
 
     // p2h view
-    Route::prefix('p2h')->group(function () {
-        Route::get('/daftar', [P2hController::class, 'indexToday'])->name('p2h.list');
+    Route::prefix('user/p2h')->group(function () {
+        Route::get('/', [P2hController::class, 'indexToday'])->name('p2h.list');
         Route::get('/form/{id}', [P2hController::class, 'getForm']);
         Route::post('/simpan', [P2hController::class, 'save']);
         Route::get('/detail/{id}', [P2hController::class, 'detail'])->name('p2h.detail');

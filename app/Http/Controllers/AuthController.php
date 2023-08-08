@@ -24,7 +24,7 @@ class AuthController extends Controller
             if ($user->role == "admin") {
                 return redirect()->route('overview.list');
             } else if ($user->role == "user") {
-                return redirect()->route('p2h-cek.list');
+                return redirect()->route('p2h.list');
             }
         }
 
