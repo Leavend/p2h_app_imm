@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Kendaraan extends Model
 {
     use HasFactory;
-    protected $table = ["kendaraans"];
+    protected $table = "kendaraans";
     protected $fillable = [
         'jenis_kendaraan',
         'nomor_lambung',
@@ -16,8 +16,8 @@ class Kendaraan extends Model
     ];
     protected $guarded = [];
 
-    public function p2h()
+    public function p2hs()
     {
-        return $this->hasMany(P2h::class);
+        return $this->hasMany(P2h::class, 'kendaraan_id');
     }
 }

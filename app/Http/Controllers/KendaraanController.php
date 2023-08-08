@@ -10,13 +10,13 @@ class KendaraanController extends Controller
     public function show()
     {
         $data = Kendaraan::all();
-        $data['header_title'] = 'Daftar Kendaraan';
-        return view('kendaraan.list', $data);
+        $Title = 'Kendaraan';
+        return view('kendaraan.list', compact('data', 'Title'));
     }
     public function add()
     {
-        $data['header_title'] = 'Tambah Kendaraan';
-        return view('kendaraan.add', $data);
+        $Title = 'Tambah Kendaraan';
+        return view('kendaraan.add', compact('Title'));
     }
     public function save(Request $request)
     {

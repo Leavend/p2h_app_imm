@@ -21,11 +21,11 @@ class AdminMiddleware
                 return $next($request);
             } else {
                 Auth::logout();
-                return redirect(url('/home'));
+                return redirect()->route('home');
             }
         } else {
             Auth::logout();
-            return redirect(url('/home'));
+            return redirect()->route('home');
         }
     }
 }

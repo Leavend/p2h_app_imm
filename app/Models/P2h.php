@@ -63,6 +63,6 @@ class P2h extends Model
 
     public function kendaraan()
     {
-        return $this->belongsTo(Kendaraan::class);
+        return $this->belongsTo(Kendaraan::class, 'kendaraan_id');
     }
 }

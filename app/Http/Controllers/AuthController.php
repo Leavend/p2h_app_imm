@@ -11,7 +11,8 @@ class AuthController extends Controller
 {
     public function login()
     {
-        return view('auth.login');
+        $Title = 'Login - IMM - GA - P2H Unit';
+        return view('auth.login', compact('Title'));
     }
 
     public function authLogin(Request $request)
@@ -21,9 +22,9 @@ class AuthController extends Controller
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password], $remember)) {
             $user = Auth::user();
             if ($user->role == "admin") {
-                return redirect()->route('admin.dashboard');
+                return redirect()->route('overview.list');
             } else if ($user->role == "user") {
-                return redirect()->route('user.dashboard');
+                return redirect()->route('p2h-cek.list');
             }
         }
 
@@ -55,21 +56,30 @@ class AuthController extends Controller
         return redirect()->route('login')->with('success', 'Berhasil membuat akun');
     }
 
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('home');
+    }
+
     public function listAdmin()
     {
+        $Title = 'Admin - IMM - GA - P2H Unit';
         $data = User::getAdmin();
-        return view('admin.list', compact('data'));
+        return view('admin.list', compact('Title', 'data'));
     }
 
     public function listUser()
     {
+        $Title = 'User - IMM - GA - P2H Unit';
         $data = User::getUser();
-        return view('user.list', compact('data'));
+        return view('user.list', compact('Title', 'data'));
     }
 
     public function addUser()
     {
-        return view('user.add');
+        $Title = 'Tambah User - IMM - GA - P2H Unit';
+        return view('user.add', compact('Title'));
     }
 
     public function storeUser(Request $request)
@@ -94,11 +104,12 @@ class AuthController extends Controller
 
     public function editUser($id)
     {
+        $Title = 'Edit User - IMM - GA - P2H Unit';
         $user = User::find($id);
         if (!$user) {
             return redirect()->route('user.list')->with('error', 'Data User tidak ditemukan.');
         }
-        return view('user.edit', compact('user'));
+        return view('user.edit', compact('Title', 'user'));
     }
 
     public function updateUser(Request $request, $id)

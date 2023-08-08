@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kendaraan;
 use App\Models\P2h;
+use App\Models\Kendaraan;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use TelegramBot\Api\BotApi;
@@ -14,29 +14,26 @@ class P2hController extends Controller
 
     public function index()
     {
-        $All = P2h::whereKendaraanId('kendaraan_id')->whereTanggal(date('Y-m-d'))->orderBy('jam', 'desc')->paginate(6);
-        $Today = P2h::whereKendaraanId('kendaraan_id')->whereToday('tanggal', date('d'))->orderBy('jam', 'desc')->paginate(6);
-        $Month = P2h::whereKendaraanId('kendaraan_id')->whereMonth(date('m'))->orderBy('jam', 'desc')->paginate(6);
-        $belumDiperiksa = P2h::whereKendaraanId('kendaraan_id')->whereTanggal(date('Y-m-d'))->whereStatus('belum diperiksa')->count();
-        $menungguVerifikasi = P2h::whereKendaraanId('kendaraan_id')->whereTanggal(date('Y-m-d'))->whereStatus('menunggu verifikasi')->count();
-        $Terverifikasi = P2h::whereKendaraanId('kendaraan_id')->whereTanggal(date('Y-m-d'))->whereStatus('terverifikasi')->count();
-        return view('welcome', compact('All', 'Today', 'Month', 'belumDiperiksa', 'menungguVerifikasi', 'Terverifikasi'));
+        $Title = 'IMM - GA - P2H Unit';
+        $All = P2h::with('kendaraan')->orderBy('id', 'asc')->paginate(6);
+        // $kendaraanData = Kendaraan::orderBy('id', 'asc')->paginate(6);
+        return view('welcome', compact('Title', 'All'));
     }
+
 
     public function indexToday()
     {
+        $Title = 'IMM - GA - P2H Unit';
         $p2hToday = P2h::whereDate('tanggal', Carbon::today())->where('status', 'belum diperiksa')->paginate(6);
-        return view('p2h.indexAll', compact('p2hToday'));
+        return view('p2h.indexAll', compact('Title', 'p2hToday'));
     }
 
 
     public function show()
     {
-        $All = P2h::whereKendaraanId('kendaraan_id')->whereTanggal(date('Y-m-d'))->orderBy('jam', 'desc')->paginate(6);
-        $Today = P2h::whereKendaraanId('kendaraan_id')->whereToday('tanggal', date('d'))->orderBy('jam', 'desc')->paginate(6);
-        $Month = P2h::whereKendaraanId('kendaraan_id')->whereMonth(date('m'))->orderBy('jam', 'desc')->paginate(6);
-        $Baik = P2h::whereKendaraanId('kendaraan_id')
-            ->where('oli_mesin', 'baik')
+        $Title = 'P2H';
+        $All = P2h::with('kendaraan')->orderBy('id', 'asc')->paginate(6);
+        $Baik = P2h::where('oli_mesin', 'baik')
             ->where('oli_kopling', 'baik')
             ->where('air_radiator', 'baik')
             ->where('oli_stering', 'baik')
@@ -75,8 +72,7 @@ class P2hController extends Controller
             ->where('surat_p3k', 'baik')
             ->where('surat_stnp_kir', 'baik')
             ->get()->count();
-        $Rusak = P2h::whereKendaraanId('kendaraan_id')
-            ->where('oli_mesin', 'rusak')
+        $Rusak = P2h::where('oli_mesin', 'rusak')
             ->where('oli_kopling', 'rusak')
             ->where('air_radiator', 'rusak')
             ->where('oli_stering', 'rusak')
@@ -115,8 +111,7 @@ class P2hController extends Controller
             ->where('surat_p3k', 'rusak')
             ->where('surat_stnp_kir', 'rusak')
             ->get()->count();
-        $tidakAda = P2h::whereKendaraanId('kendaraan_id')
-            ->where('oli_mesin', 'tidak ada')
+        $tidakAda = P2h::where('oli_mesin', 'tidak ada')
             ->where('oli_kopling', 'tidak ada')
             ->where('air_radiator', 'tidak ada')
             ->where('oli_stering', 'tidak ada')
@@ -155,18 +150,20 @@ class P2hController extends Controller
             ->where('surat_p3k', 'tidak ada')
             ->where('surat_stnp_kir', 'tidak ada')
             ->get()->count();
-        $belumDiperiksa = P2h::whereKendaraanId('kendaraan_id')->whereTanggal(date('Y-m-d'))->whereStatus('belum diperiksa')->count();
-        $menungguVerifikasi = P2h::whereKendaraanId('kendaraan_id')->whereTanggal(date('Y-m-d'))->whereStatus('menunggu verifikasi')->count();
-        $Terverifikasi = P2h::whereKendaraanId('kendaraan_id')->whereTanggal(date('Y-m-d'))->whereStatus('terverifikasi')->count();
-        return view('p2h.show', compact('All', 'Today', 'Month', 'belumDiperiksa', 'menungguVerifikasi', 'Terverifikasi', 'Baik', 'Rusak', 'tidakAda'));
+
+        // $belumDiperiksa = P2h::whereKendaraanId('kendaraan_id')->whereTanggal(date('Y-m-d'))->whereStatus('belum diperiksa')->count();
+        // $menungguVerifikasi = P2h::whereKendaraanId('kendaraan_id')->whereTanggal(date('Y-m-d'))->whereStatus('menunggu verifikasi')->count();
+        // $Terverifikasi = P2h::whereKendaraanId('kendaraan_id')->whereTanggal(date('Y-m-d'))->whereStatus('terverifikasi')->count();
+        return view('p2h.show', compact('Title', 'All', 'Baik', 'Rusak', 'tidakAda'));
     }
 
     public function getForm($id)
     {
+        $Title = 'IMM - GA - P2H Unit';
         $p2hData = P2h::find($id);
         $dataKendaraan = Kendaraan::find($id);
 
-        return view('p2h.form', compact('p2hData', 'dataKendaraan'));
+        return view('p2h.form', compact('Title', 'p2hData', 'dataKendaraan'));
     }
 
 
@@ -231,11 +228,15 @@ class P2hController extends Controller
 
         $p2h->save();
 
+        // Ambil data kendaraan
+        $kendaraan = Kendaraan::find('id')->where('kendaraan_id', 'id');
+        $noLambung = $p2h->kendaraan->no_lambung;
+
         // bot Tele Push Notif
-        $botToken = env('TELEGRAM_BOT_TOKENs');
+        $botToken = env('TELEGRAM_BOT_TOKEN');
         $chatId = env('TELEGRAM_CHAT_ID');
         $User = $request->nama_pemeriksa;
-        $message = "$User telah melakukan fungsi save baru!";
+        $message = "$User telah melakukan P2H pada Unit dengan Nomor Lambung $noLambung";
 
         $telegram = new BotApi($botToken);
         $telegram->sendMessage($chatId, $message);
@@ -245,20 +246,22 @@ class P2hController extends Controller
 
     public function detail($id)
     {
+        $Title = 'IMM - GA - P2H Unit';
         $data = P2h::where('id', $id)->first();
         $dataKendaraan = Kendaraan::all();
         // $no = 1;
 
         // $dataP2h = P2h::where('id', "$id")->get();
-        return view('p2h.detail', compact('data', 'dataKendaraan'));
+        return view('p2h.detail', compact('Title', 'data', 'dataKendaraan'));
     }
 
     public function edit($id)
     {
+        $Title = 'IMM - GA - P2H Unit';
         $data = P2h::where("id", $id)->first();
         $dataKendaraan = Kendaraan::all();
 
-        return view('p2h.edit', compact('data', 'dataKendaraan'));
+        return view('p2h.edit', compact('Title', 'data', 'dataKendaraan'));
     }
 
     public function update(Request $request, $id)
