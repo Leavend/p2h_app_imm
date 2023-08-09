@@ -14,7 +14,7 @@
         <main class="table">
             <section class="page-section" id="kendaraan">
                 <div class="container px-4 px-lg-5">
-                    <h2 class="text-center mt-0">Daftar P2H Hari Ini</h2>
+                    <h3 class="text-center mt-0">Daftar P2H Hari Ini</h3>
                     <hr class="divider divider-light" />
                     <section class="table__header">
                         {{-- <div class="input-group">
@@ -64,7 +64,9 @@
                                                 <p class="status shipped">Belum Diperiksa</p>
                                             @endif
                                         </td>
-                                        <td>{{ $x->tanggal }}</td>
+                                        <td>
+                                            {{ \Carbon\Carbon::parse($x->kendaraan->created_at, 'Asia/Makassar')->format('d M Y ') }}
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -72,15 +74,16 @@
                         {{-- <div style="padding: 20px; float: right">
                             {{ $All->links() }}
                         </div> --}}
-
-
+                    </section>
+                </div>
+            </section>
         </main>
     </div>
     <div class="tabel-manis">
         <main class="table">
             <section class="page-section px-4" id="services">
                 <div class="container px-4 px-lg-5">
-                    <h2 class="text-center mt-0">Daftar Kendaraan</h2>
+                    <h3 class="text-center mt-0">Daftar Kendaraan</h3>
                     <hr class="divider divider-light" />
                     <section class="table__header">
                         {{-- <div class="input-group">
@@ -120,13 +123,15 @@
                                         <td>{{ $x->kendaraan->jenis_kendaraan }}</td>
                                         <td>{{ $x->kendaraan->nomor_lambung }}</td>
                                         <td>
-                                            {{ \Carbon\Carbon::parse($x->kendaraan->created_at, 'Asia/Makassar')->format('d M g:i A') }}
+                                            {{ \Carbon\Carbon::parse($x->kendaraan->created_at, 'Asia/Makassar')->format('d M Y ') }}
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     </section>
+                </div>
+            </section>
         </main>
     </div>
 
@@ -135,7 +140,7 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h2 class="text-white mt-0">Lakukan Pemeriksaan</h2>
+                    <h3 class="text-white mt-0">Lakukan Pemeriksaan</h3>
                     <hr class="divider divider-light" />
                     <a class="btn btn-light btn-xl" href="{{ route('p2h-cek.list') }}">P2H!</a>
                 </div>
