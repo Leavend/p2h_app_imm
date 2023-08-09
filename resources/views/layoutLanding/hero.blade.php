@@ -8,21 +8,21 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="./assets/img/gambar1.jpg" class="d-block w-100" alt="...">
+                <img src="./assets/img/8.svg" class="d-block w-100" alt="...">
                 <div class="carousel-text">
                     <p>Our Commitment to</p>
                     <h2>Environment</h2>
                   </div>
               </div>
               <div class="carousel-item">
-                <img src="./assets/img/gambar1.jpg" class="d-block w-100" alt="...">
+                <img src="./assets/img/7.svg" class="d-block w-100" alt="...">
                 <div class="carousel-text">
                     <p>Energy For Our</p>
                     <h2>Future</h2>
                   </div>
               </div>
               <div class="carousel-item">
-                <img src="./assets/img/gambar1.jpg" class="d-block w-100" alt="...">
+                <img src="./assets/img/9.svg" class="d-block w-100" alt="...">
                 <div class="carousel-text">
                     <p>Best People With</p>
                     <h2>Best Teamwork</h2>
