@@ -16,8 +16,8 @@ class P2hController extends Controller
     {
         $Title = 'IMM - GA - P2H Unit';
         $p2hToday = P2h::whereDate('tanggal', Carbon::today('Asia/Makassar'))->paginate(10);
-        // $kendaraanData = Kendaraan::orderBy('id', 'asc')->paginate(6);
-        return view('welcome', compact('Title', 'p2hToday'));
+        $kendaraanData = Kendaraan::orderBy('id', 'asc')->paginate(10);
+        return view('welcome', compact('Title', 'p2hToday', 'kendaraanData'));
     }
 
 
@@ -68,6 +68,15 @@ class P2hController extends Controller
         $dataKendaraan = Kendaraan::find($id);
 
         return view('p2h.form', compact('Title', 'p2hData', 'dataKendaraan'));
+    }
+
+    public function getFormUser($id)
+    {
+        $Title = 'IMM - GA - P2H Unit';
+        $p2hData = P2h::find($id);
+        $dataKendaraan = Kendaraan::find($id);
+
+        return view('p2h.formUser', compact('Title', 'p2hData', 'dataKendaraan'));
     }
 
 

@@ -121,15 +121,12 @@
                                                         <span class="note">{{ $jamCarbon->format('g:i A') }}</span>
                                                     </td>
                                                     <td class="cell">
-                                                        <a href="{{ url('admin/p2h/detail/' . $x->id) }}"
+                                                        <a href="{{ url('user/p2h/detail/' . $x->id) }}"
                                                             class="btn btn-circle btn-info"><i
                                                                 class="fas fa-eye"></i></a>
-                                                        <a href="{{ url('admin/p2h/edit/' . $x->id) }}"
-                                                            class="btn btn-circle btn-warning"><i
-                                                                class="fas fa-edit"></i></a>
-                                                        <a href="{{ url('admin/p2h/hapus/' . $x->id) }}"
-                                                            class="btn btn-circle btn-danger"><i
-                                                                class="fas fa-trash-alt"></i></a>
+                                                        <a href="{{ url('user/p2h/form/' . $x->id) }}"
+                                                            class="btn btn-circle btn-warning">
+                                                            <i class="fab fa-wpforms"></i></a>
                                                     </td>
                                                 </tr>
                                             @empty
