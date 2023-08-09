@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nomor_polisi')->unique();
             // $table->string('keterangan');
             $table->timestamps();
+            $table->setTimeZone('Asia/Makassar');
         });
     }
 

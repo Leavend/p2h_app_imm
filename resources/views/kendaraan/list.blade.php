@@ -120,9 +120,12 @@
                                                     <td class="cell">{{ $x->nomor_lambung }}</td>
                                                     <td class="cell">{{ $x->nomor_polisi }}</td>
                                                     <td class="cell">
-                                                        <span>{{ $x->created_at->format('d M') }}</span>
-                                                        <span
-                                                            class="note">{{ $x->created_at->format('g:i A') }}</span>
+                                                        <span class="cell-data">
+                                                            {{ $x->created_at->format('d M') }}
+                                                        </span>
+                                                        <span class="note">
+                                                            {{ $x->created_at->format('g:i A') }}
+                                                        </span>
                                                     </td>
                                                     <td class="cell">
                                                         <a href="{{ url('admin/user/edit/' . $x->id) }}"
@@ -197,9 +200,12 @@
                                                         <td class="cell">{{ $x->nomor_lambung }}</td>
                                                         <td class="cell">{{ $x->nomor_polisi }}</td>
                                                         <td class="cell">
-                                                            <span>{{ $x->created_at->format('d M') }}</span>
-                                                            <span
-                                                                class="note">{{ $x->created_at->format('g:i A') }}</span>
+                                                            <span class="cell-data">
+                                                                {{ $x->created_at->format('d M') }}
+                                                            </span>
+                                                            <span class="note">
+                                                                {{ $x->created_at->format('g:i A') }}
+                                                            </span>
                                                         </td>
                                                         <td class="cell">
                                                             <a href="{{ url('admin/user/edit/' . $x->id) }}"
@@ -266,9 +272,12 @@
                                                         <td class="cell">{{ $x->nomor_lambung }}</td>
                                                         <td class="cell">{{ $x->nomor_polisi }}</td>
                                                         <td class="cell">
-                                                            <span>{{ $x->created_at->format('d M') }}</span>
-                                                            <span
-                                                                class="note">{{ $x->created_at->format('g:i A') }}</span>
+                                                            <span class="cell-data">
+                                                                {{ $x->created_at->format('d M') }}
+                                                            </span>
+                                                            <span class="note">
+                                                                {{ $x->created_at->format('g:i A') }}
+                                                            </span>
                                                         </td>
                                                         <td class="cell">
                                                             <a href="{{ url('admin/user/edit/' . $x->id) }}"
@@ -336,9 +345,12 @@
                                                         <td class="cell">{{ $x->nomor_lambung }}</td>
                                                         <td class="cell">{{ $x->nomor_polisi }}</td>
                                                         <td class="cell">
-                                                            <span>{{ $x->created_at->format('d M') }}</span>
-                                                            <span
-                                                                class="note">{{ $x->created_at->format('g:i A') }}</span>
+                                                            <span class="cell-data">
+                                                                {{ $x->created_at->format('d M') }}
+                                                            </span>
+                                                            <span class="note">
+                                                                {{ $x->created_at->format('g:i A') }}
+                                                            </span>
                                                         </td>
                                                         <td class="cell">
                                                             <a href="{{ url('admin/user/edit/' . $x->id) }}"

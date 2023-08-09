@@ -22,7 +22,7 @@ class UserFactory extends Factory
             'username' => $this->faker->unique()->userName,
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
-            'password' => Hash::make('password'), // Ganti 'password' dengan kata sandi yang Anda inginkan
+            'password' => Hash::make('123'), // Ganti 'password' dengan kata sandi yang Anda inginkan
             'role' => $this->faker->randomElement(['admin', 'user']),
             // Anda juga bisa menambahkan definisi untuk atribut lain sesuai kebutuhan
         ];

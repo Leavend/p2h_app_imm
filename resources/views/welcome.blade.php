@@ -49,7 +49,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($All as $x)
+                                @foreach ($p2hToday as $x)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $x->kendaraan->jenis_kendaraan }}</td>
@@ -114,12 +114,14 @@
                             </thead>
                             <tbody>
                                 <?php $No = 1; ?>
-                                @foreach ($All as $x)
+                                @foreach ($p2hToday as $x)
                                     <tr>
                                         <td>{{ $No++ }}</td>
                                         <td>{{ $x->kendaraan->jenis_kendaraan }}</td>
                                         <td>{{ $x->kendaraan->nomor_lambung }}</td>
-                                        <td>{{ $x->kendaraan->created_at }}</td>
+                                        <td>
+                                            {{ \Carbon\Carbon::parse($x->kendaraan->created_at, 'Asia/Makassar')->format('d M g:i A') }}
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

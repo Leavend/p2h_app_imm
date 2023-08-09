@@ -21,9 +21,9 @@ class KendaraanFactory extends Factory
     public function definition(): array
     {
         return [
-            'jenis_kendaraan' => $this->faker->randomElement(['Mobil', 'Motor', 'Truk']),
-            'nomor_lambung' => 'L' . $this->faker->unique()->numberBetween(100000, 999999),
-            'nomor_polisi' => 'B' . $this->faker->unique()->randomLetter() . $this->faker->unique()->randomNumber(5),
+            'jenis_kendaraan' => $this->faker->randomElement(['Mobil', 'Bus', 'Truk']),
+            'nomor_lambung' => 'P' . $this->faker->unique()->numberBetween(100000, 999999),
+            'nomor_polisi' => 'S' . $this->faker->unique()->randomLetter() . $this->faker->unique()->randomNumber(5),
             // Tambahan atribut lain sesuai kebutuhan
         ];
     }

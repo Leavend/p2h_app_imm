@@ -15,16 +15,16 @@ class P2hController extends Controller
     public function index()
     {
         $Title = 'IMM - GA - P2H Unit';
-        $All = P2h::with('kendaraan')->orderBy('id', 'asc')->paginate(6);
+        $p2hToday = P2h::whereDate('tanggal', Carbon::today('Asia/Makassar'))->paginate(10);
         // $kendaraanData = Kendaraan::orderBy('id', 'asc')->paginate(6);
-        return view('welcome', compact('Title', 'All'));
+        return view('welcome', compact('Title', 'p2hToday'));
     }
 
 
     public function indexToday()
     {
         $Title = 'IMM - GA - P2H Unit';
-        $p2hToday = P2h::whereDate('tanggal', Carbon::today())->where('status', 'belum diperiksa')->paginate(6);
+        $p2hToday = P2h::whereDate('tanggal', Carbon::today('Asia/Makassar'))->where('status', 'belum diperiksa')->paginate(10);
         return view('p2h.indexAll', compact('Title', 'p2hToday'));
     }
 

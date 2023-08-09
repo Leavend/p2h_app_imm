@@ -26,8 +26,8 @@ class CreateDailyP2hEntries
                 'kendaraan_id' => $kendaraan->id,
                 // Isi field P2h sesuai kebutuhan
                 'status' => 'menunggu verifikasi',
-                'tanggal' => now()->format('Y-m-d'),
-                'jam' => now()->format('H:i:s'),
+                'tanggal' => now('Asia/Makassar')->format('Y-m-d'),
+                'jam' => now('Asia/Makassar')->format('H:i:s'),
             ]);
             $p2h->save();
         }
