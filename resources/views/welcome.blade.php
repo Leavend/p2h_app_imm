@@ -155,6 +155,142 @@
         </main>
     </div>
 
+    <div class="tabel-manis">
+      <main class="table">
+        <section class="page-section px-4" id="services">
+          <div class="container px-4 px-lg-5">
+            <div class="container">
+              <h2 class="text-center">Daftar Kendaraan</h2>
+              <h4>Select Number Of Rows</h4>
+              <div class="form-group">
+          <!-- Show Numbers Of Rows-->
+                  <select class="form-control" name="state" id="maxRows">
+                      <option value="5000">Show ALL Rows</option>
+                      <option value="5">5</option>
+                      <option value="10">10</option>
+                  </select>
+              </div>
+              <table class="table table-striped table-class" id="table-id">
+                  <tbody>
+                      <tr>
+                          <th>Row</th>
+                          <th>1</td>
+                          <th>2</td>
+                          <th>3</td>
+                      </tr>
+                      <tr>
+                          <td>First Name</th>
+                          <td>John</td>
+                          <td>Peter</td>
+                          <td>John</td>
+                      </tr>
+                      <tr>
+                          <td>Last Name</th>
+                          <td>Carter</td>
+                          <td>Parker</td>
+                          <td>Rambo</td>
+                      </tr>
+                      <tr>
+                          <td>Email</th>
+                          <td>johncarter@mail.com</td>
+                          <td>peterparker@mail.com</td>
+                          <td>johnrambo@mail.com</td>
+                      </tr>
+                      <tr>
+                          <td>Row</th>
+                          <td>1</td>
+                          <td>2</td>
+                          <td>3</td>
+                      </tr>
+                      <tr>
+                          <td>First Name</th>
+                          <td>John</td>
+                          <td>Peter</td>
+                          <td>John</td>
+                      </tr>
+                      <tr>
+                          <td>Last Name</th>
+                          <td>Carter</td>
+                          <td>Parker</td>
+                          <td>Rambo</td>
+                      </tr>
+                      <tr>
+                          <td>Email</th>
+                          <td>johncarter@mail.com</td>
+                          <td>peterparker@mail.com</td>
+                          <td>johnrambo@mail.com</td>
+                      </tr>
+                      <tr>
+                          <td>Row</th>
+                          <td>1</td>
+                          <td>2</td>
+                          <td>3</td>
+                      </tr>
+                      <tr>
+                          <td>First Name</th>
+                          <td>John</td>
+                          <td>Peter</td>
+                          <td>John</td>
+                      </tr>
+                      <tr>
+                          <td>Last Name</th>
+                          <td>Carter</td>
+                          <td>Parker</td>
+                          <td>Rambo</td>
+                      </tr>
+                      <tr>
+                          <td>Email</th>
+                          <td>johncarter@mail.com</td>
+                          <td>peterparker@mail.com</td>
+                          <td>johnrambo@mail.com</td>
+                      </tr>
+                      <tr>
+                          <td>Row</th>
+                          <td>1</td>
+                          <td>2</td>
+                          <td>3</td>
+                      </tr>
+                      <tr>
+                          <td>First Name</th>
+                          <td>John</td>
+                          <td>Peter</td>
+                          <td>John</td>
+                      </tr>
+                      <tr>
+                          <td>Last Name</th>
+                          <td>Carter</td>
+                          <td>Parker</td>
+                          <td>Rambo</td>
+                      </tr>
+                      <tr>
+                          <td>Email</th>
+                          <td>johncarter@mail.com</td>
+                          <td>peterparker@mail.com</td>
+                          <td>johnrambo@mail.com</td>
+                      </tr>
+                  </tbody>
+          
+              </table>
+          <!-- Start Pagination -->
+              <div class='pagination-container'>
+                  <nav>
+                      <ul class="pagination">
+                          <li data-page="prev">
+                              <span> <
+                                  <span class="sr-only">(current)
+                              </span></span>
+                          </li>
+          <!-- Here the JS Function Will Add the Rows -->
+                          <li data-page="next" id="prev">
+                              <span> > <span class="sr-only">(current)</span></span>
+                          </li>
+                      </ul>
+                  </nav>
+              </div>
+          </div>
+      </main>
+    </div>
+
     <!-- P2h -->
     <section class="page-section bg-imm" id="p2h">
         <div class="container px-4 px-lg-5">
