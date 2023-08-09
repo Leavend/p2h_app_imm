@@ -19,3 +19,20 @@
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <script>
+      // Tambahkan class "loaded" saat halaman dimuat
+      window.addEventListener('load', function() {
+        document.body.classList.add('loaded');
+      });
+    </script>
+    <script>
+      // Tambahkan class "loaded" saat halaman dimuat dan atur waktu delay
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          document.querySelectorAll('.tabel-manis').forEach(function(element) {
+            element.classList.add('loaded');
+          });
+        }, 500); // Ubah nilai 500 sesuai dengan waktu delay yang diinginkan (dalam milidetik)
+      });
+    </script>
