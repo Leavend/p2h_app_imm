@@ -3004,11 +3004,11 @@ fieldset:disabled .btn {
     --bs-btn-bg: #452f92;
     --bs-btn-border-color: #2b84d2;
     --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #6ff0c0;
+    --bs-btn-hover-bg: #23184c;
     --bs-btn-hover-border-color: #36c94e;
     --bs-btn-focus-shadow-rgb: 246, 122, 88;
     --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #c34e2e;
+    --bs-btn-active-bg: #23184c;
     --bs-btn-active-border-color: #b74a2c;
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     --bs-btn-disabled-color: #fff;
