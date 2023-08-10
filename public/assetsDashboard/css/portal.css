@@ -12076,8 +12076,8 @@ button.close:focus {
     border-left: 3px solid rgba(0, 0, 0, 0);
 }
 .app-nav .nav-link.active {
-    color: #452f92;
-    background: #edfdf6;
+    color: #fff;
+    background: #452F92;
     border-left: 3px solid #452f92;
     font-weight: 500;
 }
