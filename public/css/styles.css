@@ -55,10 +55,7 @@
     --bs-black-rgb: 0, 0, 0;
     --bs-body-color-rgb: 33, 37, 41;
     --bs-body-bg-rgb: 255, 255, 255;
-    --bs-font-sans-serif: "Merriweather Sans", -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji";
+    --bs-font-sans-serif: Gotham, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
     --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
         "Liberation Mono", "Courier New", monospace;
     --bs-gradient: linear-gradient(
@@ -1825,7 +1822,7 @@ progress {
 }
 
 .table__body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Gotham, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 .table > :not(caption) > * > * {
@@ -11614,6 +11611,7 @@ main.table {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: Gotham, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 .table__header .input-group {
@@ -11657,7 +11655,7 @@ main.table {
     margin: 0.8rem auto;
     border-radius: 0.6rem;
 
-    overflow: auto;
+    overflow: scroll;
     overflow: overlay;
 }
 

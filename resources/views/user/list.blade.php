@@ -27,30 +27,25 @@
                                     <form class="table-search-form row gx-1 align-items-center">
 
                                         <div class="col-auto">
-                                            <input type="text" id="search-orders" name="searchorders"
-                                                class="form-control search-orders" placeholder="Cari user dari Nama">
+                                            <input type="text" id="name" value="{{ Request::get('name') }}"
+                                                name="name" class="form-control search-orders"
+                                                placeholder="Cari user dari Nama">
                                         </div>
 
                                         <div class="col-auto">
                                             <button type="submit" class="btn app-btn-secondary">Cari</button>
                                         </div>
 
+                                        <div class="col-auto">
+                                            <a href="{{ route('user.list') }}" class="btn app-btn-secondary">Clear</a>
+                                        </div>
+
                                     </form>
 
                                 </div><!--//col-->
 
-                                {{-- <div class="col-auto">
-
-                                    <select class="form-select w-auto">
-                                        <option selected value="option-1">All</option>
-                                        <option value="option-2">This week</option>
-                                        <option value="option-3">This month</option>
-                                        <option value="option-4">Last 3 months</option>
-                                    </select>
-                                </div> --}}
-
                                 <div class="col-auto">
-                                    <a class="btn app-btn-secondary" href="#">
+                                    <a class="btn app-btn-secondary" href="{{ route('download.csv') }}">
                                         <svg width="1em" height="1em" viewBox="0 0 16 16"
                                             class="bi bi-download me-1" fill="currentColor"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -62,6 +57,8 @@
                                         Download CSV
                                     </a>
                                 </div>
+
+
 
                             </div><!--//row-->
 
@@ -145,6 +142,7 @@
                                 </div><!--//table-responsive-->
 
                             </div><!--//app-card-body-->
+
                         </div><!--//app-card-->
 
                         <nav class="app-pagination">

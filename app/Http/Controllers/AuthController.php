@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -72,10 +73,37 @@ class AuthController extends Controller
     public function listUser()
     {
         $Title = 'User - IMM - GA - P2H Unit';
-        $User = User::where('role', 'user')->get();
+        $User = User::getUser();
         return view('user.list', compact('Title', 'User'));
     }
 
+    public function downloadCsv()
+    {
+        $users = User::getUser(); // Ubah ini dengan kueri yang sesuai untuk data Anda
+
+        $csvFileName = 'users.csv';
+
+        $headers = array(
+            "Content-type" => "text/csv",
+            "Content-Disposition" => "attachment; filename=$csvFileName",
+            "Pragma" => "no-cache",
+            "Cache-Control" => "must-revalidate, post-check=0, pre-check=0",
+            "Expires" => "0"
+        );
+
+        $handle = fopen('php://output', 'w');
+        fputcsv($handle, ['ID', 'Name', 'Email']); // Ubah ini sesuai dengan kolom yang Anda inginkan
+
+        foreach ($users as $user) {
+            fputcsv($handle, [$user->id, $user->name, $user->email]); // Ubah ini sesuai dengan data yang ingin Anda tampilkan
+        }
+
+        fclose($handle);
+
+        return Response::stream(function () use ($handle) {
+            fclose($handle);
+        }, 200, $headers);
+    }
 
     public function addUser()
     {

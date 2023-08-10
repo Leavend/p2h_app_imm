@@ -1,427 +1,108 @@
-@include('layoutDashboard.header')
+@include('layoutLanding.header')
 
-<body class="app">
+<body id="page-top">
 
-    @include('layoutDashboard.navbar')
 
-    <div class="app-wrapper">
+    @include('layoutLanding.navbar')
 
-        <div class="app-content pt-3 p-md-3 p-lg-4">
-            <div class="container-xl">
 
-                <div class="row g-3 mb-4 align-items-center justify-content-between">
+    <section class="background-radial-gradient overflow-hidden">
+        <style>
+            .background-radial-gradient {
+                background-image: url("./assets/img/formsvg.svg");
+                background-size: 100%;
+            }
 
-                    <div class="col-auto">
-                        <h1 class="app-page-title mb-0">P2H</h1>
+            #radius-shape-1 {
+                height: 220px;
+                width: 220px;
+                top: -60px;
+                left: -130px;
+                background: radial-gradient(#44006b, #ad1fff);
+                overflow: hidden;
+            }
+
+            #radius-shape-2 {
+                border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+                bottom: -60px;
+                right: -110px;
+                width: 300px;
+                height: 300px;
+                background: radial-gradient(#44006b, #ad1fff);
+                overflow: hidden;
+            }
+        </style>
+
+        <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+            <div class="row gx-lg-5 align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+
+                </div>
+
+                <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+                    <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+                    <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+                    <div class="card bg-glass">
+                        <div class="card-body-tt px-4 py-5 px-md-5">
+                            <form>
+                                <div class="card-body p-md-3 mx-md-4">
+                                    <div class="">
+                                        <img src="/assets/img/IMM.svg" style="width: 90px" alt="logo" />
+                                        <div class="Welcome">
+                                            <p class="mt-1 mt-3 pt-2">Welcome to</p>
+                                        </div>
+                                        <h4 class="mt-1 mb-4 pt-2">IMM Pemeriksaan Pengecekan Harian P2H</h4>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="setting-input-1" class="form-label">Nama Pemeriksa<span
+                                                class="ms-2" data-bs-container="body" data-bs-toggle="popover"
+                                                data-bs-trigger="hover focus" data-bs-placement="top"
+                                                data-bs-content="This is a Bootstrap popover example. You can use popover to provide extra info."><svg
+                                                    width="1em" height="1em" viewBox="0 0 16 16"
+                                                    class="bi bi-info-circle" fill="currentColor"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd"
+                                                        d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                                    <path
+                                                        d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z" />
+                                                    <circle cx="8" cy="4.5" r="1" />
+                                                </svg></span></label>
+                                        <input type="text" class="form-control" id="setting-input-1"
+                                            placeholder="Tulis Nama Lengkap" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="setting-input-2" class="form-label">NIK</label>
+                                        <input type="text" class="form-control" id="setting-input-2"
+                                            placeholder="Masukkan NIK" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="setting-input-3" class="form-label">Departemen</label>
+                                        <input type="email" class="form-control" id="setting-input-3"
+                                            placeholder="Departemen" required>
+                                    </div>
+                                    <div class="mb-5">
+                                        <label for="setting-input-3" class="form-label">No HP</label>
+                                        <input type="email" class="form-control" id="setting-input-3"
+                                            placeholder="Nomor Handphone" required>
+                                    </div>
+
+
+
+                                    <!-- Submit button -->
+                                    <button type="submit" class="btn btn-primary btn-block mb-2">
+                                        Next
+                                    </button>
+
+                            </form>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <div class="col-auto">
+    @include('layoutLanding.footer')
 
-                        <div class="page-utilities">
-
-                            <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
-                                <div class="col-auto">
-                                    <form class="table-search-form row gx-1 align-items-center">
-                                        <div class="col-auto">
-                                            <input type="text" id="search-orders" name="searchorders"
-                                                class="form-control search-orders" placeholder="Search">
-                                        </div>
-                                        <div class="col-auto">
-                                            <button type="submit" class="btn app-btn-secondary">Search</button>
-                                        </div>
-                                    </form>
-
-                                </div><!--//col-->
-
-                                <div class="col-auto">
-
-                                    <select class="form-select w-auto">
-                                        <option selected value="option-1">All</option>
-                                        <option value="option-2">This week</option>
-                                        <option value="option-3">This month</option>
-                                        <option value="option-4">Last 3 months</option>
-
-                                    </select>
-                                </div>
-
-                            </div><!--//row-->
-
-                        </div><!--//table-utilities-->
-
-                    </div><!--//col-auto-->
-
-                </div><!--//row-->
-
-
-                <nav id="orders-table-tab"
-                    class="orders-table-tab app-nav-tabs nav shadow-lg flex-column flex-sm-row mb-4">
-                    <a class="flex-sm-fill text-sm-center nav-link active" id="orders-all-tab" data-bs-toggle="tab"
-                        href="#all" role="tab" aria-controls="orders-all" aria-selected="true">All</a>
-                    <a class="flex-sm-fill text-sm-center nav-link" id="orders-paid-tab" data-bs-toggle="tab"
-                        href="#belum" role="tab" aria-controls="bus" aria-selected="false">Belum Pemeriksaan</a>
-                    <a class="flex-sm-fill text-sm-center nav-link" id="orders-pending-tab" data-bs-toggle="tab"
-                        href="#menunggu" role="tab" aria-controls="orders-pending" aria-selected="false">Menunggu
-                        Verifikasi</a>
-                    <a class="flex-sm-fill text-sm-center nav-link" id="orders-cancelled-tab" data-bs-toggle="tab"
-                        href="#verifikasi" role="tab" aria-controls="orders-cancelled"
-                        aria-selected="false">Terverifikasi</a>
-                </nav>
-
-
-                <div class="tab-content" id="orders-table-tab-content">
-
-                    <div class="tab-pane fade show active" id="all" role="tabpanel"
-                        aria-labelledby="orders-all-tab">
-
-                        <div class="app-card app-card-orders-table shadow-sm mb-5">
-
-                            <div class="app-card-body">
-
-                                <div class="table-responsive">
-
-                                    <table class="table app-table-hover mb-0 text-left">
-                                        <thead>
-                                            <tr>
-                                                <th class="cell">No</th>
-                                                <th class="cell">Jenis Kendaraan</th>
-                                                <th class="cell">Nomor Lambung</th>
-                                                <th class="cell">Nomor Polisi</th>
-                                                <th class="cell">Keterangan</th>
-                                                <th class="cell">Status</th>
-                                                <th class="cell">Waktu</th>
-                                                <th class="cell"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php $no = 0; ?>
-                                            @forelse ($p2hToday as $x)
-                                                <tr>
-                                                    <td class="cell">{{ ++$no }}</td>
-                                                    <td class="cell">{{ $x->kendaraan->jenis_kendaraan }}</td>
-                                                    <td class="cell">{{ $x->kendaraan->nomor_lambung }}</td>
-                                                    <td class="cell">{{ $x->kendaraan->nomor_polisi }}</td>
-                                                    <td class="cell">{{ $x->keterangan }}</td>
-                                                    @if ($x->status == 'belum diperiksa')
-                                                        <td class="cell">
-                                                            <span class="badge bg-danger">Belum Pemeriksaan</span>
-                                                        </td>
-                                                    @elseif ($x->status == 'menunggu verifikasi')
-                                                        <td class="cell">
-                                                            <span class="badge bg-warning">Menunggu Verifikasi</span>
-                                                        </td>
-                                                    @elseif ($x->status == 'terverifikasi')
-                                                        <td class="cell">
-                                                            <span class="badge bg-success">Terverifikasi</span>
-                                                        </td>
-                                                    @endif
-                                                    <td class="cell">
-                                                        <?php $tanggalCarbon = \Carbon\Carbon::parse($x->tanggal); ?>
-                                                        <?php $jamCarbon = \Carbon\Carbon::parse($x->jam); ?>
-                                                        <span>{{ $tanggalCarbon->format('d M') }}</span>
-                                                        <span class="note">{{ $jamCarbon->format('g:i A') }}</span>
-                                                    </td>
-                                                    <td class="cell">
-                                                        <a href="{{ url('user/p2h/detail/' . $x->id) }}"
-                                                            class="btn btn-circle btn-info"><i
-                                                                class="fas fa-eye"></i></a>
-                                                        <a href="{{ url('user/p2h/form/' . $x->id) }}"
-                                                            class="btn btn-circle btn-warning">
-                                                            <i class="fab fa-wpforms"></i></a>
-                                                    </td>
-                                                </tr>
-                                            @empty
-                                                <tr>
-                                                    <td class="cell" colspan="6" style="text-align: center;">
-                                                        Data Tidak Ada.
-                                                    </td>
-                                                </tr>
-                                            @endforelse
-                                        </tbody>
-                                    </table>
-
-                                </div><!--//table-responsive-->
-
-                            </div><!--//app-card-body-->
-
-                        </div><!--//app-card-->
-
-                        <nav class="app-pagination">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1"
-                                        aria-disabled="true">Previous</a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav><!--//app-pagination-->
-
-                    </div><!--//tab-pane-->
-
-
-                    <div class="tab-pane fade" id="belum" role="tabpanel" aria-labelledby="orders-paid-tab">
-
-                        <div class="app-card app-card-orders-table mb-5">
-
-                            <div class="app-card-body">
-
-                                <div class="table-responsive">
-
-                                    <table class="table app-table-hover mb-0 text-left">
-                                        <thead>
-                                            <tr>
-                                                <th class="cell">No</th>
-                                                <th class="cell">Jenis Kendaraan</th>
-                                                <th class="cell">Nomor Lambung</th>
-                                                <th class="cell">Nomor Polisi</th>
-                                                <th class="cell">Keterangan</th>
-                                                <th class="cell">Status</th>
-                                                <th class="cell">Waktu</th>
-                                                <th class="cell"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php $no = 0; ?>
-                                            <?php $dataExist = false; ?>
-                                            @forelse ($p2hToday as $x)
-                                                @if ($x->status === 'belum diperiksa')
-                                                    <?php $dataExist = true; ?>
-                                                    <tr>
-                                                        <td class="cell">{{ ++$no }}</td>
-                                                        <td class="cell">{{ $x->kendaraan->jenis_kendaraan }}</td>
-                                                        <td class="cell">{{ $x->kendaraan->nomor_lambung }}</td>
-                                                        <td class="cell">{{ $x->kendaraan->nomor_polisi }}</td>
-                                                        <td class="cell">{{ $x->keterangan }}</td>
-                                                        <td class="cell">
-                                                            <span class="badge bg-danger">
-                                                                Belum Pemeriksaan
-                                                            </span>
-                                                        </td>
-                                                        <td class="cell">
-                                                            <?php $tanggalCarbon = \Carbon\Carbon::parse($x->tanggal); ?>
-                                                            <?php $jamCarbon = \Carbon\Carbon::parse($x->jam); ?>
-                                                            <span>{{ $tanggalCarbon->format('d M') }}</span>
-                                                            <span
-                                                                class="note">{{ $jamCarbon->format('g:i A') }}</span>
-                                                        </td>
-                                                        <td class="cell">
-                                                            <a href="{{ url('admin/p2h/detail/' . $x->id) }}"
-                                                                class="btn btn-circle btn-info"><i
-                                                                    class="fas fa-eye"></i></a>
-                                                            <a href="{{ url('admin/p2h/edit/' . $x->id) }}"
-                                                                class="btn btn-circle btn-warning"><i
-                                                                    class="fas fa-edit"></i></a>
-                                                            <a href="{{ url('admin/p2h/hapus/' . $x->id) }}"
-                                                                class="btn btn-circle btn-danger"><i
-                                                                    class="fas fa-trash-alt"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                @endif
-                                            @empty
-                                                <tr>
-                                                    <td class="cell" colspan="11" style="text-align: center;">
-                                                        Data
-                                                        Tidak Ada.</td>
-                                                </tr>
-                                            @endforelse
-                                            @if (!$dataExist)
-                                                <tr>
-                                                    <td class="cell" colspan="11" style="text-align: center;">
-                                                        Data Tidak Ada.</td>
-                                                </tr>
-                                            @endif
-                                        </tbody>
-                                    </table>
-
-                                </div><!--//table-responsive-->
-
-                            </div><!--//app-card-body-->
-
-                        </div><!--//app-card-->
-
-                    </div><!--//tab-pane-->
-
-
-                    <div class="tab-pane fade" id="menunggu" role="tabpanel" aria-labelledby="orders-pending-tab">
-
-                        <div class="app-card app-card-orders-table mb-5">
-
-                            <div class="app-card-body">
-
-                                <div class="table-responsive">
-
-                                    <table class="table app-table-hover mb-0 text-left">
-                                        <thead>
-                                            <tr>
-                                                <th class="cell">No</th>
-                                                <th class="cell">Jenis Kendaraan</th>
-                                                <th class="cell">Nomor Lambung</th>
-                                                <th class="cell">Nomor Polisi</th>
-                                                <th class="cell">Keterangan</th>
-                                                <th class="cell">Status</th>
-                                                <th class="cell">Waktu</th>
-                                                <th class="cell"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php $no = 0; ?>
-                                            <?php $dataExist = false; ?>
-                                            @forelse ($p2hToday as $x)
-                                                @if ($x->status === 'menunggu verifikasi')
-                                                    <?php $dataExist = true; ?>
-                                                    <tr>
-                                                        <td class="cell">{{ ++$no }}</td>
-                                                        <td class="cell">{{ $x->kendaraan->jenis_kendaraan }}</td>
-                                                        <td class="cell">{{ $x->kendaraan->nomor_lambung }}</td>
-                                                        <td class="cell">{{ $x->kendaraan->nomor_polisi }}</td>
-                                                        <td class="cell">{{ $x->keterangan }}</td>
-                                                        <td class="cell">
-                                                            <span class="badge bg-warning">
-                                                                Menunggu Verifikasi
-                                                            </span>
-                                                        </td>
-                                                        <td class="cell">
-                                                            <?php $tanggalCarbon = \Carbon\Carbon::parse($x->tanggal); ?>
-                                                            <?php $jamCarbon = \Carbon\Carbon::parse($x->jam); ?>
-                                                            <span>{{ $tanggalCarbon->format('d M') }}</span>
-                                                            <span
-                                                                class="note">{{ $jamCarbon->format('g:i A') }}</span>
-                                                        </td>
-                                                        <td class="cell">
-                                                            <a href="{{ url('admin/p2h/detail/' . $x->id) }}"
-                                                                class="btn btn-circle btn-info"><i
-                                                                    class="fas fa-eye"></i></a>
-                                                            <a href="{{ url('admin/p2h/edit/' . $x->id) }}"
-                                                                class="btn btn-circle btn-warning"><i
-                                                                    class="fas fa-edit"></i></a>
-                                                            <a href="{{ url('admin/p2h/hapus/' . $x->id) }}"
-                                                                class="btn btn-circle btn-danger"><i
-                                                                    class="fas fa-trash-alt"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                @endif
-                                            @empty
-                                                <tr>
-                                                    <td class="cell" colspan="11" style="text-align: center;">
-                                                        Data Tidak Ada.</td>
-                                                </tr>
-                                            @endforelse
-                                            @if (!$dataExist)
-                                                <tr>
-                                                    <td class="cell" colspan="11" style="text-align: center;">
-                                                        Data Tidak Ada.</td>
-                                                </tr>
-                                            @endif
-                                        </tbody>
-                                    </table>
-
-                                </div><!--//table-responsive-->
-
-                            </div><!--//app-card-body-->
-
-                        </div><!--//app-card-->
-
-                    </div><!--//tab-pane-->
-
-
-                    <div class="tab-pane fade" id="verifikasi" role="tabpanel"
-                        aria-labelledby="orders-cancelled-tab">
-
-                        <div class="app-card app-card-orders-table mb-5">
-
-                            <div class="app-card-body">
-
-                                <div class="table-responsive">
-
-                                    <table class="table app-table-hover mb-0 text-left">
-                                        <thead>
-                                            <tr>
-                                                <th class="cell">No</th>
-                                                <th class="cell">Jenis Kendaraan</th>
-                                                <th class="cell">Nomor Lambung</th>
-                                                <th class="cell">Nomor Polisi</th>
-                                                <th class="cell">Keterangan</th>
-                                                <th class="cell">Status</th>
-                                                <th class="cell">Waktu</th>
-                                                <th class="cell"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php $no = 0; ?>
-                                            <?php $dataExist = false; ?>
-                                            @forelse ($p2hToday as $x)
-                                                @if ($x->status === 'terverifikasi')
-                                                    <?php $dataExist = true; ?>
-                                                    <tr>
-                                                        <td class="cell">{{ ++$no }}</td>
-                                                        <td class="cell">{{ $x->kendaraan->jenis_kendaraan }}</td>
-                                                        <td class="cell">{{ $x->kendaraan->nomor_lambung }}</td>
-                                                        <td class="cell">{{ $x->kendaraan->nomor_polisi }}</td>
-                                                        <td class="cell">{{ $x->keterangan }}</td>
-                                                        <td class="cell">
-                                                            <span class="badge bg-success">
-                                                                Terverifikasi
-                                                            </span>
-                                                        </td>
-                                                        <td class="cell">
-                                                            <?php $tanggalCarbon = \Carbon\Carbon::parse($x->tanggal); ?>
-                                                            <?php $jamCarbon = \Carbon\Carbon::parse($x->jam); ?>
-                                                            <span>{{ $tanggalCarbon->format('d M') }}</span>
-                                                            <span
-                                                                class="note">{{ $jamCarbon->format('g:i A') }}</span>
-                                                        </td>
-                                                        <td class="cell">
-                                                            <a href="{{ url('admin/p2h/detail/' . $x->id) }}"
-                                                                class="btn btn-circle btn-info"><i
-                                                                    class="fas fa-eye"></i></a>
-                                                            <a href="{{ url('admin/p2h/edit/' . $x->id) }}"
-                                                                class="btn btn-circle btn-warning"><i
-                                                                    class="fas fa-edit"></i></a>
-                                                            <a href="{{ url('admin/p2h/hapus/' . $x->id) }}"
-                                                                class="btn btn-circle btn-danger"><i
-                                                                    class="fas fa-trash-alt"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                @endif
-                                            @empty
-                                                <tr>
-                                                    <td class="cell" colspan="11" style="text-align: center;">
-                                                        Data Tidak Ada.</td>
-                                                </tr>
-                                            @endforelse
-                                            @if (!$dataExist)
-                                                <tr>
-                                                    <td class="cell" colspan="11" style="text-align: center;">
-                                                        Data Tidak Ada.</td>
-                                                </tr>
-                                            @endif
-                                        </tbody>
-                                    </table>
-
-                                </div><!--//table-responsive-->
-
-                            </div><!--//app-card-body-->
-
-                        </div><!--//app-card-->
-
-                    </div><!--//tab-pane-->
-
-                </div><!--//tab-content-->
-
-
-
-            </div><!--//container-fluid-->
-        </div><!--//app-content-->
-
-        @include('layoutDashboard.footer')
-
-    </div><!--//app-wrapper-->
-
-
-    @include('layoutDashboard.js')
 
 </body>
