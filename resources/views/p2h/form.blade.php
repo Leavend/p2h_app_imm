@@ -6,143 +6,93 @@
     @include('layoutLanding.navbar')
 
 
-    @include('layoutLanding.hero')
+    <section class="background-radial-gradient overflow-hidden">
+      <style>
+        .background-radial-gradient {
+          background-image: url("./assets/img/formsvg.svg");
+          background-size: 100%;
+        }
+    
+        #radius-shape-1 {
+          height: 220px;
+          width: 220px;
+          top: -60px;
+          left: -130px;
+          background: radial-gradient(#44006b, #ad1fff);
+          overflow: hidden;
+        }
+    
+        #radius-shape-2 {
+          border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+          bottom: -60px;
+          right: -110px;
+          width: 300px;
+          height: 300px;
+          background: radial-gradient(#44006b, #ad1fff);
+          overflow: hidden;
+        }
+      </style>
+    
+      <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+        <div class="row gx-lg-5 align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+            
+          </div>
+    
+          <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+            <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+            <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+    
+            <div class="card bg-glass">
+              <div class="card-body-tt px-4 py-5 px-md-5">
+                <form>
+                  <div class="card-body p-md-3 mx-md-4">
+                    <div class="">
+                      <img
+                        src="/assets/img/IMM.svg"
+                        style="width: 90px"
+                        alt="logo"
+                      />
+                      <div class="Welcome">
+                        <p class="mt-1 mt-3 pt-2">Welcome to</p>
+                      </div>
+                      <h4 class="mt-1 mb-4 pt-2">IMM Pemeriksaan Pengecekan Harian P2H</h4>
+                    </div>
+                    <div class="mb-3">
+                      <label for="setting-input-1" class="form-label">Nama Pemeriksa<span class="ms-2" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover focus"  data-bs-placement="top" data-bs-content="This is a Bootstrap popover example. You can use popover to provide extra info."><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                        <circle cx="8" cy="4.5" r="1"/>
+                      </svg></span></label>
+                      <input type="text" class="form-control" id="setting-input-1" placeholder="Tulis Nama Lengkap" required>
+                  </div>
+                  <div class="mb-3">
+                      <label for="setting-input-2" class="form-label">NIK</label>
+                      <input type="text" class="form-control" id="setting-input-2" placeholder="Masukkan NIK" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="setting-input-3" class="form-label">Departemen</label>
+                    <input type="email" class="form-control" id="setting-input-3" placeholder="Departemen"  required>
+                  </div>
+                  <div class="mb-5">
+                    <label for="setting-input-3" class="form-label">No HP</label>
+                    <input type="email" class="form-control" id="setting-input-3" placeholder="Nomor Handphone"  required>
+                  </div>
+    
 
-
-    <!-- Display P2H & Kendaraan -->
-    <div class="tabel-manis">
-        <main class="table">
-            <section class="page-section" id="kendaraan">
-                <div class="container px-4 px-lg-5">
-                    <h2 class="text-center mt-0">Daftar P2H Hari Ini</h2>
-                    <hr class="divider divider-light" />
-                    <section class="table__header">
-                        {{-- <div class="input-group">
-                            <input type="search" placeholder="Search Data..." />
-                        </div> --}}
-                        {{-- <div class="export__file">
-                            <label for="export-file" class="export__file-btn" title="Export File"></label>
-                            <input type="checkbox" id="export-file" />
-                            <div class="export__file-options">
-                                <label>Export As &nbsp; &#10140;</label>
-                                <label for="export-file" id="toPDF">PDF <img src="images/pdf.png"
-                                        alt="" /></label>
-                                <label for="export-file" id="toJSON">JSON <img src="images/json.png"
-                                        alt="" /></label>
-                                <label for="export-file" id="toCSV">CSV <img src="images/csv.png"
-                                        alt="" /></label>
-                                <label for="export-file" id="toEXCEL">EXCEL <img src="images/excel.png"
-                                        alt="" /></label>
-                            </div>
-                        </div> --}}
-                    </section>
-                    <section class="table__body">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Jenis Kendaraan</th>
-                                    <th>No Lambung</th>
-                                    <th>Keterangan</th>
-                                    <th>Status</th>
-                                    <th>Tanggal</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($p2hToday as $x)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $x->kendaraan->jenis_kendaraan }}</td>
-                                        <td>{{ $x->kendaraan->nomor_lambung }}</td>
-                                        <td>{{ $x->keterangan }}</td>
-                                        <td>
-                                            @if ($x->status == 'terverifikasi')
-                                                <p class="status delivered">Terverifikasi</p>
-                                            @elseif ($x->status == 'menunggu verifikasi')
-                                                <p class="status cancelled">Menunggu Verifikasi</p>
-                                            @else
-                                                <p class="status shipped">Belum Diperiksa</p>
-                                            @endif
-                                        </td>
-                                        <td>{{ $x->tanggal }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        {{-- <div style="padding: 20px; float: right">
-                            {{ $All->links() }}
-                        </div> --}}
-
-
-        </main>
-    </div>
-    <div class="tabel-manis">
-        <main class="table">
-            <section class="page-section px-4" id="services">
-                <div class="container px-4 px-lg-5">
-                    <h2 class="text-center mt-0">Daftar Kendaraan</h2>
-                    <hr class="divider divider-light" />
-                    <section class="table__header">
-                        {{-- <div class="input-group">
-                            <input type="search" placeholder="Search Data..." />
-                        </div>
-                        <div class="export__file">
-                            <label for="export-file" class="export__file-btn" title="Export File"></label>
-                            <input type="checkbox" id="export-file" />
-                            <div class="export__file-options">
-                                <label>Export As &nbsp; &#10140;</label>
-                                <label for="export-file" id="toPDF">PDF <img src="images/pdf.png"
-                                        alt="" /></label>
-                                <label for="export-file" id="toJSON">JSON <img src="images/json.png"
-                                        alt="" /></label>
-                                <label for="export-file" id="toCSV">CSV <img src="images/csv.png"
-                                        alt="" /></label>
-                                <label for="export-file" id="toEXCEL">EXCEL <img src="images/excel.png"
-                                        alt="" /></label>
-                            </div>
-                        </div> --}}
-                    </section>
-                    <section class="table__body">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Jenis Kendaraan</th>
-                                    <th>No Lambung</th>
-                                    <th>Tanggal</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php $No = 1; ?>
-                                @foreach ($p2hToday as $x)
-                                    <tr>
-                                        <td>{{ $No++ }}</td>
-                                        <td>{{ $x->kendaraan->jenis_kendaraan }}</td>
-                                        <td>{{ $x->kendaraan->nomor_lambung }}</td>
-                                        <td>
-                                            {{ \Carbon\Carbon::parse($x->kendaraan->created_at, 'Asia/Makassar')->format('d M g:i A') }}
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </section>
-        </main>
-    </div>
-
-    <!-- P2h -->
-    <section class="page-section bg-imm" id="p2h">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2 class="text-white mt-0">Lakukan Pemeriksaan</h2>
-                    <hr class="divider divider-light" />
-                    <a class="btn btn-light btn-xl" href="{{ route('p2h-cek.list') }}">P2H!</a>
-                </div>
+    
+                  <!-- Submit button -->
+                  <button type="submit" class="btn btn-primary btn-block mb-2">
+                    Next
+                  </button>
+    
+                </form>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
-
 
     @include('layoutLanding.footer')
 
