@@ -105,6 +105,7 @@
                                         <thead>
                                             <tr>
                                                 <th class="cell">No</th>
+                                                <th class="cell">Nama Pemeriksa</th>
                                                 <th class="cell">Jenis Kendaraan</th>
                                                 <th class="cell">Nomor Lambung</th>
                                                 <th class="cell">Nomor Polisi</th>
@@ -122,6 +123,7 @@
                                             @forelse ($All as $x)
                                                 <tr>
                                                     <td class="cell">{{ ++$no }}</td>
+                                                    <td class="cell">{{ $x->nama_pemeriksa }}</td>
                                                     <td class="cell">{{ $x->kendaraan->jenis_kendaraan }}</td>
                                                     <td class="cell">{{ $x->kendaraan->nomor_lambung }}</td>
                                                     <td class="cell">{{ $x->kendaraan->nomor_polisi }}</td>
@@ -218,6 +220,7 @@
                                         <thead>
                                             <tr>
                                                 <th class="cell">No</th>
+                                                <th class="cell">Nama Pemeriksa</th>
                                                 <th class="cell">Jenis Kendaraan</th>
                                                 <th class="cell">Nomor Lambung</th>
                                                 <th class="cell">Nomor Polisi</th>
@@ -238,6 +241,7 @@
                                                     <?php $dataExist = true; ?>
                                                     <tr>
                                                         <td class="cell">{{ ++$no }}</td>
+                                                        <td class="cell">{{ $x->nama_pemeriksa }}</td>
                                                         <td class="cell">{{ $x->kendaraan->jenis_kendaraan }}</td>
                                                         <td class="cell">{{ $x->kendaraan->nomor_lambung }}</td>
                                                         <td class="cell">{{ $x->kendaraan->nomor_polisi }}</td>
@@ -319,6 +323,7 @@
                                         <thead>
                                             <tr>
                                                 <th class="cell">No</th>
+                                                <th class="cell">Nama Pemeriksa</th>
                                                 <th class="cell">Jenis Kendaraan</th>
                                                 <th class="cell">Nomor Lambung</th>
                                                 <th class="cell">Nomor Polisi</th>
@@ -339,6 +344,7 @@
                                                     <?php $dataExist = true; ?>
                                                     <tr>
                                                         <td class="cell">{{ ++$no }}</td>
+                                                        <td class="cell">{{ $x->nama_pemeriksa }}</td>
                                                         <td class="cell">{{ $x->kendaraan->jenis_kendaraan }}</td>
                                                         <td class="cell">{{ $x->kendaraan->nomor_lambung }}</td>
                                                         <td class="cell">{{ $x->kendaraan->nomor_polisi }}</td>
@@ -421,6 +427,7 @@
                                         <thead>
                                             <tr>
                                                 <th class="cell">No</th>
+                                                <th class="cell">Nama Pemeriksa</th>
                                                 <th class="cell">Jenis Kendaraan</th>
                                                 <th class="cell">Nomor Lambung</th>
                                                 <th class="cell">Nomor Polisi</th>
@@ -441,6 +448,7 @@
                                                     <?php $dataExist = true; ?>
                                                     <tr>
                                                         <td class="cell">{{ ++$no }}</td>
+                                                        <td class="cell">{{ $x->nama_pemeriksa }}</td>
                                                         <td class="cell">{{ $x->kendaraan->jenis_kendaraan }}</td>
                                                         <td class="cell">{{ $x->kendaraan->nomor_lambung }}</td>
                                                         <td class="cell">{{ $x->kendaraan->nomor_polisi }}</td>

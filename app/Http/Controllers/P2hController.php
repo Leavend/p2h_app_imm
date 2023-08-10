@@ -7,6 +7,8 @@ use App\Models\Kendaraan;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use TelegramBot\Api\BotApi;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
 
 
 class P2hController extends Controller
@@ -15,16 +17,16 @@ class P2hController extends Controller
     public function index()
     {
         $Title = 'IMM - GA - P2H Unit';
-        $p2hToday = P2h::whereDate('tanggal', Carbon::today('Asia/Makassar'))->paginate(10);
-        $kendaraanData = Kendaraan::orderBy('id', 'asc')->paginate(10);
-        return view('welcome', compact('Title', 'p2hToday', 'kendaraanData'));
-    }
+        $p2hPaginator = P2h::getp2h();
+        $kendaraanPaginator = Kendaraan::getkendaraan();
 
+        return view('welcome', compact('Title', 'p2hPaginator', 'kendaraanPaginator'));
+    }
 
     public function indexToday()
     {
         $Title = 'IMM - GA - P2H Unit';
-        $p2hToday = P2h::whereDate('tanggal', Carbon::today('Asia/Makassar'))->where('status', 'belum diperiksa')->paginate(10);
+        $p2hToday = P2h::whereDate('tanggal', Carbon::today('Asia/Makassar'))->where('status', 'belum diperiksa')->get();
         return view('p2h.indexAll', compact('Title', 'p2hToday'));
     }
 

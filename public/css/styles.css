@@ -2000,37 +2000,39 @@ progress {
 }
 
 .table-responsive {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    max-height: 400px;
+    overflow: scroll;
+    /* -webkit-overflow-scrolling: touch;
+    padding-top: 3px; */
 }
 
 @media (max-width: 575.98px) {
     .table-responsive-sm {
-        overflow-x: auto;
+        overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
     }
 }
 @media (max-width: 767.98px) {
     .table-responsive-md {
-        overflow-x: auto;
+        overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
     }
 }
 @media (max-width: 991.98px) {
     .table-responsive-lg {
-        overflow-x: auto;
+        overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
     }
 }
 @media (max-width: 1199.98px) {
     .table-responsive-xl {
-        overflow-x: auto;
+        overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
     }
 }
 @media (max-width: 1399.98px) {
     .table-responsive-xxl {
-        overflow-x: auto;
+        overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
     }
 }
@@ -4681,87 +4683,96 @@ fieldset:disabled .btn {
 }
 
 .pagination {
-    --bs-pagination-padding-x: 0.75rem;
-    --bs-pagination-padding-y: 0.375rem;
-    --bs-pagination-font-size: 1rem;
-    --bs-pagination-color: var(--bs-link-color);
-    --bs-pagination-bg: #fff;
-    --bs-pagination-border-width: 1px;
-    --bs-pagination-border-color: #dee2e6;
-    --bs-pagination-border-radius: 0.375rem;
-    --bs-pagination-hover-color: var(--bs-link-hover-color);
-    --bs-pagination-hover-bg: #e9ecef;
-    --bs-pagination-hover-border-color: #dee2e6;
-    --bs-pagination-focus-color: var(--bs-link-hover-color);
-    --bs-pagination-focus-bg: #e9ecef;
-    --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(244, 98, 58, 0.25);
-    --bs-pagination-active-color: #fff;
-    --bs-pagination-active-bg: #f4623a;
-    --bs-pagination-active-border-color: #f4623a;
-    --bs-pagination-disabled-color: #6c757d;
-    --bs-pagination-disabled-bg: #fff;
-    --bs-pagination-disabled-border-color: #dee2e6;
     display: flex;
     padding-left: 0;
     list-style: none;
-} */
+}
 
-/* .page-link {
+/* Contoh untuk mengubah ukuran SVG menjadi w-8 h-8 */
+.w-5,
+.h-5 {
+    width: 1.25rem; /* Mengubah ukuran width */
+    height: 1.25rem; /* Mengubah ukuran height */
+}
+
+.page-link {
     position: relative;
     display: block;
-    padding: var(--bs-pagination-padding-y) var(--bs-pagination-padding-x);
-    font-size: var(--bs-pagination-font-size);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
     color: var(--bs-pagination-color);
     text-decoration: none;
-    background-color: var(--bs-pagination-bg);
-    border: var(--bs-pagination-border-width) solid
-        var(--bs-pagination-border-color);
+    background-color: #fff;
+    border: 1px solid #dee2e6;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
         border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-} */
-/* @media (prefers-reduced-motion: reduce) {
+}
+
+/* Ganti ukuran font dan padding untuk pagination */
+.pagination .page-link {
+    font-size: 14px; /* Sesuaikan ukuran font */
+    padding: 5px 10px; /* Sesuaikan padding */
+}
+
+/* Ganti ukuran font untuk pagination yang lebih besar */
+.pagination-lg .page-link {
+    font-size: 18px; /* Sesuaikan ukuran font lebih besar */
+}
+
+/* Ganti ukuran font untuk pagination yang lebih kecil */
+.pagination-sm .page-link {
+    font-size: 12px; /* Sesuaikan ukuran font lebih kecil */
+}
+
+@media (prefers-reduced-motion: reduce) {
     .page-link {
         transition: none;
     }
 }
+
 .page-link:hover {
     z-index: 2;
     color: var(--bs-pagination-hover-color);
-    background-color: var(--bs-pagination-hover-bg);
-    border-color: var(--bs-pagination-hover-border-color);
+    background-color: #e9ecef;
+    border-color: #dee2e6;
 }
+
 .page-link:focus {
     z-index: 3;
     color: var(--bs-pagination-focus-color);
-    background-color: var(--bs-pagination-focus-bg);
+    background-color: #e9ecef;
     outline: 0;
-    box-shadow: var(--bs-pagination-focus-box-shadow);
+    box-shadow: 0 0 0 0.25rem rgba(244, 98, 58, 0.25);
 }
+
 .page-link.active,
 .active > .page-link {
     z-index: 3;
-    color: var(--bs-pagination-active-color);
-    background-color: var(--bs-pagination-active-bg);
-    border-color: var(--bs-pagination-active-border-color);
+    color: #fff;
+    background-color: #f4623a;
+    border-color: #f4623a;
 }
+
 .page-link.disabled,
 .disabled > .page-link {
-    color: var(--bs-pagination-disabled-color);
+    color: #6c757d;
     pointer-events: none;
-    background-color: var(--bs-pagination-disabled-bg);
-    border-color: var(--bs-pagination-disabled-border-color);
+    background-color: #fff;
+    border-color: #dee2e6;
 }
 
 .page-item:not(:first-child) .page-link {
     margin-left: -1px;
 }
+
 .page-item:first-child .page-link {
-    border-top-left-radius: var(--bs-pagination-border-radius);
-    border-bottom-left-radius: var(--bs-pagination-border-radius);
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
 }
+
 .page-item:last-child .page-link {
-    border-top-right-radius: var(--bs-pagination-border-radius);
-    border-bottom-right-radius: var(--bs-pagination-border-radius);
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
 }
 
 .pagination-lg {
@@ -4778,7 +4789,7 @@ fieldset:disabled .btn {
     --bs-pagination-border-radius: 0.25rem;
 }
 
-.pagination {
+/* .pagination {
     display: flex;
     justify-content: center;
     margin-top: 20px;
@@ -4809,7 +4820,7 @@ fieldset:disabled .btn {
 
 .pagination a:last-child {
     margin-right: 0;
-}
+} */
 
 .badge {
     --bs-badge-padding-x: 0.65em;
@@ -11664,6 +11675,7 @@ main.table {
 
 table {
     width: 100%;
+    height: 100%;
 }
 
 td img {
@@ -11679,17 +11691,17 @@ table,
 th,
 td {
     border-collapse: collapse;
-    padding: 1rem;
     text-align: left;
 }
 
-thead th {
+th,
+thead {
     position: sticky;
     top: 0;
-    left: 0;
-    background-color: #d5d1defe;
+    background-color: #e1e1e1;
     cursor: pointer;
     text-transform: capitalize;
+    height: 20px;
 }
 
 tbody tr:nth-child(even) {
