@@ -16,6 +16,7 @@ class Kendaraan extends Model
         'type_kendaraan',
         'nomor_lambung',
         'nomor_polisi',
+        'tanggal',
     ];
     protected $guarded = [];
 
@@ -24,7 +25,18 @@ class Kendaraan extends Model
         return $this->hasMany(P2h::class, 'kendaraan_id');
     }
 
-    static public function getkendaraan()
+    static public function getKendaraan()
+    {
+        $return = self::select('jenis_kendaraan', 'type_kendaraan', 'nomor_lambung', 'Created_at');
+        if (!empty(Request::get('no_lambung'))) {
+            $return = $return->where('nomor_lambung', 'like', '%' . Request::get('no_lambung') . '%');
+        }
+        $return = $return->orderBy('id', 'asc')->paginate(10, ['*'], 'kendaraan_page');
+
+        return $return;
+    }
+
+    static public function getKendaraanAdmin()
     {
         $return = self::select('jenis_kendaraan', 'type_kendaraan', 'nomor_lambung', 'Created_at');
         if (!empty(Request::get('no_lambung'))) {

@@ -82,9 +82,9 @@
                     <a class="flex-sm-fill text-sm-center nav-link" id="orders-paid-tab" data-bs-toggle="tab"
                         href="#bus" role="tab" aria-controls="bus" aria-selected="false">Bus</a>
                     <a class="flex-sm-fill text-sm-center nav-link" id="orders-pending-tab" data-bs-toggle="tab"
-                        href="#mobil" role="tab" aria-controls="orders-pending" aria-selected="false">Mobil</a>
-                    <a class="flex-sm-fill text-sm-center nav-link" id="orders-cancelled-tab" data-bs-toggle="tab"
-                        href="#truk" role="tab" aria-controls="orders-cancelled" aria-selected="false">Truk</a>
+                        href="#lv" role="tab" aria-controls="orders-pending" aria-selected="false">LV</a>
+                    {{-- <a class="flex-sm-fill text-sm-center nav-link" id="orders-cancelled-tab" data-bs-toggle="tab"
+                        href="#truk" role="tab" aria-controls="orders-cancelled" aria-selected="false">Truk</a> --}}
                 </nav>
 
 
@@ -105,6 +105,7 @@
                                             <tr>
                                                 <th class="cell">No</th>
                                                 <th class="cell">Jenis Kendaraan</th>
+                                                <th class="cell">Type Kendaraan</th>
                                                 <th class="cell">Nomor Lambung</th>
                                                 <th class="cell">Nomor Polisi</th>
                                                 <th class="cell">Tanggal Input</th>
@@ -112,11 +113,11 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php $no = 0; ?>
                                             @forelse ($Kendaraan as $x)
                                                 <tr>
-                                                    <td class="cell">{{ ++$no }}</td>
+                                                    <td>{{ $Kendaraan->firstItem() + $loop->index }}</td>
                                                     <td class="cell">{{ $x->jenis_kendaraan }}</td>
+                                                    <td class="cell">{{ $x->type_kendaraan }}</td>
                                                     <td class="cell">{{ $x->nomor_lambung }}</td>
                                                     <td class="cell">{{ $x->nomor_polisi }}</td>
                                                     <td class="cell">
@@ -152,6 +153,10 @@
                         </div><!--//app-card-->
 
                         <nav class="app-pagination">
+                            {{ $Kendaraan->appends(request()->except('kendaraan_page'))->links() }}
+                        </nav><!--//app-pagination-->
+
+                        {{-- <nav class="app-pagination">
                             <ul class="pagination justify-content-center">
                                 <li class="page-item disabled">
                                     <a class="page-link" href="#" tabindex="-1"
@@ -164,7 +169,7 @@
                                     <a class="page-link" href="#">Next</a>
                                 </li>
                             </ul>
-                        </nav><!--//app-pagination-->
+                        </nav><!--//app-pagination--> --}}
 
                     </div><!--//tab-pane-->
 
@@ -182,6 +187,7 @@
                                             <tr>
                                                 <th class="cell">No</th>
                                                 <th class="cell">Jenis Kendaraan</th>
+                                                <th class="cell">Type Kendaraan</th>
                                                 <th class="cell">Nomor Lambung</th>
                                                 <th class="cell">Nomor Polisi</th>
                                                 <th class="cell">Tanggal Input</th>
@@ -189,14 +195,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php $no = 0; ?>
                                             <?php $dataExist = false; ?>
                                             @forelse ($Kendaraan as $x)
                                                 @if ($x->jenis_kendaraan === 'Bus')
                                                     <?php $dataExist = true; ?>
                                                     <tr>
-                                                        <td class="cell">{{ ++$no }}</td>
+                                                        <td>{{ $Kendaraan->firstItem() + $loop->index }}</td>
                                                         <td class="cell">{{ $x->jenis_kendaraan }}</td>
+                                                        <td class="cell">{{ $x->type_kendaraan }}</td>
                                                         <td class="cell">{{ $x->nomor_lambung }}</td>
                                                         <td class="cell">{{ $x->nomor_polisi }}</td>
                                                         <td class="cell">
@@ -232,6 +238,8 @@
                                         </tbody>
                                     </table>
 
+                                    {{ $Kendaraan->appends(request()->except('kendaraan_page'))->links() }}
+
                                 </div><!--//table-responsive-->
 
                             </div><!--//app-card-body-->
@@ -241,7 +249,7 @@
                     </div><!--//tab-pane-->
 
 
-                    <div class="tab-pane fade" id="mobil" role="tabpanel" aria-labelledby="orders-pending-tab">
+                    <div class="tab-pane fade" id="lv" role="tabpanel" aria-labelledby="orders-pending-tab">
 
                         <div class="app-card app-card-orders-table mb-5">
 
@@ -254,6 +262,7 @@
                                             <tr>
                                                 <th class="cell">No</th>
                                                 <th class="cell">Jenis Kendaraan</th>
+                                                <th class="cell">Type Kendaraan</th>
                                                 <th class="cell">Nomor Lambung</th>
                                                 <th class="cell">Nomor Polisi</th>
                                                 <th class="cell">Tanggal Input</th>
@@ -261,14 +270,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php $no = 0; ?>
                                             <?php $dataExist = false; ?>
                                             @forelse ($Kendaraan as $x)
                                                 @if ($x->jenis_kendaraan === 'Mobil')
                                                     <?php $dataExist = true; ?>
                                                     <tr>
-                                                        <td class="cell">{{ ++$no }}</td>
+                                                        <td>{{ $Kendaraan->firstItem() + $loop->index }}</td>
                                                         <td class="cell">{{ $x->jenis_kendaraan }}</td>
+                                                        <td class="cell">{{ $x->type_kendaraan }}</td>
                                                         <td class="cell">{{ $x->nomor_lambung }}</td>
                                                         <td class="cell">{{ $x->nomor_polisi }}</td>
                                                         <td class="cell">
@@ -303,6 +312,7 @@
                                             @endif
                                         </tbody>
                                     </table>
+                                    {{ $Kendaraan->appends(request()->except('kendaraan_page'))->links() }}
 
                                 </div><!--//table-responsive-->
 
@@ -313,7 +323,7 @@
                     </div><!--//tab-pane-->
 
 
-                    <div class="tab-pane fade" id="truk" role="tabpanel"
+                    {{-- <div class="tab-pane fade" id="truk" role="tabpanel"
                         aria-labelledby="orders-cancelled-tab">
 
                         <div class="app-card app-card-orders-table mb-5">
@@ -383,7 +393,7 @@
 
                         </div><!--//app-card-->
 
-                    </div><!--//tab-pane-->
+                    </div><!--//tab-pane--> --}}
 
 
                 </div><!--//tab-content-->

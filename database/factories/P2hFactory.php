@@ -23,11 +23,11 @@ class P2hFactory extends Factory
             'kendaraan_id' => $kendaraan->id,
             'tanggal' => now('Asia/Makassar')->format('Y-m-d'),
             'jam' => now('Asia/Makassar')->format('H:i:s'),
-            'nama_pemeriksa' => $this->faker->name,
-            'nik' => $this->faker->unique()->numerify('######'),
-            'departemen' => $this->faker->word,
-            'no_hp' => $this->faker->phoneNumber,
-            'keterangan' => 'Data P2h baru terkait dengan kendaraan ini',
+            // 'nama_pemeriksa' => $this->faker->name,
+            // 'nik' => $this->faker->unique()->numerify('######'),
+            // 'departemen' => $this->faker->word,
+            // 'no_hp' => $this->faker->phoneNumber,
+            'keterangan' => 'P2H belum dilaksanakan untuk Unit Ini',
             'status' => 'belum diperiksa',
         ];
     }

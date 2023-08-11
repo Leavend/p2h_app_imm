@@ -18,7 +18,7 @@ class P2hController extends Controller
     {
         $Title = 'IMM - GA - P2H Unit';
         $p2hPaginator = P2h::getp2h();
-        $kendaraanPaginator = Kendaraan::getkendaraan();
+        $kendaraanPaginator = Kendaraan::getKendaraan();
 
         return view('welcome', compact('Title', 'p2hPaginator', 'kendaraanPaginator'));
     }

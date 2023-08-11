@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('type_kendaraan');
             $table->string('nomor_lambung')->unique();
             $table->string('nomor_polisi')->unique();
+            $table->date('tanggal');
             // $table->string('keterangan');
             $table->timestamps();
             $table->setTimeZone('Asia/Makassar');

@@ -57,7 +57,8 @@ Route::middleware(['admin'])->group(function () {
     // User
     Route::prefix('admin/user')->group(function () {
         Route::get('/', [AuthController::class, 'listUser'])->name('user.list');
-        Route::get('/download-csv', [AuthController::class, 'downloadCsv'])->name('download.csv');
+        // Route::get('/download-csv', [AuthController::class, 'downloadCsv'])->name('download.csv');
+        Route::get('/download-csv', [AuthController::class, 'export'])->name('download.csv');
         Route::get('/tambah', [AuthController::class, 'addUser'])->name('user.add');
         Route::post('/simpan', [AuthController::class, 'storeUser'])->name('user.save');
         Route::get('/edit/{id}', [AuthController::class, 'editUser'])->name('user.edit');

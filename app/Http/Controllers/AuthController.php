@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\excel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -77,32 +79,14 @@ class AuthController extends Controller
         return view('user.list', compact('Title', 'User'));
     }
 
-    public function downloadCsv()
+    public function export()
     {
-        $users = User::getUser(); // Ubah ini dengan kueri yang sesuai untuk data Anda
+        return Excel::download(new UsersExport, 'users.xlsx');
+    }
 
-        $csvFileName = 'users.csv';
-
-        $headers = array(
-            "Content-type" => "text/csv",
-            "Content-Disposition" => "attachment; filename=$csvFileName",
-            "Pragma" => "no-cache",
-            "Cache-Control" => "must-revalidate, post-check=0, pre-check=0",
-            "Expires" => "0"
-        );
-
-        $handle = fopen('php://output', 'w');
-        fputcsv($handle, ['ID', 'Name', 'Email']); // Ubah ini sesuai dengan kolom yang Anda inginkan
-
-        foreach ($users as $user) {
-            fputcsv($handle, [$user->id, $user->name, $user->email]); // Ubah ini sesuai dengan data yang ingin Anda tampilkan
-        }
-
-        fclose($handle);
-
-        return Response::stream(function () use ($handle) {
-            fclose($handle);
-        }, 200, $headers);
+    public function import()
+    {
+        return Excel::download(new UsersExport, 'users.xlsx');
     }
 
     public function addUser()

@@ -4662,6 +4662,13 @@ fieldset:disabled .btn {
     --bs-pagination-font-size: 0.875rem;
     --bs-pagination-border-radius: var(--bs-border-radius-sm);
 }
+
+.w-5,
+.h-5 {
+    width: 1.25rem; /* Mengubah ukuran width */
+    height: 1.25rem; /* Mengubah ukuran height */
+}
+
 .badge {
     --bs-badge-padding-x: 0.65em;
     --bs-badge-padding-y: 0.35em;

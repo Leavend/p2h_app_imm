@@ -58,8 +58,6 @@
                                     </a>
                                 </div>
 
-
-
                             </div><!--//row-->
 
                         </div><!--//table-utilities-->
@@ -107,12 +105,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php $no = 0; ?>
                                             <?php $dataExist = false; ?>
                                             @foreach ($User as $x)
                                                 <tr>
                                                     <?php $dataExist = true; ?>
-                                                    <td class="cell">{{ ++$no }}</td>
+                                                    {{-- <td class="cell">{{ ++$no }}</td> --}}
+                                                    <td>{{ $User->firstItem() + $loop->index }}</td>
                                                     <td class="cell">{{ $x->username }}</td>
                                                     <td class="cell">{{ $x->name }}</td>
                                                     <td class="cell">
@@ -138,14 +136,18 @@
                                             @endif
                                         </tbody>
                                     </table>
-
                                 </div><!--//table-responsive-->
 
                             </div><!--//app-card-body-->
 
                         </div><!--//app-card-->
 
+
                         <nav class="app-pagination">
+                            {{ $User->appends(request()->except('user_page'))->links() }}
+                        </nav><!--//app-pagination-->
+
+                        {{-- <nav class="app-pagination">
                             <ul class="pagination justify-content-center">
                                 <li class="page-item disabled">
                                     <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
@@ -157,7 +159,7 @@
                                     <a class="page-link" href="#">Next</a>
                                 </li>
                             </ul>
-                        </nav><!--//app-pagination-->
+                        </nav><!--//app-pagination--> --}}
 
                     </div><!--//tab-pane-->
 
