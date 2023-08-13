@@ -12,8 +12,9 @@
     <!-- Display P2H -->
     <div class="tabel-manis">
         <main class="table">
-            <section class="page-section" id="p2hkendaraan">
-                <div class="container px-4 px-lg-5">
+            <section class="page-section" id="p2hkendaraan" style="height: 750px">
+                <div class="container
+                px-4 px-lg-5">
                     <h3 class="text-center mt-0">Daftar P2H</h3>
                     <div style="float: right;">
                         <form id="filterFormP2H">
@@ -75,10 +76,10 @@
                                 @endforelse
                             </tbody>
                         </table>
-                        <div style="padding: 25px; float: right;">
-                            {{ $p2hPaginator->appends(request()->except('p2h_page'))->links() }}
-                        </div>
                     </section>
+                    <div style="padding: 25px; float: right;">
+                        {{ $p2hPaginator->appends(request()->except('p2h_page'))->links() }}
+                    </div>
                 </div>
             </section>
         </main>
@@ -87,7 +88,7 @@
     <!-- Kendaraan -->
     <div class="tabel-manis">
         <main class="table">
-            <section class="page-section px-4" id="kendaraan">
+            <section class="page-section px-4" id="kendaraan" style="height: 750px">
                 <div class="container px-4 px-lg-5">
                     <h3 class="text-center mt-0">Daftar Kendaraan</h3>
                     <div style="float: right;">
@@ -135,10 +136,10 @@
                                 @endforelse
                             </tbody>
                         </table>
-                        <div style="padding: 25px; float: right;">
-                            {{ $kendaraanPaginator->appends(request()->except('kendaraan_page'))->links() }}
-                        </div>
                     </section>
+                    <div style="padding: 25px; float: right;">
+                        {{ $kendaraanPaginator->appends(request()->except('kendaraan_page'))->links() }}
+                    </div>
                 </div>
             </section>
         </main>

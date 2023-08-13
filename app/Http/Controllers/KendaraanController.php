@@ -9,9 +9,11 @@ class KendaraanController extends Controller
 {
     public function show()
     {
-        $Kendaraan = Kendaraan::getKendaraanAdmin();
         $Title = 'Kendaraan';
-        return view('kendaraan.list', compact('Kendaraan', 'Title'));
+        $Kendaraan = Kendaraan::getKendaraanAdmin();
+        $Bus = Kendaraan::getKendaraanAdminBus();
+        $LV = Kendaraan::getKendaraanAdminLV();
+        return view('kendaraan.list', compact('Kendaraan', 'Bus', 'LV', 'Title'));
     }
     public function add()
     {
@@ -22,7 +24,7 @@ class KendaraanController extends Controller
     {
         $request->validate([
             'jenis_kendaraan' => 'required|string|max:25',
-            'jenis_kendaraan' => 'required|string|max:25',
+            'type_kendaraan' => 'required|string|max:25',
             'nomor_lambung' => 'required|nomor_lambung|unique:kendaraans',
             'nomor_polisi' => 'required|nomor_polisi|unique:kendaraans',
         ]);

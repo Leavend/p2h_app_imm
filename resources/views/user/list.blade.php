@@ -17,6 +17,10 @@
                     </div>
 
                     <div class="col-auto">
+                        @include('_messages')
+                    </div>
+
+                    <div class="col-auto">
 
                         <div class="page-utilities">
 
@@ -45,6 +49,18 @@
                                 </div><!--//col-->
 
                                 <div class="col-auto">
+                                    <a class="btn app-btn-secondary" href="{{ route('user.add') }}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
+                                            viewBox="0 0 22 22" id="add-playlist" class="bi bi-download me-1">
+                                            <path
+                                                d="M13 10H3c-.55 0-1 .45-1 1s.45 1 1 1h10c.55 0 1-.45 1-1s-.45-1-1-1zm0-4H3c-.55 0-1 .45-1 1s.45 1 1 1h10c.55 0 1-.45 1-1s-.45-1-1-1zm5 8v-3c0-.55-.45-1-1-1s-1 .45-1 1v3h-3c-.55 0-1 .45-1 1s.45 1 1 1h3v3c0 .55.45 1 1 1s1-.45 1-1v-3h3c.55 0 1-.45 1-1s-.45-1-1-1h-3zM3 16h6c.55 0 1-.45 1-1s-.45-1-1-1H3c-.55 0-1 .45-1 1s.45 1 1 1z">
+                                            </path>
+                                        </svg>
+                                        Tambah User
+                                    </a>
+                                </div>
+
+                                <div class="col-auto">
                                     <a class="btn app-btn-secondary" href="{{ route('download.csv') }}">
                                         <svg width="1em" height="1em" viewBox="0 0 16 16"
                                             class="bi bi-download me-1" fill="currentColor"
@@ -66,22 +82,6 @@
 
                 </div><!--//row-->
 
-
-                {{-- <nav id="orders-table-tab"
-                    class="orders-table-tab app-nav-tabs nav shadow-lg flex-column flex-sm-row mb-4">
-                    <a class="flex-sm-fill text-sm-center nav-link active" id="orders-all-tab" data-bs-toggle="tab"
-                        href="#orders-all" role="tab" aria-controls="orders-all" aria-selected="true">All</a>
-                    <a class="flex-sm-fill text-sm-center nav-link" id="orders-paid-tab" data-bs-toggle="tab"
-                        href="#orders-paid" role="tab" aria-controls="orders-paid" aria-selected="false">Paid</a>
-                    <a class="flex-sm-fill text-sm-center nav-link" id="orders-pending-tab" data-bs-toggle="tab"
-                        href="#orders-pending" role="tab" aria-controls="orders-pending"
-                        aria-selected="false">Pending</a>
-                    <a class="flex-sm-fill text-sm-center nav-link" id="orders-cancelled-tab" data-bs-toggle="tab"
-                        href="#orders-cancelled" role="tab" aria-controls="orders-cancelled"
-                        aria-selected="false">Cancelled</a>
-                </nav> --}}
-
-
                 <div class="tab-content" id="orders-table-tab-content">
 
 
@@ -100,6 +100,8 @@
                                                 <th class="cell">No</th>
                                                 <th class="cell">Username</th>
                                                 <th class="cell">Nama</th>
+                                                <th class="cell">Email</th>
+                                                <th class="cell">No HP</th>
                                                 <th class="cell">Tanggal Pembuatan</th>
                                                 <th class="cell"></th>
                                             </tr>
@@ -113,10 +115,12 @@
                                                     <td>{{ $User->firstItem() + $loop->index }}</td>
                                                     <td class="cell">{{ $x->username }}</td>
                                                     <td class="cell">{{ $x->name }}</td>
+                                                    <td class="cell">{{ $x->email }}</td>
+                                                    <td class="cell">{{ $x->no_hp }}</td>
                                                     <td class="cell">
-                                                        <span>{{ $x->created_at->format('d M') }}</span>
+                                                        <span>{{ \Carbon\Carbon::parse($x->tanggal, 'Asia/Makassar')->format('d M Y') }}</span>
                                                         <span
-                                                            class="note">{{ $x->created_at->format('g:i A') }}</span>
+                                                            class="note">{{ \Carbon\Carbon::parse($x->Created_at, 'Asia/Makassar')->format('g:i A') }}</span>
                                                     </td>
                                                     <td class="cell">
                                                         <a href="{{ url('admin/user/edit/' . $x->id) }}"
@@ -143,30 +147,33 @@
                         </div><!--//app-card-->
 
 
-                        <nav class="app-pagination">
-                            {{ $User->appends(request()->except('user_page'))->links() }}
-                        </nav><!--//app-pagination-->
-
-                        {{-- <nav class="app-pagination">
+                        <nav class="app-pagination" id="user-pagination">
                             <ul class="pagination justify-content-center">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                <li class="page-item {{ $User->currentPage() == 1 ? 'disabled' : '' }}">
+                                    <a class="page-link" href="{{ $User->url($User->currentPage() - 1) }}"
+                                        tabindex="-1"
+                                        aria-disabled="{{ $User->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
                                 </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
+                                @for ($i = 1; $i <= $User->lastPage(); $i++)
+                                    <li class="page-item {{ $User->currentPage() == $i ? 'active' : '' }}">
+                                        <a class="page-link" href="{{ $User->url($i) }}">{{ $i }}</a>
+                                    </li>
+                                @endfor
+                                <li
+                                    class="page-item {{ $User->currentPage() == $User->lastPage() ? 'disabled' : '' }}">
+                                    <a class="page-link" href="{{ $User->url($User->currentPage() + 1) }}">Next</a>
                                 </li>
                             </ul>
+                        </nav>
+
+                        {{-- <nav class="app-pagination">
+                            {{ $User->appends(request()->except('user_page'))->links() }}
                         </nav><!--//app-pagination--> --}}
 
                     </div><!--//tab-pane-->
 
 
                 </div><!--//tab-content-->
-
-
 
             </div><!--//container-fluid-->
 

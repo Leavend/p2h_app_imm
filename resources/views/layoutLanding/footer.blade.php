@@ -35,4 +35,9 @@
                 });
             }, 500); // Ubah nilai 500 sesuai dengan waktu delay yang diinginkan (dalam milidetik)
         });
+
+        // Fungsi untuk menutup pesan peringatan
+        function closeAlert(alertElement) {
+            alertElement.style.display = 'none';
+        }
     </script>

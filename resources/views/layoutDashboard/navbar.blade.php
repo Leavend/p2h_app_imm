@@ -19,143 +19,6 @@
                             </a>
                         </div><!--//col-->
 
-                        {{-- <div class="search-mobile-trigger d-sm-none col">
-                            <i class="search-mobile-trigger-icon fa-solid fa-magnifying-glass"></i>
-                        </div><!--//col-->
-
-                        <div class="app-search-box col">
-                            <form class="app-search-form">
-                                <input type="text" placeholder="Search..." name="search"
-                                    class="form-control search-input">
-                                <button type="submit" class="btn search-btn btn-primary" value="Search"><i
-                                        class="fa-solid fa-magnifying-glass"></i></button>
-                            </form>
-                        </div><!--//app-search-box--> --}}
-
-                        <div class="app-utilities col-auto">
-
-                            {{-- <div class="app-utility-item app-notifications-dropdown dropdown">
-                                <a class="dropdown-toggle no-toggle-arrow" id="notifications-dropdown-toggle"
-                                    data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"
-                                    title="Notifications">
-                                    <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bell icon"
-                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2z" />
-                                        <path fill-rule="evenodd"
-                                            d="M8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
-                                    </svg>
-                                    <span class="icon-badge">3</span>
-                                </a><!--//dropdown-toggle-->
-
-                                <div class="dropdown-menu p-0" aria-labelledby="notifications-dropdown-toggle">
-                                    <div class="dropdown-menu-header p-3">
-                                        <h5 class="dropdown-menu-title mb-0">Notifications</h5>
-                                    </div><!--//dropdown-menu-title-->
-                                    <div class="dropdown-menu-content">
-                                        <div class="item p-3">
-                                            <div class="row gx-2 justify-content-between align-items-center">
-                                                <div class="col-auto">
-                                                    <img class="profile-image"
-                                                        src="assets/images/profiles/profile-1.png" alt="">
-                                                </div><!--//col-->
-                                                <div class="col">
-                                                    <div class="info">
-                                                        <div class="desc">Amy shared a file with you. Lorem ipsum
-                                                            dolor sit amet, consectetur adipiscing elit. </div>
-                                                        <div class="meta"> 2 hrs ago</div>
-                                                    </div>
-                                                </div><!--//col-->
-                                            </div><!--//row-->
-                                            <a class="link-mask" href="notifications.html"></a>
-                                        </div><!--//item-->
-                                        <div class="item p-3">
-                                            <div class="row gx-2 justify-content-between align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="app-icon-holder">
-                                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
-                                                            class="bi bi-receipt" fill="currentColor"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path fill-rule="evenodd"
-                                                                d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27zm.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0l-.509-.51z" />
-                                                            <path fill-rule="evenodd"
-                                                                d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z" />
-                                                        </svg>
-                                                    </div>
-                                                </div><!--//col-->
-                                                <div class="col">
-                                                    <div class="info">
-                                                        <div class="desc">You have a new invoice. Proin venenatis
-                                                            interdum est.</div>
-                                                        <div class="meta"> 1 day ago</div>
-                                                    </div>
-                                                </div><!--//col-->
-                                            </div><!--//row-->
-                                            <a class="link-mask" href="notifications.html"></a>
-                                        </div><!--//item-->
-                                        <div class="item p-3">
-                                            <div class="row gx-2 justify-content-between align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="app-icon-holder icon-holder-mono">
-                                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
-                                                            class="bi bi-bar-chart-line" fill="currentColor"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path fill-rule="evenodd"
-                                                                d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z" />
-                                                        </svg>
-                                                    </div>
-                                                </div><!--//col-->
-                                                <div class="col">
-                                                    <div class="info">
-                                                        <div class="desc">Your report is ready. Proin venenatis
-                                                            interdum est.</div>
-                                                        <div class="meta"> 3 days ago</div>
-                                                    </div>
-                                                </div><!--//col-->
-                                            </div><!--//row-->
-                                            <a class="link-mask" href="notifications.html"></a>
-                                        </div><!--//item-->
-                                        <div class="item p-3">
-                                            <div class="row gx-2 justify-content-between align-items-center">
-                                                <div class="col-auto">
-                                                    <img class="profile-image"
-                                                        src="assets/images/profiles/profile-2.png" alt="">
-                                                </div><!--//col-->
-                                                <div class="col">
-                                                    <div class="info">
-                                                        <div class="desc">James sent you a new message.</div>
-                                                        <div class="meta"> 7 days ago</div>
-                                                    </div>
-                                                </div><!--//col-->
-                                            </div><!--//row-->
-                                            <a class="link-mask" href="notifications.html"></a>
-                                        </div><!--//item-->
-                                    </div><!--//dropdown-menu-content-->
-
-                                    <div class="dropdown-menu-footer p-2 text-center">
-                                        <a href="notifications.html">View all</a>
-                                    </div>
-
-                                </div><!--//dropdown-menu-->
-                            </div><!--//app-utility-item--> --}}
-
-                            <div class="app-utility-item app-user-dropdown dropdown">
-                                <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown"
-                                    href="#" role="button" aria-expanded="false"><img
-                                        src="{{ url('../assetsDashboard/images/user.png') }}" alt="user profile"></a>
-
-                                <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
-                                    <li><a class="dropdown-item" href="{{ route('overview.list') }}">Account</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('overview.list') }}">Settings</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="login.html">Log Out</a></li>
-                                </ul>
-                            </div><!--//app-user-dropdown-->
-
-                        </div><!--//app-utilities-->
-
                     </div><!--//row-->
 
                 </div><!--//app-header-content-->
@@ -180,13 +43,13 @@
 
                 <hr class="divider divider-light" />
 
-                @if (Auth::user()->role == 'admin')
-                    <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
-                        <ul class="app-menu list-unstyled accordion" id="menu-accordion">
-
+                <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
+                    <ul class="app-menu list-unstyled accordion" id="menu-accordion">
+                        @if (Auth::user()->role == 'admin')
                             <li class="nav-item">
                                 <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                                <a class="nav-link" href="{{ route('overview.list') }}">
+                                <a class="nav-link {{ request()->routeIs('overview.list') ? 'active' : '' }}"
+                                    href="{{ route('overview.list') }}">
                                     <span class="nav-icon">
                                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-door"
                                             fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -203,7 +66,8 @@
 
                             <li class="nav-item">
                                 <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                                <a class="nav-link" href="{{ route('user.list') }}">
+                                <a class="nav-link {{ request()->routeIs('user.list') ? 'active' : '' }}"
+                                    href="{{ route('user.list') }}">
                                     <span class="nav-icon">
                                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder"
                                             fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -220,7 +84,8 @@
 
                             <li class="nav-item">
                                 <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                                <a class="nav-link" href="{{ route('kendaraan.list') }}">
+                                <a class="nav-link {{ request()->routeIs('kendaraan.list') ? 'active' : '' }}"
+                                    href="{{ route('kendaraan.list') }}">
                                     <span class="nav-icon">
                                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder"
                                             fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -237,178 +102,93 @@
 
                             <li class="nav-item">
                                 <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                                <a class="nav-link" href="{{ route('p2h.list.admin') }}">
+                                <a class="nav-link {{ request()->routeIs('p2h.list.admin') ? 'active' : '' }}"
+                                    href="{{ route('p2h.list.admin') }}">
                                     <span class="nav-icon">
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
-                                            class="bi bi-card-list" fill="currentColor"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd"
-                                                d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
-                                            <path fill-rule="evenodd"
-                                                d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z" />
-                                            <circle cx="3.5" cy="5.5" r=".5" />
-                                            <circle cx="3.5" cy="8" r=".5" />
-                                            <circle cx="3.5" cy="10.5" r=".5" />
-                                        </svg>
-                                    </span>
-                                    <span class="nav-link-text">P2H</span>
-                                </a><!--//nav-link-->
-                            </li><!--//nav-item-->
-
-
-                            {{-- <li class="nav-item has-submenu">
-                            <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                            <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse"
-                                data-bs-target="#submenu-1" aria-expanded="false" aria-controls="submenu-1">
-                                <span class="nav-icon">
-                                    <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-files"
-                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M4 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4z" />
-                                        <path
-                                            d="M6 0h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1H4a2 2 0 0 1 2-2z" />
-                                    </svg>
-                                </span>
-                                <span class="nav-link-text">Pages</span>
-                                <span class="submenu-arrow">
-                                    <svg width="1em" height="1em" viewBox="0 0 16 16"
-                                        class="bi bi-chevron-down" fill="currentColor"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
-                                    </svg>
-                                </span><!--//submenu-arrow-->
-                            </a><!--//nav-link-->
-                            <div id="submenu-1" class="collapse submenu submenu-1" data-bs-parent="#menu-accordion">
-                                <ul class="submenu-list list-unstyled">
-                                    <li class="submenu-item"><a class="submenu-link"
-                                            href="notifications.html">Notifications</a></li>
-                                    <li class="submenu-item"><a class="submenu-link" href="account.html">Account</a>
-                                    </li>
-                                    <li class="submenu-item"><a class="submenu-link"
-                                            href="settings.html">Settings</a></li>
-                                </ul>
-                            </div>
-                        </li><!--//nav-item--> --}}
-
-                        </ul><!--//app-menu-->
-
-                    </nav><!--//app-nav-->
-
-
-                    <div class="app-sidepanel-footer">
-                        <nav class="app-nav app-nav-footer">
-                            <ul class="app-menu footer-menu list-unstyled">
-                                <li class="nav-item">
-                                    <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                                    <a class="nav-link" href="{{ route('admin.logout') }}">
-                                        <span class="nav-icon">
-                                            <svg width="1em" height="1em" viewBox="0 0 16 16"
-                                                class="bi bi-box-arrow-right" fill="currentColor"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd"
-                                                    d="M11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0V2H3.5a.5.5 0 0 1 0-1h8a.5.5 0 0 1 .5.5z" />
-                                                <path fill-rule="evenodd"
-                                                    d="M10.646 8.354a.5.5 0 0 0 0 .708L12.293 10H2.5a.5.5 0 0 0 0 1h9.793l-1.647 1.646a.5.5 0 0 0 .708.708l2-2a.5.5 0 0 0 0-.708l-2-2a.5.5 0 0 0-.708.354z" />
-                                            </svg>
-                                        </span>
-                                        <span class="nav-link-text">Log Out</span>
-                                    </a><!--//nav-link-->
-                                </li><!--//nav-item-->
-                            </ul><!--//footer-menu-->
-                        </nav>
-                    </div><!--//app-sidepanel-footer-->
-                @elseif (Auth::user()->role == 'user')
-                    <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
-                        <ul class="app-menu list-unstyled accordion" id="menu-accordion">
-
-                            <li class="nav-item">
-                                <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                                <a class="nav-link" href="{{ route('p2h.list') }}">
-                                    <span class="nav-icon">
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
-                                            class="bi bi-card-list" fill="currentColor"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd"
-                                                d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
-                                            <path fill-rule="evenodd"
-                                                d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z" />
-                                            <circle cx="3.5" cy="5.5" r=".5" />
-                                            <circle cx="3.5" cy="8" r=".5" />
-                                            <circle cx="3.5" cy="10.5" r=".5" />
-                                        </svg>
-                                    </span>
-                                    <span class="nav-link-text">P2H</span>
-                                </a><!--//nav-link-->
-                            </li><!--//nav-item-->
-
-                            {{-- <li class="nav-item has-submenu">
-                                <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                                <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse"
-                                    data-bs-target="#submenu-1" aria-expanded="false" aria-controls="submenu-1">
-                                    <span class="nav-icon">
-                                        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-files"
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-list"
                                             fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd"
-                                                d="M4 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4z" />
-                                            <path
-                                                d="M6 0h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1H4a2 2 0 0 1 2-2z" />
+                                                d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                                            <path fill-rule="evenodd"
+                                                d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z" />
+                                            <circle cx="3.5" cy="5.5" r=".5" />
+                                            <circle cx="3.5" cy="8" r=".5" />
+                                            <circle cx="3.5" cy="10.5" r=".5" />
                                         </svg>
                                     </span>
-                                    <span class="nav-link-text">Pages</span>
-                                    <span class="submenu-arrow">
+                                    <span class="nav-link-text">P2H</span>
+                                </a><!--//nav-link-->
+                            </li><!--//nav-item-->
+
+                            <div class="app-sidepanel-footer">
+                                <nav class="app-nav app-nav-footer">
+                                    <ul class="app-menu footer-menu list-unstyled">
+                                        <li class="nav-item">
+                                            <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                                            <a class="nav-link" href="{{ route('admin.logout') }}">
+                                                <span class="nav-icon">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 32 32"
+                                                        xmlns="http://www.w3.org/2000/svg" id="log-out">
+                                                        <path
+                                                            d="M29.71,16.71l-4,4-1.42-1.42L26.59,17H21a3,3,0,0,1-3-3V5a1,1,0,0,0-1-1H5A1,1,0,0,0,4,5V27a1,1,0,0,0,1,1H17a1,1,0,0,0,1-1V20h2v7a3,3,0,0,1-3,3H5a3,3,0,0,1-3-3V5A3,3,0,0,1,5,2H17a3,3,0,0,1,3,3v9a1,1,0,0,0,1,1h5.6l-2.26-2.28,1.42-1.41,3.95,4A1,1,0,0,1,29.71,16.71Z"
+                                                            data-name="44 Log out, Basic, Essential"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="nav-link-text">Log Out</span>
+                                            </a><!--//nav-link-->
+                                        </li><!--//nav-item-->
+                                    </ul><!--//footer-menu-->
+                                </nav>
+                            </div><!--//app-sidepanel-footer-->
+
+                            <!-- Tambahkan tautan lainnya untuk admin di sini -->
+                        @elseif (Auth::user()->role == 'user')
+                            <li class="nav-item">
+                                <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                                <a class="nav-link {{ request()->routeIs('p2h.list') ? 'active' : '' }}"
+                                    href="{{ route('p2h.list') }}">
+                                    <span class="nav-icon">
                                         <svg width="1em" height="1em" viewBox="0 0 16 16"
-                                            class="bi bi-chevron-down" fill="currentColor"
+                                            class="bi bi-card-list" fill="currentColor"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd"
-                                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                                d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                                            <path fill-rule="evenodd"
+                                                d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z" />
+                                            <circle cx="3.5" cy="5.5" r=".5" />
+                                            <circle cx="3.5" cy="8" r=".5" />
+                                            <circle cx="3.5" cy="10.5" r=".5" />
                                         </svg>
-                                    </span><!--//submenu-arrow-->
+                                    </span>
+                                    <span class="nav-link-text">P2H</span>
                                 </a><!--//nav-link-->
-                                <div id="submenu-1" class="collapse submenu submenu-1" data-bs-parent="#menu-accordion">
-                                    <ul class="submenu-list list-unstyled">
-                                        <li class="submenu-item"><a class="submenu-link"
-                                                href="notifications.html">Notifications</a></li>
-                                        <li class="submenu-item"><a class="submenu-link" href="account.html">Account</a>
+                            </li><!--//nav-item-->
+
+                            <div class="app-sidepanel-footer">
+                                <nav class="app-nav app-nav-footer">
+                                    <ul class="app-menu footer-menu list-unstyled">
+                                        <li class="nav-item">
+                                            <a class="nav-link"
+                                                href="{{ Auth::user()->role == 'admin' ? route('admin.logout') : route('user.logout') }}">
+                                                <!-- Ikon dan teks tautan -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
+                                                    viewBox="0 0 32 32" id="log-out">
+                                                    <path
+                                                        d="M29.71,16.71l-4,4-1.42-1.42L26.59,17H21a3,3,0,0,1-3-3V5a1,1,0,0,0-1-1H5A1,1,0,0,0,4,5V27a1,1,0,0,0,1,1H17a1,1,0,0,0,1-1V20h2v7a3,3,0,0,1-3,3H5a3,3,0,0,1-3-3V5A3,3,0,0,1,5,2H17a3,3,0,0,1,3,3v9a1,1,0,0,0,1,1h5.6l-2.26-2.28,1.42-1.41,3.95,4A1,1,0,0,1,29.71,16.71Z"
+                                                        data-name="44 Log out, Basic, Essential"></path>
+                                                </svg>
+                                                <span class="nav-link-text">Log Out</span>
+                                            </a>
                                         </li>
-                                        <li class="submenu-item"><a class="submenu-link"
-                                                href="settings.html">Settings</a></li>
-                                    </ul>
-                                </div>
-                            </li><!--//nav-item--> --}}
+                                    </ul><!--//footer-menu-->
+                                </nav>
+                            </div><!--//app-sidepanel-footer-->
 
-                        </ul><!--//app-menu-->
+                            <!-- Tambahkan tautan lainnya untuk pengguna di sini -->
+                        @endif
+                    </ul><!--//app-menu-->
 
-                    </nav><!--//app-nav-->
-
-
-                    <div class="app-sidepanel-footer">
-                        <nav class="app-nav app-nav-footer">
-                            <ul class="app-menu footer-menu list-unstyled">
-                                <li class="nav-item">
-                                    <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                                    <a class="nav-link" href="{{ route('user.logout') }}">
-                                        <span class="nav-icon">
-                                            <svg width="1em" height="1em" viewBox="0 0 16 16"
-                                                class="bi bi-box-arrow-right" fill="currentColor"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd"
-                                                    d="M10.5 1a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V2H2.5a.5.5 0 0 1 0-1h8a.5.5 0 0 1 .5.5z" />
-                                                <path fill-rule="evenodd"
-                                                    d="M13 8.5a.5.5 0 0 0-.5-.5H2.707l1.147-1.146a.5.5 0 0 0-.708-.708l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L2.707 9.5H12.5a.5.5 0 0 0 .5-.5z" />
-                                                <path fill-rule="evenodd"
-                                                    d="M7.5 15a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-1 0v3.793L4.354 9.146a.5.5 0 0 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8 13.293V10.5a.5.5 0 0 0-1 0v4a.5.5 0 0 0 .5.5z" />
-                                            </svg>
-                                        </span>
-                                        <span class="nav-link-text">Log Out</span>
-                                    </a><!--//nav-link-->
-                                </li><!--//nav-item-->
-                            </ul><!--//footer-menu-->
-                        </nav>
-                    </div><!--//app-sidepanel-footer-->
-                @endif
+                </nav><!--//app-nav-->
 
             </div><!--//sidepanel-inner-->
 

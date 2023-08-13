@@ -122,10 +122,7 @@
                                                     <td class="cell">{{ $x->nomor_polisi }}</td>
                                                     <td class="cell">
                                                         <span class="cell-data">
-                                                            {{ $x->created_at->format('d M') }}
-                                                        </span>
-                                                        <span class="note">
-                                                            {{ $x->created_at->format('g:i A') }}
+                                                            {{ \Carbon\Carbon::parse($x->tanggal, 'Asia/Makassar')->format('d M Y') }}
                                                         </span>
                                                     </td>
                                                     <td class="cell">
@@ -153,8 +150,29 @@
                         </div><!--//app-card-->
 
                         <nav class="app-pagination">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item {{ $Kendaraan->currentPage() == 1 ? 'disabled' : '' }}">
+                                    <a class="page-link" href="{{ $Kendaraan->url($Kendaraan->currentPage() - 1) }}"
+                                        tabindex="-1"
+                                        aria-disabled="{{ $Kendaraan->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
+                                </li>
+                                @for ($i = 1; $i <= $Kendaraan->lastPage(); $i++)
+                                    <li class="page-item {{ $Kendaraan->currentPage() == $i ? 'active' : '' }}">
+                                        <a class="page-link" href="{{ $Kendaraan->url($i) }}">{{ $i }}</a>
+                                    </li>
+                                @endfor
+                                <li
+                                    class="page-item {{ $Kendaraan->currentPage() == $Kendaraan->lastPage() ? 'disabled' : '' }}">
+                                    <a class="page-link"
+                                        href="{{ $Kendaraan->url($Kendaraan->currentPage() + 1) }}">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+
+
+                        {{-- <nav class="app-pagination">
                             {{ $Kendaraan->appends(request()->except('kendaraan_page'))->links() }}
-                        </nav><!--//app-pagination-->
+                        </nav><!--//app-pagination--> --}}
 
                         {{-- <nav class="app-pagination">
                             <ul class="pagination justify-content-center">
@@ -196,33 +214,31 @@
                                         </thead>
                                         <tbody>
                                             <?php $dataExist = false; ?>
-                                            @forelse ($Kendaraan as $x)
-                                                @if ($x->jenis_kendaraan === 'Bus')
-                                                    <?php $dataExist = true; ?>
-                                                    <tr>
-                                                        <td>{{ $Kendaraan->firstItem() + $loop->index }}</td>
-                                                        <td class="cell">{{ $x->jenis_kendaraan }}</td>
-                                                        <td class="cell">{{ $x->type_kendaraan }}</td>
-                                                        <td class="cell">{{ $x->nomor_lambung }}</td>
-                                                        <td class="cell">{{ $x->nomor_polisi }}</td>
-                                                        <td class="cell">
-                                                            <span class="cell-data">
-                                                                {{ $x->created_at->format('d M') }}
-                                                            </span>
-                                                            <span class="note">
-                                                                {{ $x->created_at->format('g:i A') }}
-                                                            </span>
-                                                        </td>
-                                                        <td class="cell">
-                                                            <a href="{{ url('admin/user/edit/' . $x->id) }}"
-                                                                class="btn btn-circle btn-warning"><i
-                                                                    class="fas fa-edit"></i></a>
-                                                            <a href="{{ url('admin/user/hapus/' . $x->id) }}"
-                                                                class="btn btn-circle btn-danger"><i
-                                                                    class="fas fa-trash-alt"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                @endif
+                                            @forelse ($Bus as $x)
+                                                <?php $dataExist = true; ?>
+                                                <tr>
+                                                    <td>{{ $Bus->firstItem() + $loop->index }}</td>
+                                                    <td class="cell">{{ $x->jenis_kendaraan }}</td>
+                                                    <td class="cell">{{ $x->type_kendaraan }}</td>
+                                                    <td class="cell">{{ $x->nomor_lambung }}</td>
+                                                    <td class="cell">{{ $x->nomor_polisi }}</td>
+                                                    <td class="cell">
+                                                        <span class="cell-data">
+                                                            {{ \Carbon\Carbon::parse($x->tanggal, 'Asia/Makassar')->format('d M') }}
+                                                        </span>
+                                                        <span class="note">
+                                                            {{ \Carbon\Carbon::parse($x->tanggal, 'Asia/Makassar')->format('g:i A') }}
+                                                        </span>
+                                                    </td>
+                                                    <td class="cell">
+                                                        <a href="{{ url('admin/user/edit/' . $x->id) }}"
+                                                            class="btn btn-circle btn-warning"><i
+                                                                class="fas fa-edit"></i></a>
+                                                        <a href="{{ url('admin/user/hapus/' . $x->id) }}"
+                                                            class="btn btn-circle btn-danger"><i
+                                                                class="fas fa-trash-alt"></i></a>
+                                                    </td>
+                                                </tr>
                                             @empty
                                                 <tr>
                                                     <td class="cell" colspan="6" style="text-align: center;">
@@ -238,13 +254,29 @@
                                         </tbody>
                                     </table>
 
-                                    {{ $Kendaraan->appends(request()->except('kendaraan_page'))->links() }}
-
                                 </div><!--//table-responsive-->
 
                             </div><!--//app-card-body-->
 
                         </div><!--//app-card-->
+
+                        <nav class="app-pagination" id="bus-pagination">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item {{ $Bus->currentPage() == 1 ? 'disabled' : '' }}">
+                                    <a class="page-link" href="{{ $Bus->url($Bus->currentPage() - 1) }}"
+                                        tabindex="-1"
+                                        aria-disabled="{{ $Bus->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
+                                </li>
+                                @for ($i = 1; $i <= $Bus->lastPage(); $i++)
+                                    <li class="page-item {{ $Bus->currentPage() == $i ? 'active' : '' }}">
+                                        <a class="page-link" href="{{ $Bus->url($i) }}">{{ $i }}</a>
+                                    </li>
+                                @endfor
+                                <li class="page-item {{ $Bus->currentPage() == $Bus->lastPage() ? 'disabled' : '' }}">
+                                    <a class="page-link" href="{{ $Bus->url($Bus->currentPage() + 1) }}">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
 
                     </div><!--//tab-pane-->
 
@@ -271,33 +303,31 @@
                                         </thead>
                                         <tbody>
                                             <?php $dataExist = false; ?>
-                                            @forelse ($Kendaraan as $x)
-                                                @if ($x->jenis_kendaraan === 'Mobil')
-                                                    <?php $dataExist = true; ?>
-                                                    <tr>
-                                                        <td>{{ $Kendaraan->firstItem() + $loop->index }}</td>
-                                                        <td class="cell">{{ $x->jenis_kendaraan }}</td>
-                                                        <td class="cell">{{ $x->type_kendaraan }}</td>
-                                                        <td class="cell">{{ $x->nomor_lambung }}</td>
-                                                        <td class="cell">{{ $x->nomor_polisi }}</td>
-                                                        <td class="cell">
-                                                            <span class="cell-data">
-                                                                {{ $x->created_at->format('d M') }}
-                                                            </span>
-                                                            <span class="note">
-                                                                {{ $x->created_at->format('g:i A') }}
-                                                            </span>
-                                                        </td>
-                                                        <td class="cell">
-                                                            <a href="{{ url('admin/user/edit/' . $x->id) }}"
-                                                                class="btn btn-circle btn-warning"><i
-                                                                    class="fas fa-edit"></i></a>
-                                                            <a href="{{ url('admin/user/hapus/' . $x->id) }}"
-                                                                class="btn btn-circle btn-danger"><i
-                                                                    class="fas fa-trash-alt"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                @endif
+                                            @forelse ($LV as $x)
+                                                <?php $dataExist = true; ?>
+                                                <tr>
+                                                    <td>{{ $LV->firstItem() + $loop->index }}</td>
+                                                    <td class="cell">{{ $x->jenis_kendaraan }}</td>
+                                                    <td class="cell">{{ $x->type_kendaraan }}</td>
+                                                    <td class="cell">{{ $x->nomor_lambung }}</td>
+                                                    <td class="cell">{{ $x->nomor_polisi }}</td>
+                                                    <td class="cell">
+                                                        <span class="cell-data">
+                                                            {{ \Carbon\Carbon::parse($x->tanggal, 'Asia/Makassar')->format('d M') }}
+                                                        </span>
+                                                        <span class="note">
+                                                            {{ \Carbon\Carbon::parse($x->tanggal, 'Asia/Makassar')->format('g:i A') }}
+                                                        </span>
+                                                    </td>
+                                                    <td class="cell">
+                                                        <a href="{{ url('admin/user/edit/' . $x->id) }}"
+                                                            class="btn btn-circle btn-warning"><i
+                                                                class="fas fa-edit"></i></a>
+                                                        <a href="{{ url('admin/user/hapus/' . $x->id) }}"
+                                                            class="btn btn-circle btn-danger"><i
+                                                                class="fas fa-trash-alt"></i></a>
+                                                    </td>
+                                                </tr>
                                             @empty
                                                 <tr>
                                                     <td class="cell" colspan="6" style="text-align: center;">
@@ -312,13 +342,29 @@
                                             @endif
                                         </tbody>
                                     </table>
-                                    {{ $Kendaraan->appends(request()->except('kendaraan_page'))->links() }}
-
                                 </div><!--//table-responsive-->
 
                             </div><!--//app-card-body-->
 
                         </div><!--//app-card-->
+
+                        <nav class="app-pagination" id="LV-pagination">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item {{ $LV->currentPage() == 1 ? 'disabled' : '' }}">
+                                    <a class="page-link" href="{{ $LV->url($LV->currentPage() - 1) }}"
+                                        tabindex="-1"
+                                        aria-disabled="{{ $LV->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
+                                </li>
+                                @for ($i = 1; $i <= $LV->lastPage(); $i++)
+                                    <li class="page-item {{ $LV->currentPage() == $i ? 'active' : '' }}">
+                                        <a class="page-link" href="{{ $LV->url($i) }}">{{ $i }}</a>
+                                    </li>
+                                @endfor
+                                <li class="page-item {{ $LV->currentPage() == $LV->lastPage() ? 'disabled' : '' }}">
+                                    <a class="page-link" href="{{ $LV->url($LV->currentPage() + 1) }}">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
 
                     </div><!--//tab-pane-->
 
@@ -356,10 +402,10 @@
                                                         <td class="cell">{{ $x->nomor_polisi }}</td>
                                                         <td class="cell">
                                                             <span class="cell-data">
-                                                                {{ $x->created_at->format('d M') }}
+                                                                {{ \Carbon\Carbon::parse($x->tanggal, 'Asia/Makassar')->format('d M') }}
                                                             </span>
                                                             <span class="note">
-                                                                {{ $x->created_at->format('g:i A') }}
+                                                                {{ \Carbon\Carbon::parse($x->tanggal, 'Asia/Makassar')->format('g:i A') }}
                                                             </span>
                                                         </td>
                                                         <td class="cell">

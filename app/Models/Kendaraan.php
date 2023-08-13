@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Request;
 class Kendaraan extends Model
 {
     use HasFactory;
-    public $timestamps = true;
+    // public $timestamps = false;
     protected $table = "kendaraans";
     protected $fillable = [
         'jenis_kendaraan',
@@ -27,7 +27,7 @@ class Kendaraan extends Model
 
     static public function getKendaraan()
     {
-        $return = self::select('jenis_kendaraan', 'type_kendaraan', 'nomor_lambung', 'Created_at');
+        $return = self::select('jenis_kendaraan', 'type_kendaraan', 'nomor_lambung', 'tanggal');
         if (!empty(Request::get('no_lambung'))) {
             $return = $return->where('nomor_lambung', 'like', '%' . Request::get('no_lambung') . '%');
         }
@@ -38,11 +38,33 @@ class Kendaraan extends Model
 
     static public function getKendaraanAdmin()
     {
-        $return = self::select('jenis_kendaraan', 'type_kendaraan', 'nomor_lambung', 'Created_at');
+        $return = self::select('jenis_kendaraan', 'type_kendaraan', 'nomor_lambung', 'nomor_polisi', 'tanggal');
         if (!empty(Request::get('no_lambung'))) {
             $return = $return->where('nomor_lambung', 'like', '%' . Request::get('no_lambung') . '%');
         }
         $return = $return->orderBy('id', 'asc')->paginate(10, ['*'], 'kendaraan_page');
+
+        return $return;
+    }
+
+    static public function getKendaraanAdminBus()
+    {
+        $return = self::select('jenis_kendaraan', 'type_kendaraan', 'nomor_lambung', 'nomor_polisi', 'tanggal');
+        if (!empty(Request::get('no_lambung'))) {
+            $return = $return->where('nomor_lambung', 'like', '%' . Request::get('no_lambung') . '%');
+        }
+        $return = $return->where('jenis_kendaraan', 'Bus')->orderBy('id', 'asc')->paginate(10, ['*'], 'kendaraan_bus_page');
+
+        return $return;
+    }
+
+    static public function getKendaraanAdminLV()
+    {
+        $return = self::select('jenis_kendaraan', 'type_kendaraan', 'nomor_lambung', 'nomor_polisi', 'tanggal');
+        if (!empty(Request::get('no_lambung'))) {
+            $return = $return->where('nomor_lambung', 'like', '%' . Request::get('no_lambung') . '%');
+        }
+        $return = $return->where('jenis_kendaraan', 'LV')->orderBy('id', 'asc')->paginate(10, ['*'], 'kendaraan_lv_page');
 
         return $return;
     }

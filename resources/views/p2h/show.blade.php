@@ -8,9 +8,12 @@
 
         <div class="app-content pt-3 p-md-3 p-lg-4">
 
+
             <div class="container-xl">
 
+
                 <div class="row g-3 mb-4 align-items-center justify-content-between">
+
 
                     <div class="col-auto">
                         <h1 class="app-page-title mb-0">Daftar P2H</h1>
@@ -71,6 +74,7 @@
 
                     </div><!--//col-auto-->
 
+
                 </div><!--//row-->
 
 
@@ -101,21 +105,22 @@
 
                                 <div class="table-responsive">
 
-                                    <table class="table app-table-hover mb-0 text-left">
+                                    <table class="table app-table-hover mb-0 text-left" style="overflow: scroll">
                                         <thead>
                                             <tr>
                                                 <th class="cell">No</th>
                                                 <th class="cell">Nama Pemeriksa</th>
+                                                <th class="cell">No. HP</th>
                                                 <th class="cell">Jenis Kendaraan</th>
-                                                <th class="cell">Nomor Lambung</th>
-                                                <th class="cell">Nomor Polisi</th>
+                                                <th class="cell">No. Lambung</th>
+                                                <th class="cell">No. Polisi</th>
                                                 <th class="cell">Keterangan</th>
                                                 <th class="cell">Status</th>
                                                 <th class="cell">Baik</th>
                                                 <th class="cell">Rusak</th>
                                                 <th class="cell">Tidak Ada</th>
                                                 <th class="cell">Waktu Input</th>
-                                                <th class="cell"></th>
+                                                <th class="cell">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -124,6 +129,7 @@
                                                 <tr>
                                                     <td class="cell">{{ ++$no }}</td>
                                                     <td class="cell">{{ $x->nama_pemeriksa }}</td>
+                                                    <td class="cell">{{ $x->no_hp }}</td>
                                                     <td class="cell">{{ $x->kendaraan->jenis_kendaraan }}</td>
                                                     <td class="cell">{{ $x->kendaraan->nomor_lambung }}</td>
                                                     <td class="cell">{{ $x->kendaraan->nomor_polisi }}</td>
@@ -162,7 +168,7 @@
                                                         <span>{{ $tanggalCarbon->format('d M') }}</span>
                                                         <span class="note">{{ $jamCarbon->format('g:i A') }}</span>
                                                     </td>
-                                                    <td class="cell">
+                                                    <td class="cell" style="display: flex; justify-content: center">
                                                         <a href="{{ url('admin/p2h/detail/' . $x->id) }}"
                                                             class="btn btn-circle btn-info"><i
                                                                 class="fas fa-eye"></i></a>
@@ -176,7 +182,7 @@
                                                 </tr>
                                             @empty
                                                 <tr>
-                                                    <td class="cell" colspan="6" style="text-align: center;">
+                                                    <td class="cell" colspan="13" style="text-align: center;">
                                                         Data
                                                         Tidak Ada.</td>
                                                 </tr>
@@ -216,21 +222,22 @@
 
                                 <div class="table-responsive">
 
-                                    <table class="table app-table-hover mb-0 text-left">
+                                    <table class="table app-table-hover mb-0 text-left" style="overflow: scroll">
                                         <thead>
                                             <tr>
                                                 <th class="cell">No</th>
                                                 <th class="cell">Nama Pemeriksa</th>
+                                                <th class="cell">No. HP</th>
                                                 <th class="cell">Jenis Kendaraan</th>
-                                                <th class="cell">Nomor Lambung</th>
-                                                <th class="cell">Nomor Polisi</th>
+                                                <th class="cell">No. Lambung</th>
+                                                <th class="cell">No. Polisi</th>
                                                 <th class="cell">Keterangan</th>
                                                 <th class="cell">Status</th>
                                                 <th class="cell">Baik</th>
                                                 <th class="cell">Rusak</th>
                                                 <th class="cell">Tidak Ada</th>
                                                 <th class="cell">Waktu Input</th>
-                                                <th class="cell"></th>
+                                                <th class="cell">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -242,6 +249,7 @@
                                                     <tr>
                                                         <td class="cell">{{ ++$no }}</td>
                                                         <td class="cell">{{ $x->nama_pemeriksa }}</td>
+                                                        <td class="cell">{{ $x->no_hp }}</td>
                                                         <td class="cell">{{ $x->kendaraan->jenis_kendaraan }}</td>
                                                         <td class="cell">{{ $x->kendaraan->nomor_lambung }}</td>
                                                         <td class="cell">{{ $x->kendaraan->nomor_polisi }}</td>
@@ -273,7 +281,8 @@
                                                             <span
                                                                 class="note">{{ $jamCarbon->format('g:i A') }}</span>
                                                         </td>
-                                                        <td class="cell">
+                                                        <td class="cell"
+                                                            style="display: flex; justify-content: center">
                                                             <a href="{{ url('admin/p2h/detail/' . $x->id) }}"
                                                                 class="btn btn-circle btn-info"><i
                                                                     class="fas fa-eye"></i></a>
@@ -288,14 +297,14 @@
                                                 @endif
                                             @empty
                                                 <tr>
-                                                    <td class="cell" colspan="11" style="text-align: center;">
+                                                    <td class="cell" colspan="13" style="text-align: center;">
                                                         Data
                                                         Tidak Ada.</td>
                                                 </tr>
                                             @endforelse
                                             @if (!$dataExist)
                                                 <tr>
-                                                    <td class="cell" colspan="11" style="text-align: center;">
+                                                    <td class="cell" colspan="13" style="text-align: center;">
                                                         Data Tidak Ada.</td>
                                                 </tr>
                                             @endif
@@ -319,21 +328,22 @@
 
                                 <div class="table-responsive">
 
-                                    <table class="table app-table-hover mb-0 text-left">
+                                    <table class="table app-table-hover mb-0 text-left" style="overflow: scroll">
                                         <thead>
                                             <tr>
                                                 <th class="cell">No</th>
                                                 <th class="cell">Nama Pemeriksa</th>
+                                                <th class="cell">No. HP</th>
                                                 <th class="cell">Jenis Kendaraan</th>
-                                                <th class="cell">Nomor Lambung</th>
-                                                <th class="cell">Nomor Polisi</th>
+                                                <th class="cell">No. Lambung</th>
+                                                <th class="cell">No. Polisi</th>
                                                 <th class="cell">Keterangan</th>
                                                 <th class="cell">Status</th>
                                                 <th class="cell">Baik</th>
                                                 <th class="cell">Rusak</th>
                                                 <th class="cell">Tidak Ada</th>
                                                 <th class="cell">Waktu Input</th>
-                                                <th class="cell"></th>
+                                                <th class="cell">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -345,6 +355,7 @@
                                                     <tr>
                                                         <td class="cell">{{ ++$no }}</td>
                                                         <td class="cell">{{ $x->nama_pemeriksa }}</td>
+                                                        <td class="cell">{{ $x->no_hp }}</td>
                                                         <td class="cell">{{ $x->kendaraan->jenis_kendaraan }}</td>
                                                         <td class="cell">{{ $x->kendaraan->nomor_lambung }}</td>
                                                         <td class="cell">{{ $x->kendaraan->nomor_polisi }}</td>
@@ -376,7 +387,8 @@
                                                             <span
                                                                 class="note">{{ $jamCarbon->format('g:i A') }}</span>
                                                         </td>
-                                                        <td class="cell">
+                                                        <td class="cell"
+                                                            style="display: flex; justify-content: center">
                                                             <a href="{{ url('admin/p2h/detail/' . $x->id) }}"
                                                                 class="btn btn-circle btn-info"><i
                                                                     class="fas fa-eye"></i></a>
@@ -391,14 +403,14 @@
                                                 @endif
                                             @empty
                                                 <tr>
-                                                    <td class="cell" colspan="11" style="text-align: center;">
+                                                    <td class="cell" colspan="13" style="text-align: center;">
                                                         Data
                                                         Tidak Ada.</td>
                                                 </tr>
                                             @endforelse
                                             @if (!$dataExist)
                                                 <tr>
-                                                    <td class="cell" colspan="11" style="text-align: center;">
+                                                    <td class="cell" colspan="13" style="text-align: center;">
                                                         Data Tidak Ada.</td>
                                                 </tr>
                                             @endif
@@ -423,14 +435,15 @@
 
                                 <div class="table-responsive">
 
-                                    <table class="table app-table-hover mb-0 text-left">
+                                    <table class="table app-table-hover mb-0 text-left" style="overflow: scroll">
                                         <thead>
                                             <tr>
                                                 <th class="cell">No</th>
                                                 <th class="cell">Nama Pemeriksa</th>
+                                                <th class="cell">No. HP</th>
                                                 <th class="cell">Jenis Kendaraan</th>
-                                                <th class="cell">Nomor Lambung</th>
-                                                <th class="cell">Nomor Polisi</th>
+                                                <th class="cell">No. Lambung</th>
+                                                <th class="cell">No. Polisi</th>
                                                 <th class="cell">Keterangan</th>
                                                 <th class="cell">Status</th>
                                                 <th class="cell">Baik</th>
@@ -449,6 +462,7 @@
                                                     <tr>
                                                         <td class="cell">{{ ++$no }}</td>
                                                         <td class="cell">{{ $x->nama_pemeriksa }}</td>
+                                                        <td class="cell">{{ $x->no_hp }}</td>
                                                         <td class="cell">{{ $x->kendaraan->jenis_kendaraan }}</td>
                                                         <td class="cell">{{ $x->kendaraan->nomor_lambung }}</td>
                                                         <td class="cell">{{ $x->kendaraan->nomor_polisi }}</td>
@@ -480,7 +494,8 @@
                                                             <span
                                                                 class="note">{{ $jamCarbon->format('g:i A') }}</span>
                                                         </td>
-                                                        <td class="cell">
+                                                        <td class="cell"
+                                                            style="display: flex; justify-content: center">
                                                             <a href="{{ url('admin/p2h/detail/' . $x->id) }}"
                                                                 class="btn btn-circle btn-info"><i
                                                                     class="fas fa-eye"></i></a>
@@ -495,13 +510,13 @@
                                                 @endif
                                             @empty
                                                 <tr>
-                                                    <td class="cell" colspan="11" style="text-align: center;">
+                                                    <td class="cell" colspan="13" style="text-align: center;">
                                                         Data Tidak Ada.</td>
                                                 </tr>
                                             @endforelse
                                             @if (!$dataExist)
                                                 <tr>
-                                                    <td class="cell" colspan="11" style="text-align: center;">
+                                                    <td class="cell" colspan="13" style="text-align: center;">
                                                         Data Tidak Ada.</td>
                                                 </tr>
                                             @endif
@@ -520,16 +535,14 @@
                 </div><!--//tab-content-->
 
 
-
             </div><!--//container-fluid-->
+
+
         </div><!--//app-content-->
 
         @include('layoutDashboard.footer')
 
     </div><!--//app-wrapper-->
-
-
-
 
     @include('layoutDashboard.js')
 

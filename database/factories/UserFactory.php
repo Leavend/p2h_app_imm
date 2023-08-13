@@ -23,7 +23,9 @@ class UserFactory extends Factory
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'password' => Hash::make('password'), // Ganti 'password' dengan kata sandi yang Anda inginkan
+            'no_hp' => $this->faker->numerify('#############'), // Menambahkan definisi untuk no_hp
             'role' => $this->faker->randomElement(['admin', 'user']),
+            'tanggal' => now('Asia/Makassar')->format('Y-m-d'),
             // Anda juga bisa menambahkan definisi untuk atribut lain sesuai kebutuhan
         ];
     }

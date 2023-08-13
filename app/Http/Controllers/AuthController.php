@@ -101,7 +101,8 @@ class AuthController extends Controller
             'username' => 'required|unique:users',
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:8'
+            'password' => 'required|min:8',
+            'no_hp' => ['required', 'regex:/^\d{10,14}$/'],
         ]);
 
         $user = new User();
@@ -109,7 +110,9 @@ class AuthController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = bcrypt($request->input('password'));
+        $user->no_hp = $request->input('no_hp');
         $user->role = 'user';
+        $user->tanggal = now('Asia/Makassar')->format('Y-m-d');
         $user->save();
 
         return redirect()->route('user.list')->with('success', 'Penambahan data User Berhasil');
@@ -134,14 +137,18 @@ class AuthController extends Controller
         }
 
         $request->validate([
-            'username' => 'required|unique:users,username,' . $id,
+            'username' => 'required|unique:users',
             'name' => 'required',
-            'email' => 'required|email|unique:users,email,' . $id,
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8',
+            'no_hp' => ['required', 'regex:/^\d{10,14}$/'],
         ]);
 
         $user->username = $request->input('username');
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+        $user->password = bcrypt($request->input('password'));
+        $user->no_hp = $request->input('no_hp');
 
         $user->save();
         return redirect()->route('user.list')->with('success', 'Data User berhasil di Update');

@@ -17,15 +17,13 @@ class UsersExport implements FromCollection, WithHeadings
             'username',
             'nama',
             'email',
-            'role',
-            'Created_at',
-            'Updated_at',
+            'tanggal',
         ];
     }
     public function collection()
     {
         return User::where('role', '=', 'user')
-            ->select('username', 'name', 'email', 'role', 'created_at', 'updated_at')
+            ->select('username', 'name', 'email', 'tanggal')
             ->get();
     }
 }

@@ -18,12 +18,16 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    // public $timestamps = false;
     protected $fillable = [
         'username',
         'name',
         'email',
         'password',
+        'no_hp',
         'role',
+        'tanggal',
     ];
 
     /**
@@ -62,7 +66,6 @@ class User extends Authenticatable
 
         return $users;
     }
-
 
     static public function getTotalAdmin()
     {

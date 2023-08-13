@@ -11729,12 +11729,12 @@ button.close:focus {
 }
 .app-btn-secondary {
     background: #fff;
-    color: #5d6778;
+    color: #5D6778;
     border: 1px solid #bcc1cb;
 }
 .app-btn-secondary:hover {
-    color: #15a362;
-    border: 1px solid #15a362;
+    color: #452F92;
+    border: 1px solid #452F92;
     background: #fff;
 }
 .btn-light {
