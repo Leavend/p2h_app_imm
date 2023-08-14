@@ -37,3 +37,35 @@
         });
     });
 </script>
+
+<script>
+    const filterFormNoLambung = document.getElementById('filterFormNoLambung');
+    const filterFormDate = document.getElementById('filterFormDate');
+
+    filterFormNoLambung.addEventListener('submit', function(event) {
+        event.preventDefault();
+        applyFilter();
+    });
+
+    filterFormDate.addEventListener('submit', function(event) {
+        event.preventDefault();
+        applyFilter();
+    });
+
+    function applyFilter() {
+        const noLambung = document.getElementById('no_lambung').value;
+        const date = document.getElementById('date').value;
+
+        // Menggabungkan parameter filter
+        const searchParams = new URLSearchParams();
+        searchParams.set('no_lambung', noLambung);
+        searchParams.set('date', date);
+
+        // Mendapatkan URL saat ini dan mengganti parameter pencarian
+        const currentURL = new URL(window.location.href);
+        currentURL.search = searchParams.toString();
+
+        // Memuat ulang halaman dengan parameter pencarian yang diperbarui
+        window.location.href = currentURL.toString();
+    }
+</script>

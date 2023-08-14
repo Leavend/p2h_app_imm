@@ -29,21 +29,39 @@
 
                             <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
 
-                                <!-- Kolom Search -->
+                                <!-- Kolom No_Lambung Search -->
                                 <div class="col-auto">
-
-                                    <form class="table-search-form row gx-1 align-items-center">
-
+                                    <form class="table-search-form row gx-1 align-items-center"
+                                        id="filterFormNoLambung">
                                         <div class="col-auto">
                                             <input type="text" id="no_lambung"
                                                 value="{{ Request::get('no_lambung') }}" name="no_lambung"
                                                 class="form-control search-orders"
                                                 placeholder="Cari P2H dari No. Lambung">
                                         </div>
-
                                         <div class="col-auto">
                                             <button type="submit" class="btn app-btn-secondary">Cari</button>
                                         </div>
+                                    </form>
+                                </div><!--//col-->
+
+                                <!-- Kolom Tanggal Search -->
+                                <div class="col-auto">
+                                    <form class="table-search-form row gx-1 align-items-center" id="filterFormDate">
+                                        <div class="col-auto">
+                                            <input type="date" id="date" value="{{ Request::get('date') }}"
+                                                name="date" class="form-control search-orders">
+                                        </div>
+                                        <div class="col-auto">
+                                            <button type="submit" class="btn app-btn-secondary">Cari</button>
+                                        </div>
+                                    </form>
+                                </div><!--//col-->
+
+                                <!-- Kolom Clear Search -->
+                                <div class="col-auto">
+
+                                    <form class="table-search-form row gx-1 align-items-center">
 
                                         <div class="col-auto">
                                             <a href="{{ route('p2h.list.admin') }}"
@@ -53,20 +71,6 @@
                                     </form>
 
                                 </div><!--//col-->
-
-
-                                <!-- Nav Waktu -->
-                                <div class="col-auto">
-
-                                    <select class="form-select w-auto">
-                                        <option selected value="option-1">All</option>
-                                        <option value="option-2">This week</option>
-                                        <option value="option-3">This month</option>
-                                        <option value="option-4">Last 3 months</option>
-
-                                    </select>
-                                </div>
-
 
                                 <!-- Kolom CSV -->
                                 <div class="col-auto">
@@ -82,7 +86,6 @@
                                         Download CSV
                                     </a>
                                 </div>
-
 
                             </div><!--//row-->
 
@@ -107,7 +110,6 @@
                         href="#verifikasi" role="tab" aria-controls="orders-cancelled"
                         aria-selected="false">Terverifikasi</a>
                 </nav>
-
 
                 <div class="tab-content" id="orders-table-tab-content">
 
@@ -144,8 +146,8 @@
                                             @forelse ($All as $x)
                                                 <tr>
                                                     <td class="cell">{{ ++$no }}</td>
-                                                    <td class="cell">{{ $x->nama_pemeriksa }}</td>
-                                                    <td class="cell">{{ $x->no_hp }}</td>
+                                                    <td class="cell">{{ $x->nama_pemeriksa ?? '-' }}</td>
+                                                    <td class="cell">{{ $x->no_hp ?? '-' }}</td>
                                                     <td class="cell">{{ $x->kendaraan->jenis_kendaraan }}</td>
                                                     <td class="cell">{{ $x->kendaraan->nomor_lambung }}</td>
                                                     <td class="cell">{{ $x->kendaraan->nomor_polisi }}</td>

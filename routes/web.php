@@ -80,6 +80,7 @@ Route::middleware(['admin'])->group(function () {
     // p2h view
     Route::prefix('admin/p2h')->group(function () {
         Route::get('/', [P2hController::class, 'show'])->name('p2h.list.admin');
+        Route::get('/download-csv', [P2hController::class, 'export'])->name('download.csv');
         Route::get('/detail/{id}', [P2hController::class, 'detail'])->name('p2h.detail');
         Route::get('/edit/{id}', [P2hController::class, 'edit'])->name('p2h.edit');
         Route::post('/perbarui/{id}', [P2hController::class, 'update'])->name('p2h.update');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\P2hsExport;
 use App\Models\P2h;
 use App\Models\Kendaraan;
 use Illuminate\Http\Request;
@@ -9,7 +10,7 @@ use Carbon\Carbon;
 use TelegramBot\Api\BotApi;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
-
+use Maatwebsite\Excel\Facades\excel;
 
 class P2hController extends Controller
 {
@@ -33,7 +34,7 @@ class P2hController extends Controller
     public function show()
     {
         $Title = 'P2H';
-        $All = P2h::with('kendaraan')->orderBy('id', 'asc')->paginate(10);
+        // $All = P2h::with('kendaraan')->orderBy('id', 'asc')->paginate(10);
         $All = P2h::getp2hadmin();
 
         $Counts = [];
@@ -59,10 +60,15 @@ class P2hController extends Controller
 
             $Counts[$p2h->kendaraan->id] = $kendaraanCounts;
         }
+        // dd($All);
 
         return view('p2h.show', compact('Title', 'All', 'Counts'));
     }
 
+    public function export()
+    {
+        return Excel::download(new P2hsExport, 'p2h.xlsx');
+    }
 
     public function getForm($id)
     {
@@ -81,7 +87,6 @@ class P2hController extends Controller
 
         return view('p2h.formUser', compact('Title', 'p2hData', 'dataKendaraan'));
     }
-
 
     public function save(Request $request, $id)
     {
