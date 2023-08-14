@@ -34,6 +34,7 @@ class P2hController extends Controller
     {
         $Title = 'P2H';
         $All = P2h::with('kendaraan')->orderBy('id', 'asc')->paginate(10);
+        $All = P2h::getp2hadmin();
 
         $Counts = [];
 

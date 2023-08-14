@@ -20,6 +20,10 @@
                     </div>
 
                     <div class="col-auto">
+                        @include('_messages')
+                    </div>
+
+                    <div class="col-auto">
 
                         <div class="page-utilities">
 
@@ -27,21 +31,32 @@
 
                                 <!-- Kolom Search -->
                                 <div class="col-auto">
+
                                     <form class="table-search-form row gx-1 align-items-center">
+
                                         <div class="col-auto">
-                                            <input type="text" id="search-orders" name="searchorders"
-                                                class="form-control search-orders" placeholder="Cari P2H">
+                                            <input type="text" id="no_lambung"
+                                                value="{{ Request::get('no_lambung') }}" name="no_lambung"
+                                                class="form-control search-orders"
+                                                placeholder="Cari P2H dari No. Lambung">
                                         </div>
+
                                         <div class="col-auto">
                                             <button type="submit" class="btn app-btn-secondary">Cari</button>
                                         </div>
+
+                                        <div class="col-auto">
+                                            <a href="{{ route('p2h.list.admin') }}"
+                                                class="btn app-btn-secondary">Clear</a>
+                                        </div>
+
                                     </form>
 
                                 </div><!--//col-->
 
 
                                 <!-- Nav Waktu -->
-                                {{-- <div class="col-auto">
+                                <div class="col-auto">
 
                                     <select class="form-select w-auto">
                                         <option selected value="option-1">All</option>
@@ -50,11 +65,12 @@
                                         <option value="option-4">Last 3 months</option>
 
                                     </select>
-                                </div> --}}
+                                </div>
 
-                                <!-- Nav Download CSV -->
+
+                                <!-- Kolom CSV -->
                                 <div class="col-auto">
-                                    <a class="btn app-btn-secondary" href="#">
+                                    <a class="btn app-btn-secondary" href="{{ route('download.csv') }}">
                                         <svg width="1em" height="1em" viewBox="0 0 16 16"
                                             class="bi bi-download me-1" fill="currentColor"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -168,7 +184,7 @@
                                                         <span>{{ $tanggalCarbon->format('d M') }}</span>
                                                         <span class="note">{{ $jamCarbon->format('g:i A') }}</span>
                                                     </td>
-                                                    <td class="cell" style="display: flex; justify-content: center">
+                                                    <td style="display: flex; justify-content: center">
                                                         <a href="{{ url('admin/p2h/detail/' . $x->id) }}"
                                                             class="btn btn-circle btn-info"><i
                                                                 class="fas fa-eye"></i></a>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Kendaraan;
 use Illuminate\Http\Request;
+use App\Exports\KendaraansExport;
+use Maatwebsite\Excel\Facades\excel;
 
 class KendaraanController extends Controller
 {
@@ -41,13 +43,28 @@ class KendaraanController extends Controller
     }
     public function edit($id)
     {
-        $data = Kendaraan::findOrFail($id);
-        $data['header_title'] = 'Edit Kendaraan';
-        return view('kendaraan.edit', $data);
+        $Title = 'Edit Kendaraan';
+        $data = Kendaraan::find($id);
+        if (!$data) {
+            return redirect()->route('kendaraan.list')->with('error', 'Data Kendaraan tidak ditemukan.');
+        }
+        return view('kendaraan.edit', compact('Title', 'data'));
     }
     public function update(Request $request, $id)
     {
-        $kendaraan = Kendaraan::findOrFail($id);
+        $kendaraan = Kendaraan::find($id);
+
+        if (!$kendaraan) {
+            return redirect()->route('kendaraan.list')->with('error', 'Data Kendaraan tidak ditemukan.');
+        }
+
+        $request->validate([
+            'jenis_kendaraan' => 'required',
+            'type_kendaraan' => 'required',
+            'nomor_lambung' => 'required|unique:kendaraans',
+            'nomor_polisi' => 'required|unique:kendaraans',
+        ]);
+
         $kendaraan->update([
             'jenis_kendaraan' => $request->jenis_kendaraan,
             'type_kendaraan' => $request->type_kendaraan,
@@ -62,5 +79,9 @@ class KendaraanController extends Controller
         $kendaraan = Kendaraan::findOrFail($id);
         $kendaraan->delete();
         return redirect()->route('kendaraan.list')->with('success', 'Berhasil menghapus kendaraan');
+    }
+    public function export()
+    {
+        return Excel::download(new KendaraansExport, 'kendaraan.xlsx');
     }
 }

@@ -90,4 +90,15 @@ class P2h extends Model
 
         return $return;
     }
+
+    static public function getp2hadmin()
+    {
+        $return = self::select('p2hs.*'); // Ganti kolom yang diinginkan
+        if (!empty(Request::get('date'))) {
+            $return = $return->whereDate('tanggal', '=', Request::get('date'));
+        }
+        $return = $return->orderBy('tanggal', 'desc')->paginate(10, ['*'], 'p2h_page');
+
+        return $return;
+    }
 }

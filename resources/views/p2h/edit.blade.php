@@ -6,8 +6,6 @@
 
     <div class="app-wrapper">
 
-
-
         @include('layoutDashboard.footer')
 
     </div><!--//app-wrapper-->

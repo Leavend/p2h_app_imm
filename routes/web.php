@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\P2hController;
+use App\Models\Kendaraan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -57,7 +58,6 @@ Route::middleware(['admin'])->group(function () {
     // User
     Route::prefix('admin/user')->group(function () {
         Route::get('/', [AuthController::class, 'listUser'])->name('user.list');
-        // Route::get('/download-csv', [AuthController::class, 'downloadCsv'])->name('download.csv');
         Route::get('/download-csv', [AuthController::class, 'export'])->name('download.csv');
         Route::get('/tambah', [AuthController::class, 'addUser'])->name('user.add');
         Route::post('/simpan', [AuthController::class, 'storeUser'])->name('user.save');
@@ -69,6 +69,7 @@ Route::middleware(['admin'])->group(function () {
     // kendaraan / unit GA
     Route::prefix('admin/kendaraan')->group(function () {
         Route::get('/', [KendaraanController::class, 'show'])->name('kendaraan.list');
+        Route::get('/download-csv', [KendaraanController::class, 'export'])->name('download.csv');
         Route::get('/tambah', [KendaraanController::class, 'add'])->name('kendaraan.add');
         Route::post('/simpan', [KendaraanController::class, 'save'])->name('kendaraan.save');
         Route::get('/edit/{id}', [KendaraanController::class, 'edit'])->name('kendaraan.edit');

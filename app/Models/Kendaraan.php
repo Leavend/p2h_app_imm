@@ -38,7 +38,7 @@ class Kendaraan extends Model
 
     static public function getKendaraanAdmin()
     {
-        $return = self::select('jenis_kendaraan', 'type_kendaraan', 'nomor_lambung', 'nomor_polisi', 'tanggal');
+        $return = self::select('id', 'jenis_kendaraan', 'type_kendaraan', 'nomor_lambung', 'nomor_polisi', 'tanggal');
         if (!empty(Request::get('no_lambung'))) {
             $return = $return->where('nomor_lambung', 'like', '%' . Request::get('no_lambung') . '%');
         }
@@ -49,7 +49,7 @@ class Kendaraan extends Model
 
     static public function getKendaraanAdminBus()
     {
-        $return = self::select('jenis_kendaraan', 'type_kendaraan', 'nomor_lambung', 'nomor_polisi', 'tanggal');
+        $return = self::select('id', 'jenis_kendaraan', 'type_kendaraan', 'nomor_lambung', 'nomor_polisi', 'tanggal');
         if (!empty(Request::get('no_lambung'))) {
             $return = $return->where('nomor_lambung', 'like', '%' . Request::get('no_lambung') . '%');
         }
@@ -60,7 +60,7 @@ class Kendaraan extends Model
 
     static public function getKendaraanAdminLV()
     {
-        $return = self::select('jenis_kendaraan', 'type_kendaraan', 'nomor_lambung', 'nomor_polisi', 'tanggal');
+        $return = self::select('id', 'jenis_kendaraan', 'type_kendaraan', 'nomor_lambung', 'nomor_polisi', 'tanggal');
         if (!empty(Request::get('no_lambung'))) {
             $return = $return->where('nomor_lambung', 'like', '%' . Request::get('no_lambung') . '%');
         }
