@@ -6,7 +6,7 @@
     @include('layoutLanding.navbar')
 
 
-<header class="formulir">
+    <header class="formulir">
       <div class="container px-4 px-lg-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="">
