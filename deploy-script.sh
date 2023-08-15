@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Navigasi ke direktori repositori Anda
-# cd /var/www/p2h_app_imm
+# cd /var/www/p2h_app_imm/
 
-# Lakukan git pull
-git pull --rebase origin Version2  # Ganti "main" dengan nama cabang yang sesuai
+# Lakukan git pull dengan mengatur konfigurasi safe.directory
+git -c safe.directory=/var/www/p2h_app_imm pull --rebase origin Version2
 
 # (Opsional) Restart layanan web server Anda (misalnya, Nginx atau Apache)
 sudo systemctl restart nginx  # Ganti "nginx" dengan nama layanan web server Anda
