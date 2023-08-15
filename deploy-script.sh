@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Navigasi ke direktori repositori Anda
-cd /var/www/p2h_app_imm
+# cd /var/www/p2h_app_imm
 
 # Lakukan git pull
 git pull --rebase origin Version2  # Ganti "main" dengan nama cabang yang sesuai
