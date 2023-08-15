@@ -3,6 +3,10 @@
 # Navigasi ke direktori repositori Anda
 # cd /var/www/p2h_app_imm/
 
+sudo chmod -R 755 /var/www/p2h_app_imm/.git
+
+git config core.sharedRepository group
+
 git commit -m 'stash'
 
 git config --global --add safe.directory /var/www/p2h_app_imm
