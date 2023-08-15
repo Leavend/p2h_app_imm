@@ -3,6 +3,8 @@
 # Navigasi ke direktori repositori Anda
 # cd /var/www/p2h_app_imm/
 
+git commit -m 'stash'
+
 git config --global --add safe.directory /var/www/p2h_app_imm
 
 # Lakukan git pull dengan mengatur konfigurasi safe.directory
