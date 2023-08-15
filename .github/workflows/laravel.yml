@@ -16,4 +16,4 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
-          script: "cd /var/www/p2h_app_imm && ./deploy-script.sh"
+          script: "sudo su && cd /var/www/p2h_app_imm && ./deploy-script.sh"
