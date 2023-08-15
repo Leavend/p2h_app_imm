@@ -160,7 +160,7 @@
     </section>
 
 
-    {{-- @include('layoutLanding.footer') --}}
+    @include('layoutLanding.footer')
 
 
 </body>
