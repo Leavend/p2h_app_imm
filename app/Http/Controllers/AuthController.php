@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Response;
 use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\excel;
 use Illuminate\Support\Facades\Auth;
@@ -98,19 +97,19 @@ class AuthController extends Controller
     public function storeUser(Request $request)
     {
         $request->validate([
-            'username' => 'required|unique:users',
+            'username' => 'required|unique:users,username',
             'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8',
             'no_hp' => ['required', 'regex:/^\d{10,14}$/'],
         ]);
 
         $user = new User();
-        $user->username = $request->input('username');
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-        $user->password = bcrypt($request->input('password'));
-        $user->no_hp = $request->input('no_hp');
+        $user->username = trim($request->username);
+        $user->name = trim($request->name);
+        $user->email = trim($request->email);
+        $user->password = Hash::make($request->password);
+        $user->no_hp = trim($request->no_hp);
         $user->role = 'user';
         $user->tanggal = now('Asia/Makassar')->format('Y-m-d');
         $user->save();
@@ -118,41 +117,31 @@ class AuthController extends Controller
         return redirect()->route('user.list')->with('success', 'Penambahan data User Berhasil');
     }
 
-    public function editUser($id)
+    public function editUser(Request $request)
     {
-        $Title = 'Edit User - IMM - GA - P2H Unit';
-        $user = User::find($id);
+        $user = User::findOrFail($request->id);
         if (!$user) {
-            return redirect()->route('user.list')->with('error', 'Data User tidak ditemukan.');
+            return response()->json(['error' => 'Data User tidak ditemukan.'], 404);
         }
-        return view('user.edit', compact('Title', 'user'));
+        return response()->json($user);
     }
 
-    public function updateUser(Request $request, $id)
+    public function updateUser(Request $request)
     {
-        $user = User::find($id);
-
+        $user = User::findOrFail($request->id);
         if (!$user) {
             return redirect()->route('user.list')->with('error', 'Data User tidak ditemukan.');
         }
 
-        $request->validate([
-            'username' => 'required|unique:users',
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:8',
-            'no_hp' => ['required', 'regex:/^\d{10,14}$/'],
-        ]);
-
-        $user->username = $request->input('username');
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->password = bcrypt($request->input('password'));
-        $user->no_hp = $request->input('no_hp');
+        // Update field lainnya sesuai kebutuhan
 
         $user->save();
-        return redirect()->route('user.list')->with('success', 'Data User berhasil di Update');
+
+        return redirect()->route('user.list')->with('success', 'Data User berhasil diperbarui.');
     }
+
 
     public function deleteUser($id)
     {

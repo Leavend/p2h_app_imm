@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="col-auto">
-                        @include('_messages')
+                        @include('_messagesdash')
                     </div>
 
                     <div class="col-auto">
@@ -123,9 +123,14 @@
                                                             class="note">{{ \Carbon\Carbon::parse($x->Created_at, 'Asia/Makassar')->format('g:i A') }}</span>
                                                     </td>
                                                     <td class="cell">
-                                                        <a href="{{ url('admin/user/edit/' . $x->id) }}"
+                                                        {{-- <a href="{{ url('admin/user/edit/' . $x->id) }}"
                                                             class="btn btn-circle btn-warning"><i
-                                                                class="fas fa-edit"></i></a>
+                                                                class="fas fa-edit"></i></a> --}}
+                                                        <a href="#" class="btn btn-circle btn-warning"
+                                                            data-id="{{ $x->id }}" data-bs-toggle="modal"
+                                                            data-bs-target="#editModal">
+                                                            <i class="fas fa-edit"></i>
+                                                        </a>
                                                         <a href="{{ url('admin/user/hapus/' . $x->id) }}"
                                                             class="btn btn-circle btn-danger"><i
                                                                 class="fas fa-trash-alt"></i></a>
@@ -171,6 +176,41 @@
                         </nav><!--//app-pagination--> --}}
 
                     </div><!--//tab-pane-->
+
+                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editModalLabel">Edit User</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="editUserForm" action="{{ route('user.update') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="id" id="editUserId">
+                                        <!-- Hidden input to hold user ID -->
+
+                                        <div class="mb-3">
+                                            <label for="name" class="form-label">Nama</label>
+                                            <input type="text" class="form-control" id="name" name="name"
+                                                value="{{ }}" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="email" name="email"
+                                                required>
+                                        </div>
+                                        <!-- Other input fields -->
+
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
 
                 </div><!--//tab-content-->

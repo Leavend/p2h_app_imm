@@ -25,11 +25,12 @@ class KendaraanController extends Controller
     public function save(Request $request)
     {
         $request->validate([
-            'jenis_kendaraan' => 'required|string|max:25',
-            'type_kendaraan' => 'required|string|max:25',
-            'nomor_lambung' => 'required|nomor_lambung|unique:kendaraans',
-            'nomor_polisi' => 'required|nomor_polisi|unique:kendaraans',
+            'jenis_kendaraan' => 'required',
+            'type_kendaraan' => 'required',
+            'nomor_lambung' => 'required|unique:kendaraans,nomor_lambung',
+            'nomor_polisi' => 'required|unique:kendaraans,nomor_polisi',
         ]);
+
 
         $kendaraan = new Kendaraan;
         $kendaraan->jenis_kendaraan = trim($request->jenis_kendaraan);

@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="col-auto">
-                        @include('_messages')
+                        @include('_messagesdash')
                     </div>
 
                     <div class="col-auto">

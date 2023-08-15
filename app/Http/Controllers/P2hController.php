@@ -34,7 +34,6 @@ class P2hController extends Controller
     public function show()
     {
         $Title = 'P2H';
-        // $All = P2h::with('kendaraan')->orderBy('id', 'asc')->paginate(10);
         $All = P2h::getp2hadmin();
 
         $Counts = [];
@@ -167,13 +166,8 @@ class P2hController extends Controller
 
     public function detail($id)
     {
-        $Title = 'IMM - GA - P2H Unit';
-        $data = P2h::where('id', $id)->first();
-        $dataKendaraan = Kendaraan::all();
-        // $no = 1;
-
-        // $dataP2h = P2h::where('id', "$id")->get();
-        return view('p2h.detail', compact('Title', 'data', 'dataKendaraan'));
+        $data = P2h::findOrFail($id); // Sesuaikan dengan model dan kolom yang sesuai
+        return response()->json($data);
     }
 
     public function edit($id)
