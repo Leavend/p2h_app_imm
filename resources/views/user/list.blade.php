@@ -61,7 +61,7 @@
                                 </div>
 
                                 <div class="col-auto">
-                                    <a class="btn app-btn-secondary" href="{{ route('download.csv') }}">
+                                    <a class="btn app-btn-secondary" href="{{ route('user.download.csv') }}">
                                         <svg width="1em" height="1em" viewBox="0 0 16 16"
                                             class="bi bi-download me-1" fill="currentColor"
                                             xmlns="http://www.w3.org/2000/svg">

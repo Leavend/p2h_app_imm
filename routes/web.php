@@ -58,7 +58,7 @@ Route::middleware(['admin'])->group(function () {
     // User
     Route::prefix('admin/user')->group(function () {
         Route::get('/', [AuthController::class, 'listUser'])->name('user.list');
-        Route::get('/download-csv', [AuthController::class, 'export'])->name('download.csv');
+        Route::get('/download-csv', [AuthController::class, 'export'])->name('user.download.csv');
         Route::get('/tambah', [AuthController::class, 'addUser'])->name('user.add');
         Route::post('/simpan', [AuthController::class, 'storeUser'])->name('user.save');
         Route::post('/edit', [AuthController::class, 'editUser'])->name('ajax.get.user');
@@ -70,7 +70,7 @@ Route::middleware(['admin'])->group(function () {
     // kendaraan / unit GA
     Route::prefix('admin/kendaraan')->group(function () {
         Route::get('/', [KendaraanController::class, 'show'])->name('kendaraan.list');
-        Route::get('/download-csv', [KendaraanController::class, 'export'])->name('download.csv');
+        Route::get('/download-csv', [KendaraanController::class, 'export'])->name('kendaraan.download.csv');
         Route::get('/tambah', [KendaraanController::class, 'add'])->name('kendaraan.add');
         Route::post('/simpan', [KendaraanController::class, 'save'])->name('kendaraan.save');
         Route::get('/edit/{id}', [KendaraanController::class, 'edit'])->name('kendaraan.edit');
@@ -81,7 +81,7 @@ Route::middleware(['admin'])->group(function () {
     // p2h view
     Route::prefix('admin/p2h')->group(function () {
         Route::get('/', [P2hController::class, 'show'])->name('p2h.list.admin');
-        Route::get('/download-csv', [P2hController::class, 'export'])->name('download.csv');
+        Route::get('/download-csv', [P2hController::class, 'export'])->name('p2h.download.csv');
         Route::get('/detail/{id}', [P2hController::class, 'detail'])->name('p2h.detail');
         Route::get('/edit/{id}', [P2hController::class, 'edit'])->name('p2h.edit');
         Route::post('/perbarui/{id}', [P2hController::class, 'update'])->name('p2h.update');
