@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kendaraan;
 use Illuminate\Http\Request;
 use App\Exports\KendaraansExport;
-use Maatwebsite\Excel\Facades\excel;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KendaraanController extends Controller
 {

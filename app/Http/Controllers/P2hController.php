@@ -10,7 +10,7 @@ use Carbon\Carbon;
 use TelegramBot\Api\BotApi;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
-use Maatwebsite\Excel\Facades\excel;
+use Maatwebsite\Excel\Facades\Excel;
 
 class P2hController extends Controller
 {
