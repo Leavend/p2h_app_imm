@@ -7,13 +7,14 @@
             <div class="col-12 col-md-7 col-lg-6 auth-main-col text-center p-5">
                 <div class="d-flex flex-column align-content-end">
                     <div class="app-auth-body mx-auto">
-                        <div class="app-auth-branding mb-4"><a class="app-logo" href="{{ route('home') }}"><img
-                                    class="logo-icon me-2" src="assets/images/app-logo.svg" alt="logo"></a></div>
+                        <div class="app-auth-branding mb-4"><a class="app-logo" href="{{ route('home') }}">
+                                <img class="logo-icon me-2" src="/assets/img/imm2.svg" alt="logo"></a>
+                        </div>
                         <h2 class="auth-heading text-center mb-5">Log in to Dashboard P2H</h2>
                         <div class="auth-form-container text-start">
                             <form class="auth-form login-form">
                                 <div class="email mb-3">
-                                    <label class="sr-only" for="signin-email">Usernam</label>
+                                    <label class="sr-only" for="signin-email">Username</label>
                                     <input id="signin-email" name="signin-email" type="username"
                                         class="form-control signin-email" required="required">
                                 </div><!--//form-group-->
