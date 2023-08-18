@@ -26,6 +26,34 @@ window.addEventListener('DOMContentLoaded', event => {
     // Shrink the navbar 
     navbarShrink();
 
+    // Function to handle checkbox selection for a row
+    function handleCheckboxSelection(rowId) {
+        const checkboxes = document.querySelectorAll(`#${rowId} .form-check-input`);
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                checkboxes.forEach(cb => {
+                    if (cb !== checkbox) {
+                        cb.checked = false;
+                    }
+                });
+            });
+        });
+    }
+
+    // Call the function for each row
+    handleCheckboxSelection('inlineRadio1_row1');
+    handleCheckboxSelection('inlineRadio1_row2');
+    handleCheckboxSelection('inlineRadio1_row3');
+    handleCheckboxSelection('inlineRadio1_row4');
+    handleCheckboxSelection('inlineRadio1_row5');
+    handleCheckboxSelection('inlineRadio1_row6');
+    handleCheckboxSelection('inlineRadio1_row7');
+    handleCheckboxSelection('inlineRadio1_row8');
+    handleCheckboxSelection('inlineRadio1_row9');
+    handleCheckboxSelection('inlineRadio1_row10');
+    handleCheckboxSelection('inlineRadio1_row11');
+    // Add more calls for other rows if needed
+    
     // Shrink the navbar when page is scrolled
     document.addEventListener('scroll', navbarShrink);
 
