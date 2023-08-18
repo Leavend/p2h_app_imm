@@ -1,4 +1,4 @@
-@include('layoutLanding.header')
+@include('layoutDashboard.header')
 
 <body id="page-top">
 
@@ -33,7 +33,7 @@
                     </div><!--//auth-body-->
 
                 </div><!--//flex-column-->
-                @include('layoutLanding.footer')
+                @include('layoutDashboard.footer')
 
             </div><!--//auth-main-col-->
             <div class="col-12 col-md-5 col-lg-6 h-100 auth-background-col">
