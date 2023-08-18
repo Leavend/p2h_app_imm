@@ -69,7 +69,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td class="cell" colspan="7" style="text-align: center;">
+                                        <td class="cell" colspan="8" style="text-align: center;">
                                             Data Tidak Ada.
                                         </td>
                                     </tr>
