@@ -21,9 +21,11 @@ class KendaraanFactory extends Factory
     public function definition(): array
     {
         return [
-            'jenis_kendaraan' => $this->faker->randomElement(['Mobil', 'Motor', 'Truk']),
-            'nomor_lambung' => 'L' . $this->faker->unique()->numberBetween(100000, 999999),
-            'nomor_polisi' => 'B' . $this->faker->unique()->randomLetter() . $this->faker->unique()->randomNumber(5),
+            'jenis_kendaraan' => $this->faker->randomElement(['LV', 'Bus']),
+            'type_kendaraan' => $this->faker->randomElement(['Toyota', 'Innova', 'Mitsubishi']),
+            'nomor_lambung' => 'P' . $this->faker->unique()->numberBetween(1000, 9999),
+            'nomor_polisi' => 'S' . $this->faker->unique()->randomLetter() . $this->faker->unique()->randomNumber(5),
+            'tanggal' => now('Asia/Makassar')->format('Y-m-d'),
             // Tambahan atribut lain sesuai kebutuhan
         ];
     }

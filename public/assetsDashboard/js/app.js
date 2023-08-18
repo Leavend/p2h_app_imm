@@ -70,7 +70,6 @@ sidePanelDrop.addEventListener('click', (e) => {
 });
 
 
-
 /* ====== Mobile search ======= */
 const searchMobileTrigger = document.querySelector('.search-mobile-trigger');
 const searchBox = document.querySelector('.app-search-box');
@@ -89,8 +88,7 @@ searchMobileTrigger.addEventListener('click', () => {
 		searchMobileTriggerIcon.classList.add('fa-magnifying-glass');
 	}
 	
-		
-	
 });
+
 
 

@@ -9,39 +9,35 @@
     @include('layoutLanding.hero')
 
 
-    <!-- Display P2H & Kendaraan -->
+    <!-- Display P2H -->
     <div class="tabel-manis">
         <main class="table">
-            <section class="page-section" id="kendaraan">
-                <div class="container px-4 px-lg-5">
-                    <h2 class="text-center mt-0">Daftar P2H Hari Ini</h2>
-                    <hr class="divider divider-light" />
-                    <section class="table__header">
-                        {{-- <div class="input-group">
-                            <input type="search" placeholder="Search Data..." />
-                        </div> --}}
-                        {{-- <div class="export__file">
-                            <label for="export-file" class="export__file-btn" title="Export File"></label>
-                            <input type="checkbox" id="export-file" />
-                            <div class="export__file-options">
-                                <label>Export As &nbsp; &#10140;</label>
-                                <label for="export-file" id="toPDF">PDF <img src="images/pdf.png"
-                                        alt="" /></label>
-                                <label for="export-file" id="toJSON">JSON <img src="images/json.png"
-                                        alt="" /></label>
-                                <label for="export-file" id="toCSV">CSV <img src="images/csv.png"
-                                        alt="" /></label>
-                                <label for="export-file" id="toEXCEL">EXCEL <img src="images/excel.png"
-                                        alt="" /></label>
+            <section class="page-section" id="p2hkendaraan" style="height: 750px">
+                <div class="container
+                px-4 px-lg-5">
+                    <h3 class="text-center mt-0">Daftar P2H</h3>
+                    <div style="float: right;">
+                        <form id="filterFormP2H">
+                            <div class="input-group">
+                                <input type="date" value="{{ Request::get('date') }}" class="form-control"
+                                    id="filterDateP2H" name="date" placeholder="search by date">
+                                <button type="submit" class="btn btn-primary">Filter by Date</button>
+                                <a href="{{ route('home') }}" class="btn btn-success">Clear</a>
                             </div>
-                        </div> --}}
+                        </form>
+                    </div>
+                    {{-- <hr class="divider divider-light" /> --}}
+                    <section class="table__header">
+                        <!-- Add your header content here if needed -->
                     </section>
-                    <section class="table__body">
-                        <table>
+                    <section class="table-responsive" id="p2h-table">
+                        <table class="table">
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>Nama Pemeriksa</th>
                                     <th>Jenis Kendaraan</th>
+                                    <th>Type Kendaraan</th>
                                     <th>No Lambung</th>
                                     <th>Keterangan</th>
                                     <th>Status</th>
@@ -49,10 +45,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($All as $x)
+                                <!-- Loop through the filtered P2H data -->
+                                @forelse ($p2hPaginator as $x)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $p2hPaginator->firstItem() + $loop->index }}</td>
+                                        <td>{{ $x->nama_pemeriksa }}</td>
                                         <td>{{ $x->kendaraan->jenis_kendaraan }}</td>
+                                        <td>{{ $x->kendaraan->type_kendaraan }}</td>
                                         <td>{{ $x->kendaraan->nomor_lambung }}</td>
                                         <td>{{ $x->keterangan }}</td>
                                         <td>
@@ -64,64 +63,77 @@
                                                 <p class="status shipped">Belum Diperiksa</p>
                                             @endif
                                         </td>
-                                        <td>{{ $x->tanggal }}</td>
+                                        <td>
+                                            {{ \Carbon\Carbon::parse($x->tanggal, 'Asia/Makassar')->format('d M Y ') }}
+                                        </td>
                                     </tr>
-                                @endforeach
+                                @empty
+                                    <tr>
+                                        <td class="cell" colspan="7" style="text-align: center;">
+                                            Data Tidak Ada.
+                                        </td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
-                        {{-- <div style="padding: 20px; float: right">
-                            {{ $All->links() }}
-                        </div> --}}
-
-
+                    </section>
+                    <div style="padding: 25px; float: right;">
+                        {{ $p2hPaginator->appends(request()->except('p2h_page'))->links() }}
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
+
+    <!-- Kendaraan -->
     <div class="tabel-manis">
         <main class="table">
-            <section class="page-section px-4" id="services">
-                <div class="container px-4 px-lg-5">
-                    <h2 class="text-center mt-0">Daftar Kendaraan</h2>
-                    <hr class="divider divider-light" />
-                    <section class="table__header">
-                        {{-- <div class="input-group">
-                            <input type="search" placeholder="Search Data..." />
-                        </div>
-                        <div class="export__file">
-                            <label for="export-file" class="export__file-btn" title="Export File"></label>
-                            <input type="checkbox" id="export-file" />
-                            <div class="export__file-options">
-                                <label>Export As &nbsp; &#10140;</label>
-                                <label for="export-file" id="toPDF">PDF <img src="images/pdf.png"
-                                        alt="" /></label>
-                                <label for="export-file" id="toJSON">JSON <img src="images/json.png"
-                                        alt="" /></label>
-                                <label for="export-file" id="toCSV">CSV <img src="images/csv.png"
-                                        alt="" /></label>
-                                <label for="export-file" id="toEXCEL">EXCEL <img src="images/excel.png"
-                                        alt="" /></label>
+            <section class="page-section" id="kendaraan" style="height: 750px">
+                <div class="container px-lg-5">
+                    <h3 class="text-center mt-0">Daftar Kendaraan</h3>
+                    <div style="float: right;">
+                        <form id="filterFormKendaraan">
+                            <div class="input-group">
+                                <input type="text" value="{{ Request::get('no_lambung') }}" class="form-control"
+                                    id="filterNoLambung" name="no_lambung" placeholder="Tuliskan nomor lambung">
+                                <button type="submit" class="btn btn-primary">Cari No Lambung</button>
+                                <a href="{{ route('home') }}" class="btn btn-success">Clear</a>
                             </div>
-                        </div> --}}
+                        </form>
+                    </div>
+                    {{-- <hr class="divider divider-light" /> --}}
+                    <section class="table__header">
+                        <!-- Add your header content here if needed -->
                     </section>
-                    <section class="table__body">
-                        <table>
+                    <section class="table-responsive" id="kendaraan-table">
+                        <table class="table">
                             <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>Jenis Kendaraan</th>
+                                    <th>Type Kendaraan</th>
                                     <th>No Lambung</th>
-                                    <th>Tanggal</th>
+                                    <th>Tanggal Input</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $No = 1; ?>
-                                @foreach ($All as $x)
+                                @forelse ($kendaraanPaginator as $x)
                                     <tr>
-                                        <td>{{ $No++ }}</td>
-                                        <td>{{ $x->kendaraan->jenis_kendaraan }}</td>
-                                        <td>{{ $x->kendaraan->nomor_lambung }}</td>
-                                        <td>{{ $x->kendaraan->created_at }}</td>
+                                        <td>{{ $kendaraanPaginator->firstItem() + $loop->index }}</td>
+                                        <td>{{ $x->jenis_kendaraan }}</td>
+                                        <td>{{ $x->type_kendaraan }}</td>
+                                        <td>{{ $x->nomor_lambung }}</td>
+                                        <td>
+                                            {{ \Carbon\Carbon::parse($x->created_at, 'Asia/Makassar')->format('d M Y ') }}
+                                        </td>
                                     </tr>
-                                @endforeach
+                                @empty
+                                    <tr>
+                                        <td class="cell" colspan="7" style="text-align: center;">
+                                            Data Tidak Ada.
+                                        </td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
                         <div class='pagination-container'>
@@ -140,15 +152,21 @@
                   </nav>
               </div>
                     </section>
+                    <div style="padding: 25px; float: right;">
+                        {{ $kendaraanPaginator->appends(request()->except('kendaraan_page'))->links() }}
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
+
 
     <!-- P2h -->
     <section class="page-section bg-imm" id="p2h">
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h2 class="text-white mt-0">Lakukan Pemeriksaan</h2>
+                    <h3 class="text-white mt-0">Lakukan Pemeriksaan</h3>
                     <hr class="divider divider-light" />
                     <a class="btn btn-light btn-xl" href="{{ route('p2h-cek.list') }}">P2H!</a>
                 </div>

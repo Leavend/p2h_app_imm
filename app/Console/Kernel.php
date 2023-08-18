@@ -13,8 +13,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // Jalankan event CreateDailyP2hEntries setiap hari pada pukul 00:00
-        $schedule->event(new CreateDailyP2hEntries())->dailyAt('00:00');
+        // Jalankan event CreateDailyP2hEntries setiap hari pada pukul 01:00
+        $schedule->event(new CreateDailyP2hEntries())->dailyAt('01:00')->timezone('Asia/Makassar');
     }
 
 
