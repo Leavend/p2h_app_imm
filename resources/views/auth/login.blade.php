@@ -8,7 +8,7 @@
                 <div class="d-flex flex-column align-content-end">
                     <div class="app-auth-body mx-auto">
                         <div class="app-auth-branding mb-4"><a class="app-logo" href="index.html"><img
-                                    class="logo-icon me-2" src="/assets/img/IMM.svg" alt="logo"></a></div>
+                                    class="logo-icon me-2" src="/assets/img/imm2.svg" alt="logo"></a></div>
                         <h2 class="auth-heading text-center mb-5">Log in to Portal</h2>
                         <div class="auth-form-container text-start">
                             <form class="auth-form login-form">
