@@ -7150,6 +7150,13 @@ h2 {
     background-color: RGBA(217, 26, 91, var(--bs-bg-opacity, 1)) !important;
 }
 
+.bg-glass {
+  background-color: hsla(0, 255, 56, 0.8);
+  /* background-color: hsl(from 255 h s l); */
+  /* backdrop-filter: saturate(200%) blur(25px); */
+  --bs-card-bg: rgba(255, 255, 255, 0.9);
+}
+
 .text-bg-primary {
     color: #fff !important;
     background-color: RGBA(244, 98, 58, var(--bs-bg-opacity, 1)) !important;
