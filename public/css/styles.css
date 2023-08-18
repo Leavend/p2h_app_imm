@@ -672,45 +672,37 @@ progress {
 }
 
 @media (min-width: 576px) {
-    .container-sm,
-    .container {
+    .container-sm {
         max-width: 540px;
     }
 }
 @media (min-width: 768px) {
-    .container-md,
-    .container-sm,
-    .container {
+    .container-sm {
         max-width: 720px;
     }
 }
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
     .container-lg,
     .container-md,
     .container-sm,
     .container {
         max-width: 960px;
     }
-}
-@media (min-width: 1200px) {
+} */
+/* @media (min-width: 1200px) {
     .container-xl,
     .container-lg,
     .container-md,
     .container-sm,
     .container {
         max-width: 1140px;
-    }
-}
+    } */
+/* } */
 @media (min-width: 1400px) {
-    .container-xxl,
-    .container-xl,
-    .container-lg,
-    .container-md,
-    .container-sm,
-    .container {
+    .container-xxl {
         max-width: 1320px;
-    }
-}
+    } */
+/* }
 .row {
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
@@ -2281,7 +2273,6 @@ textarea.form-control-lg {
     min-height: 1.5rem;
     padding-left: 1.5em;
     margin-bottom: 0.125rem;
-    font-style: italic;
 }
 .form-check .form-check-input {
     float: left;
@@ -4375,12 +4366,10 @@ fieldset:disabled .btn {
 
 .card-body {
     flex: 1 1 auto;
-    padding: 3rem !important;
-    margin-right: 1.5rem;
-    margin-left: 1.5rem;
+    padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
     color: var(--bs-card-color);
     font-family: Gotham, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
-    /* font-size: 14px; */
+    font-size: 14px;
     font-weight: bold; /* Menjadikan teks menjadi bold */
 }
 
@@ -7148,13 +7137,6 @@ h2 {
 .bg-imm {
     color: #fff !important;
     background-color: RGBA(217, 26, 91, var(--bs-bg-opacity, 1)) !important;
-}
-
-.bg-glass {
-  background-color: hsla(0, 255, 56, 0.8);
-  /* background-color: hsl(from 255 h s l); */
-  /* backdrop-filter: saturate(200%) blur(25px); */
-  --bs-card-bg: rgba(255, 255, 255, 0.9);
 }
 
 .text-bg-primary {
@@ -11594,6 +11576,13 @@ header.kendaraan .h1 {
     text-decoration: none solid rgb(255, 255, 255);
 }
 
+.bg-glass {
+  background-color: hsla(0, 255, 56, 0.8);
+  /* background-color: hsl(from 255 h s l); */
+  /* backdrop-filter: saturate(200%) blur(25px); */
+  --bs-card-bg: rgba(255, 255, 255, 0.9);
+}
+
 header.formulir {
   padding-top: 9rem;
   padding-bottom: calc(10rem - 4.5rem);
@@ -11640,11 +11629,17 @@ header.formulir h1, header.formulir .h1 {
         height: 100vh !important;
     }
 }
-@media (min-width: 769px) {
+@media (max-width: 769px) {
     .gradient-custom-2 {
         border-top-right-radius: 2rem;
         border-bottom-right-radius: 2rem;
     }
+}
+@media (min-width: 769px) {
+  .gradient-custom-2 {
+      border-top-right-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+  }
 }
 
 /* Table Style */
@@ -12026,7 +12021,7 @@ tbody td.active {
   header.masthead-new h1, header.masthead-new .h1 {
     font-size: 3.5rem;
   }
-
+}
 @media (max-width: 992px) {
   header.kendaraan {
     height: 100vh;
@@ -12040,14 +12035,9 @@ tbody td.active {
   header.kendaraan h1, header.kendaraan .h1 {
     font-size: 3rem;
   }
-  .card-body {
-    padding: 3rem !important;
-    margin-right: 1.5rem;
-    margin-left: 1.5rem;
-  }
 }
 
-@media (max-width: 800px) {
+@media (min-width: 800px) {
   .col-lg-6 {
     flex: 0 0 auto;
   }
@@ -12080,95 +12070,3 @@ tbody td.active {
   }
 }
 
-#portfolio .container-fluid,
-#portfolio .container-sm,
-#portfolio .container-md,
-#portfolio .container-lg,
-#portfolio .container-xl,
-#portfolio .container-xxl {
-    max-width: 1920px;
-}
-#portfolio .container-fluid .portfolio-box,
-#portfolio .container-sm .portfolio-box,
-#portfolio .container-md .portfolio-box,
-#portfolio .container-lg .portfolio-box,
-#portfolio .container-xl .portfolio-box,
-#portfolio .container-xxl .portfolio-box {
-    position: relative;
-    display: block;
-}
-#portfolio .container-fluid .portfolio-box .portfolio-box-caption,
-#portfolio .container-sm .portfolio-box .portfolio-box-caption,
-#portfolio .container-md .portfolio-box .portfolio-box-caption,
-#portfolio .container-lg .portfolio-box .portfolio-box-caption,
-#portfolio .container-xl .portfolio-box .portfolio-box-caption,
-#portfolio .container-xxl .portfolio-box .portfolio-box-caption {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    opacity: 0;
-    color: #fff;
-    background: rgba(244, 98, 58, 0.9);
-    transition: opacity 0.25s ease;
-    text-align: center;
-}
-#portfolio
-    .container-fluid
-    .portfolio-box
-    .portfolio-box-caption
-    .project-category,
-#portfolio
-    .container-sm
-    .portfolio-box
-    .portfolio-box-caption
-    .project-category,
-#portfolio
-    .container-md
-    .portfolio-box
-    .portfolio-box-caption
-    .project-category,
-#portfolio
-    .container-lg
-    .portfolio-box
-    .portfolio-box-caption
-    .project-category,
-#portfolio
-    .container-xl
-    .portfolio-box
-    .portfolio-box-caption
-    .project-category,
-#portfolio
-    .container-xxl
-    .portfolio-box
-    .portfolio-box-caption
-    .project-category {
-    font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji";
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-#portfolio .container-fluid .portfolio-box .portfolio-box-caption .project-name,
-#portfolio .container-sm .portfolio-box .portfolio-box-caption .project-name,
-#portfolio .container-md .portfolio-box .portfolio-box-caption .project-name,
-#portfolio .container-lg .portfolio-box .portfolio-box-caption .project-name,
-#portfolio .container-xl .portfolio-box .portfolio-box-caption .project-name,
-#portfolio .container-xxl .portfolio-box .portfolio-box-caption .project-name {
-    font-size: 1.2rem;
-}
-#portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption,
-#portfolio .container-sm .portfolio-box:hover .portfolio-box-caption,
-#portfolio .container-md .portfolio-box:hover .portfolio-box-caption,
-#portfolio .container-lg .portfolio-box:hover .portfolio-box-caption,
-#portfolio .container-xl .portfolio-box:hover .portfolio-box-caption,
-#portfolio .container-xxl .portfolio-box:hover .portfolio-box-caption {
-    opacity: 1;
-}
