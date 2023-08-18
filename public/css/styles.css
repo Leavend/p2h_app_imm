@@ -12336,6 +12336,7 @@ tbody tr.hide td img {
 @media (max-width: 1000px) {
     td:not(:first-of-type) {
         min-width: 12.1rem;
+        padding: 1.5rem;
     }
 }
 
