@@ -6273,6 +6273,72 @@ h2 {
     background-size: 100% 100%;
 }
 
+.carousel-control-prev-2 {
+  position: absolute;
+  /* top: 0; */
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 43%;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  /* background: none; */
+  border: 0;
+  /* opacity: 0.5; */
+  transition: opacity 0.15s ease;
+  margin: 15px;
+  
+  /* padding-top: 20px; */
+  /* width: 70px; */
+  height: 35px;
+}
+
+.carousel-control-next-2 {
+  position: absolute;
+  /* top: 0; */
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 43%;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  /* background: none; */
+  border: 0;
+  /* opacity: 0.5; */
+  transition: opacity 0.15s ease;
+  margin: 15px;
+  /* width: 90px; */
+  height: 35px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    transition: none;
+  }
+}
+.carousel-control-prev-2:hover, .carousel-control-prev:focus,
+.carousel-control-next-2:hover,
+.carousel-control-next-2:focus {
+  color: #fff;
+  text-decoration: none;
+  outline: 0;
+  opacity: 0.9;
+}
+
+.carousel-control-prev-2 {
+  left: 0;
+}
+
+.carousel-control-next-2 {
+  right: 0;
+}
+
 /* rtl:options: {
   "autoRename": true,
   "stringMap":[ {
@@ -11467,6 +11533,8 @@ header.masthead-new {
     );
 }
 
+
+
 .header-slider {
     width: 100%;
     height: 100vh; /* Sesuaikan tinggi slider sesuai kebutuhan Anda */
@@ -11518,32 +11586,27 @@ header.kendaraan .h1 {
 }
 
 header.formulir {
-    padding-top: 0.5rem;
-    padding-bottom: calc(10rem - 4.5rem);
-    background: linear-gradient(
-            to bottom,
-            rgba(130, 123, 123, 0.8) 0%,
-            rgba(130, 123, 123, 0.8) 100%
-        ),
-        url("../assets/img/form.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
+  padding-top: 9rem;
+  padding-bottom: calc(10rem - 4.5rem);
+  background: url("../assets/img/form.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
 }
-header.formulir h1,
-header.formulir .h1 {
-    color: white;
-    font-size: 2.25rem;
-    font-size: 55px;
-    line-height: 68px;
-    vertical-align: baseline;
-    letter-spacing: -1px;
-    font-weight: 300;
-    font-style: normal;
-    font-variant: normal;
-    text-transform: none;
-    text-decoration: none solid rgb(255, 255, 255);
+header.formulir h1, header.formulir .h1 {
+  color: white;
+  font-size: 2.25rem;
+  font-size: 55px;
+  line-height: 68px;
+  vertical-align: baseline;
+  letter-spacing: -1px;
+  font-weight: 300;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-decoration: none solid rgb(255, 255, 255);
+
 }
 /* Login Style */
 .gradient-custom-2 {
@@ -11906,48 +11969,106 @@ tbody td.active {
     }
 }
 
-@media (min-width: 992px) {
-    header.kendaraan {
-        height: 100vh;
-        min-height: 40rem;
-        padding-top: 4.5rem;
-        padding-bottom: 0;
-    }
-    header.kendaraan p {
-        font-size: 1.15rem;
-    }
-    header.kendaraan h1,
-    header.kendaraan .h1 {
-        font-size: 3rem;
-    }
-}
-@media (min-width: 1200px) {
-    header.kendaraan h1,
-    header.kendaraan .h1 {
-        font-size: 3.5rem;
-    }
+@media (max-width: 992px) {
+  header.masthead-new {
+    /* height: 100vh; */
+    min-height: 40rem;
+    padding-top: 4.5rem;
+    padding-bottom: 0;
+  }
+  header.masthead-new p {
+    font-size: 32px;
+  }
+
+  header.masthead-new h2 {
+    font-size: 48px;
+  }
+  header.masthead-new h1, header.masthead-new .h1 {
+    font-size: 3rem;
+  }
+
+  .carousel-text {
+    position: absolute;
+    text-align: center;
+    left: 50%;
+  }
 }
 
-@media (min-width: 992px) {
-    header.formulir {
-        /* height: 100vh; */
-        min-height: 40rem;
-        padding-top: 120px;
-        /* padding-bottom: 0; */
-    }
-    header.formulir p {
-        font-size: 1.15rem;
-    }
-    header.formulir h1,
-    header.formulir .h1 {
-        font-size: 3rem;
-    }
+@media (max-width: 800px) {
+  header.masthead-new {
+    /* height: 100vh; */
+    min-height: 40rem;
+    padding-top: 4.5rem;
+    padding-bottom: 0;
+  }
+  header.masthead-new p {
+    font-size: 24px;
+  }
+
+  header.masthead-new h2 {
+    font-size: 36px;
+  }
+  header.masthead-new h1, header.masthead-new .h1 {
+    font-size: 3rem;
+
+  }
 }
 @media (min-width: 1200px) {
-    header.formulir h1,
-    header.formulir .h1 {
-        font-size: 3.5rem;
-    }
+  header.masthead-new h1, header.masthead-new .h1 {
+    font-size: 3.5rem;
+  }
+
+@media (max-width: 992px) {
+  header.kendaraan {
+    height: 100vh;
+    min-height: 40rem;
+    padding-top: 4.5rem;
+    padding-bottom: 0;
+  }
+  header.kendaraan p {
+    font-size: 1.15rem;
+  }
+  header.kendaraan h1, header.kendaraan .h1 {
+    font-size: 3rem;
+  }
+  .card-body {
+    padding: 3rem !important;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .col-lg-6 {
+    flex: 0 0 auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  header.kendaraan h1, header.kendaraan .h1 {
+    font-size: 3.5rem;
+  }
+}
+
+
+@media (min-width: 992px) {
+  header.formulir {
+    /* height: 100vh; */
+    min-height: 40rem;
+    padding-top: 120px;
+    /* padding-bottom: 0; */
+  }
+  header.formulir p {
+    font-size: 1.15rem;
+  }
+  header.formulir h1, header.formulir .h1 {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 1200px) {
+  header.formulir h1, header.formulir .h1 {
+    font-size: 3.5rem;
+  }
 }
 
 #portfolio .container-fluid,
