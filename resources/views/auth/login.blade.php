@@ -8,7 +8,8 @@
                 <div class="d-flex flex-column align-content-end">
                     <div class="app-auth-body mx-auto">
                         <div class="app-auth-branding mb-4"><a class="app-logo" href="{{ route('home') }}">
-                                <img class="logo-icon me-2" src="/assets/img/imm2.svg" alt="logo"></a>
+                                <img class="logo-icon me-2" src="{{ url('/assetsDashboard/images/imm2.svg') }}"
+                                    alt="logo"></a>
                         </div>
                         <h2 class="auth-heading text-center mb-5">Log in to Dashboard P2H</h2>
                         <div class="auth-form-container text-start">
