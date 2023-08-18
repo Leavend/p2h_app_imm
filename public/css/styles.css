@@ -4375,7 +4375,9 @@ fieldset:disabled .btn {
 
 .card-body {
     flex: 1 1 auto;
-    padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+    padding: 3rem !important;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
     color: var(--bs-card-color);
     font-family: Gotham, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
     /* font-size: 14px; */
