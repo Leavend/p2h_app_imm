@@ -421,13 +421,6 @@ table {
     padding: 0.5rem 1rem;
 }
 
-caption {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    color: #6c757d;
-    text-align: left;
-}
-
 th {
     text-align: inherit;
     text-align: -webkit-match-parent;
@@ -12422,20 +12415,33 @@ tbody tr.hide td img {
 
 @media (max-width: 1000px) {
     thead,td {
-        font-size: 13px;
+        font-size: 12px;
     }
 }
 
 @media (max-width: 800px) {
     td {
         min-width: 8rem;
-        font-size: 12px;
+        font-size: 9px;
     }
 }
 
 @media (max-width: 800px) {
     thead,td {
-        font-size: 1px;
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 800px) {
+    td {
+        min-width: 8rem;
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 800px) {
+    thead,td {
+        font-size: 8px;
     }
 }
 
