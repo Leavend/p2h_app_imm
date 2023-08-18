@@ -55,7 +55,8 @@
     --bs-black-rgb: 0, 0, 0;
     --bs-body-color-rgb: 33, 37, 41;
     --bs-body-bg-rgb: 255, 255, 255;
-    --bs-font-sans-serif: Gotham, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
+    --bs-font-sans-serif: Gotham, Roboto, Helvetica Neue, Helvetica, Arial,
+        sans-serif;
     --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
         "Liberation Mono", "Courier New", monospace;
     --bs-gradient: linear-gradient(
@@ -11525,7 +11526,7 @@ header.formulir {
             rgba(130, 123, 123, 0.8) 0%,
             rgba(130, 123, 123, 0.8) 100%
         ),
-        url("../assets/img/form.jpg");
+        url("../assets/img/formsvg.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
