@@ -88,8 +88,8 @@
     <!-- Kendaraan -->
     <div class="tabel-manis">
         <main class="table">
-            <section class="page-section px-4" id="kendaraan" style="height: 750px">
-                <div class="container px-4 px-lg-5">
+            <section class="page-section" id="kendaraan" style="height: 750px">
+                <div class="container px-lg-5">
                     <h3 class="text-center mt-0">Daftar Kendaraan</h3>
                     <div style="float: right;">
                         <form id="filterFormKendaraan">
