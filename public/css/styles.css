@@ -11976,7 +11976,7 @@ tbody td.active {
 @media (max-width: 992px) {
   header.masthead-new {
     /* height: 100vh; */
-    min-height: 40rem;
+    /* min-height: 40rem; */
     padding-top: 4.5rem;
     padding-bottom: 0;
   }
@@ -12001,7 +12001,7 @@ tbody td.active {
 @media (max-width: 800px) {
   header.masthead-new {
     /* height: 100vh; */
-    min-height: 40rem;
+    /* min-height: 40rem; */
     padding-top: 4.5rem;
     padding-bottom: 0;
   }
@@ -12017,6 +12017,55 @@ tbody td.active {
 
   }
 }
+
+@media (max-width: 600px) {
+  header.masthead-new {
+    /* height: 100vh; */
+    /* min-height: 40rem; */
+    padding-top: 4.5rem;
+    padding-bottom: 0;
+  }
+  header.masthead-new p {
+    font-size: 16px;
+  }
+
+  header.masthead-new h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 500px) {
+  header.masthead-new {
+    /* height: 100vh; */
+    /* min-height: 40rem; */
+    padding-top: 4.5rem;
+    padding-bottom: 0;
+  }
+  header.masthead-new p {
+    font-size: 12px;
+  }
+
+  header.masthead-new h2 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 500px) {
+  header.masthead-new {
+    /* height: 100vh; */
+    /* min-height: 40rem; */
+    padding-top: 4.5rem;
+    padding-bottom: 0;
+  }
+  header.masthead-new p {
+    font-size: 12px;
+  }
+
+  header.masthead-new h2 {
+    font-size: 16px;
+  }
+}
+
 @media (min-width: 1200px) {
   header.masthead-new h1, header.masthead-new .h1 {
     font-size: 3.5rem;
