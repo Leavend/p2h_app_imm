@@ -12725,3 +12725,77 @@ tbody td.active {
   }
 }
 
+ /* Default style for input group */
+ .input-group {
+    margin-bottom: 15px;
+}
+
+/* Responsive styles for different screen widths */
+@media (max-width: 100px) {
+    .input-group .btn {
+        width: 100%;
+        margin-top: 5px;
+        font-size: 10px;
+    }
+
+    .form-control {
+        width: 100%;
+        margin-top: 0;
+        /* margin-bottom: 5px; */
+    }
+
+    .input-group input,
+    .input-group button {
+        margin-right: 0px;
+    }
+}
+
+@media (max-width: 300px) {
+    .input-group .btn {
+        width: 100%;
+        margin-top: 5px;
+        font-size: 10px;
+    }
+    .form-control {
+        width: 100%;
+        /* margin-bottom: 5px; */
+    }
+    .input-group input,
+    .input-group button {
+        margin-right: 0px;
+    }
+}
+
+@media (max-width: 476px) {
+    .input-group .btn {
+        width: 100%;
+        margin-top: 5px;
+        font-size: 12px;
+    }
+    .form-control {
+        width: 100%;
+        /* margin-bottom: 5px; */
+    }  
+
+    .input-group input,
+    .input-group button {
+        margin-right: 0px;
+    }
+}
+
+@media (max-width: 576px) {
+    .input-group .btn {
+        width: 100%;
+        margin-top: 5px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .input-group .btn  {
+        /* width: 100%; */
+        margin-top: 5px;
+        font-size: 16px;
+    }
+}
+
