@@ -6,7 +6,7 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <img src="/assets/img/bisa.svg" style="width: 90px" alt="logo" />
+            <img src="/assets/img/IMM_WWW.png" style="width: 70px" alt="logo" />
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-2 my-lg-0">
                     <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
