@@ -12643,7 +12643,7 @@ button.close:focus {
     }
 }
 .app-login .auth-background-holder {
-    background: url("../../assets/img/7.svg") no-repeat center center;
+    background: url("../../assets/img/7.jpg") no-repeat center center;
     background-size: cover;
     height: 100vh;
     min-height: 100%;
