@@ -12675,8 +12675,9 @@ button.close:focus {
     left: 0;
     top: 0;
     z-index: 10;
-    background: rgba(0, 0, 0, 0.1);
+    background: url("../../assets/img/7.jpg") no-repeat center center;
 }
+
 .auth-background-overlay {
     position: absolute;
     width: 100%;

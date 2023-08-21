@@ -14,7 +14,7 @@
                         </a>
                     </div>
                     <h2 class="auth-heading text-center mb-5">Log in to Dashboard P2H</h2>
-                    <div class="auth-form-container text-start">
+                    {{-- <div class="auth-form-container text-start">
                         <form class="auth-form login-form" action="{{ route('auth.login') }}" method="POST">
                             @csrf
                             <div class="mb-3">
@@ -32,7 +32,7 @@
                                     In</button>
                             </div>
                         </form>
-                    </div>
+                    </div> --}}
                 </div>
                 @include('layoutDashboard.footer')
             </div>
