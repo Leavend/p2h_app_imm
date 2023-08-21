@@ -14,18 +14,18 @@
                         </a>
                     </div>
                     <h2 class="auth-heading text-center mb-5">Log in to Dashboard P2H</h2>
+                    @include('_messagesdash')
                     <div class="auth-form-container text-start">
-                        @include('_messagesdash')
                         <form class="auth-form login-form" action="{{ route('auth.login') }}" method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="signin-email" class="form-label sr-only">Username</label>
-                                <input type="text" id="signin-email" name="signin-email" class="form-control"
+                                <input type="text" id="signin-email" name="username" class="form-control"
                                     placeholder="Username" required>
                             </div>
                             <div class="mb-3">
                                 <label for="signin-password" class="form-label sr-only">Password</label>
-                                <input type="password" id="signin-password" name="signin-password" class="form-control"
+                                <input type="password" id="signin-password" name="password" class="form-control"
                                     placeholder="Password" required>
                             </div>
                             <div class="text-center">
