@@ -41,9 +41,9 @@
                             </thead>
                             <tbody>
                                 <!-- Loop through the filtered P2H data -->
-                                @forelse ($p2hPaginator as $x)
+                                @forelse ($p2hToday as $x)
                                     <tr>
-                                        <td>{{ $p2hPaginator->firstItem() + $loop->index }}</td>
+                                        <td>{{ $p2hToday->firstItem() + $loop->index }}</td>
                                         <td>{{ $x->nama_pemeriksa }}</td>
                                         <td>{{ $x->kendaraan->jenis_kendaraan }}</td>
                                         <td>{{ $x->kendaraan->type_kendaraan }}</td>
@@ -73,7 +73,7 @@
                         </table>
                     </section>
                     <div style="padding: 25px; float: right;">
-                        {{ $p2hPaginator->appends(request()->except('p2h_page'))->links() }}
+                        {{ $p2hToday->appends(request()->except('p2h_page'))->links() }}
                     </div>
                 </div>
             </section>
