@@ -228,8 +228,7 @@
                                         <a class="page-link" href="{{ $All->url($i) }}">{{ $i }}</a>
                                     </li>
                                 @endfor
-                                <li
-                                    class="page-item {{ $All->currentPage() == $All->lastPage() ? 'disabled' : '' }}">
+                                <li class="page-item {{ $All->currentPage() == $All->lastPage() ? 'disabled' : '' }}">
                                     <a class="page-link" href="{{ $All->url($All->currentPage() + 1) }}">Next</a>
                                 </li>
                             </ul>
@@ -343,6 +342,24 @@
 
                         </div><!--//app-card-->
 
+                        <nav class="app-pagination" id="p2h-pagination">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item {{ $All->currentPage() == 1 ? 'disabled' : '' }}">
+                                    <a class="page-link" href="{{ $All->url($All->currentPage() - 1) }}"
+                                        tabindex="-1"
+                                        aria-disabled="{{ $All->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
+                                </li>
+                                @for ($i = 1; $i <= $All->lastPage(); $i++)
+                                    <li class="page-item {{ $All->currentPage() == $i ? 'active' : '' }}">
+                                        <a class="page-link" href="{{ $All->url($i) }}">{{ $i }}</a>
+                                    </li>
+                                @endfor
+                                <li class="page-item {{ $All->currentPage() == $All->lastPage() ? 'disabled' : '' }}">
+                                    <a class="page-link" href="{{ $All->url($All->currentPage() + 1) }}">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+
                     </div><!--//tab-pane-->
 
 
@@ -451,6 +468,24 @@
 
                         </div><!--//app-card-->
 
+                        <nav class="app-pagination" id="p2h-pagination">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item {{ $All->currentPage() == 1 ? 'disabled' : '' }}">
+                                    <a class="page-link" href="{{ $All->url($All->currentPage() - 1) }}"
+                                        tabindex="-1"
+                                        aria-disabled="{{ $All->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
+                                </li>
+                                @for ($i = 1; $i <= $All->lastPage(); $i++)
+                                    <li class="page-item {{ $All->currentPage() == $i ? 'active' : '' }}">
+                                        <a class="page-link" href="{{ $All->url($i) }}">{{ $i }}</a>
+                                    </li>
+                                @endfor
+                                <li class="page-item {{ $All->currentPage() == $All->lastPage() ? 'disabled' : '' }}">
+                                    <a class="page-link" href="{{ $All->url($All->currentPage() + 1) }}">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+
                     </div><!--//tab-pane-->
 
 
@@ -558,6 +593,24 @@
                             </div><!--//app-card-body-->
 
                         </div><!--//app-card-->
+
+                        <nav class="app-pagination" id="p2h-pagination">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item {{ $All->currentPage() == 1 ? 'disabled' : '' }}">
+                                    <a class="page-link" href="{{ $All->url($All->currentPage() - 1) }}"
+                                        tabindex="-1"
+                                        aria-disabled="{{ $All->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
+                                </li>
+                                @for ($i = 1; $i <= $All->lastPage(); $i++)
+                                    <li class="page-item {{ $All->currentPage() == $i ? 'active' : '' }}">
+                                        <a class="page-link" href="{{ $All->url($i) }}">{{ $i }}</a>
+                                    </li>
+                                @endfor
+                                <li class="page-item {{ $All->currentPage() == $All->lastPage() ? 'disabled' : '' }}">
+                                    <a class="page-link" href="{{ $All->url($All->currentPage() + 1) }}">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
 
                     </div><!--//tab-pane-->
 
