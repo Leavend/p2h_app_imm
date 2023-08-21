@@ -7,7 +7,7 @@
     <!-- Display P2H -->
     <div class="tabel-manis">
         <main class="table">
-            <section class="page-section" id="p2hkendaraan" style="height: 750px">
+            <section class="page-section" id="p2hkendaraan" style="margin: 75px; height: 750px">
                 <div class="container
                 px-4 px-lg-5">
                     <h3 class="text-center mt-0">Daftar P2H</h3>
@@ -30,13 +30,13 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Pemeriksa</th>
                                     <th>Jenis Kendaraan</th>
                                     <th>Type Kendaraan</th>
                                     <th>No Lambung</th>
                                     <th>Keterangan</th>
                                     <th>Status</th>
                                     <th>Tanggal</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,7 +44,6 @@
                                 @forelse ($p2hToday as $x)
                                     <tr>
                                         <td>{{ $p2hToday->firstItem() + $loop->index }}</td>
-                                        <td>{{ $x->nama_pemeriksa }}</td>
                                         <td>{{ $x->kendaraan->jenis_kendaraan }}</td>
                                         <td>{{ $x->kendaraan->type_kendaraan }}</td>
                                         <td>{{ $x->kendaraan->nomor_lambung }}</td>
@@ -60,6 +59,10 @@
                                         </td>
                                         <td>
                                             {{ \Carbon\Carbon::parse($x->tanggal, 'Asia/Makassar')->format('d M Y ') }}
+                                        </td>
+                                        <td style="display: flex; justify-content: center">
+                                            <a href="{{ url('p2h-cek/edit/' . $x->id) }}"
+                                                class="btn btn-circle btn-warning"><i class="fas fa-edit"></i></a>
                                         </td>
                                     </tr>
                                 @empty
