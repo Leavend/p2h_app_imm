@@ -51,3 +51,5 @@
     </div>
 
 </body>
+
+@include('layoutDashboard.js')
