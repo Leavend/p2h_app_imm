@@ -77,9 +77,28 @@
                             </tbody>
                         </table>
                     </section>
-                    <div style="padding: 25px; float: right;">
+                    {{-- <div style="padding: 25px; float: right;">
                         {{ $p2hPaginator->appends(request()->except('p2h_page'))->links() }}
-                    </div>
+                    </div> --}}
+                    <nav class="app-pagination" id="p2h-pagination">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item {{ $p2hPaginator->currentPage() == 1 ? 'disabled' : '' }}">
+                                <a class="page-link" href="{{ $p2hPaginator->url($p2hPaginator->currentPage() - 1) }}"
+                                    tabindex="-1"
+                                    aria-disabled="{{ $p2hPaginator->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
+                            </li>
+                            @for ($i = 1; $i <= $p2hPaginator->lastPage(); $i++)
+                                <li class="page-item {{ $p2hPaginator->currentPage() == $i ? 'active' : '' }}">
+                                    <a class="page-link" href="{{ $p2hPaginator->url($i) }}">{{ $i }}</a>
+                                </li>
+                            @endfor
+                            <li
+                                class="page-item {{ $p2hPaginator->currentPage() == $p2hPaginator->lastPage() ? 'disabled' : '' }}">
+                                <a class="page-link"
+                                    href="{{ $p2hPaginator->url($p2hPaginator->currentPage() + 1) }}">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </section>
         </main>
@@ -137,9 +156,30 @@
                             </tbody>
                         </table>
                     </section>
-                    <div style="padding: 25px; float: right;">
+                    {{-- <div style="padding: 25px; float: right;">
                         {{ $kendaraanPaginator->appends(request()->except('kendaraan_page'))->links() }}
-                    </div>
+                    </div> --}}
+                    <nav class="app-pagination" id="p2h-pagination">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item {{ $kendaraanPaginator->currentPage() == 1 ? 'disabled' : '' }}">
+                                <a class="page-link"
+                                    href="{{ $kendaraanPaginator->url($kendaraanPaginator->currentPage() - 1) }}"
+                                    tabindex="-1"
+                                    aria-disabled="{{ $kendaraanPaginator->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
+                            </li>
+                            @for ($i = 1; $i <= $kendaraanPaginator->lastPage(); $i++)
+                                <li class="page-item {{ $kendaraanPaginator->currentPage() == $i ? 'active' : '' }}">
+                                    <a class="page-link"
+                                        href="{{ $kendaraanPaginator->url($i) }}">{{ $i }}</a>
+                                </li>
+                            @endfor
+                            <li
+                                class="page-item {{ $kendaraanPaginator->currentPage() == $kendaraanPaginator->lastPage() ? 'disabled' : '' }}">
+                                <a class="page-link"
+                                    href="{{ $kendaraanPaginator->url($kendaraanPaginator->currentPage() + 1) }}">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </section>
         </main>

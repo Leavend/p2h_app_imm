@@ -10,14 +10,14 @@
             <section class="page-section" id="p2hkendaraan" style="margin: 75px; height: 750px">
                 <div class="container
                 px-4 px-lg-5">
-                    <h3 class="text-center mt-0">Daftar P2H</h3>
+                    <h3 class="text-center mt-0">Daftar P2H Harian</h3>
                     <div style="float: right;">
                         <form id="filterFormP2H">
                             <div class="input-group">
-                                <input type="date" value="{{ Request::get('date') }}" class="form-control"
-                                    id="filterDateP2H" name="date" placeholder="search by date">
-                                <button type="submit" class="btn btn-primary">Filter by Date</button>
-                                <a href="{{ route('home') }}" class="btn btn-success">Clear</a>
+                                <input type="text" value="{{ Request::get('no_lambung') }}" class="form-control"
+                                    id="filterP2H" name="no_lambung" placeholder="Cari dari Nomor Lambung">
+                                <button type="submit" class="btn btn-primary">Cari No Lambung</button>
+                                <a href="{{ route('p2h-cek.list') }}" class="btn btn-success">Clear</a>
                             </div>
                         </form>
                     </div>
@@ -75,9 +75,24 @@
                             </tbody>
                         </table>
                     </section>
-                    <div style="padding: 25px; float: right;">
-                        {{ $p2hToday->appends(request()->except('p2h_page'))->links() }}
-                    </div>
+                    <nav class="app-pagination" id="p2h-pagination">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item {{ $p2hToday->currentPage() == 1 ? 'disabled' : '' }}">
+                                <a class="page-link" href="{{ $p2hToday->url($p2hToday->currentPage() - 1) }}"
+                                    tabindex="-1"
+                                    aria-disabled="{{ $p2hToday->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
+                            </li>
+                            @for ($i = 1; $i <= $p2hToday->lastPage(); $i++)
+                                <li class="page-item {{ $p2hToday->currentPage() == $i ? 'active' : '' }}">
+                                    <a class="page-link" href="{{ $p2hToday->url($i) }}">{{ $i }}</a>
+                                </li>
+                            @endfor
+                            <li
+                                class="page-item {{ $p2hToday->currentPage() == $p2hToday->lastPage() ? 'disabled' : '' }}">
+                                <a class="page-link" href="{{ $p2hToday->url($p2hToday->currentPage() + 1) }}">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </section>
         </main>

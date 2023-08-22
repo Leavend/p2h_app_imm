@@ -95,7 +95,7 @@ Route::middleware(['user'])->group(function () {
 
     // p2h view
     Route::prefix('user/p2h')->group(function () {
-        Route::get('/', [P2hController::class, 'indexToday'])->name('p2h.list');
+        Route::get('/', [P2hController::class, 'indexTodayUser'])->name('p2h.list');
         Route::get('/form/{id}', [P2hController::class, 'getFormUser']);
         Route::post('/simpan', [P2hController::class, 'save']);
         Route::get('/detail/{id}', [P2hController::class, 'detail'])->name('p2h.detail');

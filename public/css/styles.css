@@ -408,7 +408,7 @@ table {
 }
 
 /* Gaya tambahan untuk tombol Pagination */
-.pagination {
+/* .pagination {
     margin: 0;
 }
 
@@ -419,6 +419,22 @@ table {
 
 .pagination .page-link {
     padding: 0.5rem 1rem;
+} */
+
+.app-pagination .pagination {
+    font-size: 0.875rem;
+}
+.app-pagination .pagination .page-link {
+    color: #5d6778;
+    padding: 0.25rem 0.5rem;
+}
+.app-pagination .pagination .page-item.active .page-link {
+    background: #747f94;
+    color: #fff;
+    border-color: #747f94;
+}
+.app-pagination .pagination .page-item.disabled .page-link {
+    color: #9fa7b5;
 }
 
 th {

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Request;
@@ -106,6 +107,20 @@ class P2h extends Model
         }
 
         $return = $return->orderBy('tanggal', 'desc')->paginate(10, ['*'], 'p2h_page');
+
+        return $return;
+    }
+
+    static public function getp2hdaily()
+    {
+        $return = self::select('jenis_kendaraan', 'type_kendaraan', 'nomor_lambung', 'keterangan', 'status', 'tanggal', 'kendaraan_id');
+        if (!empty(request()->input('no_lambung'))) {
+            $return = $return->whereHas('kendaraan', function ($query) {
+                $query->where('nomor_lambung', 'like', '%' . request()->input('no_lambung') . '%');
+            });
+        }
+        // $return = $return->orderBy('tanggal', 'desc')->paginate(10, ['*'], 'p2h_page');
+        $return = $return->whereDate('tanggal', Carbon::today('Asia/Makassar'))->where('status', 'belum diperiksa')->paginate(10, ['*'], 'p2h_page');
 
         return $return;
     }

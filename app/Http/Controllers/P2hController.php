@@ -27,8 +27,16 @@ class P2hController extends Controller
     public function indexToday()
     {
         $Title = 'IMM - GA - P2H Unit';
+        // $p2hToday = P2h::whereDate('tanggal', Carbon::today('Asia/Makassar'))->where('status', 'belum diperiksa')->paginate(10, ['*'], 'p2h_page');
+        $p2hToday = P2h::getp2hdaily();
+        return view('p2h.indexToday', compact('Title', 'p2hToday'));
+    }
+
+    public function indexTodayUser()
+    {
+        $Title = 'IMM - GA - P2H Unit';
         $p2hToday = P2h::whereDate('tanggal', Carbon::today('Asia/Makassar'))->where('status', 'belum diperiksa')->paginate(10, ['*'], 'p2h_page');
-        return view('p2h.indexAll', compact('Title', 'p2hToday'));
+        return view('p2h.indexTodayUser', compact('Title', 'p2hToday'));
     }
 
     public function show()
