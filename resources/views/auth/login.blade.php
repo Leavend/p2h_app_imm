@@ -9,7 +9,7 @@
                 <div class="app-auth-body mx-auto">
                     <div class="app-auth-branding mb-4">
                         <a class="app-logo" href="{{ route('home') }}">
-                            <img class="logo-icon me-2" src="{{ url('/assetsDashboard/images/IMM up.svg') }}"
+                            <img class="logo-icon me-2" style="width: 140px;" src="{{ url('/assetsDashboard/images/IMM up.svg') }}"
                                 alt="logo">
                         </a>
                     </div>
