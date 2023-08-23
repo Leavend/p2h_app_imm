@@ -12805,6 +12805,11 @@ tbody td.active {
         margin-top: 5px;
         font-size: 12px;
     }
+    .input-group input,
+    .input-group button {
+        margin-right: 0px;
+    }
+}
 }
 
 @media (max-width: 768px) {
