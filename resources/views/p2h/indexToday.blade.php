@@ -60,9 +60,9 @@
                                         <td>
                                             {{ \Carbon\Carbon::parse($x->tanggal, 'Asia/Makassar')->format('d M Y ') }}
                                         </td>
-                                        <td style="display: flex; justify-content: center">
+                                        <td>
                                             <a href="{{ url('p2h-cek/edit/' . $x->id) }}"
-                                                class="btn btn-circle btn-warning"><i class="fas fa-edit"></i></a>
+                                                class="btn btn-circle btn-warning"><i class="bi bi-pencil"></i></a>
                                         </td>
                                     </tr>
                                 @empty
