@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->event(new CreateDailyP2hEntries())->dailyAt('01:00')->timezone('Asia/Makassar');
+        $schedule->command('p2h:run-create-daily-p2h-entries')->dailyAt('01:00')->timezone('Asia/Makassar');
     }
 
 
