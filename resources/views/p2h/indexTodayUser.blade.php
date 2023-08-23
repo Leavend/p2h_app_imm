@@ -126,11 +126,41 @@
                                                             data-target="#detailModal{{ $x->id }}">
                                                             <i class="fas fa-eye"></i>
                                                         </a>
-                                                        <a href="{{ url('admin/p2h/edit/' . $x->id) }}"
+                                                        <a href="{{ url('user/p2h/edit/' . $x->id) }}"
                                                             class="btn btn-circle btn-warning"><i
                                                                 class="fas fa-edit"></i></a>
                                                     </td>
                                                 </tr>
+                                                <!-- Modal for Detail -->
+                                                <div class="modal fade" id="detailModal{{ $x->id }}"
+                                                    tabindex="-1" role="dialog"
+                                                    aria-labelledby="detailModalLabel{{ $x->id }}"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title"
+                                                                    id="detailModalLabel{{ $x->id }}">Detail P2H
+                                                                </h5>
+                                                                <button type="button" class="close"
+                                                                    data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <!-- Display the details here -->
+                                                                <p>Nama Pemeriksa: {{ $x->nama_pemeriksa ?? '-' }}</p>
+                                                                <p>No. HP: {{ $x->no_hp ?? '-' }}</p>
+                                                                <!-- ... Other details ... -->
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End of Modal for Detail -->
                                             @empty
                                                 <tr>
                                                     <td class="cell" colspan="13" style="text-align: center;">

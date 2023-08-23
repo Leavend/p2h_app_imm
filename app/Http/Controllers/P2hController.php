@@ -181,11 +181,12 @@ class P2hController extends Controller
     public function edit($id)
     {
         $Title = 'IMM - GA - P2H Unit';
-        $data = P2h::where("id", $id)->first();
-        $dataKendaraan = Kendaraan::all();
 
-        return view('p2h.edit', compact('Title', 'data', 'dataKendaraan'));
+        $data = P2h::findOrFail($id);
+
+        return view('p2h.edit', compact('Title', 'data'));
     }
+
 
     public function update(Request $request, $id)
     {

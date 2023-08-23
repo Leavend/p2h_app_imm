@@ -132,7 +132,7 @@ class P2h extends Model
                 $query->where('nomor_lambung', 'like', '%' . request()->input('no_lambung') . '%');
             });
         }
-        $return = $return->whereDate('tanggal', Carbon::today('Asia/Makassar'))->where('status', 'belum diperiksa')->paginate(10, ['*'], 'p2h_page');
+        $return = $return->whereDate('tanggal', Carbon::today('Asia/Makassar'))->paginate(10, ['*'], 'p2h_page');
 
         return $return;
     }
