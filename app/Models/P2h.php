@@ -123,4 +123,17 @@ class P2h extends Model
 
         return $return;
     }
+
+    static public function getp2hdailyuser()
+    {
+        $return = self::select('p2hs.*');
+        if (!empty(request()->input('no_lambung'))) {
+            $return = $return->whereHas('kendaraan', function ($query) {
+                $query->where('nomor_lambung', 'like', '%' . request()->input('no_lambung') . '%');
+            });
+        }
+        $return = $return->whereDate('tanggal', Carbon::today('Asia/Makassar'))->where('status', 'belum diperiksa')->paginate(10, ['*'], 'p2h_page');
+
+        return $return;
+    }
 }

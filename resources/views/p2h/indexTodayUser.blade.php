@@ -31,28 +31,22 @@
 
                                 <!-- Kolom No_Lambung Search -->
                                 <div class="col-auto">
-                                    <form class="table-search-form row gx-1 align-items-center"
-                                        id="filterFormNoLambung">
-                                        <div class="col-auto">
-                                            <input type="text" id="no_lambung"
-                                                value="{{ Request::get('no_lambung') }}" name="no_lambung"
-                                                class="form-control search-orders"
-                                                placeholder="Cari P2H dari No. Lambung">
-                                        </div>
-                                        <div class="col-auto">
-                                            <button type="submit" class="btn app-btn-secondary">Cari</button>
-                                        </div>
-                                    </form>
-                                </div><!--//col-->
-
-                                <!-- Kolom Clear Search -->
-                                <div class="col-auto">
 
                                     <form class="table-search-form row gx-1 align-items-center">
 
                                         <div class="col-auto">
-                                            <a href="{{ route('p2h.list.admin') }}"
-                                                class="btn app-btn-secondary">Clear</a>
+                                            <input type="text" id="no_lambung"
+                                                value="{{ Request::get('no_lambung') }}" name="no_lambung"
+                                                class="form-control search-orders"
+                                                placeholder="Cari kendaraan dari No. Lambung">
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <button type="submit" class="btn app-btn-secondary">Cari</button>
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <a href="{{ route('p2h.list') }}" class="btn app-btn-secondary">Clear</a>
                                         </div>
 
                                     </form>
@@ -135,9 +129,6 @@
                                                         <a href="{{ url('admin/p2h/edit/' . $x->id) }}"
                                                             class="btn btn-circle btn-warning"><i
                                                                 class="fas fa-edit"></i></a>
-                                                        <a href="{{ url('admin/p2h/hapus/' . $x->id) }}"
-                                                            class="btn btn-circle btn-danger"><i
-                                                                class="fas fa-trash-alt"></i></a>
                                                     </td>
                                                 </tr>
                                             @empty
