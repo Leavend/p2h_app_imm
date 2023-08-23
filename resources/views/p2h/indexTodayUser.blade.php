@@ -92,9 +92,6 @@
                                                 <th class="cell">No. Polisi</th>
                                                 <th class="cell">Keterangan</th>
                                                 <th class="cell">Status</th>
-                                                <th class="cell">Baik</th>
-                                                <th class="cell">Rusak</th>
-                                                <th class="cell">Tidak Ada</th>
                                                 <th class="cell">Waktu Input</th>
                                                 <th class="cell">Aksi</th>
                                             </tr>
@@ -123,21 +120,6 @@
                                                             <span class="badge bg-success">Terverifikasi</span>
                                                         </td>
                                                     @endif
-                                                    <td>
-                                                        <span
-                                                            class="badge bg-success">{{ $Counts[$x->kendaraan->id]['baik'] }}
-                                                        </span>
-                                                    </td>
-                                                    <td>
-                                                        <span
-                                                            class="badge bg-danger">{{ $Counts[$x->kendaraan->id]['rusak'] }}
-                                                        </span>
-                                                    </td>
-                                                    <td>
-                                                        <span
-                                                            class="badge bg-warning">{{ $Counts[$x->kendaraan->id]['tidak ada'] }}
-                                                        </span>
-                                                    </td>
                                                     <td class="cell">
                                                         <?php $tanggalCarbon = \Carbon\Carbon::parse($x->tanggal); ?>
                                                         <?php $jamCarbon = \Carbon\Carbon::parse($x->jam); ?>
