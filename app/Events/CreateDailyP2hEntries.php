@@ -21,10 +21,8 @@ class CreateDailyP2hEntries
         $kendaraans = Kendaraan::all();
 
         foreach ($kendaraans as $kendaraan) {
-            // Ciptakan entri P2h untuk setiap kendaraan
             $p2h = new P2h([
                 'kendaraan_id' => $kendaraan->id,
-                // Isi field P2h sesuai kebutuhan
                 'status' => 'menunggu verifikasi',
                 'tanggal' => now('Asia/Makassar')->format('Y-m-d'),
                 'jam' => now('Asia/Makassar')->format('H:i:s'),
