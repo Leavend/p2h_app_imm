@@ -12461,6 +12461,18 @@ tbody tr.hide td img {
     }
 }
 
+@media (max-width: 600px) {
+    thead,td {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 350px) {
+    thead,td {
+        font-size: 14px;
+    }
+}
+
 thead th span.icon-arrow {
     display: inline-block;
     width: 1.3rem;
