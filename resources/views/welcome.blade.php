@@ -143,7 +143,7 @@
                                         <td>{{ $x->type_kendaraan }}</td>
                                         <td>{{ $x->nomor_lambung }}</td>
                                         <td>
-                                            {{ \Carbon\Carbon::parse($x->created_at, 'Asia/Makassar')->format('d M Y ') }}
+                                            {{ \Carbon\Carbon::parse($x->tanggal)->format('d M Y ') }}
                                         </td>
                                     </tr>
                                 @empty
@@ -159,7 +159,7 @@
                     {{-- <div style="padding: 25px; float: right;">
                         {{ $kendaraanPaginator->appends(request()->except('kendaraan_page'))->links() }}
                     </div> --}}
-                    <nav class="app-pagination" id="p2h-pagination">
+                    <nav class="app-pagination" id="kendaraan-pagination">
                         <ul class="pagination justify-content-center">
                             <li class="page-item {{ $kendaraanPaginator->currentPage() == 1 ? 'disabled' : '' }}">
                                 <a class="page-link"
