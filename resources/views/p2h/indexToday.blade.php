@@ -61,7 +61,7 @@
                                             {{ \Carbon\Carbon::parse($x->tanggal, 'Asia/Makassar')->format('d M Y ') }}
                                         </td>
                                         <td>
-                                            <a href="{{ url('p2h-cek/edit/' . $x->id) }}"
+                                            <a href="{{ url('p2h-cek/form/' . $x->id) }}"
                                                 class="btn btn-circle btn-warning"><i class="bi bi-pencil"></i></a>
                                         </td>
                                     </tr>

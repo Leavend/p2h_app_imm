@@ -77,13 +77,12 @@ class P2hController extends Controller
         return Excel::download(new P2hsExport, 'p2h.xlsx');
     }
 
-    public function getForm()
+    public function getForm($id)
     {
         $Title = 'IMM - GA - P2H Unit';
-        // $p2hData = P2h::find($id);
-        // $dataKendaraan = Kendaraan::find($id);
+        $p2hData = P2h::findOrFail($id);
 
-        return view('p2h.form', compact('Title'));
+        return view('p2h.form', compact('Title', 'p2hData'));
     }
 
     public function getFormUser($id)
