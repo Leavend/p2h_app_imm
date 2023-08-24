@@ -26,6 +26,6 @@ class Kernel extends ConsoleKernel
                 ]);
                 $p2h->save();
             }
-        })->dailyAt('09:30')->timezone('Asia/Makassar');
+        })->dailyAt('09:35')->timezone('Asia/Makassar');
     }
 }
