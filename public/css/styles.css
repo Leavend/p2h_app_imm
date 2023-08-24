@@ -12425,39 +12425,51 @@ tbody tr.hide td img {
 @media (max-width: 1000px) {
     td {
         min-width: 8rem;
-        font-size: 12px;
+        font-size: 16px;
     }
 }
 
 @media (max-width: 1000px) {
     thead,td {
-        font-size: 12px;
+        font-size: 14px;
     }
 }
 
 @media (max-width: 800px) {
     td {
         min-width: 8rem;
-        font-size: 9px;
+        font-size: 14px;
     }
 }
 
 @media (max-width: 800px) {
     thead,td {
-        font-size: 9px;
+        font-size: 14px;
     }
 }
 
 @media (max-width: 800px) {
     td {
         min-width: 8rem;
-        font-size: 8px;
+        font-size: 14px;
     }
 }
 
 @media (max-width: 800px) {
     thead,td {
-        font-size: 8px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    thead,td {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 350px) {
+    thead,td {
+        font-size: 14px;
     }
 }
 
