@@ -21,11 +21,12 @@ class Kernel extends ConsoleKernel
                 $p2h = new P2h([
                     'kendaraan_id' => $kendaraan->id,
                     'status' => 'belum diperiksa',
+                    'keterangan' => 'P2H belum dilaksanakan untuk Unit Ini',
                     'tanggal' => now('Asia/Makassar')->format('Y-m-d'),
                     'jam' => now('Asia/Makassar')->format('H:i:s'),
                 ]);
                 $p2h->save();
             }
-        })->dailyAt('09:35')->timezone('Asia/Makassar');
+        })->dailyAt('01:00')->timezone('Asia/Makassar');
     }
 }
