@@ -14,7 +14,7 @@
         <main class="table">
             <section class="page-section" id="p2hkendaraan" style="height: 750px">
                 <div class="container
-                px-4 px-lg-5">
+                 px-lg-5">
                     <h3 class="text-center mt-0">Daftar P2H</h3>
                     <div style="float: right;">
                         <form id="filterFormP2H">
