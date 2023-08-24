@@ -20,7 +20,7 @@ class Kernel extends ConsoleKernel
             foreach ($kendaraans as $kendaraan) {
                 $p2h = new P2h([
                     'kendaraan_id' => $kendaraan->id,
-                    'status' => 'menunggu verifikasi',
+                    'status' => 'belum diperiksa',
                     'tanggal' => now('Asia/Makassar')->format('Y-m-d'),
                     'jam' => now('Asia/Makassar')->format('H:i:s'),
                 ]);
