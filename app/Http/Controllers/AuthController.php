@@ -73,7 +73,7 @@ class AuthController extends Controller
 
     public function listUser()
     {
-        $Title = 'User - IMM - GA - P2H Unit';
+        $Title = 'User';
         $User = User::getUser();
         return view('user.list', compact('Title', 'User'));
     }
@@ -117,26 +117,33 @@ class AuthController extends Controller
         return redirect()->route('user.list')->with('success', 'Penambahan data User Berhasil');
     }
 
-    public function editUser(Request $request)
+    public function editUser($id)
     {
-        $user = User::findOrFail($request->id);
-        if (!$user) {
-            return response()->json(['error' => 'Data User tidak ditemukan.'], 404);
+        $user = User::findOrFail($id);
+        if (!empty($user)) {
+            $Title = 'Edit User';
+            return view('edit', compact('user', 'Title'));
+        } else {
+            abort(404);
         }
-        return response()->json($user);
     }
 
-    public function updateUser(Request $request)
+    public function updateUser(Request $request, $id)
     {
-        $user = User::findOrFail($request->id);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users,email,' . $id,
+        ]);
+
+        $user = User::findOrFail($id);
         if (!$user) {
             return redirect()->route('user.list')->with('error', 'Data User tidak ditemukan.');
         }
 
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-        // Update field lainnya sesuai kebutuhan
+        $user->name = trim($request->name);
+        $user->email = trim($request->email);
 
+        $user->role = 'user';
         $user->save();
 
         return redirect()->route('user.list')->with('success', 'Data User berhasil diperbarui.');

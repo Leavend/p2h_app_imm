@@ -27,8 +27,8 @@ Route::get('/', [P2hController::class, 'index'])->name('home');
 // p2h cek form
 Route::prefix('p2h-cek')->group(function () {
     Route::get('/', [P2hController::class, 'indexToday'])->name('p2h-cek.list');
-    Route::get('/form/{id}', [P2hController::class, 'getForm'])->name('fill.form');
-    Route::post('/simpan/{id}', [P2hController::class, 'save'])->name('save.form');
+    Route::get('/form/{id}', [P2hController::class, 'getForm']);
+    Route::post('/simpan', [P2hController::class, 'save']);
 });
 
 

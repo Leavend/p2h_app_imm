@@ -12,7 +12,7 @@ class DashboardController extends Controller
 {
     public function overview()
     {
-        $Title = 'Overview - GA - P2H Unit';
+        $Title = 'Overview';
         if (Auth::user()->role == "admin") {
             $today = now()->format('Y-m-d');
             $startOfWeek = now()->startOfWeek()->format('Y-m-d');

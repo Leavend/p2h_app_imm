@@ -341,7 +341,6 @@ table {
     border-collapse: collapse;
 }
 
-/* Tambahkan kode ini ke dalam style.css Anda */
 .table {
     border-collapse: separate;
     border-spacing: 0;
@@ -406,20 +405,6 @@ table {
 .input-group a.btn {
     margin-right: 0;
 }
-
-/* Gaya tambahan untuk tombol Pagination */
-/* .pagination {
-    margin: 0;
-}
-
-.pagination .page-item {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-.pagination .page-link {
-    padding: 0.5rem 1rem;
-} */
 
 .app-pagination .pagination {
     font-size: 0.875rem;
