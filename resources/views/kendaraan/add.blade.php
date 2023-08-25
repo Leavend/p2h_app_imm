@@ -63,7 +63,7 @@
                                     <div class="mb-3">
                                         <label for="nomor_polisi" class="form-label">Nomor Polisi</label>
                                         <input type="text" class="form-control" id="nomor_polisi" name="nomor_polisi"
-                                            placeholder="KT1233DE" required>
+                                            placeholder="contoh: KT1233DE" required>
                                     </div>
                                     <button type="submit" class="btn app-btn-primary">Tambahkan</button>
                                 </form>

@@ -40,6 +40,7 @@ class KendaraanController extends Controller
             'nomor_lambung' => trim($request->nomor_lambung),
             'nomor_polisi' => trim($request->nomor_polisi),
             'tanggal' => now('Asia/Makassar')->toDateString(),
+            'jam' => now('Asia/Makassar'),
         ]);
 
         $nomorLambung = trim($request->nomor_lambung);
