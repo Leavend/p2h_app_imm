@@ -2,7 +2,8 @@
 <script src="{{ url('../assetsDashboard/plugins/popper.min.js') }}"></script>
 <script src="{{ url('../assetsDashboard/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ url('../assetsDashboard/js/app.js') }}"></script>
-{{-- <script src="path_to_your_script.js"></script> --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.js"></script>
+
 
 <script>
     // Apply filter when either form is submitted
@@ -43,41 +44,29 @@
             navLink.classList.add('active');
         });
     });
+</script>
+{{-- <script>
+    // Mendaftarkan handler untuk klik pada tautan penghapusan
+    document.querySelectorAll('.delete-user').forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const name = this.getAttribute('data-name');
 
-    $(document).ready(function() {
-        $('.edit-user').click(function() {
-            var userId = $(this).data('id');
-            $.ajax({
-                url: '{{ route('ajax.get.user') }}',
-                method: 'POST',
-                data: {
-                    id: userId
-                },
-                success: function(response) {
-                    var user = JSON.parse(response);
-                    var form = `
-                        <form action="{{ route('user.update') }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="id" value="${user.id}">
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Nama</label>
-                                <input type="text" class="form-control" id="name" name="name" value="${user.name}" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" value="${user.email}" required>
-                            </div>
-                            <!-- Tambahkan input untuk field lainnya -->
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                        </form>
-                    `;
-                    $('#editModal .modal-body #editUserForm').html(form);
-                    $('#editModal').modal('show'); // Menampilkan modal edit
-                },
-                error: function() {
-                    alert('Terjadi kesalahan saat mengambil data pengguna.');
+            // Menampilkan SweetAlert untuk konfirmasi
+            Swal.fire({
+                title: 'Konfirmasi',
+                text: `Apakah Anda yakin ingin menghapus pengguna ${name}?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = this.getAttribute('href');
                 }
             });
         });
     });
-</script>
+</script> --}}

@@ -121,8 +121,8 @@ class AuthController extends Controller
     {
         $user = User::findOrFail($id);
         if (!empty($user)) {
-            $Title = 'Edit User';
-            return view('edit', compact('user', 'Title'));
+            $Title = 'Edit User - ' . $user->name;
+            return view('user.edit', compact('user', 'Title'));
         } else {
             abort(404);
         }
@@ -131,29 +131,32 @@ class AuthController extends Controller
     public function updateUser(Request $request, $id)
     {
         $request->validate([
+            'username' => 'required|string|unique:users,username,' . $id,
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users,email,' . $id,
+            'email' => 'required|email|unique:users,email,' . $id,
         ]);
 
         $user = User::findOrFail($id);
+
         if (!$user) {
             return redirect()->route('user.list')->with('error', 'Data User tidak ditemukan.');
         }
 
+        $user->username = trim($request->username);
         $user->name = trim($request->name);
         $user->email = trim($request->email);
 
-        $user->role = 'user';
         $user->save();
 
         return redirect()->route('user.list')->with('success', 'Data User berhasil diperbarui.');
     }
 
-
     public function deleteUser($id)
     {
         $user = User::findOrFail($id);
+        $userName = $user->name;
         $user->delete();
-        return redirect()->route('user.list')->with('success', 'User berhasil dihapuskan');
+
+        return redirect()->route('user.list')->with('success', "User $userName berhasil dihapuskan");
     }
 }

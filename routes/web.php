@@ -61,9 +61,9 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/download-csv', [AuthController::class, 'export'])->name('user.download.csv');
         Route::get('/tambah', [AuthController::class, 'addUser'])->name('user.add');
         Route::post('/simpan', [AuthController::class, 'storeUser'])->name('user.save');
-        Route::post('/edit', [AuthController::class, 'editUser'])->name('ajax.get.user');
-        // Route::post('/perbarui/{id}', [AuthController::class, 'updateUser'])->name('user.update');
-        Route::post('/update', [AuthController::class, 'updateUser'])->name('user.update');
+        Route::get('/edit/{id}', [AuthController::class, 'editUser'])->name('edit.user');
+        Route::post('/edit/{id}', [AuthController::class, 'updateUser']);
+        Route::post('/update', [AuthController::class, 'updateUser']);
         Route::get('/hapus/{id}', [AuthController::class, 'deleteUser'])->name('user.delete');
     });
 

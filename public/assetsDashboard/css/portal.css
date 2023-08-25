@@ -4712,6 +4712,16 @@ fieldset:disabled .btn {
     border: var(--bs-alert-border);
     border-radius: var(--bs-alert-border-radius);
 }
+/* CSS Kustom untuk SweetAlert */
+.swal2-container {
+    z-index: 9999; /* Pastikan SweetAlert muncul di atas elemen lain */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+
 .alert-heading {
     color: inherit;
 }
