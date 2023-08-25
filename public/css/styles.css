@@ -12817,3 +12817,28 @@ tbody td.active {
     }
 }
 
+@media (min-width: 1000px) {
+    .untuk-filter {
+        float: right;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .untuk-filter {
+        float: right;
+    }
+}
+
+@media (min-width: 1400px) {
+    .untuk-filter {
+        float: right;
+    }
+}
+
+@media (min-width: 1600px) {
+    .untuk-filter {
+        float: right;
+    }
+}
+
