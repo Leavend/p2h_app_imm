@@ -12424,7 +12424,7 @@ tbody tr.hide td img {
 
 @media (max-width: 1000px) {
     td {
-        min-width: 8rem;
+        min-width: 3rem;
         font-size: 16px;
     }
 }
@@ -12437,7 +12437,7 @@ tbody tr.hide td img {
 
 @media (max-width: 800px) {
     td {
-        min-width: 8rem;
+        min-width: 3rem;
         font-size: 14px;
     }
 }
@@ -12450,7 +12450,7 @@ tbody tr.hide td img {
 
 @media (max-width: 800px) {
     td {
-        min-width: 8rem;
+        min-width: 3rem;
         font-size: 14px;
     }
 }
