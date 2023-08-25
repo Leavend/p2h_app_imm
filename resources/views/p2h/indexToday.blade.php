@@ -7,9 +7,9 @@
     <!-- Display P2H -->
     <div class="tabel-manis">
         <main class="table">
-            <section class="page-section" id="p2hkendaraan" style="margin: 75px; height: 750px">
+            <section class="page-section" id="p2hkendaraan">
                 <div class="container
-                px-4 px-lg-5">
+                px-lg-5">
                     <h3 class="text-center mt-0">Daftar P2H Harian</h3>
                     <div style="float: right;">
                         <form id="filterFormP2H">
