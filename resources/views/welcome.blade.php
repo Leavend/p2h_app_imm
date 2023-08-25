@@ -16,7 +16,7 @@
                 <div class="container
                  px-lg-5">
                     <h3 class="text-center mt-0">Daftar P2H</h3>
-                    <div style="float: right;">
+                    <div class="untuk-filter">
                         <form id="filterFormP2H">
                             <div class="input-group">
                                 <input type="date" value="{{ Request::get('date') }}" class="form-control"
@@ -110,7 +110,7 @@
             <section class="page-section" id="kendaraan" style="height: 750px">
                 <div class="container px-lg-5">
                     <h3 class="text-center mt-0">Daftar Kendaraan</h3>
-                    <div style="float: right;">
+                    <div class="untuk-filter">
                         <form id="filterFormKendaraan">
                             <div class="input-group">
                                 <input type="text" value="{{ Request::get('no_lambung') }}" class="form-control"

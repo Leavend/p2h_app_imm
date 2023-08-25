@@ -8706,6 +8706,10 @@ h2 {
     margin-top: 3rem !important;
 }
 
+.mt-7 {
+    margin-top: 5rem !important;
+}
+
 .mt-auto {
     margin-top: auto !important;
 }
@@ -12814,6 +12818,31 @@ tbody td.active {
         /* width: 100%; */
         margin-top: 5px;
         font-size: 12px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .untuk-filter {
+        float: right;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .untuk-filter {
+        float: right;
+    }
+}
+
+@media (min-width: 1400px) {
+    .untuk-filter {
+        float: right;
+    }
+}
+
+@media (min-width: 1600px) {
+    .untuk-filter {
+        float: right;
     }
 }
 
