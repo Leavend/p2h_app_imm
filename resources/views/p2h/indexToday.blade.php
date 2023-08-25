@@ -10,8 +10,8 @@
             <section class="page-section" id="p2hkendaraan">
                 <div class="container
                 px-lg-5">
-                    <h3 class="text-center mt-0">Daftar P2H Harian</h3>
-                    <div style="float: right;">
+                    <h3 class="text-center mt-7">Daftar P2H Harian</h3>
+                    <div class="untuk-filter">
                         <form id="filterFormP2H">
                             <div class="input-group">
                                 <input type="text" value="{{ Request::get('no_lambung') }}" class="form-control"
