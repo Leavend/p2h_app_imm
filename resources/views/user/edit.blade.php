@@ -18,7 +18,7 @@
                 <hr class="mb-4">
                 <div class="row g-4 settings-section">
                     <div class="col-12 col-md-4">
-                        <h3 class="section-title">Pastikan data yang akan dirubah udah benar</h3>
+                        <h3 class="section-title">Edit User</h3>
                         <div class="section-intro">
                             <a href="{{ route('user.list') }}">Kembali</a>
                         </div>
@@ -42,13 +42,13 @@
                                     <div class="mb-3">
                                         <label for="username" class="form-label">Username</label>
                                         <input type="text" class="form-control" id="username" name="username"
-                                            value="{{ $user->username }}" required>
+                                            placeholder="contoh: Fahmi_Fajeri" value="{{ $user->username }}" required>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Nama Lengkap</label>
                                         <input type="text" class="form-control" id="name" name="name"
-                                            value="{{ $user->name }}" required>
+                                            placeholder="contoh: Fahmi Fajeri" value="{{ $user->name }}" required>
                                     </div>
 
                                     <div class="mb-3">
@@ -56,6 +56,13 @@
                                         <input type="email" class="form-control" id="email"
                                             placeholder="contoh: nama@example.com" name="email"
                                             value="{{ $user->email }}" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label">Nomor HP</label>
+                                        <input type="text" class="form-control" id="phone"
+                                            placeholder="contoh: 081234567890" name="no_hp"
+                                            value="{{ $user->no_hp }}">
                                     </div>
 
                                     <button type="submit" class="btn app-btn-primary">Simpan</button>

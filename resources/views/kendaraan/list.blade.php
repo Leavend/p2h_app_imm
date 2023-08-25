@@ -125,7 +125,7 @@
                                                 <th class="cell">Nomor Lambung</th>
                                                 <th class="cell">Nomor Polisi</th>
                                                 <th class="cell">Tanggal Input</th>
-                                                <th class="cell"></th>
+                                                <th class="cell">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -138,10 +138,10 @@
                                                     <td class="cell">{{ $x->nomor_polisi }}</td>
                                                     <td class="cell">
                                                         <span class="cell-data">
-                                                            {{ \Carbon\Carbon::parse($x->tanggal, 'Asia/Makassar')->format('d M Y') }}
+                                                            {{ \Carbon\Carbon::parse($x->tanggal)->format('d M Y') }}
                                                         </span>
                                                         <span class="note">
-                                                            {{ \Carbon\Carbon::parse($x->Created_at, 'Asia/Makassar')->format('g:i A') }}
+                                                            {{ \Carbon\Carbon::parse($x->jam)->format('g:i A') }}
                                                         </span>
                                                     </td>
                                                     <td class="cell">

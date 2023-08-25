@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('nomor_lambung')->unique();
             $table->string('nomor_polisi')->unique();
             $table->date('tanggal');
-            $table->timestamps(); // Set timezone for timestamps
+            $table->time('jam');
+            $table->timestamps();
         });
     }
 

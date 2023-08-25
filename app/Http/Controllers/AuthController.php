@@ -8,6 +8,7 @@ use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class AuthController extends Controller
 {
@@ -31,31 +32,6 @@ class AuthController extends Controller
         }
 
         return redirect()->back()->with('error', 'Kombinasi username/password salah');
-    }
-
-    public function register()
-    {
-        return view('auth.register');
-    }
-
-    public function authRegister(Request $request)
-    {
-        $request->validate([
-            'username' => 'required|string|min:6|unique:users',
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-        ]);
-
-        $user = new User;
-        $user->username = trim($request->username);
-        $user->name = trim($request->name);
-        $user->email = trim($request->email);
-        $user->password = Hash::make($request->password);
-        $user->role = 'user';
-        $user->save();
-
-        return redirect()->route('login')->with('success', 'Berhasil membuat akun');
     }
 
     public function logout()
@@ -97,11 +73,11 @@ class AuthController extends Controller
     public function storeUser(Request $request)
     {
         $request->validate([
-            'username' => 'required|unique:users,username',
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
+            'username' => ['required', Rule::unique('users', 'username')],
+            'name' => 'required|string',
+            'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => 'required|min:8',
-            'no_hp' => ['required', 'regex:/^\d{10,14}$/'],
+            'no_hp' => ['required', 'regex:/^08[0-9]{8,}$/'],
         ]);
 
         $user = new User();
@@ -111,10 +87,10 @@ class AuthController extends Controller
         $user->password = Hash::make($request->password);
         $user->no_hp = trim($request->no_hp);
         $user->role = 'user';
-        $user->tanggal = now('Asia/Makassar')->format('Y-m-d');
+        $user->tanggal = now('Asia/Makassar')->toDateString();
         $user->save();
 
-        return redirect()->route('user.list')->with('success', 'Penambahan data User Berhasil');
+        return redirect()->route('user.list')->with('success', "Penambahan data User $user->name Berhasil");
     }
 
     public function editUser($id)
@@ -131,9 +107,10 @@ class AuthController extends Controller
     public function updateUser(Request $request, $id)
     {
         $request->validate([
-            'username' => 'required|string|unique:users,username,' . $id,
+            'username' => ['required', 'string', Rule::unique('users', 'username')->ignore($id)],
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $id,
+            'email' => ['required', 'email', Rule::unique('users', 'email')->ignore($id)],
+            'no_hp' => ['nullable', 'string', 'regex:/^08[0-9]{8,}$/'],
         ]);
 
         $user = User::findOrFail($id);
@@ -142,13 +119,16 @@ class AuthController extends Controller
             return redirect()->route('user.list')->with('error', 'Data User tidak ditemukan.');
         }
 
-        $user->username = trim($request->username);
-        $user->name = trim($request->name);
-        $user->email = trim($request->email);
+        $user->fill([
+            'username' => trim($request->username),
+            'name' => trim($request->name),
+            'email' => trim($request->email),
+            'no_hp' => $request->filled('no_hp') ? trim($request->no_hp) : null,
+        ]);
 
         $user->save();
 
-        return redirect()->route('user.list')->with('success', 'Data User berhasil diperbarui.');
+        return redirect()->route('user.list')->with('success', "Data User $user->name berhasil diperbarui.");
     }
 
     public function deleteUser($id)

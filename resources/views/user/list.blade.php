@@ -118,8 +118,6 @@
                                                     <td class="cell">{{ $x->no_hp }}</td>
                                                     <td class="cell">
                                                         <span>{{ \Carbon\Carbon::parse($x->tanggal, 'Asia/Makassar')->format('d M Y') }}</span>
-                                                        <span
-                                                            class="note">{{ \Carbon\Carbon::parse($x->Created_at, 'Asia/Makassar')->format('g:i A') }}</span>
                                                     </td>
                                                     <td class="cell">
                                                         <a href="{{ url('admin/user/edit/' . $x->id) }}"

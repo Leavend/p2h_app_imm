@@ -18,10 +18,10 @@ class DashboardController extends Controller
             $startOfWeek = now()->startOfWeek()->format('Y-m-d');
             $startOfMonth = now()->startOfMonth()->format('Y-m-d');
 
-            $TotalUser = User::count();
-            $TotalUserToday = User::whereDate('created_at', $today)->count();
-            $TotalUserWeek = User::whereDate('created_at', '>=', $startOfWeek)->count();
-            $TotalUserMonth = User::whereDate('created_at', '>=', $startOfMonth)->count();
+            $TotalUser = User::where('role', 'user')->count();
+            $TotalUserToday = User::where('role', 'user')->whereDate('created_at', $today)->count();
+            $TotalUserWeek = User::where('role', 'user')->whereDate('created_at', '>=', $startOfWeek)->count();
+            $TotalUserMonth = User::where('role', 'user')->whereDate('created_at', '>=', $startOfMonth)->count();
 
             $TotalKendaraan = Kendaraan::count();
             $TotalKendaraanToday = Kendaraan::whereDate('created_at', $today)->count();

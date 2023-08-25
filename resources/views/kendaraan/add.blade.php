@@ -53,17 +53,17 @@
                                     <div class="mb-3">
                                         <label for="type_kendaraan" class="form-label">Type / Merk Kendaraan</label>
                                         <input type="text" class="form-control" id="type_kendaraan"
-                                            placeholder="cth: Innova / Hiace" name="type_kendaraan" required>
+                                            placeholder="contoh: Innova / Hiace" name="type_kendaraan" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="nomor_lambung" class="form-label">Nomor Lambung</label>
                                         <input type="text" class="form-control" id="nomor_lambung"
-                                            name="nomor_lambung" required>
+                                            name="nomor_lambung" placeholder="contoh: P123" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="nomor_polisi" class="form-label">Nomor Polisi</label>
                                         <input type="text" class="form-control" id="nomor_polisi" name="nomor_polisi"
-                                            required>
+                                            placeholder="KT1233DE" required>
                                     </div>
                                     <button type="submit" class="btn app-btn-primary">Tambahkan</button>
                                 </form>

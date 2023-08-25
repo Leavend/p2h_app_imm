@@ -5,17 +5,8 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Kendaraan;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Kendaraan>
- */
 class KendaraanFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-
     protected $model = Kendaraan::class;
 
     public function definition(): array
@@ -23,10 +14,10 @@ class KendaraanFactory extends Factory
         return [
             'jenis_kendaraan' => $this->faker->randomElement(['LV', 'Bus']),
             'type_kendaraan' => $this->faker->randomElement(['Toyota', 'Innova', 'Mitsubishi']),
-            'nomor_lambung' => 'P' . $this->faker->unique()->numberBetween(1000, 9999),
-            'nomor_polisi' => 'S' . $this->faker->unique()->randomLetter() . $this->faker->unique()->randomNumber(5),
+            'nomor_lambung' => 'P' . $this->faker->unique()->randomNumber(3),
+            'nomor_polisi' => 'KT' . $this->faker->unique()->randomNumber(5) . 'D' . $this->faker->unique()->randomLetter(),
             'tanggal' => now('Asia/Makassar')->format('Y-m-d'),
-            // Tambahan atribut lain sesuai kebutuhan
+            'jam' => now('Asia/Makassar')->format('H:i:s'),
         ];
     }
 }

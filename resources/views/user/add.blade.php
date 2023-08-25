@@ -58,23 +58,23 @@
                                                     <circle cx="8" cy="4.5" r="1" />
                                                 </svg></span></label>
                                         <input type="text" class="form-control" id="setting-input-1"
-                                            placeholder="Fahmi_Fajeri" name="username" required>
+                                            placeholder="contoh: Fahmi_Fajeri" name="username" required>
                                     </div>
                                     <!-- Tambahkan form untuk input nama, email, no_hp, dan password -->
                                     <div class="mb-3">
                                         <label for="setting-input-2" class="form-label">Nama Lengkap</label>
                                         <input type="text" class="form-control" id="setting-input-2"
-                                            placeholder="Fahmi Fajeri" name="name" required>
+                                            placeholder="contoh: Fahmi Fajeri" name="name" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="setting-input-3" class="form-label">Email Address</label>
                                         <input type="email" class="form-control" id="setting-input-3"
-                                            placeholder="hello@companywebsite.com" name="email" required>
+                                            placeholder="contoh: hello@companywebsite.com" name="email" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="no_hp" class="form-label">No. HP</label>
                                         <input type="tel" class="form-control" id="no_hp" name="no_hp"
-                                            required>
+                                            placeholder="contoh: 081320202020" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="password" class="form-label">Password</label>

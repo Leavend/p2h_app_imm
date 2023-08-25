@@ -74,7 +74,7 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/tambah', [KendaraanController::class, 'add'])->name('kendaraan.add');
         Route::post('/simpan', [KendaraanController::class, 'save'])->name('kendaraan.save');
         Route::get('/edit/{id}', [KendaraanController::class, 'edit'])->name('kendaraan.edit');
-        Route::post('/perbarui/{id}', [KendaraanController::class, 'update'])->name('kendaraan.update');
+        Route::post('/edit/{id}', [KendaraanController::class, 'update']);
         Route::get('/hapus/{id}', [KendaraanController::class, 'delete'])->name('kendaraan.delete');
     });
 
