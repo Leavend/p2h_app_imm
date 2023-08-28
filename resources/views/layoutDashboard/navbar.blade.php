@@ -35,9 +35,15 @@
 
                 <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
                 <div class="app-branding">
-                    <a class="app-logo" href="{{ route('overview.list') }}"><img class="logo-icon me-2"
-                            src="{{ url('../assetsDashboard/images/imm2.svg') }}" alt="logo"><span
-                            class="logo-text">P2H</span></a>
+                    @if (Auth::user()->role == 'admin')
+                        <a class="app-logo" href="{{ route('overview.list') }}"><img class="logo-icon me-2"
+                                src="{{ url('../assetsDashboard/images/imm2.svg') }}" alt="logo"><span
+                                class="logo-text">P2H</span></a>
+                    @elseif (Auth::user()->role == 'user')
+                        <a class="app-logo" href="{{ route('p2h.list') }}"><img class="logo-icon me-2"
+                                src="{{ url('../assetsDashboard/images/imm2.svg') }}" alt="logo"><span
+                                class="logo-text">P2H</span></a>
+                    @endif
 
                 </div><!--//app-branding-->
 
