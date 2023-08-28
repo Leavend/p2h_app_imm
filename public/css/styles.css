@@ -2881,7 +2881,7 @@ textarea.form-control-lg {
     print-color-adjust: exact;
 }
 .form-check-input[type="checkbox"] {
-    border-radius: 0.25em;
+    border-radius: 1.25em;
 }
 .form-check-input[type="radio"] {
     border-radius: 50%;
