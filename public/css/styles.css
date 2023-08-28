@@ -12893,3 +12893,7 @@ input {
     justify-content: space-between;
   }
 
+  .hide-on-first {
+    display: none;
+  }
+
