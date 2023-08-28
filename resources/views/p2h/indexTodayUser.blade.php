@@ -94,7 +94,8 @@
                                             <?php $no = 0; ?>
                                             @forelse ($p2hToday as $x)
                                                 <tr>
-                                                    <td class="cell">{{ ++$no }}</td>
+                                                    <td class="cell">{{ $p2hToday->firstItem() + $loop->index }}
+                                                    </td>
                                                     <td class="cell">{{ $x->nama_pemeriksa ?? '-' }}</td>
                                                     <td class="cell">{{ $x->no_hp ?? '-' }}</td>
                                                     <td class="cell">{{ $x->kendaraan->jenis_kendaraan }}</td>

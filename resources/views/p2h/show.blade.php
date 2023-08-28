@@ -559,11 +559,6 @@
                                                         </td>
                                                         <td class="cell"
                                                             style="display: flex; justify-content: center">
-                                                            <a href="#" class="btn btn-circle btn-info"
-                                                                data-toggle="modal"
-                                                                data-target="#detailModal{{ $x->id }}">
-                                                                <i class="fas fa-eye"></i>
-                                                            </a>
                                                             <a href="{{ url('admin/p2h/edit/' . $x->id) }}"
                                                                 class="btn btn-circle btn-warning"><i
                                                                     class="fas fa-edit"></i></a>
