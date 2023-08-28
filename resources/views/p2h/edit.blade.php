@@ -189,7 +189,7 @@
                                     </div><!--//form-check-->
 
                                     <!-- Air Radiator -->
-                                    <div class="form-check mb-3">
+                                    <div class="form-check form-check-inline mb-3">
                                         <label for="setting-input-1" class="form-label"
                                             style="margin-right: 20px">Air
                                             Radiator</label>
@@ -233,22 +233,22 @@
                                 <div class="app-card-body">
 
                                     <!-- Oli Mesin -->
-                                    <div class="form-check mb-3">
+                                    <div class="form-check form-check-inline mb-3">
                                         <label for="setting-input-1" class="form-label">Oli Mesin</label>
 
-                                        <div class="form-check">
+                                        <div class="form-check form-check-inline">
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="oli_mesin"
                                                 value="baik" id="settings-checkbox-baik">
                                         </div>
 
-                                        <div class="form-check">
+                                        <div class="form-check form-check-inline">
                                             <label class="form-check-label" for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="oli_mesin"
                                                 value="rusak" id="settings-checkbox-rusak">
                                         </div>
 
-                                        <div class="form-check">
+                                        <div class="form-check form-check-inline">
                                             <label class="form-check-label" for="settings-checkbox-tidak-ada">Tidak
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="oli_mesin"
@@ -257,23 +257,23 @@
                                     </div><!--//form-check-->
 
                                     <!-- Oli Kopling -->
-                                    <div class="form-check mb-3">
+                                    <div class="form-check form-check-inline mb-3">
                                         <label for="setting-input-1" class="form-label">Oli Kopling</label>
 
-                                        <div class="form-check">
+                                        <div class="form-check form-check-inline">
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="oli_kopling"
                                                 value="baik" id="settings-checkbox-baik">
                                         </div>
 
-                                        <div class="form-check">
+                                        <div class="form-check form-check-inline">
                                             <label class="form-check-label"
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="oli_kopling"
                                                 value="rusak" id="settings-checkbox-rusak">
                                         </div>
 
-                                        <div class="form-check">
+                                        <div class="form-check form-check-inline">
                                             <label class="form-check-label" for="settings-checkbox-tidak-ada">Tidak
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="oli_kopling"
@@ -282,23 +282,23 @@
                                     </div><!--//form-check-->
 
                                     <!-- Oli Stering -->
-                                    <div class="form-check mb-3">
+                                    <div class="form-check form-check-inline mb-3">
                                         <label for="setting-input-1" class="form-label">Oli Stering</label>
 
-                                        <div class="form-check">
+                                        <div class="form-check form-check-inline">
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="oli_stering"
                                                 value="baik" id="settings-checkbox-baik">
                                         </div>
 
-                                        <div class="form-check">
+                                        <div class="form-check form-check-inline">
                                             <label class="form-check-label"
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="oli_stering"
                                                 value="rusak" id="settings-checkbox-rusak">
                                         </div>
 
-                                        <div class="form-check">
+                                        <div class="form-check form-check-inline">
                                             <label class="form-check-label" for="settings-checkbox-tidak-ada">Tidak
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="oli_stering"
@@ -307,23 +307,23 @@
                                     </div><!--//form-check-->
 
                                     <!-- Air Radiator -->
-                                    <div class="form-check mb-3">
+                                    <div class="form-check form-check-inline mb-3">
                                         <label for="setting-input-1" class="form-label">Air Radiator</label>
 
-                                        <div class="form-check">
+                                        <div class="form-check form-check-inline">
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="air_radiator"
                                                 value="baik" id="settings-checkbox-baik">
                                         </div>
 
-                                        <div class="form-check">
+                                        <div class="form-check form-check-inline">
                                             <label class="form-check-label"
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="air_radiator"
                                                 value="rusak" id="settings-checkbox-rusak">
                                         </div>
 
-                                        <div class="form-check">
+                                        <div class="form-check form-check-inline">
                                             <label class="form-check-label" for="settings-checkbox-tidak-ada">Tidak
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="air_radiator"
