@@ -82,11 +82,11 @@
                                                 <th class="cell">Nama Pemeriksa</th>
                                                 <th class="cell">No. HP</th>
                                                 <th class="cell">Jenis Kendaraan</th>
-                                                <th class="cell">No. Lambung</th>
                                                 <th class="cell">No. Polisi</th>
                                                 <th class="cell">Keterangan</th>
                                                 <th class="cell">Status</th>
                                                 <th class="cell">Waktu Input</th>
+                                                <th class="cell">No. Lambung</th>
                                                 <th class="cell">Aksi</th>
                                             </tr>
                                         </thead>
@@ -99,7 +99,6 @@
                                                     <td class="cell">{{ $x->nama_pemeriksa ?? '-' }}</td>
                                                     <td class="cell">{{ $x->no_hp ?? '-' }}</td>
                                                     <td class="cell">{{ $x->kendaraan->jenis_kendaraan }}</td>
-                                                    <td class="cell">{{ $x->kendaraan->nomor_lambung }}</td>
                                                     <td class="cell">{{ $x->kendaraan->nomor_polisi }}</td>
                                                     <td class="cell">{{ $x->keterangan }}</td>
                                                     @if ($x->status == 'belum diperiksa')
@@ -121,6 +120,7 @@
                                                         <span>{{ $tanggalCarbon->format('d M') }}</span>
                                                         <span class="note">{{ $jamCarbon->format('g:i A') }}</span>
                                                     </td>
+                                                    <td class="cell">{{ $x->kendaraan->nomor_lambung }}</td>
                                                     <td style="display: flex; justify-content: center">
                                                         <a href="{{ url('user/p2h/edit/' . $x->kendaraan->nomor_lambung) }}"
                                                             class="btn btn-circle btn-warning"><i

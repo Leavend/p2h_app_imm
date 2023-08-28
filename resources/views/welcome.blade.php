@@ -38,10 +38,10 @@
                                     <th>Nama Pemeriksa</th>
                                     <th>Jenis Kendaraan</th>
                                     <th>Type Kendaraan</th>
-                                    <th>No Lambung</th>
                                     <th>Keterangan</th>
                                     <th>Status</th>
                                     <th>Tanggal</th>
+                                    <th>No Lambung</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,7 +52,6 @@
                                         <td>{{ $x->nama_pemeriksa ?? '-' }}</td>
                                         <td>{{ $x->kendaraan->jenis_kendaraan }}</td>
                                         <td>{{ $x->kendaraan->type_kendaraan }}</td>
-                                        <td>{{ $x->kendaraan->nomor_lambung }}</td>
                                         <td>{{ $x->keterangan }}</td>
                                         <td>
                                             @if ($x->status == 'terverifikasi')
@@ -66,6 +65,7 @@
                                         <td>
                                             {{ \Carbon\Carbon::parse($x->tanggal, 'Asia/Makassar')->format('d M Y ') }}
                                         </td>
+                                        <td>{{ $x->kendaraan->nomor_lambung }}</td>
                                     </tr>
                                 @empty
                                     <tr>
