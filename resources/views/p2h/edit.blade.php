@@ -31,19 +31,24 @@
                             <div class="app-card app-card-settings shadow-sm p-4">
 
                                 <div class="app-card-body">
+
                                     <div class="mb-3">
                                         <label for="setting-input-1" class="form-label">Nama Lengkap</label>
-                                        <input type="text" class="form-control" value="{{ $data->nama_pemeriksa }}"
-                                            required>
+                                        <input type="text" class="form-control" value="{{ Auth::user()->name }}"
+                                            placeholder="cth: Fahmi Fajeri" required name="name">
                                     </div>
+
                                     <div class="mb-3">
                                         <label for="setting-input-2" class="form-label">NIK</label>
-                                        <input type="text" class="form-control" value="{{ $data->nik }}" required>
+                                        <input type="text" class="form-control" value="{{ $data->nik }}"
+                                            placeholder="cth: 951***2" required name="nik">
                                     </div>
+
                                     <div class="mb-3">
                                         <label for="setting-input-3" class="form-label">Departemen</label>
-                                        <input type="email" class="form-control" value="{{ $data->departemen }}"
-                                            list="departemen" required>
+                                        <input type="text" class="form-control" value="{{ $data->departemen }}"
+                                            list="departemen" placeholder="cth: Information Technology" required
+                                            name="departemen">
                                         <datalist id="departemen">
                                             <option value="ASSET MANAGEMENT"></option>
                                             <option value="COAL HANDLING & PROCESSING"></option>
@@ -76,47 +81,261 @@
                                             <option value="UTILITIES OPERATION"></option>
                                         </datalist>
                                     </div>
+
                                     <div class="mb-3">
                                         <label for="setting-input-4" class="form-label">No HP</label>
-                                        <input type="email" class="form-control" value="{{ $data->no_hp }}" required>
+                                        <input type="text" class="form-control" value="{{ $data->no_hp }}"
+                                            placeholder="cth: 081288228222" required name="no_hp">
                                     </div>
                                     {{-- <button type="submit" class="btn app-btn-primary">Save Changes</button> --}}
                                 </div><!--//app-card-body-->
+
                             </div><!--//app-card-->
                         </div>
 
                     </div><!--//row-->
 
-                    <hr class="my-4">
+
+                    <!-- Oil & Radiator -->
+                    {{-- <hr class="my-4">
                     <div class="row g-4 settings-section">
                         <div class="col-12 col-md-4">
-                            <h3 class="section-title">Plan</h3>
-                            <div class="section-intro">Settings section intro goes here. Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit. <a href="help.html">Learn more</a></div>
+                            <h3 class="section-title">Oil &amp; Radiator</h3>
+                            <div class="section-intro">Berikan data <b>Oil &amp; Radiator</b> dengan kondisi
+                                sebenar-benarnya</div>
                         </div>
                         <div class="col-12 col-md-8">
                             <div class="app-card app-card-settings shadow-sm p-4">
-
                                 <div class="app-card-body">
-                                    <div class="mb-2"><strong>Current Plan:</strong> Pro</div>
-                                    <div class="mb-2"><strong>Status:</strong> <span
-                                            class="badge bg-success">Active</span></div>
-                                    <div class="mb-2"><strong>Expires:</strong> 2030-09-24</div>
-                                    <div class="mb-4"><strong>Invoices:</strong> <a href="#">view</a></div>
-                                    <div class="row justify-content-between">
-                                        <div class="col-auto">
-                                            <a class="btn app-btn-primary" href="#">Upgrade Plan</a>
+
+                                    <!-- Oli Mesin -->
+                                    <div class="form-check mb-3">
+                                        <label for="setting-input-1" class="form-label" style="margin-right: 20px">Oli
+                                            Mesin</label>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="oli_mesin"
+                                                value="baik" id="settings-checkbox-baik">
+                                            <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                         </div>
-                                        <div class="col-auto">
-                                            <a class="btn app-btn-secondary" href="#">Cancel Plan</a>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="oli_mesin"
+                                                value="rusak" id="settings-checkbox-rusak">
+                                            <label class="form-check-label"
+                                                for="settings-checkbox-rusak">Rusak</label>
                                         </div>
-                                    </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="oli_mesin"
+                                                value="tidak_ada" id="settings-checkbox-tidak-ada" checked>
+                                            <label class="form-check-label" for="settings-checkbox-tidak-ada">Tidak
+                                                Ada</label>
+                                        </div>
+                                    </div><!--//form-check-->
+
+                                    <!-- Oli Kopling -->
+                                    <div class="form-check mb-3">
+                                        <label for="setting-input-1" class="form-label"
+                                            style="margin-right: 20px">Oli
+                                            Kopling</label>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="oli_kopling"
+                                                value="baik" id="settings-checkbox-baik">
+                                            <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="oli_kopling"
+                                                value="rusak" id="settings-checkbox-rusak">
+                                            <label class="form-check-label"
+                                                for="settings-checkbox-rusak">Rusak</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="oli_kopling"
+                                                value="tidak_ada" id="settings-checkbox-tidak-ada" checked>
+                                            <label class="form-check-label" for="settings-checkbox-tidak-ada">Tidak
+                                                Ada</label>
+                                        </div>
+                                    </div><!--//form-check-->
+
+                                    <!-- Oli Stering -->
+                                    <div class="form-check mb-3">
+                                        <label for="setting-input-1" class="form-label"
+                                            style="margin-right: 20px">Oli
+                                            Stering</label>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="oli_stering"
+                                                value="baik" id="settings-checkbox-baik">
+                                            <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="oli_stering"
+                                                value="rusak" id="settings-checkbox-rusak">
+                                            <label class="form-check-label"
+                                                for="settings-checkbox-rusak">Rusak</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="oli_stering"
+                                                value="tidak_ada" id="settings-checkbox-tidak-ada" checked>
+                                            <label class="form-check-label" for="settings-checkbox-tidak-ada">Tidak
+                                                Ada</label>
+                                        </div>
+                                    </div><!--//form-check-->
+
+                                    <!-- Air Radiator -->
+                                    <div class="form-check mb-3">
+                                        <label for="setting-input-1" class="form-label"
+                                            style="margin-right: 20px">Air
+                                            Radiator</label>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="air_radiator"
+                                                value="baik" id="settings-checkbox-baik">
+                                            <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="air_radiator"
+                                                value="rusak" id="settings-checkbox-rusak">
+                                            <label class="form-check-label"
+                                                for="settings-checkbox-rusak">Rusak</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="air_radiator"
+                                                value="tidak_ada" id="settings-checkbox-tidak-ada" checked>
+                                            <label class="form-check-label" for="settings-checkbox-tidak-ada">Tidak
+                                                Ada</label>
+                                        </div>
+                                    </div><!--//form-check-->
 
                                 </div><!--//app-card-body-->
+                            </div><!--//app-card-->
+                        </div>
+                    </div><!--//row--> --}}
 
+                    <!-- Oil & Radiator -->
+                    <hr class="my-4">
+                    <div class="row g-4 settings-section">
+                        <div class="col-12 col-md-4">
+                            <h3 class="section-title">Oil &amp; Radiator</h3>
+                            <div class="section-intro">Berikan data <b>Oil &amp; Radiator</b> dengan kondisi
+                                sebenar-benarnya</div>
+                        </div>
+                        <div class="col-12 col-md-8">
+                            <div class="app-card app-card-settings shadow-sm p-4">
+                                <div class="app-card-body">
+
+                                    <!-- Oli Mesin -->
+                                    <div class="form-check mb-3">
+                                        <label for="setting-input-1" class="form-label">Oli Mesin</label>
+
+                                        <div class="form-check">
+                                            <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
+                                            <input class="form-check-input" type="radio" name="oli_mesin"
+                                                value="baik" id="settings-checkbox-baik">
+                                        </div>
+
+                                        <div class="form-check">
+                                            <label class="form-check-label" for="settings-checkbox-rusak">Rusak</label>
+                                            <input class="form-check-input" type="radio" name="oli_mesin"
+                                                value="rusak" id="settings-checkbox-rusak">
+                                        </div>
+
+                                        <div class="form-check">
+                                            <label class="form-check-label" for="settings-checkbox-tidak-ada">Tidak
+                                                Ada</label>
+                                            <input class="form-check-input" type="radio" name="oli_mesin"
+                                                value="tidak_ada" id="settings-checkbox-tidak-ada" checked>
+                                        </div>
+                                    </div><!--//form-check-->
+
+                                    <!-- Oli Kopling -->
+                                    <div class="form-check mb-3">
+                                        <label for="setting-input-1" class="form-label">Oli Kopling</label>
+
+                                        <div class="form-check">
+                                            <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
+                                            <input class="form-check-input" type="radio" name="oli_kopling"
+                                                value="baik" id="settings-checkbox-baik">
+                                        </div>
+
+                                        <div class="form-check">
+                                            <label class="form-check-label"
+                                                for="settings-checkbox-rusak">Rusak</label>
+                                            <input class="form-check-input" type="radio" name="oli_kopling"
+                                                value="rusak" id="settings-checkbox-rusak">
+                                        </div>
+
+                                        <div class="form-check">
+                                            <label class="form-check-label" for="settings-checkbox-tidak-ada">Tidak
+                                                Ada</label>
+                                            <input class="form-check-input" type="radio" name="oli_kopling"
+                                                value="tidak_ada" id="settings-checkbox-tidak-ada" checked>
+                                        </div>
+                                    </div><!--//form-check-->
+
+                                    <!-- Oli Stering -->
+                                    <div class="form-check mb-3">
+                                        <label for="setting-input-1" class="form-label">Oli Stering</label>
+
+                                        <div class="form-check">
+                                            <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
+                                            <input class="form-check-input" type="radio" name="oli_stering"
+                                                value="baik" id="settings-checkbox-baik">
+                                        </div>
+
+                                        <div class="form-check">
+                                            <label class="form-check-label"
+                                                for="settings-checkbox-rusak">Rusak</label>
+                                            <input class="form-check-input" type="radio" name="oli_stering"
+                                                value="rusak" id="settings-checkbox-rusak">
+                                        </div>
+
+                                        <div class="form-check">
+                                            <label class="form-check-label" for="settings-checkbox-tidak-ada">Tidak
+                                                Ada</label>
+                                            <input class="form-check-input" type="radio" name="oli_stering"
+                                                value="tidak_ada" id="settings-checkbox-tidak-ada" checked>
+                                        </div>
+                                    </div><!--//form-check-->
+
+                                    <!-- Air Radiator -->
+                                    <div class="form-check mb-3">
+                                        <label for="setting-input-1" class="form-label">Air Radiator</label>
+
+                                        <div class="form-check">
+                                            <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
+                                            <input class="form-check-input" type="radio" name="air_radiator"
+                                                value="baik" id="settings-checkbox-baik">
+                                        </div>
+
+                                        <div class="form-check">
+                                            <label class="form-check-label"
+                                                for="settings-checkbox-rusak">Rusak</label>
+                                            <input class="form-check-input" type="radio" name="air_radiator"
+                                                value="rusak" id="settings-checkbox-rusak">
+                                        </div>
+
+                                        <div class="form-check">
+                                            <label class="form-check-label" for="settings-checkbox-tidak-ada">Tidak
+                                                Ada</label>
+                                            <input class="form-check-input" type="radio" name="air_radiator"
+                                                value="tidak_ada" id="settings-checkbox-tidak-ada" checked>
+                                        </div>
+                                    </div><!--//form-check-->
+
+                                </div><!--//app-card-body-->
                             </div><!--//app-card-->
                         </div>
                     </div><!--//row-->
+
 
 
                 </form>
@@ -124,60 +343,7 @@
 
 
 
-                <hr class="my-4">
-                <div class="row g-4 settings-section">
-                    <div class="col-12 col-md-4">
-                        <h3 class="section-title">Data &amp; Privacy</h3>
-                        <div class="section-intro">Settings section intro goes here. Morbi vehicula, est eget fermentum
-                            ornare. </div>
-                    </div>
-                    <div class="col-12 col-md-8">
-                        <div class="app-card app-card-settings shadow-sm p-4">
-                            <div class="app-card-body">
-                                <form class="settings-form">
-                                    <div class="form-check mb-3">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="settings-checkbox-1" checked>
-                                        <label class="form-check-label" for="settings-checkbox-1">
-                                            Keep user app activity history
-                                        </label>
-                                    </div><!--//form-check-->
-                                    <div class="form-check mb-3">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="settings-checkbox-2" checked>
-                                        <label class="form-check-label" for="settings-checkbox-2">
-                                            Keep user app preferences
-                                        </label>
-                                    </div>
-                                    <div class="form-check mb-3">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="settings-checkbox-3">
-                                        <label class="form-check-label" for="settings-checkbox-3">
-                                            Keep user app search history
-                                        </label>
-                                    </div>
-                                    <div class="form-check mb-3">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="settings-checkbox-4">
-                                        <label class="form-check-label" for="settings-checkbox-4">
-                                            Lorem ipsum dolor sit amet
-                                        </label>
-                                    </div>
-                                    <div class="form-check mb-3">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="settings-checkbox-5">
-                                        <label class="form-check-label" for="settings-checkbox-5">
-                                            Aenean quis pharetra metus
-                                        </label>
-                                    </div>
-                                    <div class="mt-3">
-                                        <button type="submit" class="btn app-btn-primary">Save Changes</button>
-                                    </div>
-                                </form>
-                            </div><!--//app-card-body-->
-                        </div><!--//app-card-->
-                    </div>
-                </div><!--//row-->
+
 
                 <hr class="my-4">
                 <div class="row g-4 settings-section">

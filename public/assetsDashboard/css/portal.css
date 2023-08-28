@@ -2367,7 +2367,8 @@ textarea.form-control-lg {
 }
 .form-check-inline {
     display: inline-block;
-    margin-right: 1rem;
+    margin-left: 2rem;
+    padding: 2rem;
 }
 .btn-check {
     position: absolute;
