@@ -122,16 +122,12 @@
                                                         <span class="note">{{ $jamCarbon->format('g:i A') }}</span>
                                                     </td>
                                                     <td style="display: flex; justify-content: center">
-                                                        <a href="#" class="btn btn-circle btn-info"
-                                                            data-toggle="modal"
-                                                            data-target="#detailModal{{ $x->id }}">
-                                                            <i class="fas fa-eye"></i>
-                                                        </a>
                                                         <a href="{{ url('user/p2h/edit/' . $x->id) }}"
                                                             class="btn btn-circle btn-warning"><i
                                                                 class="fas fa-edit"></i></a>
                                                     </td>
                                                 </tr>
+
                                                 <!-- Modal for Detail -->
                                                 <div class="modal fade" id="detailModal{{ $x->id }}"
                                                     tabindex="-1" role="dialog"
@@ -162,6 +158,7 @@
                                                     </div>
                                                 </div>
                                                 <!-- End of Modal for Detail -->
+
                                             @empty
                                                 <tr>
                                                     <td class="cell" colspan="13" style="text-align: center;">
