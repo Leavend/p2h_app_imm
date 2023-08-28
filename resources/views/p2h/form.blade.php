@@ -15,7 +15,7 @@
                   <form id="regForm" action="">
                     <!-- One "tab" for each step in the form: -->
                     <div class="tab">
-                      <div class="card-body p-md-3 mx-md-4">
+                      <div class="card-body p-md-3 mx-md-5 mx-3 mt-5">
                         <div class="">
                           <img
                             src="/assets/img/IMM.svg"
@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="tab">
-                      <div class="card-body p-md-3 mx-md-4">
+                      <div class="card-body p-md-3 mx-md-5 mx-3 mt-5">
                         <div class="">
                           <img
                             src="/assets/img/IMM.svg"
@@ -292,7 +292,7 @@
                     </div>
 
                     <div class="tab">
-                      <div class="card-body p-md-3 mx-md-4">
+                      <div class="card-body p-md-3 mx-md-5 mx-3 mt-5">
                         <div class="">
                           <img
                             src="/assets/img/IMM.svg"
@@ -403,7 +403,7 @@
                     </div>
 
                     <div class="tab">
-                      <div class="card-body p-md-5 mx-md-4">
+                      <div class="card-body p-md-5 mx-md-5 mx-3 mt-5">
                         <div class="">
                           <img
                             src="/assets/img/IMM.svg"
@@ -663,7 +663,7 @@
                     </div>
 
                     <div class="tab">
-                      <div class="card-body p-md-5 mx-md-4">
+                      <div class="card-body p-md-5 mx-md-5 mx-3 mt-5">
                         <div class="">
                           <img
                             src="/assets/img/IMM.svg"
@@ -771,7 +771,7 @@
                     </div>
 
                     <div class="tab">
-                      <div class="card-body p-md-5 mx-md-4">
+                      <div class="card-body p-md-5 mx-md-5 mx-3 mt-5">
                         <div class="">
                           <img
                             src="/assets/img/IMM.svg"
@@ -1044,7 +1044,7 @@
                     </div>
 
                     <div class="tab">
-                      <div class="card-body p-md-5 mx-md-4">
+                      <div class="card-body p-md-5 mx-md-5 mx-3 mt-5">
                         <div class="">
                           <img
                             src="/assets/img/IMM.svg"
@@ -1231,7 +1231,7 @@
                     </div>
 
                     <div class="tab">
-                      <div class="card-body p-md-5 mx-md-4">
+                      <div class="card-body p-md-5 mx-md-5 mx-3 mt-5">
                         <div class="">
                           <img
                             src="/assets/img/IMM.svg"
@@ -1719,7 +1719,7 @@
                     </div>
 
                     <div class="tab">
-                      <div class="card-body p-md-5 mx-md-4">
+                      <div class="card-body p-md-5 mx-md-5 mx-3 mt-5">
                         <div class="">
                           <img
                             src="/assets/img/IMM.svg"
