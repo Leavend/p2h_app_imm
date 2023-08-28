@@ -1829,7 +1829,7 @@
                           Next
                         </submit>
                       </div>
-                      <div class="btn btn-primary">
+                      <div class="btn btn-primary hide-on-first">
                         <submit
                           type="button"
                           id="prevBtn"
@@ -1912,6 +1912,15 @@
           document.getElementById("nextBtn").innerHTML = "Submit";
         } else {
           document.getElementById("nextBtn").innerHTML = "Next";
+        }
+        if (n === 0) {
+          document.querySelectorAll(".hide-on-first").forEach(function (el) {
+            el.style.display = "none";
+          });
+        } else {
+          document.querySelectorAll(".hide-on-first").forEach(function (el) {
+            el.style.display = "inline";
+          });
         }
         // ... and run a function that displays the correct step indicator:
         fixStepIndicator(n);
