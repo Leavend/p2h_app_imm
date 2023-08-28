@@ -34,8 +34,8 @@ class P2hController extends Controller
 
     public function indexTodayUser()
     {
-        $Title = 'IMM - GA - P2H Unit';
         $p2hToday = P2h::getp2hdailyuser();
+        $Title = 'IMM - GA - P2H Unit';
         return view('p2h.indexTodayUser', compact('Title', 'p2hToday'));
     }
 
@@ -171,21 +171,34 @@ class P2hController extends Controller
         return redirect()->route('p2h-cek.list')->with('success', 'Pengecekan Harian Unit Berhasil');
     }
 
-    public function detail($id)
-    {
-        $data = P2h::findOrFail($id); // Sesuaikan dengan model dan kolom yang sesuai
-        return response()->json($data);
-    }
+    // public function detail($id)
+    // {
+    //     $data = P2h::findOrFail($id); // Sesuaikan dengan model dan kolom yang sesuai
+    //     return response()->json($data);
+    // }
 
-    public function edit($id)
+    public function edit($nomor_lambung)
     {
-        $Title = 'IMM - GA - P2H Unit';
+        $kendaraan = Kendaraan::where('nomor_lambung', $nomor_lambung)->first();
 
-        $data = P2h::findOrFail($id);
+        if (!$kendaraan) {
+            return redirect()->route('error')->with('error', 'Kendaraan tidak ditemukan.');
+        }
+
+        $today = Carbon::today();
+
+        $data = P2h::where('kendaraan_id', $kendaraan->id)
+            ->whereDate('tanggal', $today)
+            ->first();
+
+        if (!$data) {
+            return redirect()->route('error')->with('error', 'Data P2H tidak ditemukan untuk kendaraan ini pada tanggal ini.');
+        }
+
+        $Title = 'P2H Unit - ' . $nomor_lambung;
 
         return view('p2h.edit', compact('Title', 'data'));
     }
-
 
     public function update(Request $request, $id)
     {
@@ -220,5 +233,11 @@ class P2hController extends Controller
             'status' => 'belum diperiksa'
         ]);
         return redirect()->route('p2h.list');
+    }
+
+    public function showErrorPage()
+    {
+        $Title = 'Error - Page';
+        return view('error_page', compact('Title'));
     }
 }

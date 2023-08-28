@@ -122,7 +122,7 @@
                                                         <span class="note">{{ $jamCarbon->format('g:i A') }}</span>
                                                     </td>
                                                     <td style="display: flex; justify-content: center">
-                                                        <a href="{{ url('user/p2h/edit/' . $x->id) }}"
+                                                        <a href="{{ url('user/p2h/edit/' . $x->kendaraan->nomor_lambung) }}"
                                                             class="btn btn-circle btn-warning"><i
                                                                 class="fas fa-edit"></i></a>
                                                     </td>

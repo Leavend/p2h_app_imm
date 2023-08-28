@@ -99,7 +99,9 @@ Route::middleware(['user'])->group(function () {
         Route::get('/form/{id}', [P2hController::class, 'getFormUser']);
         Route::post('/simpan', [P2hController::class, 'save']);
         Route::get('/detail/{id}', [P2hController::class, 'detail'])->name('p2h.detail');
-        Route::get('/edit/{id}', [P2hController::class, 'edit'])->name('p2h.edit');
+        Route::get('/edit/{nomor_lambung}', [P2hController::class, 'edit'])->name('p2h.edit');
         Route::post('/perbarui/{id}', [P2hController::class, 'update'])->name('p2h.update');
     });
+
+    Route::get('/error-page', [P2hController::class, 'showErrorPage'])->name('error');
 });
