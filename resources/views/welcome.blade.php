@@ -49,7 +49,7 @@
                                 @forelse ($p2hPaginator as $x)
                                     <tr>
                                         <td>{{ $p2hPaginator->firstItem() + $loop->index }}</td>
-                                        <td>{{ $x->nama_pemeriksa }}</td>
+                                        <td>{{ $x->nama_pemeriksa ?? '-' }}</td>
                                         <td>{{ $x->kendaraan->jenis_kendaraan }}</td>
                                         <td>{{ $x->kendaraan->type_kendaraan }}</td>
                                         <td>{{ $x->kendaraan->nomor_lambung }}</td>
