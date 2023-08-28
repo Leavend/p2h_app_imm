@@ -15,19 +15,22 @@
                     , {{ \Carbon\Carbon::parse($data->tanggal)->format('d-F-Y') }}
                 </h1>
 
-                <hr class="mb-4">
-                <div class="row g-4 settings-section">
-                    <div class="col-12 col-md-4">
-                        <h3 class="section-title">Pemeriksa Kendaraan</h3>
-                        <div class="section-intro">Wajib diisi dengan data sebenar-benarnya</div>
-                    </div>
+                <form class="settings-form">
+                    @csrf
 
-                    <div class="col-12 col-md-8">
-                        <div class="app-card app-card-settings shadow-sm p-4">
 
-                            <div class="app-card-body">
-                                <form class="settings-form">
-                                    @csrf
+                    <!-- Little Info -->
+                    <hr class="mb-4">
+                    <div class="row g-4 settings-section">
+                        <div class="col-12 col-md-4">
+                            <h3 class="section-title">Pemeriksa Kendaraan</h3>
+                            <div class="section-intro">Wajib diisi dengan data sebenar-benarnya</div>
+                        </div>
+
+                        <div class="col-12 col-md-8">
+                            <div class="app-card app-card-settings shadow-sm p-4">
+
+                                <div class="app-card-body">
                                     <div class="mb-3">
                                         <label for="setting-input-1" class="form-label">Nama Lengkap</label>
                                         <input type="text" class="form-control" value="{{ $data->nama_pemeriksa }}"
@@ -78,44 +81,48 @@
                                         <input type="email" class="form-control" value="{{ $data->no_hp }}" required>
                                     </div>
                                     {{-- <button type="submit" class="btn app-btn-primary">Save Changes</button> --}}
-                                </form>
-                            </div><!--//app-card-body-->
+                                </div><!--//app-card-body-->
+                            </div><!--//app-card-->
+                        </div>
 
-                        </div><!--//app-card-->
-                    </div>
+                    </div><!--//row-->
 
-                </div><!--//row-->
+                    <hr class="my-4">
+                    <div class="row g-4 settings-section">
+                        <div class="col-12 col-md-4">
+                            <h3 class="section-title">Plan</h3>
+                            <div class="section-intro">Settings section intro goes here. Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit. <a href="help.html">Learn more</a></div>
+                        </div>
+                        <div class="col-12 col-md-8">
+                            <div class="app-card app-card-settings shadow-sm p-4">
 
-                <hr class="my-4">
-                <div class="row g-4 settings-section">
-                    <div class="col-12 col-md-4">
-                        <h3 class="section-title">Plan</h3>
-                        <div class="section-intro">Settings section intro goes here. Lorem ipsum dolor sit amet,
-                            consectetur adipiscing elit. <a href="help.html">Learn more</a></div>
-                    </div>
-                    <div class="col-12 col-md-8">
-                        <div class="app-card app-card-settings shadow-sm p-4">
-
-                            <div class="app-card-body">
-                                <div class="mb-2"><strong>Current Plan:</strong> Pro</div>
-                                <div class="mb-2"><strong>Status:</strong> <span
-                                        class="badge bg-success">Active</span></div>
-                                <div class="mb-2"><strong>Expires:</strong> 2030-09-24</div>
-                                <div class="mb-4"><strong>Invoices:</strong> <a href="#">view</a></div>
-                                <div class="row justify-content-between">
-                                    <div class="col-auto">
-                                        <a class="btn app-btn-primary" href="#">Upgrade Plan</a>
+                                <div class="app-card-body">
+                                    <div class="mb-2"><strong>Current Plan:</strong> Pro</div>
+                                    <div class="mb-2"><strong>Status:</strong> <span
+                                            class="badge bg-success">Active</span></div>
+                                    <div class="mb-2"><strong>Expires:</strong> 2030-09-24</div>
+                                    <div class="mb-4"><strong>Invoices:</strong> <a href="#">view</a></div>
+                                    <div class="row justify-content-between">
+                                        <div class="col-auto">
+                                            <a class="btn app-btn-primary" href="#">Upgrade Plan</a>
+                                        </div>
+                                        <div class="col-auto">
+                                            <a class="btn app-btn-secondary" href="#">Cancel Plan</a>
+                                        </div>
                                     </div>
-                                    <div class="col-auto">
-                                        <a class="btn app-btn-secondary" href="#">Cancel Plan</a>
-                                    </div>
-                                </div>
 
-                            </div><!--//app-card-body-->
+                                </div><!--//app-card-body-->
 
-                        </div><!--//app-card-->
-                    </div>
-                </div><!--//row-->
+                            </div><!--//app-card-->
+                        </div>
+                    </div><!--//row-->
+
+
+                </form>
+
+
+
 
                 <hr class="my-4">
                 <div class="row g-4 settings-section">

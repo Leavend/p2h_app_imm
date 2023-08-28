@@ -219,6 +219,74 @@ class P2hController extends Controller
         return redirect()->route('p2h.list')->with('success', 'Data P2h berhasil diupdate.');
     }
 
+    public function updateUser(Request $request, $nomor_lambung)
+    {
+        $kendaraan = Kendaraan::where('nomor_lambung', $nomor_lambung)->first();
+
+        if (!$kendaraan) {
+            return redirect()->route('error')->with('error', 'Kendaraan tidak ditemukan.');
+        }
+
+        $p2h = P2h::where('kendaraan_id', $kendaraan->id)->first();
+
+        if (!$p2h) {
+            return redirect()->back()->with('error', 'Data P2h tidak ditemukan.');
+        }
+
+        $request->validate([
+            'tanggal' => 'required|date',
+            'jam' => 'required',
+            'nama_pemeriksa' => 'required|string|max:255',
+            'nik' => 'required|string|min:6|max:9',
+            'departemen' => 'required|string|max:255',
+            'no_hp' => 'required',
+            'oli_mesin' => 'required',
+            'oli_kopling' => 'required',
+            'air_radiator' => 'required',
+            'oli_stering' => 'required',
+            'rem_depanBelakang' => 'required',
+            'rem_tangan' => 'required',
+            'lampu_jauhDekat' => 'required',
+            'lampu_reting_rL' => 'required',
+            'lampu_belakang' => 'required',
+            'lampu_rem' => 'required',
+            'lampu_mundur' => 'required',
+            'lampu_rotari' => 'required',
+            'roda_depanBelakang' => 'required',
+            'roda_cadangan' => 'required',
+            'body_fender_rL' => 'required',
+            'body_pintu_rL' => 'required',
+            'body_atap_kabin' => 'required',
+            'body_bendera' => 'required',
+            'body_lantai_kabin' => 'required',
+            'body_karet_mounting' => 'required',
+            'body_sepring' => 'required',
+            'tools_dongkrak_aksesoris' => 'required',
+            'tools_kunci_roda' => 'required',
+            'tools_segitiga_pengaman' => 'required',
+            'tools_ganjal_ban' => 'required',
+            'others_sabuk_pengaman' => 'required',
+            'others_spidometer' => 'required',
+            'others_klakson' => 'required',
+            'others_spion' => 'required',
+            'others_wiper' => 'required',
+            'others_alarm_mundur' => 'required',
+            'others_radio_komun' => 'required',
+            'others_knalpot' => 'required',
+            'others_no_lambung' => 'required',
+            'others_apar' => 'required',
+            'others_kursi_duduk' => 'required',
+            'surat_p3k' => 'required',
+            'surat_stnp_kir' => 'required',
+            'keterangan' => 'required',
+            'status' => 'required'
+        ]);
+
+        $p2h->update($request->all());
+
+        return redirect()->route('p2h.list')->with('success', 'Data P2h berhasil diupdate.');
+    }
+
     public function verifikasiStatus($id)
     {
         P2h::where('id', "$id")->update([
