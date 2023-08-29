@@ -10,7 +10,7 @@
                     <div class="card bg-glass mb-3">
                         <div class="row g-0 mb-3">
 
-                            <div class="form">
+                            <div class="">
 
                                 <form id="regForm" action="">
 
@@ -87,7 +87,7 @@
                                                 <label for="setting-input" class="form-label">No HP</label>
                                                 <input type="text" class="form-control" id="setting-input"
                                                     placeholder="cth: 081222222222" name="no_hp"
-                                                    value="{{ old('no_hp') }}" required />
+                                                    value="{{ old('no_hp') }}" />
                                             </div>
 
                                         </div>

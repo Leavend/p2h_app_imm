@@ -41,6 +41,7 @@
             alertElement.style.display = 'none';
         }
     </script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('myForm');
