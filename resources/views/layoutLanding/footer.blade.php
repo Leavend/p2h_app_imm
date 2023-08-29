@@ -41,7 +41,39 @@
             alertElement.style.display = 'none';
         }
     </script>
+     <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("myForm");
+        const nextButton = form.querySelector(".carousel-control-next-2");
+        const inputs = form.querySelectorAll("input[required]");
 
+        form.addEventListener("input", function () {
+          let formIsValid = true;
+
+          inputs.forEach((input) => {
+            if (input.value.trim() === "") {
+              formIsValid = false;
+            }
+          });
+
+          if (formIsValid) {
+            nextButton.removeAttribute("disabled");
+          } else {
+            nextButton.setAttribute("disabled", "true");
+          }
+        });
+
+        form.addEventListener("submit", function (event) {
+          if (!nextButton.hasAttribute("disabled")) {
+            // Form is valid, allow submission
+            return;
+          } else {
+            event.preventDefault();
+            alert("Isi kolom formulir di atas terlebih dahulu.");
+          }
+        });
+      });
+    </script>
     <script>
         var currentTab = 0; // Current tab is set to be the first tab (0)
         showTab(currentTab); // Display the current tab
