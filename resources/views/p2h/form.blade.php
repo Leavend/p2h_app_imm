@@ -902,17 +902,25 @@
 
                                     <!-- Button -->
                                     <div class="buttonFr">
-                                        <div class="btn btn-primary" style="float: right">
-                                            <submit type="button" id="nextBtn" onclick="nextPrev(1)">
-                                                Next
-                                            </submit>
-                                        </div>
-                                        <div class="btn btn-primary hide-on-first">
-                                            <submit type="button" id="prevBtn" onclick="nextPrev(-1)">
-                                                Previous
-                                            </submit>
-                                        </div>
-                                    </div>
+                      <div class="btn btn-primary" style="float: right">
+                        <submit
+                          type="submit"
+                          id="nextBtn"
+                          onclick="nextPrev(1)"
+                        >
+                          Next
+                        </submit>
+                      </div>
+                      <div class="btn btn-primary hide-on-first">
+                        <submit
+                          type="button"
+                          id="prevBtn"
+                          onclick="nextPrev(-1)"
+                        >
+                          Previous
+                        </submit>
+                      </div>
+                    </div>
 
                                 </form>
                             </div>
