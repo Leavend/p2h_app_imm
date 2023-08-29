@@ -41,15 +41,6 @@
             alertElement.style.display = 'none';
         }
     </script>
-<<<<<<< HEAD
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('myForm');
-            const nextButton = form.querySelector('.carousel-control-next-2');
-            const inputs = form.querySelectorAll('input[required]');
-=======
->>>>>>> e3843a804e0566a6dc38b5220bae2f28ecb041c7
 
     <script>
         var currentTab = 0; // Current tab is set to be the first tab (0)
