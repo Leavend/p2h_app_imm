@@ -5487,6 +5487,14 @@ fieldset:disabled .btn {
     color: #066173;
 }
 
+.warning-message {
+    display: none;
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+
 .alert-warning {
     --bs-alert-color: #997404;
     --bs-alert-bg: #fff3cd;

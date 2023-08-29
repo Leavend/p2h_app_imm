@@ -2,1984 +2,927 @@
 
 <body id="page-top">
 
-    @include('layoutLanding.navbar')
-
-    <!-- Masthead-->
+    <!-- MastHead -->
     <header class="formulir">
-      <div class="container-sm px-4 px-lg-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="">
-            <div class="card bg-glass mb-3">
-              <div class="row g-0 mb-3">
+        <div class="container-sm px-4 px-lg-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="">
-                  <form id="regForm" action="">
-                    <!-- One "tab" for each step in the form: -->
-                    <div class="tab">
-                      <div class="card-body p-md-3 mx-md-5 mx-3 mt-5">
-                        <div class="">
-                          <img
-                            src="/assets/img/IMM.svg"
-                            style="width: 90px"
-                            alt="logo"
-                          />
-                          <div class="Welcome">
-                            <p class="mt-1 mt-3 pt-2">Welcome to</p>
-                          </div>
-                          <h4 class="mt-1 mb-4 pt-2">
-                            IMM Pemeriksaan Pengecekan Harian P2H
-                          </h4>
+                    <div class="card bg-glass mb-3">
+                        <div class="row g-0 mb-3">
+
+                            <div class="form">
+
+                                <form id="regForm" action="">
+
+
+                                    <!-- Detail Pemeriksa P2H -->
+                                    <div class="tab">
+                                        <div class="card-body p-md-3 mx-md-5 mx-3 mt-5">
+
+                                            <!-- Header -->
+                                            <div class="header">
+                                                <img src="{{ asset('assets/img/IMM.svg') }}" style="width: 90px"
+                                                    alt="logo" />
+                                                <div class="Welcome">
+                                                    <p class="mt-1 mt-3 pt-2">Welcome to</p>
+                                                </div>
+                                                <h4 class="mt-1 mb-4 pt-2">
+                                                    IMM Pemeriksaan Pengecekan Harian P2H
+                                                </h4>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="setting-input" class="form-label">Nama Pemeriksa</label>
+                                                <input type="text" class="form-control" id="setting-input"
+                                                    placeholder="cth: Fahmi Fajeri" name="nama_pemeriksa"
+                                                    value="{{ old('nama_pemeriksa') }}" required />
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="setting-input" class="form-label">NIK</label>
+                                                <input type="text" class="form-control" id="setting-input"
+                                                    placeholder="cth: 1888***" name="nik"
+                                                    value="{{ old('nik') }}" required />
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="setting-input" class="form-label">Departemen</label>
+                                                <input type="text" class="form-control" list="departemen"
+                                                    placeholder="cth: Information Technology" name="departemen"
+                                                    value="{{ old('departemen') }}" required>
+                                                <datalist id="departemen">
+                                                    <option value="ASSET MANAGEMENT"></option>
+                                                    <option value="COAL HANDLING & PROCESSING"></option>
+                                                    <option value="COMMUNITY DEVELOPMENT"></option>
+                                                    <option value="ENVIRONMENT"></option>
+                                                    <option value="EXTERNAL AFFAIRS"></option>
+                                                    <option value="FINANCE & ACCOUNTING"></option>
+                                                    <option value="GENERAL AFFAIR"></option>
+                                                    <option value="GENERAL SERVICES"></option>
+                                                    <option value="HUMAN RESOURCES"></option>
+                                                    <option value="IMM MANAGEMENT SITE"></option>
+                                                    <option value="INFORMATION TECHNOLOGY"></option>
+                                                    <option value="IPCC OPERATION"></option>
+                                                    <option value="LABORATORY"></option>
+                                                    <option value="HSEC"></option>
+                                                    <option value="MAINTENANCE ENGINEERING"></option>
+                                                    <option value="MEDICAL SERVICES"></option>
+                                                    <option value="MINE GEOLOGY"></option>
+                                                    <option value="MINE OPERATION"></option>
+                                                    <option value="MINE PLANNING"></option>
+                                                    <option value="MINE SURVEY"></option>
+                                                    <option value="PORT"></option>
+                                                    <option value="PORT MAINTENANCE"></option>
+                                                    <option value="PORT, UTILITIES & MAINTENANCE"></option>
+                                                    <option value="PROCUREMENT"></option>
+                                                    <option value="PROJECT & CONSTRUCTION"></option>
+                                                    <option value="SAFETY"></option>
+                                                    <option value="SECURITY"></option>
+                                                    <option value="SYSTEM & PERFORMANCE MANAGEMENT"></option>
+                                                    <option value="UTILITIES OPERATION"></option>
+                                                </datalist>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="setting-input" class="form-label">No HP</label>
+                                                <input type="text" class="form-control" id="setting-input"
+                                                    placeholder="cth: 081222222222" name="no_hp"
+                                                    value="{{ old('no_hp') }}" required />
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Detail Oil & Radiator -->
+                                    <div class="tab">
+                                        <div class="card-body p-md-3 mx-md-5 mx-3 mt-5">
+
+                                            <!-- Header -->
+                                            <div class="header">
+                                                <img src="{{ asset('assets/img/IMM.svg') }}" style="width: 90px"
+                                                    alt="logo" />
+                                                <h4 class="mt-1 pt-2 text-center">
+                                                    Oli dan Radiator
+                                                </h4>
+                                            </div>
+
+                                            <!-- Oli Mesin -->
+                                            <div class="mb-3">
+                                                <label for="setting-input" class="form-label">Oli Mesin</label>
+                                                <select class="form-select" id="setting-input" name="oli_mesin"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('oli_mesin') === 'baik' ? 'selected' : '' }}>Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('oli_mesin') === 'rusak' ? 'selected' : '' }}>Rusak
+                                                    </option>
+                                                    <option value="tidak ada"
+                                                        {{ old('oli_mesin') === 'tidak ada' ? 'selected' : '' }}>Tidak
+                                                        Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Oli Kopling -->
+                                            <div class="mb-3">
+                                                <label class="form-label">Oli Kopling</label>
+                                                <select class="form-select" name="oli_kopling" required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('oli_kopling') === 'baik' ? 'selected' : '' }}>Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('oli_kopling') === 'rusak' ? 'selected' : '' }}>Rusak
+                                                    </option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('oli_kopling') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Air Radiator -->
+                                            <div class="mb-3">
+                                                <label class="form-label">Air Radiator</label>
+                                                <select class="form-select" name="air_radiator" required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('air_radiator') === 'baik' ? 'selected' : '' }}>Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('air_radiator') === 'rusak' ? 'selected' : '' }}>Rusak
+                                                    </option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('air_radiator') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Oli Stering -->
+                                            <div class="mb-3">
+                                                <label class="form-label">Oli Stering</label>
+                                                <select class="form-select" name="oli_stering" required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('oli_stering') === 'baik' ? 'selected' : '' }}>Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('oli_stering') === 'rusak' ? 'selected' : '' }}>Rusak
+                                                    </option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('oli_stering') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Detail Rem -->
+                                    <div class="tab">
+                                        <div class="card-body p-md-3 mx-md-5 mx-3 mt-5">
+
+                                            <!-- Header -->
+                                            <div class="">
+                                                <img src="{{ asset('assets/img/IMM.svg') }}" style="width: 90px"
+                                                    alt="logo" />
+                                                <h4 class="mt-1 pt-2 text-center">Rem</h4>
+                                            </div>
+
+                                            <!-- Rem Depan/Belakang -->
+                                            <div class="mb-3">
+                                                <label for="setting-input" class="form-label">Rem
+                                                    Depan/Belakang</label>
+                                                <select class="form-select" id="setting-input"
+                                                    name="rem_depanBelakang" required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('rem_depanBelakang') === 'baik' ? 'selected' : '' }}>
+                                                        Baik</option>
+                                                    <option value="rusak"
+                                                        {{ old('rem_depanBelakang') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak</option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('rem_depanBelakang') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Rem Tangan -->
+                                            <div class="mb-3">
+                                                <label for="setting-input" class="form-label">Rem Tangan</label>
+                                                <select class="form-select" id="setting-input" name="rem_tangan"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('rem_tangan') === 'baik' ? 'selected' : '' }}>Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('rem_tangan') === 'rusak' ? 'selected' : '' }}>Rusak
+                                                    </option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('rem_tangan') === 'tidak_ada' ? 'selected' : '' }}>Tidak
+                                                        Ada</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Detail Lampu -->
+                                    <div class="tab">
+                                        <div class="card-body p-md-3 mx-md-5 mx-3 mt-5">
+
+                                            <!-- Header -->
+                                            <div class="">
+                                                <img src="{{ asset('assets/img/IMM.svg') }}" style="width: 90px"
+                                                    alt="logo" />
+                                                <h4 class="mt-1 pt-2 text-center">Lampu</h4>
+                                            </div>
+
+                                            <!-- Jauh/Dekat -->
+                                            <div class="mb-3">
+                                                <label for="setting-input" class="form-label">Jauh/Dekat</label>
+                                                <select class="form-select" id="setting-input" name="lampu_jauhDekat"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('lampu_jauhDekat') === 'baik' ? 'selected' : '' }}>Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('lampu_jauhDekat') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak</option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('lampu_jauhDekat') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Reting R/L -->
+                                            <div class="mb-3">
+                                                <label for="setting-input" class="form-label">Reting R/L</label>
+                                                <select class="form-select" id="setting-input" name="lampu_reting_rL"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('lampu_reting_rL') === 'baik' ? 'selected' : '' }}>Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('lampu_reting_rL') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak
+                                                    </option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('lampu_reting_rL') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Rem -->
+                                            <div class="mb-3">
+                                                <label for="setting-input" class="form-label">Lampu Rem</label>
+                                                <select class="form-select" id="setting-input" name="lampu_rem"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('lampu_rem') === 'baik' ? 'selected' : '' }}>Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('lampu_rem') === 'rusak' ? 'selected' : '' }}>Rusak
+                                                    </option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('lampu_rem') === 'tidak_ada' ? 'selected' : '' }}>Tidak
+                                                        Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Mundur -->
+                                            <div class="mb-3">
+                                                <label for="setting-input" class="form-label">Lampu Mundur</label>
+                                                <select class="form-select" id="setting-input" name="lampu_mundur"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('lampu_mundur') === 'baik' ? 'selected' : '' }}>Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('lampu_mundur') === 'rusak' ? 'selected' : '' }}>Rusak
+                                                    </option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('lampu_mundur') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Rotari -->
+                                            <div class="mb-3">
+                                                <label for="setting-input" class="form-label">Lampu Rotari</label>
+                                                <select class="form-select" id="setting-input" name="lampu_rotari"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('lampu_rotari') === 'baik' ? 'selected' : '' }}>Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('lampu_rotari') === 'rusak' ? 'selected' : '' }}>Rusak
+                                                    </option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('lampu_rotari') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Detail Roda -->
+                                    <div class="tab">
+                                        <div class="card-body p-md-3 mx-md-5 mx-3 mt-5">
+
+                                            <!-- Header -->
+                                            <div class="">
+                                                <img src="{{ asset('assets/img/IMM.svg') }}" style="width: 90px"
+                                                    alt="logo" />
+                                                <h4 class="mt-1 pt-2 text-center">Roda</h4>
+                                            </div>
+
+                                            <!-- Depan/Belakang -->
+                                            <div class="mb-3">
+                                                <label for="roda_depanBelakang"
+                                                    class="form-label">Depan/Belakang</label>
+                                                <select class="form-select" id="roda_depanBelakang"
+                                                    name="roda_depanBelakang" required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('roda_depanBelakang') === 'baik' ? 'selected' : '' }}>
+                                                        Baik</option>
+                                                    <option value="rusak"
+                                                        {{ old('roda_depanBelakang') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak</option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('roda_depanBelakang') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Cadangan -->
+                                            <div class="mb-3">
+                                                <label for="roda_cadangan" class="form-label">Cadangan</label>
+                                                <select class="form-select" id="roda_cadangan" name="roda_cadangan"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('roda_cadangan') === 'baik' ? 'selected' : '' }}>Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('roda_cadangan') === 'rusak' ? 'selected' : '' }}>Rusak
+                                                    </option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('roda_cadangan') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Detail Body -->
+                                    <div class="tab">
+                                        <div class="card-body p-md-3 mx-md-5 mx-3 mt-5">
+
+                                            <!-- Header -->
+                                            <div class="header">
+                                                <img src="{{ asset('assets/img/IMM.svg') }}" style="width: 90px"
+                                                    alt="logo" />
+                                                <h4 class="mt-1 pt-2 text-center">Body</h4>
+                                            </div>
+
+                                            <!-- Fender R/L -->
+                                            <div class="mb-3">
+                                                <label for="body_fender" class="form-label">Fender R/L</label>
+                                                <select class="form-select" id="body_fender" name="body_fender_rL"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('body_fender_rL') === 'baik' ? 'selected' : '' }}>Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('body_fender_rL') === 'rusak' ? 'selected' : '' }}>Rusak
+                                                    </option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('body_fender_rL') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Pintu R/L -->
+                                            <div class="mb-3">
+                                                <label for="body_pintu" class="form-label">Pintu R/L</label>
+                                                <select class="form-select" id="body_pintu" name="body_pintu_rL"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('body_pintu_rL') === 'baik' ? 'selected' : '' }}>Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('body_pintu_rL') === 'rusak' ? 'selected' : '' }}>Rusak
+                                                    </option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('body_pintu_rL') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak
+                                                        Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Atap Kabin -->
+                                            <div class="mb-3">
+                                                <label for="body_atap" class="form-label">Atap Kabin</label>
+                                                <select class="form-select" id="body_atap" name="body_atap_kabin"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('body_atap_kabin') === 'baik' ? 'selected' : '' }}>Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('body_atap_kabin') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak
+                                                    </option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('body_atap_kabin') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak
+                                                        Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Bendera -->
+                                            <div class="mb-3">
+                                                <label for="body_bendera" class="form-label">Bendera</label>
+                                                <select class="form-select" id="body_bendera" name="body_bendera"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('body_bendera') === 'baik' ? 'selected' : '' }}>Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('body_bendera') === 'rusak' ? 'selected' : '' }}>Rusak
+                                                    </option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('body_bendera') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Body Lantai Kabin -->
+                                            <div class="mb-3">
+                                                <label for="	body_lantai_kabin" class="form-label">Bendera</label>
+                                                <select class="form-select" id="	body_lantai_kabin"
+                                                    name="	body_lantai_kabin" required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('	body_lantai_kabin') === 'baik' ? 'selected' : '' }}>
+                                                        Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('	body_lantai_kabin') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak
+                                                    </option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('	body_lantai_kabin') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Karet Mounting -->
+                                            <div class="mb-3">
+                                                <label for="body_karet_mounting" class="form-label">Karet
+                                                    Mounting</label>
+                                                <select class="form-select" id="body_karet_mounting"
+                                                    name="body_karet_mounting" required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('body_karet_mounting') === 'baik' ? 'selected' : '' }}>
+                                                        Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('body_karet_mounting') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak
+                                                    </option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('body_karet_mounting') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak
+                                                        Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Sepring -->
+                                            <div class="mb-3">
+                                                <label for="body_sepring" class="form-label">Sepring</label>
+                                                <select class="form-select" id="body_sepring" name="body_sepring"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('body_sepring') === 'baik' ? 'selected' : '' }}>Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('body_sepring') === 'rusak' ? 'selected' : '' }}>Rusak
+                                                    </option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('body_sepring') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Detail Tools -->
+                                    <div class="tab">
+                                        <div class="card-body p-md-3 mx-md-5 mx-3 mt-5">
+
+                                            <!-- Header -->
+                                            <div class="header">
+                                                <img src="{{ asset('assets/img/IMM.svg') }}" style="width: 90px"
+                                                    alt="logo" />
+                                                <h4 class="mt-1 pt-2 text-center">Tools</h4>
+                                            </div>
+
+                                            <!-- Dongkrak Aksesoris -->
+                                            <div class="mb-3">
+                                                <label for="tools_dongkrak_aksesoris" class="form-label">Dongkrak
+                                                    Aksesoris</label>
+                                                <select class="form-select" id="tools_dongkrak_aksesoris"
+                                                    name="tools_dongkrak_aksesoris" required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('tools_dongkrak_aksesoris') === 'baik' ? 'selected' : '' }}>
+                                                        Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('tools_dongkrak_aksesoris') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak
+                                                    </option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('tools_dongkrak_aksesoris') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Kunci Roda -->
+                                            <div class="mb-3">
+                                                <label for="tools_kunci_roda" class="form-label">Kunci Roda</label>
+                                                <select class="form-select" id="tools_kunci_roda"
+                                                    name="tools_kunci_roda" required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('tools_kunci_roda') === 'baik' ? 'selected' : '' }}>Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('tools_kunci_roda') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak</option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('tools_kunci_roda') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Segitiga Pengaman -->
+                                            <div class="mb-3">
+                                                <label for="tools_segitiga_pengaman" class="form-label">Segitiga
+                                                    Pengaman</label>
+                                                <select class="form-select" id="tools_segitiga_pengaman"
+                                                    name="tools_segitiga_pengaman" required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('tools_segitiga_pengaman') === 'baik' ? 'selected' : '' }}>
+                                                        Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('tools_segitiga_pengaman') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak
+                                                    </option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('tools_segitiga_pengaman') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Ganjal Ban -->
+                                            <div class="mb-3">
+                                                <label for="tools_ganjal_ban" class="form-label">Ganjal Ban</label>
+                                                <select class="form-select" id="tools_ganjal_ban"
+                                                    name="tools_ganjal_ban" required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('tools_ganjal_ban') === 'baik' ? 'selected' : '' }}>Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('tools_ganjal_ban') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak</option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('tools_ganjal_ban') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Detail Others -->
+                                    <div class="tab">
+                                        <div class="card-body p-md-5 mx-md-5 mx-3 mt-5">
+
+                                            <!-- Header -->
+                                            <div class="header">
+                                                <img src="{{ asset('assets/img/IMM.svg') }}" style="width: 90px"
+                                                    alt="logo" />
+                                                <h4 class="mt-1 pt-2 text-center">Others</h4>
+                                            </div>
+
+                                            <!-- Sabuk Pengaman -->
+                                            <div class="mb-3">
+                                                <label for="others_sabuk_pengaman" class="form-label">Sabuk
+                                                    Pengaman</label>
+                                                <select class="form-select" id="others_sabuk_pengaman"
+                                                    name="others_sabuk_pengaman" required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('others_sabuk_pengaman') === 'baik' ? 'selected' : '' }}>
+                                                        Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('others_sabuk_pengaman') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak</option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('others_sabuk_pengaman') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Spidometer -->
+                                            <div class="mb-3">
+                                                <label for="others_spidometer" class="form-label">Spidometer</label>
+                                                <select class="form-select" id="others_spidometer"
+                                                    name="others_spidometer" required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('others_spidometer') === 'baik' ? 'selected' : '' }}>
+                                                        Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('others_spidometer') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak</option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('others_spidometer') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Klakson -->
+                                            <div class="mb-3">
+                                                <label for="others_klakson" class="form-label">Klakson</label>
+                                                <select class="form-select" id="others_klakson" name="others_klakson"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('others_klakson') === 'baik' ? 'selected' : '' }}>
+                                                        Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('others_klakson') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak</option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('others_klakson') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Spion -->
+                                            <div class="mb-3">
+                                                <label for="others_spion" class="form-label">Spion</label>
+                                                <select class="form-select" id="others_spion" name="others_spion"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('others_spion') === 'baik' ? 'selected' : '' }}>
+                                                        Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('others_spion') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak</option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('others_spion') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Wiper -->
+                                            <div class="mb-3">
+                                                <label for="others_wiper" class="form-label">Wiper</label>
+                                                <select class="form-select" id="others_wiper" name="others_wiper"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('others_wiper') === 'baik' ? 'selected' : '' }}>
+                                                        Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('others_wiper') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak</option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('others_wiper') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Alarm Mundur -->
+                                            <div class="mb-3">
+                                                <label for="others_alarm_mundur" class="form-label">Alarm
+                                                    Mundur</label>
+                                                <select class="form-select" id="others_alarm_mundur"
+                                                    name="others_alarm_mundur" required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('others_alarm_mundur') === 'baik' ? 'selected' : '' }}>
+                                                        Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('others_alarm_mundur') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak</option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('others_alarm_mundur') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Radio Komunikasi -->
+                                            <div class="mb-3">
+                                                <label for="others_radio_komun" class="form-label">Radio
+                                                    Komunikasi</label>
+                                                <select class="form-select" id="others_radio_komun"
+                                                    name="others_radio_komun" required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('others_radio_komun') === 'baik' ? 'selected' : '' }}>
+                                                        Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('others_radio_komun') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak</option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('others_radio_komun') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Knalpot -->
+                                            <div class="mb-3">
+                                                <label for="others_knalpot" class="form-label">Knalpot</label>
+                                                <select class="form-select" id="others_knalpot" name="others_knalpot"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('others_knalpot') === 'baik' ? 'selected' : '' }}>Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('others_knalpot') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak</option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('others_knalpot') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- No. Lambung -->
+                                            <div class="mb-3">
+                                                <label for="others_no_lambung" class="form-label">No. Lambung</label>
+                                                <select class="form-select" id="others_no_lambung"
+                                                    name="others_no_lambung" required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('others_no_lambung') === 'baik' ? 'selected' : '' }}>
+                                                        Baik</option>
+                                                    <option value="rusak"
+                                                        {{ old('others_no_lambung') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak</option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('others_no_lambung') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Apar -->
+                                            <div class="mb-3">
+                                                <label for="others_apar" class="form-label">Apar</label>
+                                                <select class="form-select" id="others_apar" name="others_apar"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('others_apar') === 'baik' ? 'selected' : '' }}>Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('others_apar') === 'rusak' ? 'selected' : '' }}>Rusak
+                                                    </option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('others_apar') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Kursi Duduk -->
+                                            <div class="mb-3">
+                                                <label for="others_kursi_duduk" class="form-label">Kursi Duduk</label>
+                                                <select class="form-select" id="others_kursi_duduk"
+                                                    name="others_kursi_duduk" required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('others_kursi_duduk') === 'baik' ? 'selected' : '' }}>
+                                                        Baik</option>
+                                                    <option value="rusak"
+                                                        {{ old('others_kursi_duduk') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak</option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('others_kursi_duduk') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Detail Surat -->
+                                    <div class="tab">
+                                        <div class="card-body p-md-5 mx-md-5 mx-3 mt-5">
+
+                                            <!-- Header -->
+                                            <div class="header">
+                                                <img src="{{ asset('assets/img/IMM.svg') }}" style="width: 90px"
+                                                    alt="logo" />
+                                                <h4 class="mt-1 pt-2 text-center">Surat</h4>
+                                            </div>
+
+                                            <!-- P3K -->
+                                            <div class="mb-3">
+                                                <label for="surat_p3k" class="form-label">P3K</label>
+                                                <select class="form-select" id="surat_p3k" name="surat_p3k" required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('surat_p3k') === 'baik' ? 'selected' : '' }}>
+                                                        Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('surat_p3k') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak</option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('surat_p3k') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- STNP & KIR -->
+                                            <div class="mb-3">
+                                                <label for="surat_stnp_kir" class="form-label">STNP & KIR</label>
+                                                <select class="form-select" id="surat_stnp_kir" name="surat_stnp_kir"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih kondisi</option>
+                                                    <option value="baik"
+                                                        {{ old('surat_stnp_kir') === 'baik' ? 'selected' : '' }}>
+                                                        Baik
+                                                    </option>
+                                                    <option value="rusak"
+                                                        {{ old('surat_stnp_kir') === 'rusak' ? 'selected' : '' }}>
+                                                        Rusak</option>
+                                                    <option value="tidak_ada"
+                                                        {{ old('surat_stnp_kir') === 'tidak_ada' ? 'selected' : '' }}>
+                                                        Tidak Ada</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Button -->
+                                    <div class="buttonFr">
+                                        <div class="btn btn-primary" style="float: right">
+                                            <submit type="button" id="nextBtn" onclick="nextPrev(1)">
+                                                Next
+                                            </submit>
+                                        </div>
+                                        <div class="btn btn-primary hide-on-first">
+                                            <submit type="button" id="prevBtn" onclick="nextPrev(-1)">
+                                                Previous
+                                            </submit>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                          <label for="setting-input-1" class="form-label"
-                            >Nama Pemeriksa</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="setting-input-1"
-                            placeholder="Tulis Nama Lengkap"
-                            required
-                          />
-                        </div>
-                        <div class="mb-3">
-                          <label for="setting-input-2" class="form-label"
-                            >NIK</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="setting-input-2"
-                            placeholder="Masukkan NIK"
-                            required
-                          />
-                        </div>
-                        <div class="mb-3">
-                          <label for="setting-input-3" class="form-label"
-                            >Departemen</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="setting-input-3"
-                            placeholder="Departemen"
-                            required
-                          />
-                        </div>
-                        <div class="mb-5">
-                          <label for="setting-input-3" class="form-label"
-                            >No HP</label
-                          >
-                          <input
-                            type="number"
-                            class="form-control"
-                            id="setting-input-3"
-                            placeholder="Nomor Handphone"
-                            required
-                          />
-                        </div>
-                      </div>
                     </div>
-
-                    <div class="tab">
-                      <div class="card-body p-md-3 mx-md-5 mx-3 mt-5">
-                        <div class="">
-                          <img
-                            src="/assets/img/IMM.svg"
-                            style="width: 90px"
-                            alt="logo"
-                          />
-                          <h4 class="mt-1 pt-2 text-center">
-                            Oli dan Radiator
-                          </h4>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Oil Mesin</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio1_row1">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio1_row1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio2_row1"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio3_row1"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Oli Kopling</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio2_row1">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio1_row2"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio2_row2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio3_row2"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Air Radiator</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio3_row1">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio1_row3"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio2_row3"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio3_row3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Oli Stering</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio4_row1">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio1_row4"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio2_row4"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio3_row4"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="tab">
-                      <div class="card-body p-md-3 mx-md-5 mx-3 mt-5">
-                        <div class="">
-                          <img
-                            src="/assets/img/IMM.svg"
-                            style="width: 90px"
-                            alt="logo"
-                          />
-                          <h4 class="mt-1 pt-2 text-center">Rem</h4>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Rem Depan/Belakang</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio1_row2">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions2"
-                              id="inlineRadio1_row2"
-                              value="option1"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio1_row2"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions2"
-                              id="inlineRadio2_row2"
-                              value="option2"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio2_row2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions2"
-                              id="inlineRadio3_row2"
-                              value="option3"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio3_row2"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Rem Tangan</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio2_row2">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions2"
-                              id="inlineRadio1_row2"
-                              value="option1"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio1_row2"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions2"
-                              id="inlineRadio2_row2"
-                              value="option2"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio2_row2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions2"
-                              id="inlineRadio3_row2"
-                              value="option3"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio3_row2"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="tab">
-                      <div class="card-body p-md-5 mx-md-5 mx-3 mt-5">
-                        <div class="">
-                          <img
-                            src="/assets/img/IMM.svg"
-                            style="width: 90px"
-                            alt="logo"
-                          />
-                          <h4 class="mt-1 pt-2 text-center">Lampu</h4>
-                        </div>
-
-                        <!-- Card -->
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Jauh/Dekat</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio1_row3">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio1_row1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio1_row1"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio1_row1"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Reting R/L</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio2_row3">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio1_row2"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio1_row2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio1_row2"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Rem</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio3_row3">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio1_row3"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio2_row3"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio3_row3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Mundur</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio4_row3">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio1_row4"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio2_row4"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio3_row4"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Rotari</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio5_row3">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio1_row5"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio2_row5"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio3_row5"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="tab">
-                      <div class="card-body p-md-5 mx-md-5 mx-3 mt-5">
-                        <div class="">
-                          <img
-                            src="/assets/img/IMM.svg"
-                            style="width: 90px"
-                            alt="logo"
-                          />
-                          <h4 class="mt-1 pt-2 text-center">Roda</h4>
-                        </div>
-
-                        <!-- Card -->
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Depan/Belakang</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio1_row4">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio1_row1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio2_row1"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="inlineRadio3_row1"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Cadangan</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio2_row4">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="tab">
-                      <div class="card-body p-md-5 mx-md-5 mx-3 mt-5">
-                        <div class="">
-                          <img
-                            src="/assets/img/IMM.svg"
-                            style="width: 90px"
-                            alt="logo"
-                          />
-                          <h4 class="mt-1 pt-2 text-center">Body</h4>
-                        </div>
-
-                        <!-- Card -->
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Fender R/L</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio1_row5">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Pintu R/L</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio2_row5">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Atap Kabin</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio3_row5">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Bendera</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio4_row5">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Karet Mounting</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio5_row5">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Sepring</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio6_row5">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="tab">
-                      <div class="card-body p-md-5 mx-md-5 mx-3 mt-5">
-                        <div class="">
-                          <img
-                            src="/assets/img/IMM.svg"
-                            style="width: 90px"
-                            alt="logo"
-                          />
-                          <h4 class="mt-1 pt-2 text-center">Tools</h4>
-                        </div>
-
-                        <!-- Card -->
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Dongkrak Aksesoris</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio1_row6">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Kunci Roda</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio2_row6">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Segitiga Pengaman</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio3_row6">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Ganjal Ban</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio4_row6">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="tab">
-                      <div class="card-body p-md-5 mx-md-5 mx-3 mt-5">
-                        <div class="">
-                          <img
-                            src="/assets/img/IMM.svg"
-                            style="width: 90px"
-                            alt="logo"
-                          />
-                          <h4 class="mt-1 pt-2 text-center">Others</h4>
-                        </div>
-
-                        <!-- Card -->
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Sabuk Pengaman</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio1_row7">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Spidometer</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio2_row7">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Klakson</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio3_row7">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Spion</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio4_row7">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Wiper</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio5_row7">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Alarm Mundur</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio6_row7">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Radio Komunikasi</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio7_row7">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Knalpot</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio8_row7">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>No Lambung</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio9_row7">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Apar</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio10_row7">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>Kursi Duduk</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio11_row7">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="tab">
-                      <div class="card-body p-md-5 mx-md-5 mx-3 mt-5">
-                        <div class="">
-                          <img
-                            src="/assets/img/IMM.svg"
-                            style="width: 90px"
-                            alt="logo"
-                          />
-                          <h4 class="mt-1 pt-2 text-center">Surat</h4>
-                        </div>
-
-                        <!-- Card -->
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>P3K</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio1_row8">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                        <div class="mx-0 mx-sm-auto">
-                          <div class="text">
-                            <p>STNP & KIR</p>
-                          </div>
-                        </div>
-                        <div class="text-center mb-3" id="inlineRadio2_row8">
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio1"
-                              value="option1"
-                            />
-                            <label class="form-check-label" for="inlineRadio1"
-                              >Baik</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="inlineRadio2"
-                              >Rusak</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="inlineRadioOptions"
-                              id="inlineRadio3"
-                              value="option3"
-                            />
-                            <label class="form-check-label" for="inlineRadio3"
-                              >Tidak ada</label
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="buttonFr">
-                      <div class="btn btn-primary" style="float: right">
-                        <submit
-                          type="button"
-                          id="nextBtn"
-                          onclick="nextPrev(1)"
-                        >
-                          Next
-                        </submit>
-                      </div>
-                      <div class="btn btn-primary hide-on-first">
-                        <submit
-                          type="button"
-                          id="prevBtn"
-                          onclick="nextPrev(-1)"
-                        >
-                          Previous
-                        </submit>
-                      </div>
-                    </div>
-
-                    <!-- Circles which indicates the steps of the form: -->
-                    <div style="text-align: center; margin-top: 40px">
-                      <span class="step"></span>
-                      <span class="step"></span>
-                      <span class="step"></span>
-                      <span class="step"></span>
-                      <span class="step"></span>
-                      <span class="step"></span>
-                      <span class="step"></span>
-                      <span class="step"></span>
-                    </div>
-                  </form>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </header>
 
     @include('layoutLanding.footer')
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('myForm');
-            const nextButton = form.querySelector('.carousel-control-next-2');
-            const inputs = form.querySelectorAll('input[required]');
 
-            form.addEventListener('input', function() {
-                let formIsValid = true;
-
-                inputs.forEach(input => {
-                    if (input.value.trim() === '') {
-                        formIsValid = false;
-                    }
-                });
-
-                if (formIsValid) {
-                    nextButton.removeAttribute('disabled');
-                } else {
-                    nextButton.setAttribute('disabled', 'true');
-                }
-            });
-
-            form.addEventListener('submit', function(event) {
-                if (!nextButton.hasAttribute('disabled')) {
-                    // Form is valid, allow submission
-                    return;
-                } else {
-                    event.preventDefault();
-                    alert('Isi kolom formulir di atas terlebih dahulu.');
-                }
-            });
-        });
-    </script>
-    <script>
-      var currentTab = 0; // Current tab is set to be the first tab (0)
-      showTab(currentTab); // Display the current tab
-
-      function showTab(n) {
-        // This function will display the specified tab of the form ...
-        var x = document.getElementsByClassName("tab");
-        x[n].style.display = "block";
-        // ... and fix the Previous/Next buttons:
-        if (n == 0) {
-          document.getElementById("prevBtn").style.display = "none";
-        } else {
-          document.getElementById("prevBtn").style.display = "inline";
-        }
-        if (n == x.length - 1) {
-          document.getElementById("nextBtn").innerHTML = "Submit";
-        } else {
-          document.getElementById("nextBtn").innerHTML = "Next";
-        }
-        if (n === 0) {
-          document.querySelectorAll(".hide-on-first").forEach(function (el) {
-            el.style.display = "none";
-          });
-        } else {
-          document.querySelectorAll(".hide-on-first").forEach(function (el) {
-            el.style.display = "inline";
-          });
-        }
-        // ... and run a function that displays the correct step indicator:
-        fixStepIndicator(n);
-      }
-
-      function nextPrev(n) {
-        // This function will figure out which tab to display
-        var x = document.getElementsByClassName("tab");
-        // Exit the function if any field in the current tab is invalid:
-        if (n == 1 && !validateForm()) return false;
-        // Hide the current tab:
-        x[currentTab].style.display = "none";
-        // Increase or decrease the current tab by 1:
-        currentTab = currentTab + n;
-        // if you have reached the end of the form... :
-        if (currentTab >= x.length) {
-          //...the form gets submitted:
-          document.getElementById("regForm").submit();
-          return false;
-        }
-        // Otherwise, display the correct tab:
-        showTab(currentTab);
-      }
-
-      function validateForm() {
-        // This function deals with validation of the form fields
-        var x,
-          y,
-          i,
-          valid = true;
-        x = document.getElementsByClassName("tab");
-        y = x[currentTab].getElementsByTagName("input");
-        // A loop that checks every input field in the current tab:
-        for (i = 0; i < y.length; i++) {
-          // If a field is empty...
-          if (y[i].value == "") {
-            // add an "invalid" class to the field:
-            y[i].className += " invalid";
-            // and set the current valid status to false:
-            valid = false;
-          }
-        }
-        // If the valid status is true, mark the step as finished and valid:
-        if (valid) {
-          document.getElementsByClassName("step")[currentTab].className +=
-            " finish";
-        }
-        return valid; // return the valid status
-      }
-
-      function fixStepIndicator(n) {
-        // This function removes the "active" class of all steps...
-        var i,
-          x = document.getElementsByClassName("step");
-        for (i = 0; i < x.length; i++) {
-          x[i].className = x[i].className.replace(" active", "");
-        }
-        //... and adds the "active" class to the current step:
-        x[n].className += " active";
-      }
-    </script>
 </body>

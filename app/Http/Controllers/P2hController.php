@@ -17,18 +17,17 @@ class P2hController extends Controller
 
     public function index()
     {
-        $Title = 'IMM - GA - P2H Unit';
         $p2hPaginator = P2h::getp2h();
         $kendaraanPaginator = Kendaraan::getKendaraan();
+        $Title = 'IMM - GA - P2H Unit';
 
         return view('welcome', compact('Title', 'p2hPaginator', 'kendaraanPaginator'));
     }
 
     public function indexToday()
     {
-        $Title = 'IMM - GA - P2H Unit';
-        // $p2hToday = P2h::whereDate('tanggal', Carbon::today('Asia/Makassar'))->where('status', 'belum diperiksa')->paginate(10, ['*'], 'p2h_page');
         $p2hToday = P2h::getp2hdaily();
+        $Title = 'GA - P2H Unit - Daily';
         return view('p2h.indexToday', compact('Title', 'p2hToday'));
     }
 
@@ -77,28 +76,35 @@ class P2hController extends Controller
         return Excel::download(new P2hsExport, 'p2h.xlsx');
     }
 
-    public function getForm($id)
+    public function getForm($id, $nomor_lambung)
     {
-        $Title = 'IMM - GA - P2H Unit';
-        $p2hData = P2h::findOrFail($id);
+        $p2hData = P2h::where('id', $id)
+            ->whereHas('kendaraan', function ($query) use ($nomor_lambung) {
+                $query->where('nomor_lambung', $nomor_lambung);
+            })
+            ->firstOrFail();
+        $Title = "GA - P2H Unit - $nomor_lambung";
 
         return view('p2h.form', compact('Title', 'p2hData'));
     }
 
-    public function getFormUser($id)
+    public function getFormUser($id, $nomor_lambung)
     {
-        $Title = 'IMM - GA - P2H Unit';
-        $p2hData = P2h::find($id);
-        $dataKendaraan = Kendaraan::find($id);
+        $p2hData = P2h::where('id', $id)
+            ->whereHas('kendaraan', function ($query) use ($nomor_lambung) {
+                $query->where('nomor_lambung', $nomor_lambung);
+            })
+            ->firstOrFail();
+        $Title = "GA - P2H Unit - $nomor_lambung";
 
-        return view('p2h.formUser', compact('Title', 'p2hData', 'dataKendaraan'));
+        return view('p2h.form', compact('Title', 'p2hData'));
     }
 
     public function save(Request $request, $id)
     {
         $request->validate([
             'kendaraan_id' => 'required',
-            // Tambahkan aturan validasi lain sesuai kebutuhan
+
         ]);
 
         // Ambil data P2h berdasarkan ID yang diberikan
@@ -150,8 +156,12 @@ class P2hController extends Controller
             'surat_stnp_kir',
         ]));
 
-        $p2h['status'] = 'menunggu verifikasi';
-        $p2h['jam'] = date('H:i:s');
+        $p2h->status = 'menunggu verifikasi';
+        $p2h->jam = date('H:i:s');
+
+
+        // $p2h['status'] = 'menunggu verifikasi';
+        // $p2h['jam'] = date('H:i:s');
 
         $p2h->save();
 

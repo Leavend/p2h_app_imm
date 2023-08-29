@@ -1,21 +1,24 @@
+<!-- Landing Header -->
 @include('layoutLanding.header')
 
 <body id="page-top">
 
-
+    <!-- Landing Navbar -->
     @include('layoutLanding.navbar')
 
 
+    <!-- Landing Hero -->
     @include('layoutLanding.hero')
 
 
-    <!-- Display P2H -->
+    <!-- Display List P2H -->
     <div class="tabel-manis">
         <main class="table">
             <section class="page-section" id="p2hkendaraan" style="height: 750px">
                 <div class="container
                  px-lg-5">
-                    <h3 class="text-center mt-0">Daftar P2H</h3>
+
+                    <!-- Filter Date P2H -->
                     <div class="untuk-filter">
                         <form id="filterFormP2H">
                             <div class="input-group">
@@ -26,16 +29,18 @@
                             </div>
                         </form>
                     </div>
-                    {{-- <hr class="divider divider-light" /> --}}
+
+                    <!-- Table Header -->
                     <section class="table__header">
-                        <!-- Add your header content here if needed -->
+                        <h3 class="text-center mt-0">Daftar Total P2H IMM - GA</h3>
                     </section>
+
+                    <!-- Table Fill -->
                     <section class="table-responsive" id="p2h-table">
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Pemeriksa</th>
                                     <th>Jenis Kendaraan</th>
                                     <th>Type Kendaraan</th>
                                     <th>No Lambung</th>
@@ -49,11 +54,18 @@
                                 @forelse ($p2hPaginator as $x)
                                     <tr>
                                         <td>{{ $p2hPaginator->firstItem() + $loop->index }}</td>
-                                        <td>{{ $x->nama_pemeriksa ?? '-' }}</td>
                                         <td>{{ $x->kendaraan->jenis_kendaraan }}</td>
                                         <td>{{ $x->kendaraan->type_kendaraan }}</td>
                                         <td>{{ $x->kendaraan->nomor_lambung }}</td>
-                                        <td>{{ $x->keterangan }}</td>
+                                        <td>
+                                            @if ($x->status == 'belum diperiksa')
+                                                {{ $x->keterangan ?? '-' }}
+                                            @elseif ($x->status == 'menunggu verifikasi')
+                                                {{ $x->keterangan ?? 'P2H Telah Dilakukan' }}
+                                            @else
+                                                {{ $x->keterangan }}
+                                            @endif
+                                        </td>
                                         <td>
                                             @if ($x->status == 'terverifikasi')
                                                 <p class="status delivered">Terverifikasi</p>
@@ -77,9 +89,8 @@
                             </tbody>
                         </table>
                     </section>
-                    {{-- <div style="padding: 25px; float: right;">
-                        {{ $p2hPaginator->appends(request()->except('p2h_page'))->links() }}
-                    </div> --}}
+
+                    <!-- Pagination p2h -->
                     <nav class="app-pagination" id="p2h-pagination">
                         <ul class="pagination justify-content-center">
                             <li class="page-item {{ $p2hPaginator->currentPage() == 1 ? 'disabled' : '' }}">
@@ -87,11 +98,36 @@
                                     tabindex="-1"
                                     aria-disabled="{{ $p2hPaginator->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
                             </li>
-                            @for ($i = 1; $i <= $p2hPaginator->lastPage(); $i++)
+                            @for ($i = 1; $i <= 3; $i++)
                                 <li class="page-item {{ $p2hPaginator->currentPage() == $i ? 'active' : '' }}">
                                     <a class="page-link" href="{{ $p2hPaginator->url($i) }}">{{ $i }}</a>
                                 </li>
                             @endfor
+                            @if ($p2hPaginator->currentPage() > 4)
+                                <li class="page-item disabled">
+                                    <a class="page-link">...</a>
+                                </li>
+                            @endif
+                            @php
+                                $startPage = max($p2hPaginator->currentPage() - 1, 4);
+                                $endPage = min($startPage + 2, $p2hPaginator->lastPage());
+                            @endphp
+                            @for ($i = $startPage; $i <= $endPage; $i++)
+                                <li class="page-item {{ $p2hPaginator->currentPage() == $i ? 'active' : '' }}">
+                                    <a class="page-link" href="{{ $p2hPaginator->url($i) }}">{{ $i }}</a>
+                                </li>
+                            @endfor
+                            @if ($endPage < $p2hPaginator->lastPage() - 2)
+                                <li class="page-item disabled">
+                                    <a class="page-link">...</a>
+                                </li>
+                                @for ($i = $p2hPaginator->lastPage() - 2; $i <= $p2hPaginator->lastPage(); $i++)
+                                    <li class="page-item {{ $p2hPaginator->currentPage() == $i ? 'active' : '' }}">
+                                        <a class="page-link"
+                                            href="{{ $p2hPaginator->url($i) }}">{{ $i }}</a>
+                                    </li>
+                                @endfor
+                            @endif
                             <li
                                 class="page-item {{ $p2hPaginator->currentPage() == $p2hPaginator->lastPage() ? 'disabled' : '' }}">
                                 <a class="page-link"
@@ -99,17 +135,19 @@
                             </li>
                         </ul>
                     </nav>
+
                 </div>
             </section>
         </main>
     </div>
 
-    <!-- Kendaraan -->
+    <!-- Display List Kendaraan -->
     <div class="tabel-manis">
         <main class="table">
             <section class="page-section" id="kendaraan" style="height: 750px">
                 <div class="container px-lg-5">
-                    <h3 class="text-center mt-0">Daftar Kendaraan</h3>
+
+                    <!-- Filter No.Lambung Kendaraan -->
                     <div class="untuk-filter">
                         <form id="filterFormKendaraan">
                             <div class="input-group">
@@ -120,10 +158,13 @@
                             </div>
                         </form>
                     </div>
-                    {{-- <hr class="divider divider-light" /> --}}
+
+                    <!-- Table Header -->
                     <section class="table__header">
-                        <!-- Add your header content here if needed -->
+                        <h3 class="text-center mt-0">Daftar Kendaraan</h3>
                     </section>
+
+                    <!-- Table Fill -->
                     <section class="table-responsive" id="kendaraan-table">
                         <table class="table">
                             <thead>
@@ -156,9 +197,8 @@
                             </tbody>
                         </table>
                     </section>
-                    {{-- <div style="padding: 25px; float: right;">
-                        {{ $kendaraanPaginator->appends(request()->except('kendaraan_page'))->links() }}
-                    </div> --}}
+
+                    <!-- Pagination Kendaraan -->
                     <nav class="app-pagination" id="kendaraan-pagination">
                         <ul class="pagination justify-content-center">
                             <li class="page-item {{ $kendaraanPaginator->currentPage() == 1 ? 'disabled' : '' }}">
@@ -167,12 +207,43 @@
                                     tabindex="-1"
                                     aria-disabled="{{ $kendaraanPaginator->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
                             </li>
-                            @for ($i = 1; $i <= $kendaraanPaginator->lastPage(); $i++)
-                                <li class="page-item {{ $kendaraanPaginator->currentPage() == $i ? 'active' : '' }}">
-                                    <a class="page-link"
-                                        href="{{ $kendaraanPaginator->url($i) }}">{{ $i }}</a>
-                                </li>
-                            @endfor
+                            @if ($kendaraanPaginator->lastPage() > 0)
+                                @for ($i = 1; $i <= 3; $i++)
+                                    <li
+                                        class="page-item {{ $kendaraanPaginator->currentPage() == $i ? 'active' : '' }}">
+                                        <a class="page-link"
+                                            href="{{ $kendaraanPaginator->url($i) }}">{{ $i }}</a>
+                                    </li>
+                                @endfor
+                                @if ($kendaraanPaginator->currentPage() > 4)
+                                    <li class="page-item disabled">
+                                        <a class="page-link">...</a>
+                                    </li>
+                                @endif
+                                @php
+                                    $startPage = max($kendaraanPaginator->currentPage() - 1, 4);
+                                    $endPage = min($startPage + 2, $kendaraanPaginator->lastPage());
+                                @endphp
+                                @for ($i = $startPage; $i <= $endPage; $i++)
+                                    <li
+                                        class="page-item {{ $kendaraanPaginator->currentPage() == $i ? 'active' : '' }}">
+                                        <a class="page-link"
+                                            href="{{ $kendaraanPaginator->url($i) }}">{{ $i }}</a>
+                                    </li>
+                                @endfor
+                                @if ($endPage < $kendaraanPaginator->lastPage() - 2)
+                                    <li class="page-item disabled">
+                                        <a class="page-link">...</a>
+                                    </li>
+                                    @for ($i = $kendaraanPaginator->lastPage() - 2; $i <= $kendaraanPaginator->lastPage(); $i++)
+                                        <li
+                                            class="page-item {{ $kendaraanPaginator->currentPage() == $i ? 'active' : '' }}">
+                                            <a class="page-link"
+                                                href="{{ $kendaraanPaginator->url($i) }}">{{ $i }}</a>
+                                        </li>
+                                    @endfor
+                                @endif
+                            @endif
                             <li
                                 class="page-item {{ $kendaraanPaginator->currentPage() == $kendaraanPaginator->lastPage() ? 'disabled' : '' }}">
                                 <a class="page-link"
@@ -180,13 +251,15 @@
                             </li>
                         </ul>
                     </nav>
+
+
                 </div>
             </section>
         </main>
     </div>
 
 
-    <!-- P2h -->
+    <!-- Do P2h -->
     <section class="page-section bg-imm" id="p2h">
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -199,7 +272,7 @@
         </div>
     </section>
 
-
+    <!-- Landing Footer -->
     @include('layoutLanding.footer')
 
 

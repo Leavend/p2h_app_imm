@@ -14,7 +14,7 @@ class AuthController extends Controller
 {
     public function login()
     {
-        $Title = 'Login - IMM - GA - P2H Unit';
+        $Title = 'Login - GA - P2H Unit';
         return view('auth.login', compact('Title'));
     }
 

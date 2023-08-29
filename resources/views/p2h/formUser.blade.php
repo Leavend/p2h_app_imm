@@ -1,108 +1,406 @@
-@include('layoutLanding.header')
+@include('layoutDashboard.header')
 
-<body id="page-top">
+<body class="app">
+
+    @include('layoutDashboard.navbar')
+
+    <div class="app-wrapper">
+
+        <div class="app-content pt-3 p-md-3 p-lg-4">
+            <div class="container-xl">
+
+                <h1 class="app-page-title">P2H Form pada Kendaraan
+                    <span style="color: #452F92; font-weight: bold;">{{ $data->kendaraan->nomor_lambung }}
+                    </span>
+                    , {{ \Carbon\Carbon::parse($data->tanggal)->format('d-F-Y') }}
+                </h1>
+
+                <form class="settings-form">
+                    @csrf
 
 
-    @include('layoutLanding.navbar')
+                    <!-- Little Info -->
+                    <hr class="mb-4">
+                    <div class="row g-4 settings-section">
+                        <div class="col-12 col-md-4">
+                            <h3 class="section-title">Pemeriksa Kendaraan</h3>
+                            <div class="section-intro">Wajib diisi dengan data sebenar-benarnya</div>
+                        </div>
 
+                        <div class="col-12 col-md-8">
+                            <div class="app-card app-card-settings shadow-sm p-4">
 
-    <section class="background-radial-gradient overflow-hidden">
-        <style>
-            .background-radial-gradient {
-                background-image: url("./assets/img/formsvg.svg");
-                background-size: 100%;
-            }
+                                <div class="app-card-body">
 
-            #radius-shape-1 {
-                height: 220px;
-                width: 220px;
-                top: -60px;
-                left: -130px;
-                background: radial-gradient(#44006b, #ad1fff);
-                overflow: hidden;
-            }
-
-            #radius-shape-2 {
-                border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
-                bottom: -60px;
-                right: -110px;
-                width: 300px;
-                height: 300px;
-                background: radial-gradient(#44006b, #ad1fff);
-                overflow: hidden;
-            }
-        </style>
-
-        <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
-            <div class="row gx-lg-5 align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-
-                </div>
-
-                <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
-                    <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
-                    <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
-
-                    <div class="card bg-glass">
-                        <div class="card-body-tt px-4 py-5 px-md-5">
-                            <form>
-                                <div class="card-body p-md-3 mx-md-4">
-                                    <div class="">
-                                        <img src="/assets/img/IMM.svg" style="width: 90px" alt="logo" />
-                                        <div class="Welcome">
-                                            <p class="mt-1 mt-3 pt-2">Welcome to</p>
-                                        </div>
-                                        <h4 class="mt-1 mb-4 pt-2">IMM Pemeriksaan Pengecekan Harian P2H</h4>
-                                    </div>
                                     <div class="mb-3">
-                                        <label for="setting-input-1" class="form-label">Nama Pemeriksa<span
-                                                class="ms-2" data-bs-container="body" data-bs-toggle="popover"
-                                                data-bs-trigger="hover focus" data-bs-placement="top"
-                                                data-bs-content="This is a Bootstrap popover example. You can use popover to provide extra info."><svg
-                                                    width="1em" height="1em" viewBox="0 0 16 16"
-                                                    class="bi bi-info-circle" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd"
-                                                        d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                    <path
-                                                        d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z" />
-                                                    <circle cx="8" cy="4.5" r="1" />
-                                                </svg></span></label>
-                                        <input type="text" class="form-control" id="setting-input-1"
-                                            placeholder="Tulis Nama Lengkap" required>
+                                        <label for="setting-input-1" class="form-label">Nama Lengkap</label>
+                                        <input type="text" class="form-control" value="{{ Auth::user()->name }}"
+                                            placeholder="cth: Fahmi Fajeri" required name="name">
                                     </div>
+
                                     <div class="mb-3">
                                         <label for="setting-input-2" class="form-label">NIK</label>
-                                        <input type="text" class="form-control" id="setting-input-2"
-                                            placeholder="Masukkan NIK" required>
+                                        <input type="text" class="form-control" value="{{ $data->nik }}"
+                                            placeholder="cth: 951***2" required name="nik">
                                     </div>
+
                                     <div class="mb-3">
                                         <label for="setting-input-3" class="form-label">Departemen</label>
-                                        <input type="email" class="form-control" id="setting-input-3"
-                                            placeholder="Departemen" required>
+                                        <input type="text" class="form-control" value="{{ $data->departemen }}"
+                                            list="departemen" placeholder="cth: Information Technology" required
+                                            name="departemen">
+                                        <datalist id="departemen">
+                                            <option value="ASSET MANAGEMENT"></option>
+                                            <option value="COAL HANDLING & PROCESSING"></option>
+                                            <option value="COMMUNITY DEVELOPMENT"></option>
+                                            <option value="ENVIRONMENT"></option>
+                                            <option value="EXTERNAL AFFAIRS"></option>
+                                            <option value="FINANCE & ACCOUNTING"></option>
+                                            <option value="GENERAL AFFAIR"></option>
+                                            <option value="GENERAL SERVICES"></option>
+                                            <option value="HUMAN RESOURCES"></option>
+                                            <option value="IMM MANAGEMENT SITE"></option>
+                                            <option value="INFORMATION TECHNOLOGY"></option>
+                                            <option value="IPCC OPERATION"></option>
+                                            <option value="LABORATORY"></option>
+                                            <option value="HSEC"></option>
+                                            <option value="MAINTENANCE ENGINEERING"></option>
+                                            <option value="MEDICAL SERVICES"></option>
+                                            <option value="MINE GEOLOGY"></option>
+                                            <option value="MINE OPERATION"></option>
+                                            <option value="MINE PLANNING"></option>
+                                            <option value="MINE SURVEY"></option>
+                                            <option value="PORT"></option>
+                                            <option value="PORT MAINTENANCE"></option>
+                                            <option value="PORT, UTILITIES & MAINTENANCE"></option>
+                                            <option value="PROCUREMENT"></option>
+                                            <option value="PROJECT & CONSTRUCTION"></option>
+                                            <option value="SAFETY"></option>
+                                            <option value="SECURITY"></option>
+                                            <option value="SYSTEM & PERFORMANCE MANAGEMENT"></option>
+                                            <option value="UTILITIES OPERATION"></option>
+                                        </datalist>
                                     </div>
-                                    <div class="mb-5">
-                                        <label for="setting-input-3" class="form-label">No HP</label>
-                                        <input type="email" class="form-control" id="setting-input-3"
-                                            placeholder="Nomor Handphone" required>
+
+                                    <div class="mb-3">
+                                        <label for="setting-input-4" class="form-label">No HP</label>
+                                        <input type="text" class="form-control" value="{{ $data->no_hp }}"
+                                            placeholder="cth: 081288228222" required name="no_hp">
                                     </div>
+                                    {{-- <button type="submit" class="btn app-btn-primary">Save Changes</button> --}}
+                                </div><!--//app-card-body-->
 
-
-
-                                    <!-- Submit button -->
-                                    <button type="submit" class="btn btn-primary btn-block mb-2">
-                                        Next
-                                    </button>
-
-                            </form>
+                            </div><!--//app-card-->
                         </div>
+
+                    </div><!--//row-->
+
+
+                    <!-- Oil & Radiator -->
+                    {{-- <hr class="my-4">
+                    <div class="row g-4 settings-section">
+                        <div class="col-12 col-md-4">
+                            <h3 class="section-title">Oil &amp; Radiator</h3>
+                            <div class="section-intro">Berikan data <b>Oil &amp; Radiator</b> dengan kondisi
+                                sebenar-benarnya</div>
+                        </div>
+                        <div class="col-12 col-md-8">
+                            <div class="app-card app-card-settings shadow-sm p-4">
+                                <div class="app-card-body">
+
+                                    <!-- Oli Mesin -->
+                                    <div class="form-check mb-3">
+                                        <label for="setting-input-1" class="form-label" style="margin-right: 20px">Oli
+                                            Mesin</label>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="oli_mesin"
+                                                value="baik" id="settings-checkbox-baik">
+                                            <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="oli_mesin"
+                                                value="rusak" id="settings-checkbox-rusak">
+                                            <label class="form-check-label"
+                                                for="settings-checkbox-rusak">Rusak</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="oli_mesin"
+                                                value="tidak_ada" id="settings-checkbox-tidak-ada" checked>
+                                            <label class="form-check-label" for="settings-checkbox-tidak-ada">Tidak
+                                                Ada</label>
+                                        </div>
+                                    </div><!--//form-check-->
+
+                                    <!-- Oli Kopling -->
+                                    <div class="form-check mb-3">
+                                        <label for="setting-input-1" class="form-label"
+                                            style="margin-right: 20px">Oli
+                                            Kopling</label>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="oli_kopling"
+                                                value="baik" id="settings-checkbox-baik">
+                                            <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="oli_kopling"
+                                                value="rusak" id="settings-checkbox-rusak">
+                                            <label class="form-check-label"
+                                                for="settings-checkbox-rusak">Rusak</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="oli_kopling"
+                                                value="tidak_ada" id="settings-checkbox-tidak-ada" checked>
+                                            <label class="form-check-label" for="settings-checkbox-tidak-ada">Tidak
+                                                Ada</label>
+                                        </div>
+                                    </div><!--//form-check-->
+
+                                    <!-- Oli Stering -->
+                                    <div class="form-check mb-3">
+                                        <label for="setting-input-1" class="form-label"
+                                            style="margin-right: 20px">Oli
+                                            Stering</label>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="oli_stering"
+                                                value="baik" id="settings-checkbox-baik">
+                                            <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="oli_stering"
+                                                value="rusak" id="settings-checkbox-rusak">
+                                            <label class="form-check-label"
+                                                for="settings-checkbox-rusak">Rusak</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="oli_stering"
+                                                value="tidak_ada" id="settings-checkbox-tidak-ada" checked>
+                                            <label class="form-check-label" for="settings-checkbox-tidak-ada">Tidak
+                                                Ada</label>
+                                        </div>
+                                    </div><!--//form-check-->
+
+                                    <!-- Air Radiator -->
+                                    <div class="form-check form-check-inline mb-3">
+                                        <label for="setting-input-1" class="form-label"
+                                            style="margin-right: 20px">Air
+                                            Radiator</label>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="air_radiator"
+                                                value="baik" id="settings-checkbox-baik">
+                                            <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="air_radiator"
+                                                value="rusak" id="settings-checkbox-rusak">
+                                            <label class="form-check-label"
+                                                for="settings-checkbox-rusak">Rusak</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="air_radiator"
+                                                value="tidak_ada" id="settings-checkbox-tidak-ada" checked>
+                                            <label class="form-check-label" for="settings-checkbox-tidak-ada">Tidak
+                                                Ada</label>
+                                        </div>
+                                    </div><!--//form-check-->
+
+                                </div><!--//app-card-body-->
+                            </div><!--//app-card-->
+                        </div>
+                    </div><!--//row--> --}}
+
+                    <!-- Oil & Radiator -->
+                    <hr class="my-4">
+                    <div class="row g-4 settings-section">
+                        <div class="col-12 col-md-4">
+                            <h3 class="section-title">Oil &amp; Radiator</h3>
+                            <div class="section-intro">Berikan data <b>Oil &amp; Radiator</b> dengan kondisi
+                                sebenar-benarnya</div>
+                        </div>
+                        <div class="col-12 col-md-8">
+                            <div class="app-card app-card-settings shadow-sm p-4">
+                                <div class="app-card-body">
+
+                                    <!-- Oli Mesin -->
+                                    <div class="form-check form-check-inline mb-3">
+                                        <label for="setting-input-1" class="form-label">Oli Mesin</label>
+
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
+                                            <input class="form-check-input" type="radio" name="oli_mesin"
+                                                value="baik" id="settings-checkbox-baik">
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label" for="settings-checkbox-rusak">Rusak</label>
+                                            <input class="form-check-input" type="radio" name="oli_mesin"
+                                                value="rusak" id="settings-checkbox-rusak">
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label" for="settings-checkbox-tidak-ada">Tidak
+                                                Ada</label>
+                                            <input class="form-check-input" type="radio" name="oli_mesin"
+                                                value="tidak_ada" id="settings-checkbox-tidak-ada" checked>
+                                        </div>
+                                    </div><!--//form-check-->
+
+                                    <!-- Oli Kopling -->
+                                    <div class="form-check form-check-inline mb-3">
+                                        <label for="setting-input-1" class="form-label">Oli Kopling</label>
+
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
+                                            <input class="form-check-input" type="radio" name="oli_kopling"
+                                                value="baik" id="settings-checkbox-baik">
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label"
+                                                for="settings-checkbox-rusak">Rusak</label>
+                                            <input class="form-check-input" type="radio" name="oli_kopling"
+                                                value="rusak" id="settings-checkbox-rusak">
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label" for="settings-checkbox-tidak-ada">Tidak
+                                                Ada</label>
+                                            <input class="form-check-input" type="radio" name="oli_kopling"
+                                                value="tidak_ada" id="settings-checkbox-tidak-ada" checked>
+                                        </div>
+                                    </div><!--//form-check-->
+
+                                    <!-- Oli Stering -->
+                                    <div class="form-check form-check-inline mb-3">
+                                        <label for="setting-input-1" class="form-label">Oli Stering</label>
+
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
+                                            <input class="form-check-input" type="radio" name="oli_stering"
+                                                value="baik" id="settings-checkbox-baik">
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label"
+                                                for="settings-checkbox-rusak">Rusak</label>
+                                            <input class="form-check-input" type="radio" name="oli_stering"
+                                                value="rusak" id="settings-checkbox-rusak">
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label" for="settings-checkbox-tidak-ada">Tidak
+                                                Ada</label>
+                                            <input class="form-check-input" type="radio" name="oli_stering"
+                                                value="tidak_ada" id="settings-checkbox-tidak-ada" checked>
+                                        </div>
+                                    </div><!--//form-check-->
+
+                                    <!-- Air Radiator -->
+                                    <div class="form-check form-check-inline mb-3">
+                                        <label for="setting-input-1" class="form-label">Air Radiator</label>
+
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
+                                            <input class="form-check-input" type="radio" name="air_radiator"
+                                                value="baik" id="settings-checkbox-baik">
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label"
+                                                for="settings-checkbox-rusak">Rusak</label>
+                                            <input class="form-check-input" type="radio" name="air_radiator"
+                                                value="rusak" id="settings-checkbox-rusak">
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label" for="settings-checkbox-tidak-ada">Tidak
+                                                Ada</label>
+                                            <input class="form-check-input" type="radio" name="air_radiator"
+                                                value="tidak_ada" id="settings-checkbox-tidak-ada" checked>
+                                        </div>
+                                    </div><!--//form-check-->
+
+                                </div><!--//app-card-body-->
+                            </div><!--//app-card-->
+                        </div>
+                    </div><!--//row-->
+
+
+
+                </form>
+
+
+
+
+
+
+                <hr class="my-4">
+                <div class="row g-4 settings-section">
+                    <div class="col-12 col-md-4">
+                        <h3 class="section-title">Notifications</h3>
+                        <div class="section-intro">Settings section intro goes here. Duis velit massa, faucibus non
+                            hendrerit eget.</div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="col-12 col-md-8">
+                        <div class="app-card app-card-settings shadow-sm p-4">
+                            <div class="app-card-body">
+                                <form class="settings-form">
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="settings-switch-1"
+                                            checked>
+                                        <label class="form-check-label" for="settings-switch-1">Project
+                                            notifications</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="settings-switch-2">
+                                        <label class="form-check-label" for="settings-switch-2">Web browser push
+                                            notifications</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="settings-switch-3"
+                                            checked>
+                                        <label class="form-check-label" for="settings-switch-3">Mobile push
+                                            notifications</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="settings-switch-4">
+                                        <label class="form-check-label" for="settings-switch-4">Lorem ipsum
+                                            notifications</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="settings-switch-5">
+                                        <label class="form-check-label" for="settings-switch-5">Lorem ipsum
+                                            notifications</label>
+                                    </div>
+                                    <div class="mt-3">
+                                        <button type="submit" class="btn app-btn-primary">Save Changes</button>
+                                    </div>
+                                </form>
+                            </div><!--//app-card-body-->
+                        </div><!--//app-card-->
+                    </div>
+                </div><!--//row-->
 
-    @include('layoutLanding.footer')
+                <hr class="my-4">
+            </div><!--//container-fluid-->
+        </div><!--//app-content-->
 
+        @include('layoutDashboard.footer')
+
+    </div><!--//app-wrapper-->
+
+
+    @include('layoutDashboard.js')
 
 </body>
