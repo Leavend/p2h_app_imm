@@ -15,83 +15,74 @@
                                 <form id="regForm" action="">
 
 
-                                    <!-- Detail Pemeriksa P2H -->
                                     <div class="tab">
-                                        <div class="card-body p-md-3 mx-md-5 mx-3 mt-5">
+                      <div class="card-body p-md-3 mx-md-5 mx-3 mt-5">
+                        <div class="">
+                          <img
+                            src="/assets/img/IMM.svg"
+                            style="width: 90px"
+                            alt="logo"
+                          />
+                          <div class="Welcome">
+                            <p class="mt-1 mt-3 pt-2">Welcome to</p>
+                          </div>
+                          <h4 class="mt-1 mb-4 pt-2">
+                            IMM Pemeriksaan Pengecekan Harian P2H
+                          </h4>
+                        </div>
+                        <div class="mb-3">
+                          <label for="setting-input-1" class="form-label"
+                            >Nama Pemeriksa</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="setting-input-1"
+                            placeholder="Tulis Nama Lengkap"
+                            required
+                          />
+                        </div>
+                        <div class="mb-3">
+                          <label for="setting-input-2" class="form-label"
+                            >NIK</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="setting-input-2"
+                            placeholder="Masukkan NIK"
+                            required
+                          />
+                        </div>
+                        <div class="mb-3">
+                          <label for="setting-input-3" class="form-label"
+                            >Departemen</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="setting-input-3"
+                            placeholder="Departemen"
+                            required
+                          />
+                        </div>
+                        <div class="mb-5">
+                          <label for="setting-input-3" class="form-label"
+                            >No HP</label
+                          >
+                          <input
+                            type="number"
+                            class="form-control"
+                            id="setting-input-3"
+                            placeholder="Nomor Handphone"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                                                
 
-                                            <!-- Header -->
-                                            <div class="header">
-                                                <img src="{{ asset('assets/img/IMM.svg') }}" style="width: 90px"
-                                                    alt="logo" />
-                                                <div class="Welcome">
-                                                    <p class="mt-1 mt-3 pt-2">Welcome to</p>
-                                                </div>
-                                                <h4 class="mt-1 mb-4 pt-2">
-                                                    IMM Pemeriksaan Pengecekan Harian P2H
-                                                </h4>
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="setting-input" class="form-label">Nama Pemeriksa</label>
-                                                <input type="text" class="form-control" id="setting-input"
-                                                    placeholder="cth: Fahmi Fajeri" name="nama_pemeriksa"
-                                                    value="{{ old('nama_pemeriksa') }}" required />
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="setting-input" class="form-label">NIK</label>
-                                                <input type="text" class="form-control" id="setting-input"
-                                                    placeholder="cth: 1888***" name="nik"
-                                                    value="{{ old('nik') }}" required />
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="setting-input" class="form-label">Departemen</label>
-                                                <input type="text" class="form-control" list="departemen"
-                                                    placeholder="cth: Information Technology" name="departemen"
-                                                    value="{{ old('departemen') }}" required>
-                                                <datalist id="departemen">
-                                                    <option value="ASSET MANAGEMENT"></option>
-                                                    <option value="COAL HANDLING & PROCESSING"></option>
-                                                    <option value="COMMUNITY DEVELOPMENT"></option>
-                                                    <option value="ENVIRONMENT"></option>
-                                                    <option value="EXTERNAL AFFAIRS"></option>
-                                                    <option value="FINANCE & ACCOUNTING"></option>
-                                                    <option value="GENERAL AFFAIR"></option>
-                                                    <option value="GENERAL SERVICES"></option>
-                                                    <option value="HUMAN RESOURCES"></option>
-                                                    <option value="IMM MANAGEMENT SITE"></option>
-                                                    <option value="INFORMATION TECHNOLOGY"></option>
-                                                    <option value="IPCC OPERATION"></option>
-                                                    <option value="LABORATORY"></option>
-                                                    <option value="HSEC"></option>
-                                                    <option value="MAINTENANCE ENGINEERING"></option>
-                                                    <option value="MEDICAL SERVICES"></option>
-                                                    <option value="MINE GEOLOGY"></option>
-                                                    <option value="MINE OPERATION"></option>
-                                                    <option value="MINE PLANNING"></option>
-                                                    <option value="MINE SURVEY"></option>
-                                                    <option value="PORT"></option>
-                                                    <option value="PORT MAINTENANCE"></option>
-                                                    <option value="PORT, UTILITIES & MAINTENANCE"></option>
-                                                    <option value="PROCUREMENT"></option>
-                                                    <option value="PROJECT & CONSTRUCTION"></option>
-                                                    <option value="SAFETY"></option>
-                                                    <option value="SECURITY"></option>
-                                                    <option value="SYSTEM & PERFORMANCE MANAGEMENT"></option>
-                                                    <option value="UTILITIES OPERATION"></option>
-                                                </datalist>
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="setting-input" class="form-label">No HP</label>
-                                                <input type="text" class="form-control" id="setting-input"
-                                                    placeholder="cth: 081222222222" name="no_hp"
-                                                    value="{{ old('no_hp') }}" />
-                                            </div>
-
-                                        </div>
-                                    </div>
+                                    
 
                                     <!-- Detail Oil & Radiator -->
                                     <div class="tab">
