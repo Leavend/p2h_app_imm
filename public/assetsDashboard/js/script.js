@@ -20,16 +20,10 @@ const alerts = [...alertList].map((element) => new bootstrap.Alert(element));
 /* ===== Responsive Sidepanel ====== */
 const sidePanelToggler = document.getElementById("sidepanel-toggler");
 const sidePanel = document.getElementById("app-sidepanel");
-const sidepaneldrop = document.getElementById("sidepanel-drop");
-const sidepanelclose = document.getElementById("sidepanel-close");
+const sidePanelDrop = document.getElementById("sidepanel-drop");
+const sidePanelClose = document.getElementById("sidepanel-close");
 const maincontent = document.getElementById("main-content");
 const sidePanelinner = document.getElementById("resp");
-const header = document.getElementById("header-content");
-const content = document.getElementById("main-content");
-const respon = document.getElementById("brand-resp");
-const navresp = document.getElementById("nav-resp");
-const appresp = document.getElementById("app-nav-main");
-const appnav = document.getElementById("menu-accordion");
 
 window.addEventListener("load", function () {
     responsiveSidePanel();
@@ -70,46 +64,14 @@ sidePanelToggler.addEventListener("click", () => {
         sidePanel.classList.remove("sidepanel-hidden");
         sidePanel.classList.add("sidepanel-visible");
     }
-
-		header.classList.toggle("active");
-    content.classList.toggle("active");
-    respon.classList.toggle("responsive");
-    navresp.classList.toggle("responsive");
-    appresp.classList.toggle("responsive");
-    appnav.classList.toggle("responsive");
-
-    // Toggle the class for nav-icon as well
-    const navIcons = document.querySelectorAll(".app-nav .nav-icon");
-    navIcons.forEach((navIcon) => {
-        navIcon.classList.toggle("responsive");
-    });
-
-    const navLink = document.querySelectorAll(".app-nav .nav-link");
-    navLink.forEach((navLink) => {
-        navLink.classList.toggle("responsive");
-    });
-
-    const navText = document.querySelectorAll(".app-nav .nav-link-text");
-    navText.forEach((navText) => {
-        navText.classList.toggle("responsive");
-    });
-    const sideApp = document.querySelectorAll("sidepanel-inner");
-    sideApp.forEach((sideApp) => {
-        sideApp.classList.toggle("responsive");
-    });
-
-    // const maincontent = document.querySelectorAll('.app-wrapper');
-    // maincontent.forEach(maincontent => {
-    //     maincontent.classList.toggle('responsive');
-    // });
 });
 
-sidepanelclose.addEventListener("click", (e) => {
+sidePanelClose.addEventListener("click", (e) => {
     e.preventDefault();
     sidePanelToggler.click();
 });
 
-sidepaneldrop.addEventListener("click", (e) => {
+sidePanelDrop.addEventListener("click", (e) => {
     sidePanelToggler.click();
 });
 
@@ -149,44 +111,44 @@ function handleCheckboxSelection(rowId) {
 
 // asas //
 
-// const header = document.getElementById("header-content");
-// const toggler = document.getElementById("sidepanel-toggler");
-// const content = document.getElementById("main-content");
-// const respon = document.getElementById("brand-resp");
-// const navresp = document.getElementById("nav-resp");
-// const appresp = document.getElementById("app-nav-main");
-// const appnav = document.getElementById("menu-accordion");
+const header = document.getElementById("header-content");
+const Toggler = document.getElementById("sidepanel-toggler");
+const content = document.getElementById("main-content");
+const respon = document.getElementById("brand-resp");
+const navresp = document.getElementById("nav-resp");
+const appresp = document.getElementById("app-nav-main");
+const appnav = document.getElementById("menu-accordion");
 
-// toggler.onclick = function () {
-//     header.classList.toggle("active");
-//     content.classList.toggle("active");
-//     respon.classList.toggle("responsive");
-//     navresp.classList.toggle("responsive");
-//     appresp.classList.toggle("responsive");
-//     appnav.classList.toggle("responsive");
+Toggler.onclick = function () {
+    header.classList.toggle("active");
+    content.classList.toggle("active");
+    respon.classList.toggle("responsive");
+    navresp.classList.toggle("responsive");
+    appresp.classList.toggle("responsive");
+    appnav.classList.toggle("responsive");
 
-//     // Toggle the class for nav-icon as well
-//     const navIcons = document.querySelectorAll(".app-nav .nav-icon");
-//     navIcons.forEach((navIcon) => {
-//         navIcon.classList.toggle("responsive");
-//     });
+    // Toggle the class for nav-icon as well
+    const navIcons = document.querySelectorAll(".app-nav .nav-icon");
+    navIcons.forEach((navIcon) => {
+        navIcon.classList.toggle("responsive");
+    });
 
-//     const navLink = document.querySelectorAll(".app-nav .nav-link");
-//     navLink.forEach((navLink) => {
-//         navLink.classList.toggle("responsive");
-//     });
+    const navLink = document.querySelectorAll(".app-nav .nav-link");
+    navLink.forEach((navLink) => {
+        navLink.classList.toggle("responsive");
+    });
 
-//     const navText = document.querySelectorAll(".app-nav .nav-link-text");
-//     navText.forEach((navText) => {
-//         navText.classList.toggle("responsive");
-//     });
-//     const sideApp = document.querySelectorAll("sidepanel-inner");
-//     sideApp.forEach((sideApp) => {
-//         sideApp.classList.toggle("responsive");
-//     });
+    const navText = document.querySelectorAll(".app-nav .nav-link-text");
+    navText.forEach((navText) => {
+        navText.classList.toggle("responsive");
+    });
+    const sideApp = document.querySelectorAll("sidepanel-inner");
+    sideApp.forEach((sideApp) => {
+        sideApp.classList.toggle("responsive");
+    });
 
     // const maincontent = document.querySelectorAll('.app-wrapper');
     // maincontent.forEach(maincontent => {
     //     maincontent.classList.toggle('responsive');
     // });
-// };
+};

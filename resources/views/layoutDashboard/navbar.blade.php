@@ -10,8 +10,8 @@
 
                         <div class="col-auto">
                             <a id="sidepanel-toggler" class="sidepanel-toggler d-inline-block d-xl-none" href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"
-                                    role="img">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                    viewBox="0 0 30 30" role="img">
                                     <title>Menu</title>
                                     <path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10"
                                         stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path>
@@ -37,12 +37,10 @@
                 <div class="app-branding" id="brand-resp">
                     @if (Auth::user()->role == 'admin')
                         <a class="app-logo" href="{{ route('overview.list') }}"><img class="logo-icon me-2"
-                                src="{{ url('../assetsDashboard/images/imm2.svg') }}" alt="logo"><span
-                                class="logo-text">P2H</span></a>
+                                src="{{ url('../assetsDashboard/images/imm2.svg') }}" alt="logo"></a>
                     @elseif (Auth::user()->role == 'user')
                         <a class="app-logo" href="{{ route('p2h.list') }}"><img class="logo-icon me-2"
-                                src="{{ url('../assetsDashboard/images/imm2.svg') }}" alt="logo"><span
-                                class="logo-text">P2H</span></a>
+                                src="{{ url('../assetsDashboard/images/imm2.svg') }}" alt="logo"></a>
                     @endif
 
                 </div><!--//app-branding-->
