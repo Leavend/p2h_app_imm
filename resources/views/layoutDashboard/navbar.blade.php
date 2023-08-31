@@ -31,10 +31,10 @@
 
             {{-- <div id="sidepanel-drop" class="sidepanel-drop"></div> --}}
 
-            <div class="sidepanel-inner d-flex flex-column">
+            <div class="sidepanel-inner d-flex flex-column" id="resp">
 
                 <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
-                <div class="app-branding">
+                <div class="app-branding" id="brand-resp">
                     @if (Auth::user()->role == 'admin')
                         <a class="app-logo" href="{{ route('overview.list') }}"><img class="logo-icon me-2"
                                 src="{{ url('../assetsDashboard/images/imm2.svg') }}" alt="logo"><span
@@ -52,7 +52,7 @@
                 <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
                     <ul class="app-menu list-unstyled accordion" id="menu-accordion">
                         @if (Auth::user()->role == 'admin')
-                            <li class="nav-item">
+                            <li class="nav-item" id="nav-resp">
                                 <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                                 <a class="nav-link {{ request()->routeIs('overview.list') ? 'active' : '' }}"
                                     href="{{ route('overview.list') }}">
