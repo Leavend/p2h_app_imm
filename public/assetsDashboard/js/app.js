@@ -189,4 +189,6 @@ function handleCheckboxSelection(rowId) {
     // maincontent.forEach(maincontent => {
     //     maincontent.classList.toggle('responsive');
     // });
-// };
+
+
+
