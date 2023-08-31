@@ -1,4 +1,4 @@
-    <header class="app-header fixed-top">
+    <header class="app-header fixed-top" id="header-content">
 
         <div class="app-header-inner">
 
