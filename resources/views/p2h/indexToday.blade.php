@@ -29,6 +29,7 @@
                         <h3 class="text-center mt-0">Daftar P2H Harian</h3>
                     </section>
 
+                    {{-- @include('_messages') --}}
                     <!-- Table Fill -->
                     <section class="table-responsive" id="p2h-table">
                         <table class="table">
@@ -74,21 +75,17 @@
                                         <td>{{ $x->kendaraan->nomor_lambung }}</td>
                                         <td>
                                             @if ($x->status == 'belum diperiksa')
-                                                <a href="{{ url('p2h-cek/form/' . $x->id . '/' . $x->kendaraan->nomor_lambung) }}"
+                                                <a href="{{ url('p2h-cek/form/' . $x->id) }}"
                                                     class="btn btn-circle btn-warning"><i class="bi bi-pencil"></i></a>
-                                            @elseif ($x->status == 'menunggu verifikasi')
-                                                <a href="{{ url('p2h-cek/form/' . $x->id . '/' . $x->kendaraan->nomor_lambung) }}"
-                                                    class="btn btn-circle btn-warning disabled"><i
-                                                        class="bi bi-pencil"></i></a>
                                             @else
-                                                <p class="status shipped">-</p>
+                                                <p>-</p>
                                             @endif
                                         </td>
                                     </tr>
                                 @empty
                                     <tr>
                                         <td class="cell" colspan="8" style="text-align: center;">
-                                            Data Tidak Ada.
+                                            DATA P2H HARI INI TIDAK ADA.
                                         </td>
                                     </tr>
                                 @endforelse

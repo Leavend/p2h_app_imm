@@ -4,85 +4,97 @@
 
     <!-- MastHead -->
     <header class="formulir">
+
         <div class="container-sm px-4 px-lg-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="">
                     <div class="card bg-glass mb-3">
                         <div class="row g-0 mb-3">
-
                             <div class="">
 
-                                <form id="regForm" action="">
+                                @include('_messages')
+                                <form id="regForm" class="p2hForm" action="" method="post">
+                                    @csrf
 
 
+                                    <!-- Detail Pemeriksa P2H -->
                                     <div class="tab">
-                      <div class="card-body p-md-3 mx-md-5 mx-3 mt-5">
-                        <div class="">
-                          <img
-                            src="/assets/img/IMM.svg"
-                            style="width: 90px"
-                            alt="logo"
-                          />
-                          <div class="Welcome">
-                            <p class="mt-1 mt-3 pt-2">Welcome to</p>
-                          </div>
-                          <h4 class="mt-1 mb-4 pt-2">
-                            IMM Pemeriksaan Pengecekan Harian P2H
-                          </h4>
-                        </div>
-                        <div class="mb-3">
-                          <label for="setting-input-1" class="form-label"
-                            >Nama Pemeriksa</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="setting-input-1"
-                            placeholder="Tulis Nama Lengkap"
-                            required
-                          />
-                        </div>
-                        <div class="mb-3">
-                          <label for="setting-input-2" class="form-label"
-                            >NIK</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="setting-input-2"
-                            placeholder="Masukkan NIK"
-                            required
-                          />
-                        </div>
-                        <div class="mb-3">
-                          <label for="setting-input-3" class="form-label"
-                            >Departemen</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="setting-input-3"
-                            placeholder="Departemen"
-                            required
-                          />
-                        </div>
-                        <div class="mb-5">
-                          <label for="setting-input-3" class="form-label"
-                            >No HP</label
-                          >
-                          <input
-                            type="number"
-                            class="form-control"
-                            id="setting-input-3"
-                            placeholder="Nomor Handphone"
-                            required
-                          />
-                        </div>
-                      </div>
-                    </div>
-                                                
+                                        <div class="card-body p-md-3 mx-md-5 mx-3 mt-5">
 
-                                    
+                                            <!-- Header -->
+                                            <div class="header">
+                                                <img src="{{ asset('assets/img/IMM.svg') }}" style="width: 90px"
+                                                    alt="logo" />
+                                                <div class="Welcome">
+                                                    <p class="mt-1 mt-3 pt-2">Welcome to</p>
+                                                </div>
+                                                <h4 class="mt-1 mb-4 pt-2">
+                                                    IMM Pemeriksaan Pengecekan Harian P2H
+                                                </h4>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="setting-input" class="form-label">Nama Pemeriksa</label>
+                                                <input type="text" class="form-control" id="setting-input"
+                                                    placeholder="cth: Fahmi Fajeri" name="nama_pemeriksa"
+                                                    value="{{ old('nama_pemeriksa') }}" required />
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="setting-input" class="form-label">NIK</label>
+                                                <input type="text" class="form-control" id="setting-input"
+                                                    placeholder="cth: 1888***" name="nik"
+                                                    value="{{ old('nik') }}" required />
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="setting-input" class="form-label">Departemen</label>
+                                                <input type="text" class="form-control" list="departemen"
+                                                    placeholder="cth: Information Technology" name="departemen"
+                                                    value="{{ old('departemen') }}" required>
+                                                <datalist id="departemen">
+                                                    <option value="ASSET MANAGEMENT"></option>
+                                                    <option value="COAL HANDLING & PROCESSING"></option>
+                                                    <option value="COMMUNITY DEVELOPMENT"></option>
+                                                    <option value="ENVIRONMENT"></option>
+                                                    <option value="EXTERNAL AFFAIRS"></option>
+                                                    <option value="FINANCE & ACCOUNTING"></option>
+                                                    <option value="GENERAL AFFAIR"></option>
+                                                    <option value="GENERAL SERVICES"></option>
+                                                    <option value="HUMAN RESOURCES"></option>
+                                                    <option value="IMM MANAGEMENT SITE"></option>
+                                                    <option value="INFORMATION TECHNOLOGY"></option>
+                                                    <option value="IPCC OPERATION"></option>
+                                                    <option value="LABORATORY"></option>
+                                                    <option value="HSEC"></option>
+                                                    <option value="MAINTENANCE ENGINEERING"></option>
+                                                    <option value="MEDICAL SERVICES"></option>
+                                                    <option value="MINE GEOLOGY"></option>
+                                                    <option value="MINE OPERATION"></option>
+                                                    <option value="MINE PLANNING"></option>
+                                                    <option value="MINE SURVEY"></option>
+                                                    <option value="PORT"></option>
+                                                    <option value="PORT MAINTENANCE"></option>
+                                                    <option value="PORT, UTILITIES & MAINTENANCE"></option>
+                                                    <option value="PROCUREMENT"></option>
+                                                    <option value="PROJECT & CONSTRUCTION"></option>
+                                                    <option value="SAFETY"></option>
+                                                    <option value="SECURITY"></option>
+                                                    <option value="SYSTEM & PERFORMANCE MANAGEMENT"></option>
+                                                    <option value="UTILITIES OPERATION"></option>
+                                                </datalist>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="setting-input" class="form-label">No HP</label>
+                                                <input type="text" class="form-control" id="setting-input"
+                                                    placeholder="cth: 081222222222" name="no_hp"
+                                                    value="{{ old('no_hp') }}" required />
+                                            </div>
+
+                                        </div>
+                                    </div>
+
 
                                     <!-- Detail Oil & Radiator -->
                                     <div class="tab">
@@ -169,7 +181,8 @@
                                         </div>
                                     </div>
 
-                                    <!-- Detail Rem -->
+
+                                    {{-- <!-- Detail Rem -->
                                     <div class="tab">
                                         <div class="card-body p-md-3 mx-md-5 mx-3 mt-5">
 
@@ -219,6 +232,7 @@
 
                                         </div>
                                     </div>
+
 
                                     <!-- Detail Lampu -->
                                     <div class="tab">
@@ -325,6 +339,7 @@
                                         </div>
                                     </div>
 
+
                                     <!-- Detail Roda -->
                                     <div class="tab">
                                         <div class="card-body p-md-3 mx-md-5 mx-3 mt-5">
@@ -375,6 +390,7 @@
 
                                         </div>
                                     </div>
+
 
                                     <!-- Detail Body -->
                                     <div class="tab">
@@ -840,7 +856,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- Detail Surat -->
+                                    {{-- <!-- Detail Surat -->
                                     <div class="tab">
                                         <div class="card-body p-md-5 mx-md-5 mx-3 mt-5">
 
@@ -852,57 +868,87 @@
                                             </div>
 
                                             <!-- P3K -->
-                                            <div class="mb-3">
-                                                <label for="surat_p3k" class="form-label">P3K</label>
-                                                <select class="form-select" id="surat_p3k" name="surat_p3k" required>
-                                                    <option value="" disabled selected>Pilih kondisi</option>
-                                                    <option value="baik"
-                                                        {{ old('surat_p3k') === 'baik' ? 'selected' : '' }}>
-                                                        Baik
-                                                    </option>
-                                                    <option value="rusak"
-                                                        {{ old('surat_p3k') === 'rusak' ? 'selected' : '' }}>
-                                                        Rusak</option>
-                                                    <option value="tidak_ada"
-                                                        {{ old('surat_p3k') === 'tidak_ada' ? 'selected' : '' }}>
-                                                        Tidak Ada</option>
-                                                </select>
+                                            <div class="mx-0 mx-sm-auto">
+                                                <div class="text">
+                                                    <p>P3K</p>
+                                                </div>
+                                            </div>
+                                            <!--Check Box -->
+                                            <div class="text-center mb-3" id="inlineRadio1_row8">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox" name="p3k"
+                                                        id="inlineRadio1" value="baik" />
+                                                    <label class="form-check-label" for="inlineRadio1">Baik</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox" name="p3k"
+                                                        id="inlineRadio2" value="rusak" />
+                                                    <label class="form-check-label" for="inlineRadio2">Rusak</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox" name="p3k"
+                                                        id="inlineRadio3" value="tidak ada" />
+                                                    <label class="form-check-label" for="inlineRadio3">Tidak
+                                                        ada</label>
+                                                </div>
                                             </div>
 
+
                                             <!-- STNP & KIR -->
-                                            <div class="mb-3">
-                                                <label for="surat_stnp_kir" class="form-label">STNP & KIR</label>
-                                                <select class="form-select" id="surat_stnp_kir" name="surat_stnp_kir"
-                                                    required>
-                                                    <option value="" disabled selected>Pilih kondisi</option>
-                                                    <option value="baik"
-                                                        {{ old('surat_stnp_kir') === 'baik' ? 'selected' : '' }}>
-                                                        Baik
-                                                    </option>
-                                                    <option value="rusak"
-                                                        {{ old('surat_stnp_kir') === 'rusak' ? 'selected' : '' }}>
-                                                        Rusak</option>
-                                                    <option value="tidak_ada"
-                                                        {{ old('surat_stnp_kir') === 'tidak_ada' ? 'selected' : '' }}>
-                                                        Tidak Ada</option>
-                                                </select>
+                                            <div class="mx-0 mx-sm-auto">
+                                                <div class="text">
+                                                    <p>STNP & KIR</p>
+                                                </div>
+                                            </div>
+                                            <!--Check Box -->
+                                            <div class="text-center mb-3" id="inlineRadio2_row8">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        name="surat_stnp_kir" id="inlineRadio1" value="baik" />
+                                                    <label class="form-check-label" for="inlineRadio1">Baik</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        name="surat_stnp_kir" id="inlineRadio2" value="rusak" />
+                                                    <label class="form-check-label" for="inlineRadio2">Rusak</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        name="surat_stnp_kir" id="inlineRadio3" value="tidak ada" />
+                                                    <label class="form-check-label" for="inlineRadio3">Tidak
+                                                        ada</label>
+                                                </div>
                                             </div>
 
                                         </div>
-                                    </div>
+                                    </div> --}} --}}
+
 
                                     <!-- Button -->
                                     <div class="buttonFr">
-                                        <div class="btn btn-primary" style="float: right">
-                                            <submit type="submit" id="nextBtn" onclick="nextPrev(1)">
-                                                Next
-                                            </submit>
-                                        </div>
-                                        <div class="btn btn-primary hide-on-first">
-                                            <submit type="button" id="prevBtn" onclick="nextPrev(-1)">
-                                                Previous
-                                            </submit>
-                                        </div>
+                                        <button class="btn btn-primary float-end" type="button" id="nextBtn"
+                                            onclick="nextPrev(1)">
+                                            Next
+                                        </button>
+
+                                        <button class="btn btn-primary" type="button" id="prevBtn"
+                                            onclick="nextPrev(-1)">
+                                            Previous
+                                        </button>
+                                    </div>
+
+
+
+
+                                    <div style="text-align: center; margin-top: 40px">
+                                        <span class="step"></span>
+                                        <span class="step"></span>
+                                        <span class="step"></span>
+                                        <span class="step"></span>
+                                        <span class="step"></span>
+                                        <span class="step"></span>
+                                        <span class="step"></span>
+                                        <span class="step"></span>
                                     </div>
 
                                 </form>

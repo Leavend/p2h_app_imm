@@ -4,8 +4,6 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\P2hController;
-use App\Models\Kendaraan;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,8 +25,8 @@ Route::get('/', [P2hController::class, 'index'])->name('home');
 // p2h cek form
 Route::prefix('p2h-cek')->group(function () {
     Route::get('/', [P2hController::class, 'indexToday'])->name('p2h-cek.list');
-    Route::get('/form/{id}/{nomor_lambung}', [P2hController::class, 'getForm']);
-    Route::post('/simpan', [P2hController::class, 'save']);
+    Route::get('/form/{id}', [P2hController::class, 'getForm']);
+    Route::post('/form/{id}', [P2hController::class, 'save']);
 });
 
 

@@ -76,17 +76,19 @@ class P2hController extends Controller
         return Excel::download(new P2hsExport, 'p2h.xlsx');
     }
 
-    public function getForm($id, $nomor_lambung)
+    public function getForm($id)
     {
-        $p2hData = P2h::where('id', $id)
-            ->whereHas('kendaraan', function ($query) use ($nomor_lambung) {
-                $query->where('nomor_lambung', $nomor_lambung);
-            })
-            ->firstOrFail();
+        // Mengambil data P2h berdasarkan ID
+        $p2hData = P2h::findOrFail($id);
+
+        // Mengambil nomor_lambung dari relasi kendaraan
+        $nomor_lambung = $p2hData->kendaraan->nomor_lambung;
+
         $Title = "GA - P2H Unit - $nomor_lambung";
 
-        return view('p2h.form', compact('Title', 'p2hData'));
+        return view('p2h.form1', compact('Title', 'p2hData'));
     }
+
 
     public function getFormUser($id, $nomor_lambung)
     {
@@ -103,76 +105,80 @@ class P2hController extends Controller
     public function save(Request $request, $id)
     {
         $request->validate([
-            'kendaraan_id' => 'required',
-
+            'nama_pemeriksa' => 'required',
+            // '' => 'required',
+            // '' => 'required',
+            // '' => 'required',
+            // '' => 'required',
+            // '' => 'required',
+            // '' => 'required',
+            // '' => 'required',
+            // '' => 'required',
+            // '' => 'required',
+            // '' => 'required',
+            // '' => 'required',
+            // '' => 'required',
+            // '' => 'required',
+            // '' => 'required',
         ]);
 
-        // Ambil data P2h berdasarkan ID yang diberikan
-        $p2h = P2h::find($id);
+        $p2h = P2h::findOrFail($id);
+        // $p2h->nama_pemeriksa = trim($request->name_pemeriksa);
 
         $p2h->fill($request->only([
-            'kendaraan_id',
             'nama_pemeriksa',
-            'nik',
-            'departemen',
-            'no_hp',
-            'oli_mesin',
-            'oli_kopling',
-            'air_radiator',
-            'oli_stering',
-            'rem_depanBelakang',
-            'rem_tangan',
-            'lampu_jauhDekat',
-            'lampu_reting_rL',
-            'lampu_belakang',
-            'lampu_rem',
-            'lampu_mundur',
-            'lampu_rotari',
-            'roda_depanBelakang',
-            'roda_cadangan',
-            'body_fender_rL',
-            'body_pintu_rL',
-            'body_atap_kabin',
-            'body_bendera',
-            'body_lantai_kabin',
-            'body_karet_mounting',
-            'body_sepring',
-            'tools_dongkrak_aksesoris',
-            'tools_kunci_roda',
-            'tools_segitiga_pengaman',
-            'tools_ganjal_ban',
-            'others_sabuk_pengaman',
-            'others_spidometer',
-            'others_klakson',
-            'others_spion',
-            'others_wiper',
-            'others_alarm_mundur',
-            'others_radio_komun',
-            'others_knalpot',
-            'others_no_lambung',
-            'others_apar',
-            'others_kursi_duduk',
-            'surat_p3k',
-            'surat_stnp_kir',
+            // 'nik',
+            // 'departemen',
+            // 'no_hp',
+            // 'oli_mesin',
+            // 'oli_kopling',
+            // 'air_radiator',
+            // 'oli_stering',
+            // 'rem_depanBelakang',
+            // 'rem_tangan',
+            // 'lampu_jauhDekat',
+            // 'lampu_reting_rL',
+            // 'lampu_belakang',
+            // 'lampu_rem',
+            // 'lampu_mundur',
+            // 'lampu_rotari',
+            // 'roda_depanBelakang',
+            // 'roda_cadangan',
+            // 'body_fender_rL',
+            // 'body_pintu_rL',
+            // 'body_atap_kabin',
+            // 'body_bendera',
+            // 'body_lantai_kabin',
+            // 'body_karet_mounting',
+            // 'body_sepring',
+            // 'tools_dongkrak_aksesoris',
+            // 'tools_kunci_roda',
+            // 'tools_segitiga_pengaman',
+            // 'tools_ganjal_ban',
+            // 'others_sabuk_pengaman',
+            // 'others_spidometer',
+            // 'others_klakson',
+            // 'others_spion',
+            // 'others_wiper',
+            // 'others_alarm_mundur',
+            // 'others_radio_komun',
+            // 'others_knalpot',
+            // 'others_no_lambung',
+            // 'others_apar',
+            // 'others_kursi_duduk',
+            // 'surat_p3k',
+            // 'surat_stnp_kir',
         ]));
 
-        $p2h->status = 'menunggu verifikasi';
         $p2h->jam = date('H:i:s');
-
-
-        // $p2h['status'] = 'menunggu verifikasi';
-        // $p2h['jam'] = date('H:i:s');
-
+        $p2h->status = 'menunggu verifikasi';
         $p2h->save();
-
-        // Ambil data kendaraan
-        $kendaraan = Kendaraan::find('id')->where('kendaraan_id', 'id');
-        $noLambung = $p2h->kendaraan->no_lambung;
 
         // bot Tele Push Notif
         $botToken = env('TELEGRAM_BOT_TOKEN');
         $chatId = env('TELEGRAM_CHAT_ID');
         $User = $request->nama_pemeriksa;
+        $noLambung = $p2h->kendaraan->nomor_lambung;
         $message = "$User telah melakukan P2H pada Unit dengan Nomor Lambung $noLambung";
 
         $telegram = new BotApi($botToken);

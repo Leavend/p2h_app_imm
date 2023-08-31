@@ -12178,6 +12178,7 @@ header.formulir {
   background-attachment: scroll;
   background-size: cover;
 }
+
 header.formulir h1, header.formulir .h1 {
   color: white;
   font-size: 2.25rem;
@@ -12190,8 +12191,32 @@ header.formulir h1, header.formulir .h1 {
   font-variant: normal;
   text-transform: none;
   text-decoration: none solid rgb(255, 255, 255);
-
 }
+
+section.edit-form {
+  padding-top: 9rem;
+  padding-bottom: calc(10rem - 4.5rem);
+  background: url("../assets/img/form.jfif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+section.edit-form h1, section.edit-form .h1 {
+  color: white;
+  font-size: 2.25rem;
+  font-size: 55px;
+  line-height: 68px;
+  vertical-align: baseline;
+  letter-spacing: -1px;
+  font-weight: 300;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-decoration: none solid rgb(255, 255, 255);
+}
+
 /* Login Style */
 .gradient-custom-2 {
     /* fallback for old browsers */
