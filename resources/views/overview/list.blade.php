@@ -2,7 +2,7 @@
 
 <body class="app">
 
-    @include('layoutDashboard.navbar')
+    @include('layoutDashboard.navbar' id="main-content")
 
     <div class="app-wrapper">
 
