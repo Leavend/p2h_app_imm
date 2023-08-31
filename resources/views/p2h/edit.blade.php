@@ -4,7 +4,7 @@
 
     @include('layoutDashboard.navbar')
 
-    <div class="app-wrapper">
+    <div class="app-wrapper" id="main-content">
 
         <div class="app-content pt-3 p-md-3 p-lg-4">
             <div class="container-xl">
