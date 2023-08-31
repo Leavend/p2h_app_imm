@@ -165,5 +165,28 @@ Toggler.onclick = function(){
 	
 }
 
+// Call the function for each row
+handleCheckboxSelection('inlineRadio1_row1');
+handleCheckboxSelection('inlineRadio1_row2');
+handleCheckboxSelection('inlineRadio1_row3');
+handleCheckboxSelection('inlineRadio1_row4');
+handleCheckboxSelection('inlineRadio1_row5');
+handleCheckboxSelection('inlineRadio1_row6');
+handleCheckboxSelection('inlineRadio1_row7');
+handleCheckboxSelection('inlineRadio1_row8');
+handleCheckboxSelection('inlineRadio1_row9');
+handleCheckboxSelection('inlineRadio1_row10');
+handleCheckboxSelection('inlineRadio1_row11');
+// Add more calls for other rows if needed
+
+// Tambahkan event listener pada tombol Next untuk menangani validasi formulir dan luncuran carousel
+document.querySelector('.carousel-control-next-2').addEventListener('click', function (event) {
+	const form = document.getElementById('myForm');
+	if (form.checkValidity() === false) {
+		event.preventDefault();  // Mencegah carousel untuk meluncur
+		event.stopPropagation(); // Mencegah event dari membesar
+	}
+	form.classList.add('was-validated'); // Tambahkan kelas Bootstrap "was-validated" untuk menampilkan umpan balik validasi
+});
 
 
