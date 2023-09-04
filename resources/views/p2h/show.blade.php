@@ -186,12 +186,7 @@
                                                         <span>{{ $tanggalCarbon->format('d M') }}</span>
                                                         <span class="note">{{ $jamCarbon->format('g:i A') }}</span>
                                                     </td>
-                                                    <td style="display: flex; justify-content: center">
-                                                        <a href="#" class="btn btn-circle btn-info"
-                                                            data-toggle="modal"
-                                                            data-target="#detailModal{{ $x->id }}">
-                                                            <i class="fas fa-eye"></i>
-                                                        </a>
+                                                    <td class="cell">
                                                         <a href="{{ url('admin/p2h/edit/' . $x->id) }}"
                                                             class="btn btn-circle btn-warning"><i
                                                                 class="fas fa-edit"></i></a>
@@ -304,13 +299,7 @@
                                                             <span
                                                                 class="note">{{ $jamCarbon->format('g:i A') }}</span>
                                                         </td>
-                                                        <td class="cell"
-                                                            style="display: flex; justify-content: center">
-                                                            <a href="#" class="btn btn-circle btn-info"
-                                                                data-toggle="modal"
-                                                                data-target="#detailModal{{ $x->id }}">
-                                                                <i class="fas fa-eye"></i>
-                                                            </a>
+                                                        <td class="cell">
                                                             <a href="{{ url('admin/p2h/edit/' . $x->id) }}"
                                                                 class="btn btn-circle btn-warning"><i
                                                                     class="fas fa-edit"></i></a>
@@ -557,8 +546,7 @@
                                                             <span
                                                                 class="note">{{ $jamCarbon->format('g:i A') }}</span>
                                                         </td>
-                                                        <td class="cell"
-                                                            style="display: flex; justify-content: center">
+                                                        <td class="cell">
                                                             <a href="{{ url('admin/p2h/edit/' . $x->id) }}"
                                                                 class="btn btn-circle btn-warning"><i
                                                                     class="fas fa-edit"></i></a>

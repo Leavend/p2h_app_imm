@@ -80,6 +80,7 @@
                                             <tr>
                                                 <th class="cell">No</th>
                                                 <th class="cell">Nama Pemeriksa</th>
+                                                <th class="cell">Departemen</th>
                                                 <th class="cell">No. HP</th>
                                                 <th class="cell">Jenis Kendaraan</th>
                                                 <th class="cell">No. Polisi</th>
@@ -97,6 +98,7 @@
                                                     <td class="cell">{{ $p2hToday->firstItem() + $loop->index }}
                                                     </td>
                                                     <td class="cell">{{ $x->nama_pemeriksa ?? '-' }}</td>
+                                                    <td class="cell">{{ $x->departemen ?? '-' }}</td>
                                                     <td class="cell">{{ $x->no_hp ?? '-' }}</td>
                                                     <td class="cell">{{ $x->kendaraan->jenis_kendaraan }}</td>
                                                     <td class="cell">{{ $x->kendaraan->nomor_polisi }}</td>
@@ -121,10 +123,14 @@
                                                         <span class="note">{{ $jamCarbon->format('g:i A') }}</span>
                                                     </td>
                                                     <td class="cell">{{ $x->kendaraan->nomor_lambung }}</td>
-                                                    <td style="display: flex; justify-content: center">
-                                                        <a href="{{ url('user/p2h/edit/' . $x->kendaraan->nomor_lambung) }}"
-                                                            class="btn btn-circle btn-warning"><i
-                                                                class="fas fa-edit"></i></a>
+                                                    <td class="cell">
+                                                        @if ($x->status !== 'belum diperiksa')
+                                                            <span class="note">-</span>
+                                                        @else
+                                                            <a href="{{ url('user/p2h/form/' . $x->id . '/' . $x->kendaraan->nomor_lambung) }}"
+                                                                class="btn btn-circle btn-warning"><i
+                                                                    class="fas fa-edit"></i></a>
+                                                        @endif
                                                     </td>
                                                 </tr>
 

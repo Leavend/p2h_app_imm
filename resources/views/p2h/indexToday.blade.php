@@ -38,7 +38,6 @@
                                     <th>No</th>
                                     <th>Jenis Kendaraan</th>
                                     <th>Type Kendaraan</th>
-                                    <th>Keterangan</th>
                                     <th>Status</th>
                                     <th>Tanggal</th>
                                     <th>No Lambung</th>
@@ -51,15 +50,6 @@
                                         <td>{{ $p2hToday->firstItem() + $loop->index }}</td>
                                         <td>{{ $x->kendaraan->jenis_kendaraan }}</td>
                                         <td>{{ $x->kendaraan->type_kendaraan }}</td>
-                                        <td>
-                                            @if ($x->status == 'belum diperiksa')
-                                                {{ $x->keterangan ?? '-' }}
-                                            @elseif ($x->status == 'menunggu verifikasi')
-                                                {{ $x->keterangan ?? 'P2H Telah Dilakukan' }}
-                                            @else
-                                                {{ $x->keterangan }}
-                                            @endif
-                                        </td>
                                         <td>
                                             @if ($x->status == 'terverifikasi')
                                                 <p class="status delivered">Terverifikasi</p>
@@ -75,7 +65,7 @@
                                         <td>{{ $x->kendaraan->nomor_lambung }}</td>
                                         <td>
                                             @if ($x->status == 'belum diperiksa')
-                                                <a href="{{ url('p2h-cek/form/' . $x->id) }}"
+                                                <a href="{{ url('p2h-cek/form/' . $x->id . '/' . $x->kendaraan->nomor_lambung) }}"
                                                     class="btn btn-circle btn-warning"><i class="bi bi-pencil"></i></a>
                                             @else
                                                 <p>-</p>

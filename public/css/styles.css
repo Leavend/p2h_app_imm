@@ -12172,12 +12172,13 @@ header.kendaraan .h1 {
 header.formulir {
   padding-top: 9rem;
   padding-bottom: calc(10rem - 4.5rem);
-  background: url("../assets/img/form.jfif");
+  background: url("../assets/img/form_portrait.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-size: cover;
+  background-size: 100% auto; /* Gambar tetap potret dan mengisi lebar elemen header */
 }
+
 
 header.formulir h1, header.formulir .h1 {
   color: white;
@@ -12232,7 +12233,7 @@ section.edit-form h1, section.edit-form .h1 {
     );
 
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to bottom, #00aeef, #00aeef, #452f92, #452f92);
+    /* background: linear-gradient(to bottom, #00aeef, #00aeef, #452f92, #452f92); */
 }
 
 @media (min-width: 768px) {
@@ -12894,9 +12895,6 @@ input {
   }
   
   /* Hide all steps by default: */
-  .tab {
-/*     display: none; */
-  }
   
   /* Make circles that indicate the steps of the form: */
   .step {

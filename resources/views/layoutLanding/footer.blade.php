@@ -64,7 +64,7 @@
         }
     </script>
 
-    {{-- <script>
+    <script>
         document.addEventListener("DOMContentLoaded", function() {
             const form = document.getElementById("myForm");
             const nextButton = form.querySelector(".carousel-control-next-2");
@@ -96,4 +96,4 @@
                 }
             });
         });
-    </script> --}}
+    </script>

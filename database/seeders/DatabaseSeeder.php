@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        P2h::factory(51)->create();
-        // User::factory()->count(20)->create();
-        // Kendaraan::factory()->count(20)->create();
+        P2h::factory(5)->create();
+        // User::factory()->count(10)->create();
+        // Kendaraan::factory()->count(5)->create();
     }
 }

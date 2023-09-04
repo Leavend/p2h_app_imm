@@ -21,12 +21,13 @@ class UserFactory extends Factory
         return [
             'username' => $this->faker->unique()->userName,
             'name' => $this->faker->name,
+            'nik' => $this->faker->numerify('98#####'),
             'email' => $this->faker->unique()->safeEmail,
             'password' => Hash::make('password'), // Ganti 'password' dengan kata sandi yang Anda inginkan
             'no_hp' => $this->faker->numerify('08###########'), // Menambahkan definisi untuk no_hp
+            'departemen' => $this->faker->word, // Menggunakan metode word untuk departemen
             'role' => $this->faker->randomElement(['admin', 'user']),
             'tanggal' => now('Asia/Makassar')->format('Y-m-d'),
-            // Anda juga bisa menambahkan definisi untuk atribut lain sesuai kebutuhan
         ];
     }
 }

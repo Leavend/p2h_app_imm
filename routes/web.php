@@ -25,8 +25,8 @@ Route::get('/', [P2hController::class, 'index'])->name('home');
 // p2h cek form
 Route::prefix('p2h-cek')->group(function () {
     Route::get('/', [P2hController::class, 'indexToday'])->name('p2h-cek.list');
-    Route::get('/form/{id}', [P2hController::class, 'getForm']);
-    Route::post('/form/{id}', [P2hController::class, 'save']);
+    Route::get('/form/{id}/{nomor_lambung}', [P2hController::class, 'getForm']);
+    Route::post('/form/{id}/{nomor_lambung}', [P2hController::class, 'save']);
 });
 
 
@@ -81,8 +81,9 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/', [P2hController::class, 'show'])->name('p2h.list.admin');
         Route::get('/download-csv', [P2hController::class, 'export'])->name('p2h.download.csv');
         Route::get('/detail/{id}', [P2hController::class, 'detail'])->name('p2h.detail');
-        Route::get('/edit/{id}', [P2hController::class, 'edit'])->name('p2h.edit');
-        Route::post('/perbarui/{id}', [P2hController::class, 'update'])->name('p2h.update');
+        Route::get('/edit/{id}', [P2hController::class, 'getFormAdmin'])->name('p2h.edit');
+        Route::post('/edit/{id}', [P2hController::class, 'update'])->name('p2h.update');
+        Route::get('/hapus/{id}', [P2hController::class, 'delete'])->name('p2h.delete');
     });
 });
 
@@ -94,11 +95,8 @@ Route::middleware(['user'])->group(function () {
     // p2h view
     Route::prefix('user/p2h')->group(function () {
         Route::get('/', [P2hController::class, 'indexTodayUser'])->name('p2h.list');
-        Route::get('/form/{nomor_lambung}', [P2hController::class, 'getFormUser']);
-        Route::post('/simpan', [P2hController::class, 'save']);
-        Route::get('/detail/{id}', [P2hController::class, 'detail'])->name('p2h.detail');
-        Route::get('/edit/{nomor_lambung}', [P2hController::class, 'edit'])->name('p2h.edit');
-        Route::post('/edit/{nomor_lambung}', [P2hController::class, 'updateUser'])->name('p2h.update');
+        Route::get('/form/{id}/{nomor_lambung}', [P2hController::class, 'getFormUser']);
+        Route::post('/form/{id}/{nomor_lambung}', [P2hController::class, 'saveUser']);
     });
 
     Route::get('/error-page', [P2hController::class, 'showErrorPage'])->name('error');
