@@ -1491,7 +1491,7 @@
                                             <!-- surat_stnp_kir -->
                                             <div class="mx-0 mx-sm-auto">
                                                 <div class="text">
-                                                    <p>STNP & KIR</p>
+                                                    <p>STNK & KIR</p>
                                                 </div>
                                             </div>
 

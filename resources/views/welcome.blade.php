@@ -91,50 +91,56 @@
                     </section>
 
                     <!-- Pagination p2h -->
-                    <nav class="app-pagination" id="p2h-pagination">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item {{ $p2hPaginator->currentPage() == 1 ? 'disabled' : '' }}">
-                                <a class="page-link" href="{{ $p2hPaginator->url($p2hPaginator->currentPage() - 1) }}"
-                                    tabindex="-1"
-                                    aria-disabled="{{ $p2hPaginator->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
-                            </li>
-                            @for ($i = 1; $i <= 3; $i++)
-                                <li class="page-item {{ $p2hPaginator->currentPage() == $i ? 'active' : '' }}">
-                                    <a class="page-link" href="{{ $p2hPaginator->url($i) }}">{{ $i }}</a>
+                    @if ($p2hPaginator->lastPage() > 1)
+                        <!-- Cek apakah ada lebih dari 1 halaman -->
+                        <nav class="app-pagination" id="p2h-pagination">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item {{ $p2hPaginator->currentPage() == 1 ? 'disabled' : '' }}">
+                                    <a class="page-link"
+                                        href="{{ $p2hPaginator->url($p2hPaginator->currentPage() - 1) }}"
+                                        tabindex="-1"
+                                        aria-disabled="{{ $p2hPaginator->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
                                 </li>
-                            @endfor
-                            @if ($p2hPaginator->currentPage() > 4)
-                                <li class="page-item disabled">
-                                    <a class="page-link">...</a>
-                                </li>
-                            @endif
-                            @php
-                                $startPage = max($p2hPaginator->currentPage() - 1, 4);
-                                $endPage = min($startPage + 2, $p2hPaginator->lastPage());
-                            @endphp
-                            @for ($i = $startPage; $i <= $endPage; $i++)
-                                <li class="page-item {{ $p2hPaginator->currentPage() == $i ? 'active' : '' }}">
-                                    <a class="page-link" href="{{ $p2hPaginator->url($i) }}">{{ $i }}</a>
-                                </li>
-                            @endfor
-                            @if ($endPage < $p2hPaginator->lastPage() - 2)
-                                <li class="page-item disabled">
-                                    <a class="page-link">...</a>
-                                </li>
-                                @for ($i = $p2hPaginator->lastPage() - 2; $i <= $p2hPaginator->lastPage(); $i++)
+                                @for ($i = 1; $i <= min(3, $p2hPaginator->lastPage()); $i++)
                                     <li class="page-item {{ $p2hPaginator->currentPage() == $i ? 'active' : '' }}">
                                         <a class="page-link"
                                             href="{{ $p2hPaginator->url($i) }}">{{ $i }}</a>
                                     </li>
                                 @endfor
-                            @endif
-                            <li
-                                class="page-item {{ $p2hPaginator->currentPage() == $p2hPaginator->lastPage() ? 'disabled' : '' }}">
-                                <a class="page-link"
-                                    href="{{ $p2hPaginator->url($p2hPaginator->currentPage() + 1) }}">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
+                                @if ($p2hPaginator->currentPage() > 4)
+                                    <li class="page-item disabled">
+                                        <a class="page-link">...</a>
+                                    </li>
+                                @endif
+                                @php
+                                    $startPage = max($p2hPaginator->currentPage() - 1, 4);
+                                    $endPage = min($startPage + 2, $p2hPaginator->lastPage());
+                                @endphp
+                                @for ($i = $startPage; $i <= $endPage; $i++)
+                                    <li class="page-item {{ $p2hPaginator->currentPage() == $i ? 'active' : '' }}">
+                                        <a class="page-link"
+                                            href="{{ $p2hPaginator->url($i) }}">{{ $i }}</a>
+                                    </li>
+                                @endfor
+                                @if ($endPage < $p2hPaginator->lastPage() - 2)
+                                    <li class="page-item disabled">
+                                        <a class="page-link">...</a>
+                                    </li>
+                                    @for ($i = max($endPage + 1, $p2hPaginator->lastPage() - 2); $i <= $p2hPaginator->lastPage(); $i++)
+                                        <li class="page-item {{ $p2hPaginator->currentPage() == $i ? 'active' : '' }}">
+                                            <a class="page-link"
+                                                href="{{ $p2hPaginator->url($i) }}">{{ $i }}</a>
+                                        </li>
+                                    @endfor
+                                @endif
+                                <li
+                                    class="page-item {{ $p2hPaginator->currentPage() == $p2hPaginator->lastPage() ? 'disabled' : '' }}">
+                                    <a class="page-link"
+                                        href="{{ $p2hPaginator->url($p2hPaginator->currentPage() + 1) }}">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    @endif
 
                 </div>
             </section>
@@ -199,43 +205,31 @@
                     </section>
 
                     <!-- Pagination Kendaraan -->
-                    <nav class="app-pagination" id="kendaraan-pagination">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item {{ $kendaraanPaginator->currentPage() == 1 ? 'disabled' : '' }}">
-                                <a class="page-link"
-                                    href="{{ $kendaraanPaginator->url($kendaraanPaginator->currentPage() - 1) }}"
-                                    tabindex="-1"
-                                    aria-disabled="{{ $kendaraanPaginator->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
-                            </li>
-                            @if ($kendaraanPaginator->lastPage() > 0)
-                                @for ($i = 1; $i <= 3; $i++)
+                    @if ($kendaraanPaginator->lastPage() > 1)
+                        <nav class="app-pagination" id="kendaraan-pagination">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item {{ $kendaraanPaginator->currentPage() == 1 ? 'disabled' : '' }}">
+                                    <a class="page-link"
+                                        href="{{ $kendaraanPaginator->url($kendaraanPaginator->currentPage() - 1) }}"
+                                        tabindex="-1"
+                                        aria-disabled="{{ $kendaraanPaginator->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
+                                </li>
+                                @for ($i = 1; $i <= min(3, $kendaraanPaginator->lastPage()); $i++)
                                     <li
                                         class="page-item {{ $kendaraanPaginator->currentPage() == $i ? 'active' : '' }}">
                                         <a class="page-link"
                                             href="{{ $kendaraanPaginator->url($i) }}">{{ $i }}</a>
                                     </li>
                                 @endfor
-                                @if ($kendaraanPaginator->currentPage() > 4)
+                                @if ($kendaraanPaginator->lastPage() > 4)
                                     <li class="page-item disabled">
                                         <a class="page-link">...</a>
                                     </li>
-                                @endif
-                                @php
-                                    $startPage = max($kendaraanPaginator->currentPage() - 1, 4);
-                                    $endPage = min($startPage + 2, $kendaraanPaginator->lastPage());
-                                @endphp
-                                @for ($i = $startPage; $i <= $endPage; $i++)
-                                    <li
-                                        class="page-item {{ $kendaraanPaginator->currentPage() == $i ? 'active' : '' }}">
-                                        <a class="page-link"
-                                            href="{{ $kendaraanPaginator->url($i) }}">{{ $i }}</a>
-                                    </li>
-                                @endfor
-                                @if ($endPage < $kendaraanPaginator->lastPage() - 2)
-                                    <li class="page-item disabled">
-                                        <a class="page-link">...</a>
-                                    </li>
-                                    @for ($i = $kendaraanPaginator->lastPage() - 2; $i <= $kendaraanPaginator->lastPage(); $i++)
+                                    @php
+                                        $startPage = max($kendaraanPaginator->currentPage() - 1, 4);
+                                        $endPage = min($startPage + 2, $kendaraanPaginator->lastPage());
+                                    @endphp
+                                    @for ($i = $startPage; $i <= $endPage; $i++)
                                         <li
                                             class="page-item {{ $kendaraanPaginator->currentPage() == $i ? 'active' : '' }}">
                                             <a class="page-link"
@@ -243,15 +237,14 @@
                                         </li>
                                     @endfor
                                 @endif
-                            @endif
-                            <li
-                                class="page-item {{ $kendaraanPaginator->currentPage() == $kendaraanPaginator->lastPage() ? 'disabled' : '' }}">
-                                <a class="page-link"
-                                    href="{{ $kendaraanPaginator->url($kendaraanPaginator->currentPage() + 1) }}">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
-
+                                <li
+                                    class="page-item {{ $kendaraanPaginator->currentPage() == $kendaraanPaginator->lastPage() ? 'disabled' : '' }}">
+                                    <a class="page-link"
+                                        href="{{ $kendaraanPaginator->url($kendaraanPaginator->currentPage() + 1) }}">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    @endif
 
                 </div>
             </section>

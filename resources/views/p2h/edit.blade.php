@@ -131,7 +131,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="oli_mesin"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->oli_mesin === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->oli_mesin === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -139,7 +139,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="oli_mesin"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->oli_mesin === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->oli_mesin === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -147,7 +147,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="oli_mesin"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->oli_mesin === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->oli_mesin === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -159,7 +159,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="oli_kopling"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->oli_kopling === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->oli_kopling === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -167,7 +167,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="oli_kopling"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->oli_kopling === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->oli_kopling === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -175,7 +175,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="oli_kopling"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->oli_kopling === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->oli_kopling === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -187,7 +187,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="oli_stering"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->oli_stering === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->oli_stering === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -195,7 +195,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="oli_stering"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->oli_stering === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->oli_stering === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -203,7 +203,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="oli_stering"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->oli_stering === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->oli_stering === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -215,7 +215,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="air_radiator"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->air_radiator === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->air_radiator === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -223,7 +223,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="air_radiator"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->air_radiator === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->air_radiator === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -231,7 +231,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="air_radiator"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->air_radiator === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->air_radiator === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -262,7 +262,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="rem_depanBelakang"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->rem_depanBelakang === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->rem_depanBelakang === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -270,7 +270,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="rem_depanBelakang"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->rem_depanBelakang === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->rem_depanBelakang === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -278,7 +278,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="rem_depanBelakang"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->rem_depanBelakang === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->rem_depanBelakang === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -290,7 +290,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="rem_tangan"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->rem_tangan === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->rem_tangan === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -298,7 +298,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="rem_tangan"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->rem_tangan === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->rem_tangan === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -306,7 +306,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="rem_tangan"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->rem_tangan === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->rem_tangan === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -338,7 +338,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="lampu_jauhDekat"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->lampu_jauhDekat === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->lampu_jauhDekat === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -346,7 +346,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="lampu_jauhDekat"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->lampu_jauhDekat === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->lampu_jauhDekat === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -354,7 +354,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="lampu_jauhDekat"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->lampu_jauhDekat === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->lampu_jauhDekat === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -366,7 +366,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="lampu_reting_rL"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->lampu_reting_rL === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->lampu_reting_rL === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -374,7 +374,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="lampu_reting_rL"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->lampu_reting_rL === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->lampu_reting_rL === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -382,7 +382,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="lampu_reting_rL"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->lampu_reting_rL === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->lampu_reting_rL === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -394,7 +394,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="lampu_belakang"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->lampu_belakang === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->lampu_belakang === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -402,7 +402,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="lampu_belakang"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->lampu_belakang === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->lampu_belakang === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -410,7 +410,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="lampu_belakang"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->lampu_belakang === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->lampu_belakang === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -422,7 +422,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="lampu_rem"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->lampu_rem === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->lampu_rem === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -430,7 +430,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="lampu_rem"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->lampu_rem === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->lampu_rem === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -438,7 +438,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="lampu_rem"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->lampu_rem === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->lampu_rem === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -450,7 +450,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="lampu_mundur"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->lampu_mundur === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->lampu_mundur === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -458,7 +458,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="lampu_mundur"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->lampu_mundur === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->lampu_mundur === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -466,7 +466,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="lampu_mundur"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->lampu_mundur === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->lampu_mundur === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -478,7 +478,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="lampu_rotari"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->lampu_rotari === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->lampu_rotari === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -486,7 +486,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="lampu_rotari"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->lampu_rotari === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->lampu_rotari === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -494,7 +494,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="lampu_rotari"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->lampu_rotari === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->lampu_rotari === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -525,7 +525,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="roda_depanBelakang"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->roda_depanBelakang === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->roda_depanBelakang === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -533,7 +533,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="roda_depanBelakang"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->roda_depanBelakang === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->roda_depanBelakang === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -541,7 +541,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="roda_depanBelakang"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->roda_depanBelakang === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->roda_depanBelakang === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -553,7 +553,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="roda_cadangan"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->roda_cadangan === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->roda_cadangan === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -561,7 +561,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="roda_cadangan"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->roda_cadangan === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->roda_cadangan === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -569,7 +569,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="roda_cadangan"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->roda_cadangan === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->roda_cadangan === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -600,7 +600,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="body_fender_rL"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->body_fender_rL === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_fender_rL === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -608,7 +608,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="body_fender_rL"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->body_fender_rL === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_fender_rL === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -616,7 +616,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="body_fender_rL"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->body_fender_rL === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_fender_rL === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -628,7 +628,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="body_pintu_rL"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->body_pintu_rL === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_pintu_rL === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -636,7 +636,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="body_pintu_rL"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->body_pintu_rL === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_pintu_rL === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -644,7 +644,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="body_pintu_rL"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->body_pintu_rL === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_pintu_rL === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -656,7 +656,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="body_atap_kabin"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->body_atap_kabin === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_atap_kabin === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -664,7 +664,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="body_atap_kabin"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->body_atap_kabin === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_atap_kabin === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -672,7 +672,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="body_atap_kabin"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->body_atap_kabin === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_atap_kabin === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -684,7 +684,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="body_bendera"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->body_bendera === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_bendera === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -692,7 +692,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="body_bendera"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->body_bendera === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_bendera === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -700,7 +700,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="body_bendera"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->body_bendera === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_bendera === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -712,7 +712,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="body_lantai_kabin"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->body_lantai_kabin === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_lantai_kabin === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -720,7 +720,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="body_lantai_kabin"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->body_lantai_kabin === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_lantai_kabin === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -728,7 +728,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="body_lantai_kabin"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->body_lantai_kabin === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_lantai_kabin === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -740,7 +740,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="body_karet_mounting"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->body_karet_mounting === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_karet_mounting === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -748,7 +748,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="body_karet_mounting"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->body_karet_mounting === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_karet_mounting === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -756,7 +756,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="body_karet_mounting"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->body_karet_mounting === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_karet_mounting === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -768,7 +768,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="body_sepring"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->body_sepring === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_sepring === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -776,7 +776,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="body_sepring"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->body_sepring === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_sepring === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -784,7 +784,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="body_sepring"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->body_sepring === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->body_sepring === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -817,7 +817,7 @@
                                             <input class="form-check-input" type="radio"
                                                 name="tools_dongkrak_aksesoris" value="baik"
                                                 id="settings-checkbox-baik"
-                                                {{ $p2h->tools_dongkrak_aksesoris === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->tools_dongkrak_aksesoris === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -826,7 +826,7 @@
                                             <input class="form-check-input" type="radio"
                                                 name="tools_dongkrak_aksesoris" value="rusak"
                                                 id="settings-checkbox-rusak"
-                                                {{ $p2h->tools_dongkrak_aksesoris === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->tools_dongkrak_aksesoris === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -835,7 +835,7 @@
                                             <input class="form-check-input" type="radio"
                                                 name="tools_dongkrak_aksesoris" value="tidak ada"
                                                 id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->tools_dongkrak_aksesoris === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->tools_dongkrak_aksesoris === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -847,7 +847,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="tools_kunci_roda"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->tools_kunci_roda === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->tools_kunci_roda === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -855,7 +855,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="tools_kunci_roda"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->tools_kunci_roda === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->tools_kunci_roda === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -863,7 +863,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="tools_kunci_roda"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->tools_kunci_roda === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->tools_kunci_roda === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -876,7 +876,7 @@
                                             <input class="form-check-input" type="radio"
                                                 name="tools_segitiga_pengaman" value="baik"
                                                 id="settings-checkbox-baik"
-                                                {{ $p2h->tools_segitiga_pengaman === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->tools_segitiga_pengaman === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -885,7 +885,7 @@
                                             <input class="form-check-input" type="radio"
                                                 name="tools_segitiga_pengaman" value="rusak"
                                                 id="settings-checkbox-rusak"
-                                                {{ $p2h->tools_segitiga_pengaman === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->tools_segitiga_pengaman === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -894,7 +894,7 @@
                                             <input class="form-check-input" type="radio"
                                                 name="tools_segitiga_pengaman" value="tidak ada"
                                                 id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->tools_segitiga_pengaman === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->tools_segitiga_pengaman === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -906,7 +906,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="tools_ganjal_ban"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->tools_ganjal_ban === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->tools_ganjal_ban === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -914,7 +914,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="tools_ganjal_ban"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->tools_ganjal_ban === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->tools_ganjal_ban === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -922,7 +922,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="tools_ganjal_ban"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->tools_ganjal_ban === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->tools_ganjal_ban === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -954,7 +954,7 @@
                                             <input class="form-check-input" type="radio"
                                                 name="others_sabuk_pengaman" value="baik"
                                                 id="settings-checkbox-baik"
-                                                {{ $p2h->others_sabuk_pengaman === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_sabuk_pengaman === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -963,7 +963,7 @@
                                             <input class="form-check-input" type="radio"
                                                 name="others_sabuk_pengaman" value="rusak"
                                                 id="settings-checkbox-rusak"
-                                                {{ $p2h->others_sabuk_pengaman === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_sabuk_pengaman === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -972,7 +972,7 @@
                                             <input class="form-check-input" type="radio"
                                                 name="others_sabuk_pengaman" value="tidak ada"
                                                 id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->others_sabuk_pengaman === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_sabuk_pengaman === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -984,7 +984,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="others_spidometer"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->others_spidometer === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_spidometer === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -992,7 +992,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="others_spidometer"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->others_spidometer === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_spidometer === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1000,7 +1000,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="others_spidometer"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->others_spidometer === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_spidometer === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -1012,7 +1012,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="others_klakson"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->others_klakson === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_klakson === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1020,7 +1020,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="others_klakson"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->others_klakson === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_klakson === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1028,7 +1028,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="others_klakson"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->others_klakson === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_klakson === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -1040,7 +1040,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="others_spion"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->others_spion === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_spion === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1048,7 +1048,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="others_spion"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->others_spion === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_spion === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1056,7 +1056,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="others_spion"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->others_spion === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_spion === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -1068,7 +1068,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="others_wiper"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->others_wiper === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_wiper === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1076,7 +1076,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="others_wiper"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->others_wiper === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_wiper === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1084,7 +1084,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="others_wiper"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->others_wiper === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_wiper === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -1096,7 +1096,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="others_alarm_mundur"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->others_alarm_mundurarm === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_alarm_mundurarm === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1104,7 +1104,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="others_alarm_mundur"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->others_alarm_mundur === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_alarm_mundur === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1112,7 +1112,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="others_alarm_mundur"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->others_alarm_mundur === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_alarm_mundur === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -1124,7 +1124,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="others_radio_komun"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->others_radio_komun === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_radio_komun === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1132,7 +1132,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="others_radio_komun"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->others_radio_komun === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_radio_komun === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1140,7 +1140,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="others_radio_komun"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->others_radio_komun === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_radio_komun === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -1152,7 +1152,7 @@
                                             <label class="form-check-label" for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="others_knalpot"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->others_knalpot === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_knalpot === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1160,7 +1160,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="others_knalpot"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->others_knalpot === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_knalpot === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1168,7 +1168,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="others_knalpot"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->others_knalpot === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_knalpot === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -1182,7 +1182,7 @@
                                             <input class="form-check-input" type="radio"
                                                 name="others_no_lambung" value="baik"
                                                 id="settings-checkbox-baik"
-                                                {{ $p2h->others_no_lambung === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_no_lambung === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1191,7 +1191,7 @@
                                             <input class="form-check-input" type="radio"
                                                 name="others_no_lambung" value="rusak"
                                                 id="settings-checkbox-rusak"
-                                                {{ $p2h->others_no_lambung === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_no_lambung === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1200,7 +1200,7 @@
                                             <input class="form-check-input" type="radio"
                                                 name="others_no_lambung" value="tidak ada"
                                                 id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->others_no_lambung === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_no_lambung === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -1213,7 +1213,7 @@
                                                 for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="others_apar"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->others_apar === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_apar === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1221,7 +1221,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="others_apar"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->others_apar === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_apar === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1229,7 +1229,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="others_apar"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->others_apar === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_apar === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -1243,7 +1243,7 @@
                                             <input class="form-check-input" type="radio"
                                                 name="others_kursi_duduk" value="baik"
                                                 id="settings-checkbox-baik"
-                                                {{ $p2h->others_kursi_duduk === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_kursi_duduk === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1252,7 +1252,7 @@
                                             <input class="form-check-input" type="radio"
                                                 name="others_kursi_duduk" value="rusak"
                                                 id="settings-checkbox-rusak"
-                                                {{ $p2h->others_kursi_duduk === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_kursi_duduk === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1261,7 +1261,7 @@
                                             <input class="form-check-input" type="radio"
                                                 name="others_kursi_duduk" value="tidak ada"
                                                 id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->others_kursi_duduk === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->others_kursi_duduk === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -1293,7 +1293,7 @@
                                                 for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="surat_p3k"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->surat_p3k === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->surat_p3k === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1301,7 +1301,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="surat_p3k"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->surat_p3k === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->surat_p3k === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1309,7 +1309,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="surat_p3k"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->surat_p3k === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->surat_p3k === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 
@@ -1322,7 +1322,7 @@
                                                 for="settings-checkbox-baik">Baik</label>
                                             <input class="form-check-input" type="radio" name="surat_stnp_kir"
                                                 value="baik" id="settings-checkbox-baik"
-                                                {{ $p2h->surat_stnp_kir === 'baik' ? 'checked' : '' }}>
+                                                {{ $p2hData->surat_stnp_kir === 'baik' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1330,7 +1330,7 @@
                                                 for="settings-checkbox-rusak">Rusak</label>
                                             <input class="form-check-input" type="radio" name="surat_stnp_kir"
                                                 value="rusak" id="settings-checkbox-rusak"
-                                                {{ $p2h->surat_stnp_kir === 'rusak' ? 'checked' : '' }}>
+                                                {{ $p2hData->surat_stnp_kir === 'rusak' ? 'checked' : '' }}>
                                         </div>
 
                                         <div class="form-check form-check-inline">
@@ -1338,7 +1338,7 @@
                                                 Ada</label>
                                             <input class="form-check-input" type="radio" name="surat_stnp_kir"
                                                 value="tidak ada" id="settings-checkbox-tidak-ada"
-                                                {{ $p2h->surat_stnp_kir === 'tidak ada' ? 'checked' : '' }}>
+                                                {{ $p2hData->surat_stnp_kir === 'tidak ada' ? 'checked' : '' }}>
                                         </div>
                                     </div><!--//form-check-->
 

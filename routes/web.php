@@ -30,7 +30,7 @@ Route::prefix('p2h-cek')->group(function () {
 });
 
 
-// Public Authentication
+// Public
 Route::get('/masuk', [AuthController::class, 'login'])->name('login');
 Route::get('/registrasi', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'authLogin'])->name('auth.login');

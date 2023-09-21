@@ -102,7 +102,7 @@
                                                     <td class="cell">{{ $x->no_hp ?? '-' }}</td>
                                                     <td class="cell">{{ $x->kendaraan->jenis_kendaraan }}</td>
                                                     <td class="cell">{{ $x->kendaraan->nomor_polisi }}</td>
-                                                    <td class="cell">{{ $x->keterangan }}</td>
+                                                    <td class="cell">{{ $x->keterangan ?? '-' }}</td>
                                                     @if ($x->status == 'belum diperiksa')
                                                         <td class="cell">
                                                             <span class="badge bg-danger">Belum Pemeriksaan</span>
@@ -133,38 +133,6 @@
                                                         @endif
                                                     </td>
                                                 </tr>
-
-                                                <!-- Modal for Detail -->
-                                                <div class="modal fade" id="detailModal{{ $x->id }}"
-                                                    tabindex="-1" role="dialog"
-                                                    aria-labelledby="detailModalLabel{{ $x->id }}"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title"
-                                                                    id="detailModalLabel{{ $x->id }}">Detail P2H
-                                                                </h5>
-                                                                <button type="button" class="close"
-                                                                    data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <!-- Display the details here -->
-                                                                <p>Nama Pemeriksa: {{ $x->nama_pemeriksa ?? '-' }}</p>
-                                                                <p>No. HP: {{ $x->no_hp ?? '-' }}</p>
-                                                                <!-- ... Other details ... -->
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Close</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End of Modal for Detail -->
-
                                             @empty
                                                 <tr>
                                                     <td class="cell" colspan="13" style="text-align: center;">
@@ -181,25 +149,54 @@
 
                         </div><!--//app-card-->
 
-                        <nav class="app-pagination" id="p2h-pagination">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item {{ $p2hToday->currentPage() == 1 ? 'disabled' : '' }}">
-                                    <a class="page-link" href="{{ $p2hToday->url($p2hToday->currentPage() - 1) }}"
-                                        tabindex="-1"
-                                        aria-disabled="{{ $p2hToday->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
-                                </li>
-                                @for ($i = 1; $i <= $p2hToday->lastPage(); $i++)
-                                    <li class="page-item {{ $p2hToday->currentPage() == $i ? 'active' : '' }}">
-                                        <a class="page-link" href="{{ $p2hToday->url($i) }}">{{ $i }}</a>
+                        <!-- Nav Pagination -->
+                        @if ($p2hToday->lastPage() > 1)
+                            <nav class="app-pagination" id="p2h-pagination">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item {{ $p2hToday->currentPage() == 1 ? 'disabled' : '' }}">
+                                        <a class="page-link" href="{{ $p2hToday->url($p2hToday->currentPage() - 1) }}"
+                                            tabindex="-1">Previous</a>
                                     </li>
-                                @endfor
-                                <li
-                                    class="page-item {{ $p2hToday->currentPage() == $p2hToday->lastPage() ? 'disabled' : '' }}">
-                                    <a class="page-link"
-                                        href="{{ $p2hToday->url($p2hToday->currentPage() + 1) }}">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
+                                    @php
+                                        $startPage = max(1, $p2hToday->currentPage() - 2);
+                                        $endPage = min($startPage + 4, $p2hToday->lastPage());
+                                    @endphp
+                                    @if ($startPage > 1)
+                                        <li class="page-item">
+                                            <a class="page-link" href="{{ $p2hToday->url(1) }}">1</a>
+                                        </li>
+                                        @if ($startPage > 2)
+                                            <li class="page-item disabled">
+                                                <a class="page-link">...</a>
+                                            </li>
+                                        @endif
+                                    @endif
+                                    @for ($i = $startPage; $i <= $endPage; $i++)
+                                        <li class="page-item {{ $p2hToday->currentPage() == $i ? 'active' : '' }}">
+                                            <a class="page-link"
+                                                href="{{ $p2hToday->url($i) }}">{{ $i }}</a>
+                                        </li>
+                                    @endfor
+                                    @if ($endPage < $p2hToday->lastPage())
+                                        @if ($endPage < $p2hToday->lastPage() - 1)
+                                            <li class="page-item disabled">
+                                                <a class="page-link">...</a>
+                                            </li>
+                                        @endif
+                                        <li class="page-item">
+                                            <a class="page-link"
+                                                href="{{ $p2hToday->url($p2hToday->lastPage()) }}">{{ $p2hToday->lastPage() }}</a>
+                                        </li>
+                                    @endif
+                                    <li
+                                        class="page-item {{ $p2hToday->currentPage() == $p2hToday->lastPage() ? 'disabled' : '' }}">
+                                        <a class="page-link"
+                                            href="{{ $p2hToday->url($p2hToday->currentPage() + 1) }}">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        @endif
+
 
                     </div><!--//tab-pane-->
 

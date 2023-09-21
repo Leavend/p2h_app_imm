@@ -15,7 +15,7 @@
                 <div class="app-card alert alert-dismissible shadow-sm mb-4 border-left-decoration" role="alert">
                     <div class="inner">
                         <div class="app-card-body p-3 p-lg-4">
-                            {{-- <h3 class="mb-3">Welcome, {{ Auth::user()->name }}!</h3> --}}
+                            <h3 class="mb-3">Welcome, {{ Auth::user()->name }}!</h3>
                             <div class="row gx-5 gy-3">
                                 <div class="col-12 col-lg-9">
                                     <div>Data total pada lingkup P2H dibawah ini.</div>
@@ -141,11 +141,11 @@
                                     <div class="app-card-body p-3 p-lg-4">
                                         <h4 class="stats-type mb-1">Total User</h4>
                                         <div class="stats-figure">{{ $TotalUserToday }}</div>
-                                        <div class="stats-meta" style="color: #452F92;">
+                                        {{-- <div class="stats-meta" style="color: #452F92;">
                                             View More
-                                        </div>
+                                        </div> --}}
                                     </div><!--//app-card-body-->
-                                    <a class="app-card-link-mask" href="{{ route('user.list') }}"></a>
+                                    {{-- <a class="app-card-link-mask" href="{{ route('user.list') }}"></a> --}}
                                 </div><!--//app-card-->
                             </div><!--//col-->
 
@@ -154,11 +154,11 @@
                                     <div class="app-card-body p-3 p-lg-4">
                                         <h4 class="stats-type mb-1">Total Kendaraan</h4>
                                         <div class="stats-figure">{{ $TotalKendaraanToday }}</div>
-                                        <div class="stats-meta" style="color: #452F92;">
+                                        {{-- <div class="stats-meta" style="color: #452F92;">
                                             View More
-                                        </div>
+                                        </div> --}}
                                     </div><!--//app-card-body-->
-                                    <a class="app-card-link-mask" href="{{ route('kendaraan.list') }}"></a>
+                                    {{-- <a class="app-card-link-mask" href="{{ route('kendaraan.list') }}"></a> --}}
                                 </div><!--//app-card-->
                             </div><!--//col-->
 
@@ -167,11 +167,11 @@
                                     <div class="app-card-body p-3 p-lg-4">
                                         <h4 class="stats-type mb-1">Total P2H</h4>
                                         <div class="stats-figure">{{ $TotalP2hToday }}</div>
-                                        <div class="stats-meta" style="color: #452F92;">
+                                        {{-- <div class="stats-meta" style="color: #452F92;">
                                             View More
-                                        </div>
+                                        </div> --}}
                                     </div><!--//app-card-body-->
-                                    <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a>
+                                    {{-- <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a> --}}
                                 </div><!--//app-card-->
                             </div><!--//col-->
 
@@ -181,11 +181,11 @@
                                         <h4 class="stats-type mb-1">Total P2H</h4>
                                         <h4 class="stats-type mb-1">Belum Pemeriksaan</h4>
                                         <div class="stats-figure">{{ $TotalP2hTodayBelum }}</div>
-                                        <div class="stats-meta" style="color: #452F92;">
+                                        {{-- <div class="stats-meta" style="color: #452F92;">
                                             View More
-                                        </div>
+                                        </div> --}}
                                     </div><!--//app-card-body-->
-                                    <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a>
+                                    {{-- <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a> --}}
                                 </div><!--//app-card-->
                             </div><!--//col-->
 
@@ -195,11 +195,11 @@
                                         <h4 class="stats-type mb-1">Total P2H</h4>
                                         <h4 class="stats-type mb-1">Menunggu Verifikasi</h4>
                                         <div class="stats-figure">{{ $TotalP2hTodayMenunggu }}</div>
-                                        <div class="stats-meta" style="color: #452F92;">
+                                        {{-- <div class="stats-meta" style="color: #452F92;">
                                             View More
-                                        </div>
+                                        </div> --}}
                                     </div><!--//app-card-body-->
-                                    <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a>
+                                    {{-- <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a> --}}
                                 </div><!--//app-card-->
                             </div><!--//col-->
 
@@ -209,11 +209,11 @@
                                         <h4 class="stats-type mb-1">Total P2H</h4>
                                         <h4 class="stats-type mb-1">Terverifikasi</h4>
                                         <div class="stats-figure">{{ $TotalP2hTodayTerverif }}</div>
-                                        <div class="stats-meta" style="color: #452F92;">
+                                        {{-- <div class="stats-meta" style="color: #452F92;">
                                             View More
-                                        </div>
+                                        </div> --}}
                                     </div><!--//app-card-body-->
-                                    <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a>
+                                    {{-- <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a> --}}
                                 </div><!--//app-card-->
                             </div><!--//col-->
 
@@ -228,11 +228,11 @@
                                     <div class="app-card-body p-3 p-lg-4">
                                         <h4 class="stats-type mb-1">Total User</h4>
                                         <div class="stats-figure">{{ $TotalUserWeek }}</div>
-                                        <div class="stats-meta" style="color: #452F92;">
+                                        {{-- <div class="stats-meta" style="color: #452F92;">
                                             View More
-                                        </div>
+                                        </div> --}}
                                     </div><!--//app-card-body-->
-                                    <a class="app-card-link-mask" href="{{ route('user.list') }}"></a>
+                                    {{-- <a class="app-card-link-mask" href="{{ route('user.list') }}"></a> --}}
                                 </div><!--//app-card-->
                             </div><!--//col-->
 
@@ -241,11 +241,11 @@
                                     <div class="app-card-body p-3 p-lg-4">
                                         <h4 class="stats-type mb-1">Total Kendaraan</h4>
                                         <div class="stats-figure">{{ $TotalKendaraanWeek }}</div>
-                                        <div class="stats-meta" style="color: #452F92;">
+                                        {{-- <div class="stats-meta" style="color: #452F92;">
                                             View More
-                                        </div>
+                                        </div> --}}
                                     </div><!--//app-card-body-->
-                                    <a class="app-card-link-mask" href="{{ route('kendaraan.list') }}"></a>
+                                    {{-- <a class="app-card-link-mask" href="{{ route('kendaraan.list') }}"></a> --}}
                                 </div><!--//app-card-->
                             </div><!--//col-->
 
@@ -254,11 +254,11 @@
                                     <div class="app-card-body p-3 p-lg-4">
                                         <h4 class="stats-type mb-1">Total P2H</h4>
                                         <div class="stats-figure">{{ $TotalP2hWeek }}</div>
-                                        <div class="stats-meta" style="color: #452F92;">
+                                        {{-- <div class="stats-meta" style="color: #452F92;">
                                             View More
-                                        </div>
+                                        </div> --}}
                                     </div><!--//app-card-body-->
-                                    <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a>
+                                    {{-- <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a> --}}
                                 </div><!--//app-card-->
                             </div><!--//col-->
 
@@ -268,11 +268,11 @@
                                         <h4 class="stats-type mb-1">Total P2H</h4>
                                         <h4 class="stats-type mb-1">Belum Pemeriksaan</h4>
                                         <div class="stats-figure">{{ $TotalP2hWeekBelum }}</div>
-                                        <div class="stats-meta" style="color: #452F92;">
+                                        {{-- <div class="stats-meta" style="color: #452F92;">
                                             View More
-                                        </div>
+                                        </div> --}}
                                     </div><!--//app-card-body-->
-                                    <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a>
+                                    {{-- <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a> --}}
                                 </div><!--//app-card-->
                             </div><!--//col-->
 
@@ -282,11 +282,11 @@
                                         <h4 class="stats-type mb-1">Total P2H</h4>
                                         <h4 class="stats-type mb-1">Menunggu Verifikasi</h4>
                                         <div class="stats-figure">{{ $TotalP2hWeekMenunggu }}</div>
-                                        <div class="stats-meta" style="color: #452F92;">
+                                        {{-- <div class="stats-meta" style="color: #452F92;">
                                             View More
-                                        </div>
+                                        </div> --}}
                                     </div><!--//app-card-body-->
-                                    <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a>
+                                    {{-- <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a> --}}
                                 </div><!--//app-card-->
                             </div><!--//col-->
 
@@ -296,11 +296,11 @@
                                         <h4 class="stats-type mb-1">Total P2H</h4>
                                         <h4 class="stats-type mb-1">Terverifikasi</h4>
                                         <div class="stats-figure">{{ $TotalP2hWeekTerverif }}</div>
-                                        <div class="stats-meta" style="color: #452F92;">
+                                        {{-- <div class="stats-meta" style="color: #452F92;">
                                             View More
-                                        </div>
+                                        </div> --}}
                                     </div><!--//app-card-body-->
-                                    <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a>
+                                    {{-- <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a> --}}
                                 </div><!--//app-card-->
                             </div><!--//col-->
 
@@ -315,11 +315,11 @@
                                     <div class="app-card-body p-3 p-lg-4">
                                         <h4 class="stats-type mb-1">Total User</h4>
                                         <div class="stats-figure">{{ $TotalUserMonth }}</div>
-                                        <div class="stats-meta" style="color: #452F92;">
+                                        {{-- <div class="stats-meta" style="color: #452F92;">
                                             View More
-                                        </div>
+                                        </div> --}}
                                     </div><!--//app-card-body-->
-                                    <a class="app-card-link-mask" href="{{ route('user.list') }}"></a>
+                                    {{-- <a class="app-card-link-mask" href="{{ route('user.list') }}"></a> --}}
                                 </div><!--//app-card-->
                             </div><!--//col-->
 
@@ -328,11 +328,11 @@
                                     <div class="app-card-body p-3 p-lg-4">
                                         <h4 class="stats-type mb-1">Total Kendaraan</h4>
                                         <div class="stats-figure">{{ $TotalKendaraanMonth }}</div>
-                                        <div class="stats-meta" style="color: #452F92;">
+                                        {{-- <div class="stats-meta" style="color: #452F92;">
                                             View More
-                                        </div>
+                                        </div> --}}
                                     </div><!--//app-card-body-->
-                                    <a class="app-card-link-mask" href="{{ route('kendaraan.list') }}"></a>
+                                    {{-- <a class="app-card-link-mask" href="{{ route('kendaraan.list') }}"></a> --}}
                                 </div><!--//app-card-->
                             </div><!--//col-->
 
@@ -341,11 +341,11 @@
                                     <div class="app-card-body p-3 p-lg-4">
                                         <h4 class="stats-type mb-1">Total P2H</h4>
                                         <div class="stats-figure">{{ $TotalP2hMonth }}</div>
-                                        <div class="stats-meta" style="color: #452F92;">
+                                        {{-- <div class="stats-meta" style="color: #452F92;">
                                             View More
-                                        </div>
+                                        </div> --}}
                                     </div><!--//app-card-body-->
-                                    <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a>
+                                    {{-- <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a> --}}
                                 </div><!--//app-card-->
                             </div><!--//col-->
 
@@ -355,11 +355,11 @@
                                         <h4 class="stats-type mb-1">Total P2H</h4>
                                         <h4 class="stats-type mb-1">Belum Pemeriksaan</h4>
                                         <div class="stats-figure">{{ $TotalP2hMonthBelum }}</div>
-                                        <div class="stats-meta" style="color: #452F92;">
+                                        {{-- <div class="stats-meta" style="color: #452F92;">
                                             View More
-                                        </div>
+                                        </div> --}}
                                     </div><!--//app-card-body-->
-                                    <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a>
+                                    {{-- <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a> --}}
                                 </div><!--//app-card-->
                             </div><!--//col-->
 
@@ -369,11 +369,11 @@
                                         <h4 class="stats-type mb-1">Total P2H</h4>
                                         <h4 class="stats-type mb-1">Menunggu Verifikasi</h4>
                                         <div class="stats-figure">{{ $TotalP2hMonthMenunggu }}</div>
-                                        <div class="stats-meta" style="color: #452F92;">
+                                        {{-- <div class="stats-meta" style="color: #452F92;">
                                             View More
-                                        </div>
+                                        </div> --}}
                                     </div><!--//app-card-body-->
-                                    <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a>
+                                    {{-- <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a> --}}
                                 </div><!--//app-card-->
                             </div><!--//col-->
 
@@ -383,11 +383,11 @@
                                         <h4 class="stats-type mb-1">Total P2H</h4>
                                         <h4 class="stats-type mb-1">Terverifikasi</h4>
                                         <div class="stats-figure">{{ $TotalP2hMonthTerverif }}</div>
-                                        <div class="stats-meta" style="color: #452F92;">
+                                        {{-- <div class="stats-meta" style="color: #452F92;">
                                             View More
-                                        </div>
+                                        </div> --}}
                                     </div><!--//app-card-body-->
-                                    <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a>
+                                    {{-- <a class="app-card-link-mask" href="{{ route('p2h.list.admin') }}"></a> --}}
                                 </div><!--//app-card-->
                             </div><!--//col-->
 

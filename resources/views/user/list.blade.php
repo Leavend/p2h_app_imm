@@ -145,25 +145,28 @@
 
                         </div><!--//app-card-->
 
-
-                        <nav class="app-pagination" id="user-pagination">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item {{ $User->currentPage() == 1 ? 'disabled' : '' }}">
-                                    <a class="page-link" href="{{ $User->url($User->currentPage() - 1) }}"
-                                        tabindex="-1"
-                                        aria-disabled="{{ $User->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
-                                </li>
-                                @for ($i = 1; $i <= $User->lastPage(); $i++)
-                                    <li class="page-item {{ $User->currentPage() == $i ? 'active' : '' }}">
-                                        <a class="page-link" href="{{ $User->url($i) }}">{{ $i }}</a>
+                        <!-- Nav Pagination -->
+                        @if ($User->lastPage() > 1)
+                            <nav class="app-pagination" id="user-pagination">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item {{ $User->currentPage() == 1 ? 'disabled' : '' }}">
+                                        <a class="page-link" href="{{ $User->url($User->currentPage() - 1) }}"
+                                            tabindex="-1"
+                                            aria-disabled="{{ $User->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
                                     </li>
-                                @endfor
-                                <li
-                                    class="page-item {{ $User->currentPage() == $User->lastPage() ? 'disabled' : '' }}">
-                                    <a class="page-link" href="{{ $User->url($User->currentPage() + 1) }}">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
+                                    @for ($i = 1; $i <= $User->lastPage(); $i++)
+                                        <li class="page-item {{ $User->currentPage() == $i ? 'active' : '' }}">
+                                            <a class="page-link" href="{{ $User->url($i) }}">{{ $i }}</a>
+                                        </li>
+                                    @endfor
+                                    <li
+                                        class="page-item {{ $User->currentPage() == $User->lastPage() ? 'disabled' : '' }}">
+                                        <a class="page-link" href="{{ $User->url($User->currentPage() + 1) }}">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        @endif
+
 
                     </div><!--//tab-pane-->
 

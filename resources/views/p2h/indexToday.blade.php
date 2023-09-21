@@ -84,48 +84,37 @@
                     </section>
 
                     <!-- Pagination p2h Daily -->
-                    <nav class="app-pagination" id="p2h-daily-pagination">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item {{ $p2hToday->currentPage() == 1 ? 'disabled' : '' }}">
-                                <a class="page-link" href="{{ $p2hToday->url($p2hToday->currentPage() - 1) }}"
-                                    tabindex="-1"
-                                    aria-disabled="{{ $p2hToday->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
-                            </li>
-                            @for ($i = 1; $i <= 3; $i++)
-                                <li class="page-item {{ $p2hToday->currentPage() == $i ? 'active' : '' }}">
-                                    <a class="page-link" href="{{ $p2hToday->url($i) }}">{{ $i }}</a>
+                    @if ($p2hToday->lastPage() > 1)
+                        <nav class="app-pagination" id="p2h-daily-pagination">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item {{ $p2hToday->currentPage() == 1 ? 'disabled' : '' }}">
+                                    <a class="page-link" href="{{ $p2hToday->url($p2hToday->currentPage() - 1) }}"
+                                        tabindex="-1"
+                                        aria-disabled="{{ $p2hToday->currentPage() == 1 ? 'true' : 'false' }}">Previous</a>
                                 </li>
-                            @endfor
-                            @if ($p2hToday->currentPage() > 4)
-                                <li class="page-item disabled">
-                                    <a class="page-link">...</a>
-                                </li>
-                            @endif
-                            @php
-                                $startPage = max($p2hToday->currentPage() - 1, 4);
-                                $endPage = min($startPage + 2, $p2hToday->lastPage());
-                            @endphp
-                            @for ($i = $startPage; $i <= $endPage; $i++)
-                                <li class="page-item {{ $p2hToday->currentPage() == $i ? 'active' : '' }}">
-                                    <a class="page-link" href="{{ $p2hToday->url($i) }}">{{ $i }}</a>
-                                </li>
-                            @endfor
-                            @if ($endPage < $p2hToday->lastPage() - 2)
-                                <li class="page-item disabled">
-                                    <a class="page-link">...</a>
-                                </li>
-                                @for ($i = $p2hToday->lastPage() - 2; $i <= $p2hToday->lastPage(); $i++)
+                                @for ($i = max(1, $p2hToday->currentPage() - 1); $i <= min($p2hToday->lastPage(), $p2hToday->currentPage() + 1); $i++)
                                     <li class="page-item {{ $p2hToday->currentPage() == $i ? 'active' : '' }}">
                                         <a class="page-link" href="{{ $p2hToday->url($i) }}">{{ $i }}</a>
                                     </li>
                                 @endfor
-                            @endif
-                            <li
-                                class="page-item {{ $p2hToday->currentPage() == $p2hToday->lastPage() ? 'disabled' : '' }}">
-                                <a class="page-link" href="{{ $p2hToday->url($p2hToday->currentPage() + 1) }}">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
+                                @if ($p2hToday->currentPage() < $p2hToday->lastPage() - 1)
+                                    <li class="page-item disabled">
+                                        <a class="page-link">...</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link"
+                                            href="{{ $p2hToday->url($p2hToday->currentPage() + 1) }}">{{ $p2hToday->currentPage() + 1 }}</a>
+                                    </li>
+                                @endif
+                                <li
+                                    class="page-item {{ $p2hToday->currentPage() == $p2hToday->lastPage() ? 'disabled' : '' }}">
+                                    <a class="page-link"
+                                        href="{{ $p2hToday->url($p2hToday->currentPage() + 1) }}">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    @endif
+
 
 
                 </div>
