@@ -75,17 +75,21 @@ class AuthController extends Controller
         $request->validate([
             'username' => ['required', Rule::unique('users', 'username')],
             'name' => 'required|string',
+            'nik' => 'required|regex:/^9\d{5,8}$/',
             'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => 'required|min:8',
             'no_hp' => ['required', 'regex:/^08[0-9]{8,}$/'],
+            'departemen' => 'required|min:5|max:50',
         ]);
 
         $user = new User();
         $user->username = trim($request->username);
         $user->name = trim($request->name);
+        $user->nik = trim($request->nik);
         $user->email = trim($request->email);
         $user->password = Hash::make($request->password);
         $user->no_hp = trim($request->no_hp);
+        $user->departemen = trim($request->departemen);
         $user->role = 'user';
         $user->tanggal = now('Asia/Makassar')->toDateString();
         $user->save();

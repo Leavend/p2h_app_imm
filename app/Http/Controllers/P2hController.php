@@ -368,7 +368,7 @@ class P2hController extends Controller
 
     public function getFormAdmin($id)
     {
-        $p2hData = P2h::findOrFail($id);
+        $p2hData = P2h::findOrFail($id);    
         $nomor_lambung = $p2hData->kendaraan->nomor_lambung;
         $Title = "GA - P2H Unit - $nomor_lambung";
 
@@ -493,12 +493,12 @@ class P2hController extends Controller
             $chatId = env('TELEGRAM_CHAT_ID');
             $User = $request->nama_pemeriksa;
             $noLambung = $p2h->kendaraan->nomor_lambung;
-            $message = "$User telah melakukan P2H pada Unit dengan Nomor Lambung $noLambung";
+            $message = "$User telah melakukan verifikasi P2H pada Unit dengan Nomor Lambung $noLambung";
 
             $telegram = new BotApi($botToken);
             $telegram->sendMessage($chatId, $message);
 
-            return redirect()->route('p2h.list')->with('success', 'Pengecekan Harian Unit Berhasil');
+            return redirect()->route('p2h.list.admin')->with('success', "Verifikasi Harian Unit $noLambung Berhasil");
         } catch (ValidationException $e) {
             return back()->withErrors($e->errors())->withInput();
             dd($e);

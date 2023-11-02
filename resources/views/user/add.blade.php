@@ -20,8 +20,10 @@
                             <ul>
                                 <li>Username</li>
                                 <li>Nama</li>
+                                <li>NIK</li>
                                 <li>Email</li>
                                 <li>No HP yang dapat dihubungi</li>
+                                <li>Departemen Terkait</li>
                                 <li>Password</li>
                             </ul>
                             <a href="{{ route('user.list') }}">Kembali</a>
@@ -57,24 +59,66 @@
                                                         d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z" />
                                                     <circle cx="8" cy="4.5" r="1" />
                                                 </svg></span></label>
-                                        <input type="text" class="form-control" id="setting-input-1"
+                                        <input type="text" class="form-control" value="{{ old('username') }}" id="setting-input-1"
                                             placeholder="contoh: Fahmi_Fajeri" name="username" required>
                                     </div>
                                     <!-- Tambahkan form untuk input nama, email, no_hp, dan password -->
                                     <div class="mb-3">
-                                        <label for="setting-input-2" class="form-label">Nama Lengkap</label>
-                                        <input type="text" class="form-control" id="setting-input-2"
+                                        <label for="name" class="form-label">Nama Lengkap</label>
+                                        <input type="text" class="form-control" value="{{ old('name') }}" id="setting-input-2"
                                             placeholder="contoh: Fahmi Fajeri" name="name" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="setting-input-3" class="form-label">Email Address</label>
-                                        <input type="email" class="form-control" id="setting-input-3"
+                                        <label for="nik" class="form-label">NIK</label>
+                                        <input type="text" class="form-control" value="{{ old('nik') }}" id="setting-input-2"
+                                            placeholder="contoh: 98xxx988" name="nik" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" value="{{ old('email') }}" id="setting-input-3"
                                             placeholder="contoh: hello@companywebsite.com" name="email" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="no_hp" class="form-label">No. HP</label>
-                                        <input type="tel" class="form-control" id="no_hp" name="no_hp"
+                                        <input type="tel" class="form-control" value="{{ old('no_hp') }}" id="no_hp" name="no_hp"
                                             placeholder="contoh: 081320202020" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="departemen" class="form-label">Departemen</label>
+                                        <input type="text" class="form-control" value="{{ old('departemen') }}"
+                                            list="departemen" placeholder="contoh: Teknologi Informasi" required
+                                            name="departemen">
+                                        <datalist id="departemen">
+                                            <option value="ASSET MANAGEMENT"></option>
+                                            <option value="COAL HANDLING & PROCESSING"></option>
+                                            <option value="COMMUNITY DEVELOPMENT"></option>
+                                            <option value="ENVIRONMENT"></option>
+                                            <option value="EXTERNAL AFFAIRS"></option>
+                                            <option value="FINANCE & ACCOUNTING"></option>
+                                            <option value="GENERAL AFFAIR"></option>
+                                            <option value="GENERAL SERVICES"></option>
+                                            <option value="HUMAN RESOURCES"></option>
+                                            <option value="IMM MANAGEMENT SITE"></option>
+                                            <option value="INFORMATION TECHNOLOGY"></option>
+                                            <option value="IPCC OPERATION"></option>
+                                            <option value="LABORATORY"></option>
+                                            <option value="HSEC"></option>
+                                            <option value="MAINTENANCE ENGINEERING"></option>
+                                            <option value="MEDICAL SERVICES"></option>
+                                            <option value="MINE GEOLOGY"></option>
+                                            <option value="MINE OPERATION"></option>
+                                            <option value="MINE PLANNING"></option>
+                                            <option value="MINE SURVEY"></option>
+                                            <option value="PORT"></option>
+                                            <option value="PORT MAINTENANCE"></option>
+                                            <option value="PORT, UTILITIES & MAINTENANCE"></option>
+                                            <option value="PROCUREMENT"></option>
+                                            <option value="PROJECT & CONSTRUCTION"></option>
+                                            <option value="SAFETY"></option>
+                                            <option value="SECURITY"></option>
+                                            <option value="SYSTEM & PERFORMANCE MANAGEMENT"></option>
+                                            <option value="UTILITIES OPERATION"></option>
+                                        </datalist>
                                     </div>
                                     <div class="mb-3">
                                         <label for="password" class="form-label">Password</label>
