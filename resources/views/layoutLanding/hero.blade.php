@@ -1,18 +1,41 @@
     <!-- Hero Section -->
-    <header class="masthead">
-        <div class="container px-4 px-lg-5 h-100">
-            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-                <div class="col-lg-8 align-self-end">
-                    <h1>Pemeriksaan dan Pengecekan Harian</h1>
-                    <hr class="divider" />
-                </div>
-                <div class="col-lg-8 align-self-baseline">
-                    <p class="text-warning mb-5">
-                        <Strong> Saya Pilih Selamat, Saya Ingat Pemeriksaan</Strong>
-
-                    </p>
-                    <a class="btn btn-primary btn-xl" href="{{ route('p2h-cek.list') }}">P2H Cek</a>
-                </div>
+    <header class="masthead-new">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
-        </div>
-    </header>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./assets/img/8.jpg" class="d-block" alt="...">
+                <div class="carousel-text">
+                    <p>Our Commitment to</p>
+                    <h2>Environment</h2>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                <img src="./assets/img/7.jpg" class="d-block" alt="...">
+                <div class="carousel-text">
+                    <p>Energy For Our</p>
+                    <h2>Future</h2>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                <img src="./assets/img/9.jpg" class="d-block" alt="...">
+                <div class="carousel-text">
+                    <p>Best People With</p>
+                    <h2>Best Teamwork</h2>
+                  </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+      </header>

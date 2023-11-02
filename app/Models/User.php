@@ -5,7 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Http\Client\Request;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -18,12 +18,17 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    // public $timestamps = false;
     protected $fillable = [
         'username',
         'name',
         'email',
         'password',
+        'no_hp',
+        'departemen',
         'role',
+        'tanggal',
     ];
 
     /**
@@ -54,8 +59,13 @@ class User extends Authenticatable
 
     static public function getUser()
     {
-        $return = self::select('users.*')->where('role', '=', "user")->orderBy('id', 'desc')->paginate(3);
-        return $return;
+        $query = self::select('users.*')->where('role', '=', 'user');
+        if (!empty(Request::get('name'))) {
+            $query = $query->where('name', 'like', '%' . Request::get('name') . '%');
+        }
+        $users = $query->orderBy('id', 'asc')->paginate(10, ['*'], 'user_page');
+
+        return $users;
     }
 
     static public function getTotalAdmin()

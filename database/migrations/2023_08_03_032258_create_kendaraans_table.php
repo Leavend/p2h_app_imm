@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('kendaraans', function (Blueprint $table) {
             $table->id();
             $table->string('jenis_kendaraan');
+            $table->string('type_kendaraan');
             $table->string('nomor_lambung')->unique();
             $table->string('nomor_polisi')->unique();
-            // $table->string('keterangan');
+            $table->date('tanggal');
+            $table->time('jam');
             $table->timestamps();
         });
     }

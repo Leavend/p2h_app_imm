@@ -1,62 +1,55 @@
-@include('layoutLanding.header')
+@include('layoutDashboard.header')
 
 <body id="page-top">
 
 
-    @include('layoutLanding.navbar')
-
-    <!-- Masthead Content -->
-    <header class="kendaraan">
-        <div class="container px-4 px-lg-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-xl-10">
-                    <div class="card rounded-5 text-black">
-                        <div class="row g-0">
-                            <div class="col-lg-6">
-                                <div class="card-body p-md-5 mx-md-4">
-                                    <div class="">
-                                        <img src="{{ url('../assets/img/IMM.svg') }}" style="width: 90px"
-                                            alt="logo" />
-                                        <div class="Welcome">
-                                            <p class="mt-1 mt-3 pt-2">Welcome to</p>
-                                        </div>
-                                        <h4 class="mt-1 mb-4 pt-2">IMM Pemeriksaan Pengecekan Harian P2H</h4>
-                                    </div>
-
-                                    <form action="{{ url('/login') }}" method="POST">
-                                        @csrf
-                                        <div class="form-outline mb-4">
-                                            <input type="name" id="form2Example11" class="form-control"
-                                                placeholder="Username" name="username" />
-                                        </div>
-                                        <div class="form-outline mb-4">
-                                            <input type="password" id="form2Example22" class="form-control"
-                                                placeholder="Password" name="password" />
-                                        </div>
-                                        <div class="text-center pt-2 mb-5 pb-1">
-                                            <button class="btn btn-primary btn-block fa-lg mb-3" type="submit">
-                                                Log in
-                                            </button>
-                                            <hr>
-                                            {{-- <a class="text-muted" href="#!">Forgot password?</a> --}}
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
-                                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                                    <h4 class="mb-4"></h4>
-                                    <p class="small mb-0">
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+    <div class="row g-0 app-auth-wrapper">
+        <div class="col-12 col-md-7 col-lg-6 auth-main-col text-center p-5">
+            <div class="d-flex flex-column align-content-end" style="padding-top:9rem;">
+                <div class="app-auth-body mx-auto">
+                    <div class="app-auth-branding mb-4">
+                        <a class="app-logo" href="{{ route('home') }}">
+                            <img class="logo-icon me-2" style="width: 140px;" src="{{ url('/assetsDashboard/images/IMM up.svg') }}"
+                                alt="logo">
+                        </a>
                     </div>
+                    <h2 class="auth-heading text-center mb-5">Log in to Dashboard P2H</h2>
+                    @include('_messagesdash')
+                    <div class="auth-form-container text-start">
+                        <form class="auth-form login-form" action="{{ route('auth.login') }}" method="POST">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="signin-email" class="form-label sr-only">Username</label>
+                                <input type="text" id="signin-email" name="username" class="form-control"
+                                    placeholder="Username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="signin-password" class="form-label sr-only">Password</label>
+                                <input type="password" id="signin-password" name="password" class="form-control"
+                                    placeholder="Password" required>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn app-btn-primary w-100 theme-btn mx-auto">Log
+                                    In</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                @include('layoutDashboard.footer')
+            </div>
+        </div>
+        <div class="col-12 col-md-5 col-lg-6 h-100 auth-background-col">
+            <div class="auth-background-holder">
+            </div>
+            <div class="auth-background-mask"></div>
+            <div class="auth-background-overlay p-3 p-lg-5">
+                <div class="d-flex flex-column align-content-end h-100">
+                    <div class="h-100"></div>
                 </div>
             </div>
         </div>
-    </header>
-
-    @include('layoutLanding.footer')
+    </div>
 
 </body>
+
+@include('layoutDashboard.js')

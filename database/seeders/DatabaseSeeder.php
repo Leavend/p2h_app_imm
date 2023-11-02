@@ -18,9 +18,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // P2h::factory()->count(10)->create();
-        User::factory()->count(10)->create();
-        // Kendaraan::factory()->count(10)->create();
-        // Ganti 50 dengan jumlah data yang Anda inginkan
+        P2h::factory(5)->create();
+        // User::factory()->count(10)->create();
+        // Kendaraan::factory()->count(5)->create();
     }
 }

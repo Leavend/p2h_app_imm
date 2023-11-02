@@ -16,10 +16,10 @@ return new class extends Migration
             $table->unsignedBigInteger('kendaraan_id');
             $table->date('tanggal');
             $table->time('jam')->nullable();
-            $table->string('nama_pemeriksa');
-            $table->char('nik', 11);
-            $table->string('departemen');
-            $table->string('no_hp');
+            $table->string('nama_pemeriksa')->nullable();
+            $table->char('nik', 11)->nullable();
+            $table->string('departemen')->nullable();
+            $table->string('no_hp')->nullable();
             $table->enum('oli_mesin', ['baik', 'rusak', 'tidak ada'])->nullable();
             $table->enum('oli_kopling', ['baik', 'rusak', 'tidak ada'])->nullable();
             $table->enum('air_radiator', ['baik', 'rusak', 'tidak ada'])->nullable();

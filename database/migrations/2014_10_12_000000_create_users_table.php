@@ -15,12 +15,16 @@ return new class extends Migration
             $table->id();
             $table->string('username')->unique();
             $table->string('name');
+            $table->string('nik')->unique();
             $table->string('email')->unique();
+            $table->string('no_hp')->unique();
+            $table->string('departemen');
+            $table->date('tanggal');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('role', ['admin', 'user'])->default('user');
             $table->rememberToken();
-            $table->timestamps();
+            $table->timestamps(); // Set timezone for timestamps
         });
     }
 
